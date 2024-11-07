@@ -513,7 +513,7 @@
         let autoCarousel = function () {
             carouselIntervalId = setInterval(function () {
                 coverSlider.carousel('next');
-            }, 5000);
+            }, 60);
         };
         autoCarousel();
         
@@ -587,6 +587,59 @@
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2024/11/07/%E5%88%98%E9%82%A6%E5%A4%A7%E4%BC%A0/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="刘邦大传">
+                            
+                            <span class="card-title">刘邦大传</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                观刘邦大传有所感的句子
+柔弱生之徒，老式戒刚强
+
+天地不仁，以万物为刍狗；圣人不仁，以百姓为刍狗
+
+
+失败的痛苦对我们对我们虽然最有用处，但往往是最容易被忘掉的；成功的骄傲最容易误导我们日后的行为，却也是最不容易抛弃的一部分。
+
+攻击自己的
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-11-07
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                foo1s
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/">
+                            <span class="chip bg-color">读后感</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
             
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
@@ -732,7 +785,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2024</span>
             
             <a href="/about" target="_blank">foo1s</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
