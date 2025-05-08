@@ -4,15 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="刘邦大传, foo1s&#39; blog">
-    <meta name="description" content="观刘邦大传有所感的句子
-柔弱生之徒，老式戒刚强
-
-天地不仁，以万物为刍狗；圣人不仁，以百姓为刍狗
-
-失败的痛苦对我们对我们虽然最有用处，但往往是最容易被忘掉的；成功的骄傲最容易误导我们日后的行为，却也是最不容易抛弃的一部分。
-
-攻击自己的勇">
+    <meta name="keywords" content="MySQL基础, foo1s&#39; blog">
+    <meta name="description" content="DDL语言主要用于定义和管理数据库的结构，包括库，表，索引，视图等数据库对象的创建与修改不涉及对数据的操作，而是更关注于数据库的结构与元数据
+DDL常用操作DDL常用语言1234567create alterdropshow databas">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>刘邦大传 | foo1s&#39; blog</title>
+    <title>MySQL基础 | foo1s&#39; blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -343,12 +337,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">刘邦大传</h1>
+                    <h1 class="description center-align post-title">MySQL基础</h1>
                 </div>
             </div>
         </div>
@@ -372,14 +366,31 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/">
-                                <span class="chip bg-color">读后感</span>
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
+                            </a>
+                        
+                            <a href="/tags/MySQL/">
+                                <span class="chip bg-color">MySQL</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/DataBase/" class="post-category">
+                                DataBase
+                            </a>
+                        
+                            <a href="/categories/DataBase/MySQL/" class="post-category">
+                                MySQL
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -388,7 +399,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-11-07
+                    2025-05-08
                 </div>
                 
 
@@ -397,7 +408,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    901
+                    715
                 </div>
                 
 
@@ -414,46 +425,48 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="观刘邦大传有所感的句子"><a href="#观刘邦大传有所感的句子" class="headerlink" title="观刘邦大传有所感的句子"></a>观刘邦大传有所感的句子</h4><ul>
-<li><p>柔弱生之徒，老式戒刚强</p>
+                <p>DDL语言主要用于定义和管理数据库的结构，包括库，表，索引，视图等数据库对象的创建与修改<br>不涉及对数据的操作，而是更关注于数据库的结构与元数据</p>
+<h3 id="DDL常用操作"><a href="#DDL常用操作" class="headerlink" title="DDL常用操作"></a>DDL常用操作</h3><h4 id="DDL常用语言"><a href="#DDL常用语言" class="headerlink" title="DDL常用语言"></a>DDL常用语言</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create </span><br><span class="line"></span><br><span class="line">alter</span><br><span class="line"></span><br><span class="line">drop</span><br><span class="line"></span><br><span class="line">show databases/columns/tables from column/status/ create database/ grants/..</span><br></pre></td></tr></table></figure>
+
+<h4 id="检索数据"><a href="#检索数据" class="headerlink" title="检索数据"></a>检索数据</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">select column1,column2 from table;</span><br><span class="line"></span><br><span class="line">select * from table // 所有列</span><br><span class="line"></span><br><span class="line">select distinct column from table //去重，应用于所有列</span><br><span class="line"></span><br><span class="line">select column from table limit 5,4 //从行5开始的4行</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="排序检索数据"><a href="#排序检索数据" class="headerlink" title="排序检索数据"></a>排序检索数据</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">select pro_name from prroducts order by pro_name 选择一个列进行排序</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">select prod_id,prod_price,prod_xx from products order by prod_id,prod_price;</span><br><span class="line">按照多个列进行排序</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">select prod_id,prod_price,prod_xx from products order by prod_id desc; 降序</span><br><span class="line">哪个列降序就把desc放在哪个列的后面</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="过滤数据"><a href="#过滤数据" class="headerlink" title="过滤数据"></a>过滤数据</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">select pro_name from products where pro_price=2.5 过滤price=2.5的数值</span><br><span class="line">--&gt;注意将order by语句放在where之后</span><br><span class="line"></span><br><span class="line">select pro_name from products where pro_price between 5 and 10 ; &gt;and</span><br><span class="line"></span><br><span class="line">select cust-ID FROM coutomers WHERE cust-EMAIL IS NULL; &gt;NULL</span><br><span class="line"></span><br><span class="line">----组合where语句---</span><br><span class="line">select xx,xx,xx from xx where xx=a and xx=b  &gt;and</span><br><span class="line"></span><br><span class="line">select xx,xx,xx from xx where xx=a and xx=b  &gt;or</span><br><span class="line">and的优先级高于or,最好使用()进行合理区分</span><br><span class="line"></span><br><span class="line">select columns1, column2 from table where id in (100,200) order by xx  &gt;in</span><br><span class="line"></span><br><span class="line">select columns1, column2 from table where id  not in (100,200) order by xx  &gt;not</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用通配符进行过滤"><a href="#使用通配符进行过滤" class="headerlink" title="使用通配符进行过滤"></a>使用通配符进行过滤</h4><ul>
+<li><p>为了在搜索语句中使用通配符，必须使用LIKE操作符</p>
 </li>
-<li><p>天地不仁，以万物为刍狗；圣人不仁，以百姓为刍狗</p>
+<li><p>操作符何时不是操作符，当它作为谓词的时候</p>
 </li>
-<li><p>失败的痛苦对我们对我们虽然最有用处，但往往是最容易被忘掉的；成功的骄傲最容易误导我们日后的行为，却也是最不容易抛弃的一部分。</p>
+<li><p>百分号<code>%</code>通配符</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select prod_id,pro_name from products wher prod_name like &#x27;jet%&#x27;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意尾空格，<code>%</code>不会匹配尾空格</li>
+<li><code>%</code>不能匹配NULL</li>
+</ul>
 </li>
-<li><p>攻击自己的勇气，是赢家最好的防守策略</p>
-</li>
-<li><p>不刻意去追求成功，没有包袱，没有私欲，只有努力，不断努力去解决周边的困难，努力到不必可以用心去努力的程度，便也是最容易成功的时候。真正的成功者，大多是冒险家，或许他们审慎小心，但多半是没有任何包袱压力的。身段太多，顾前顾后，刻意去追求成功的人，反而很少真正的成功</p>
-</li>
-<li><p>要笨到不会在乎会得到什么结果，要狂到肯把自己的一切全投入到工作中，要天真到不想一个人独享成果，要懒散到有一大推人替你工作</p>
-</li>
-<li><p>最上等的领导者无为而治，人们只知道有国君，而不感觉到其势力，各顺其性，各安起身。一切都制度化，每个人遵循运作模式，各自负责其工作，达成其任务。</p>
-</li>
-<li><p>真正的政治领袖，会努力建立制度化的常模，不喊口号，也不可以呼吁民众效忠，时机不成熟，绝不发号施令。有耐心地维持住常态的努力工作，让一切顺理成章的达成其目标，人民感受不出领导者的手段，只认为一切本应该如此</p>
-</li>
-<li><p>守弱—知道自己的孱弱，而能够接纳这种弱势，坚强地忍耐弱者的地位，才能累积实力。是自己慢慢脱离弱者的不利地位</p>
-</li>
-<li><p>人的需要真实非常有限，知识欲望确实无穷的，过分追求欲望而不能节制，结果经常不能满足，反而更加痛苦，而无法掌控自我的意志</p>
-</li>
-<li><p>人类最大的敌人是自己，最不容战胜的对手是自己，但事实上，人类唯一能影响，去改变的也是自己</p>
-</li>
-<li><p>不要像美玉一样地摧残而为人尊崇，而要像坚石一样黯淡而为人贱视，一切都合乎道，不用特别造作，使天地万物趋向于自然</p>
-</li>
-<li><p>欲取天下者，应顺应自然之势，不应过分着重人为的努力。若有人想以一己之力来统治天下，这是绝对做不到的</p>
-</li>
-<li><p>一切顺其自然，堵塞意念，关闭情欲，收敛锋芒，消除丰饶于未然，不表示自己的特异，与光则和，遇尘则同</p>
-</li>
-<li><p>当我们用别人的眼光来评判自己，确定自己的价值，这便是输赢心态的开始，输赢让我们紧张，焦虑，让我们的思想被封闭了，为了他人的评价而活，拼命压抑自己的感觉。不能去除输赢的心态，便无法共赢，不能体认与接纳自己的感觉，我们便无法克服输赢的焦虑</p>
-</li>
-<li><p>靠赢家赢的那批人，往往更输不起，他们会迫使赢家继续去赢</p>
-</li>
-<li><p>狡兔死，走狗烹，飞鸟尽，良弓藏，敌国破，良臣灭</p>
-</li>
-<li><p>虏中吾指</p>
-</li>
-<li><p>吾以布衣提三尺剑取天下，此非天命乎？命乃在天，虽扁鹊何益！</p>
+<li><p>下划线<code>_</code>通配符</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select xx from xx where pro_name like &#x27;_ &#x27;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>只能匹配一个字符</code></li>
+</ul>
 </li>
 </ul>
+<h4 id="使用正则表达式进行搜索"><a href="#使用正则表达式进行搜索" class="headerlink" title="使用正则表达式进行搜索"></a>使用正则表达式进行搜索</h4><ul>
+<li>默认不区分大小写</li>
+</ul>
+<h5 id="基本字符匹配"><a href="#基本字符匹配" class="headerlink" title="基本字符匹配"></a>基本字符匹配</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">select pro_name</span><br><span class="line">from products</span><br><span class="line">where pro_name REGEXP &#x27;.100&#x27;</span><br><span class="line">order by pro_name</span><br><span class="line"></span><br><span class="line">1. 进行or匹配</span><br><span class="line">REGEXP &#x27;100|200&#x27;</span><br><span class="line"></span><br><span class="line">2.匹配几个or字符</span><br><span class="line">REGEXP &#x27;[^123] ton&#x27;</span><br><span class="line">REGEXP &#x27;[1-3] ton&#x27;</span><br><span class="line"></span><br><span class="line">3.匹配特殊字符</span><br><span class="line">&#x27;\\ .&#x27;</span><br><span class="line">使用\\作为转义字符</span><br><span class="line"></span><br><span class="line">4.匹配字符类</span><br><span class="line"></span><br><span class="line">5.匹配多个实例</span><br><span class="line"></span><br><span class="line">6.定位符</span><br><span class="line">^ (插入符号)：</span><br><span class="line">将匹配限制在字符串的开头。</span><br><span class="line">例如，^abc 只匹配以 &quot;abc&quot; 开头的字符串。</span><br><span class="line"></span><br><span class="line">$ (美元符号)：</span><br><span class="line">将匹配限制在字符串的结尾。</span><br><span class="line">例如，xyz$ 只匹配以 &quot;xyz&quot; 结尾的字符串</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>.</code> 可以匹配任意字符</li>
+<li><code>LIKE</code>匹配整个列，如果被匹配文本在列值中出现，则LIKE将不会找到他</li>
+</ul>
+<h4 id="创建计算字段"><a href="#创建计算字段" class="headerlink" title="创建计算字段"></a>创建计算字段</h4><h5 id="计算字段"><a href="#计算字段" class="headerlink" title="计算字段"></a>计算字段</h5><ul>
+<li>计算字段是在运行时，在select()语句内部进行创建的</li>
+</ul>
+<h5 id="拼接字段"><a href="#拼接字段" class="headerlink" title="拼接字段"></a>拼接字段</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.MySQL:将两个列拼接起来：</span><br><span class="line">-Concat()</span><br><span class="line"></span><br><span class="line">2.一般的DBMS系统</span><br><span class="line">-使用+或者||</span><br><span class="line"></span><br><span class="line">select Concat(Rtrim(xx)),&#x27;(&#x27;,Rtrim(xx)),&#x27;)&#x27; as xxx</span><br></pre></td></tr></table></figure>
+<h5 id="执行算数计算"><a href="#执行算数计算" class="headerlink" title="执行算数计算"></a>执行算数计算</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select id,num,price,num*price as all_price</span><br><span class="line">from orintity </span><br><span class="line">whhere origin_num = 2005;</span><br></pre></td></tr></table></figure>
+
 
                 
             </div>
@@ -480,7 +493,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://foo1s.github.io/2024/11/07/%E5%88%98%E9%82%A6%E5%A4%A7%E4%BC%A0/">http://foo1s.github.io/2024/11/07/%E5%88%98%E9%82%A6%E5%A4%A7%E4%BC%A0/</a>
+                    <a href="http://foo1s.github.io/2025/05/08/DDL%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">http://foo1s.github.io/2025/05/08/DDL%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -518,8 +531,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/">
-                                    <span class="chip bg-color">读后感</span>
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
+                                </a>
+                            
+                                <a href="/tags/MySQL/">
+                                    <span class="chip bg-color">MySQL</span>
                                 </a>
                             
                         </div>
@@ -597,7 +614,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2024-11-07T15-39-07',
+        id: '2025-05-08T15-39-07',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -629,7 +646,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2025/05/08/MySQL%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8/">
+                <a href="/2025/05/08/MySQL%E5%9F%BA%E7%A1%80/">
                     <div class="card-image">
                         
                         
@@ -686,13 +703,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2024/11/06/foo1s%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
+                <a href="/2025/05/08/%E5%87%BD%E6%95%B0%E8%AF%AD%E8%A8%80%E7%9A%84%E5%AD%A6%E4%B9%A0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="foo1s的第一篇博客">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="MySQL基础">
                         
-                        <span class="card-title">foo1s的第一篇博客</span>
+                        <span class="card-title">MySQL基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -703,15 +720,35 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-11-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-08
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            foo1s
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/DataBase/" class="post-category">
+                                    DataBase
+                                </a>
+                            
+                            <a href="/categories/DataBase/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
                 </div>
                 
             </div>
