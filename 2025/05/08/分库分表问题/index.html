@@ -4,15 +4,16 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="刘邦大传, foo1s&#39; blog">
-    <meta name="description" content="观刘邦大传有所感的句子
-柔弱生之徒，老式戒刚强
+    <meta name="keywords" content="MySQL,分库分表">
+    <meta name="description" content="分库分表💡 一、为什么需要分库分表（动因）核心目标：解决单库单表性能瓶颈。
 
-天地不仁，以万物为刍狗；圣人不仁，以百姓为刍狗
+数据量大 → 单表数据超千万行，查询慢、索引失效
 
-失败的痛苦对我们对我们虽然最有用处，但往往是最容易被忘掉的；成功的骄傲最容易误导我们日后的行为，却也是最不容易抛弃的一部分。
+并发高 → 单库连接数&amp;#x2F;事务冲突瓶颈
 
-攻击自己的勇">
+运维难 → 备份、迁移、恢复时间长
+
+可用性差 → 单点故">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +25,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>刘邦大传 | foo1s&#39; blog</title>
+    <title>MySQL基础-分库分表 | foo1s&#39; blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -343,12 +344,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">刘邦大传</h1>
+                    <h1 class="description center-align post-title">MySQL基础-分库分表</h1>
                 </div>
             </div>
         </div>
@@ -372,14 +373,31 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/">
-                                <span class="chip bg-color">读后感</span>
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
+                            </a>
+                        
+                            <a href="/tags/MySQL/">
+                                <span class="chip bg-color">MySQL</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/DataBase/" class="post-category">
+                                DataBase
+                            </a>
+                        
+                            <a href="/categories/DataBase/MySQL/" class="post-category">
+                                MySQL
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -388,7 +406,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-11-07
+                    2025-05-08
                 </div>
                 
 
@@ -397,7 +415,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    901
+                    828
                 </div>
                 
 
@@ -414,46 +432,102 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="观刘邦大传有所感的句子"><a href="#观刘邦大传有所感的句子" class="headerlink" title="观刘邦大传有所感的句子"></a>观刘邦大传有所感的句子</h4><ul>
-<li><p>柔弱生之徒，老式戒刚强</p>
+                <h3 id="分库分表"><a href="#分库分表" class="headerlink" title="分库分表"></a>分库分表</h3><h4 id="💡-一、为什么需要分库分表（动因）"><a href="#💡-一、为什么需要分库分表（动因）" class="headerlink" title="💡 一、为什么需要分库分表（动因）"></a>💡 一、为什么需要分库分表（动因）</h4><p><strong>核心目标：解决单库单表性能瓶颈。</strong></p>
+<ul>
+<li><p>数据量大 → 单表数据超千万行，查询慢、索引失效</p>
 </li>
-<li><p>天地不仁，以万物为刍狗；圣人不仁，以百姓为刍狗</p>
+<li><p>并发高 → 单库连接数&#x2F;事务冲突瓶颈</p>
 </li>
-<li><p>失败的痛苦对我们对我们虽然最有用处，但往往是最容易被忘掉的；成功的骄傲最容易误导我们日后的行为，却也是最不容易抛弃的一部分。</p>
+<li><p>运维难 → 备份、迁移、恢复时间长</p>
 </li>
-<li><p>攻击自己的勇气，是赢家最好的防守策略</p>
-</li>
-<li><p>不刻意去追求成功，没有包袱，没有私欲，只有努力，不断努力去解决周边的困难，努力到不必可以用心去努力的程度，便也是最容易成功的时候。真正的成功者，大多是冒险家，或许他们审慎小心，但多半是没有任何包袱压力的。身段太多，顾前顾后，刻意去追求成功的人，反而很少真正的成功</p>
-</li>
-<li><p>要笨到不会在乎会得到什么结果，要狂到肯把自己的一切全投入到工作中，要天真到不想一个人独享成果，要懒散到有一大推人替你工作</p>
-</li>
-<li><p>最上等的领导者无为而治，人们只知道有国君，而不感觉到其势力，各顺其性，各安起身。一切都制度化，每个人遵循运作模式，各自负责其工作，达成其任务。</p>
-</li>
-<li><p>真正的政治领袖，会努力建立制度化的常模，不喊口号，也不可以呼吁民众效忠，时机不成熟，绝不发号施令。有耐心地维持住常态的努力工作，让一切顺理成章的达成其目标，人民感受不出领导者的手段，只认为一切本应该如此</p>
-</li>
-<li><p>守弱—知道自己的孱弱，而能够接纳这种弱势，坚强地忍耐弱者的地位，才能累积实力。是自己慢慢脱离弱者的不利地位</p>
-</li>
-<li><p>人的需要真实非常有限，知识欲望确实无穷的，过分追求欲望而不能节制，结果经常不能满足，反而更加痛苦，而无法掌控自我的意志</p>
-</li>
-<li><p>人类最大的敌人是自己，最不容战胜的对手是自己，但事实上，人类唯一能影响，去改变的也是自己</p>
-</li>
-<li><p>不要像美玉一样地摧残而为人尊崇，而要像坚石一样黯淡而为人贱视，一切都合乎道，不用特别造作，使天地万物趋向于自然</p>
-</li>
-<li><p>欲取天下者，应顺应自然之势，不应过分着重人为的努力。若有人想以一己之力来统治天下，这是绝对做不到的</p>
-</li>
-<li><p>一切顺其自然，堵塞意念，关闭情欲，收敛锋芒，消除丰饶于未然，不表示自己的特异，与光则和，遇尘则同</p>
-</li>
-<li><p>当我们用别人的眼光来评判自己，确定自己的价值，这便是输赢心态的开始，输赢让我们紧张，焦虑，让我们的思想被封闭了，为了他人的评价而活，拼命压抑自己的感觉。不能去除输赢的心态，便无法共赢，不能体认与接纳自己的感觉，我们便无法克服输赢的焦虑</p>
-</li>
-<li><p>靠赢家赢的那批人，往往更输不起，他们会迫使赢家继续去赢</p>
-</li>
-<li><p>狡兔死，走狗烹，飞鸟尽，良弓藏，敌国破，良臣灭</p>
-</li>
-<li><p>虏中吾指</p>
-</li>
-<li><p>吾以布衣提三尺剑取天下，此非天命乎？命乃在天，虽扁鹊何益！</p>
+<li><p>可用性差 → 单点故障风险高，难以扩展</p>
 </li>
 </ul>
+<p>✅ 示例句式：</p>
+<blockquote>
+<p>随着业务发展，单表数据量过大或请求并发过高，数据库响应延迟明显，单库承压，因此需要通过分库分表来提升系统的吞吐能力与可用性。</p>
+</blockquote>
+<h4 id="🧩-二、分库分表的方式与策略"><a href="#🧩-二、分库分表的方式与策略" class="headerlink" title="🧩 二、分库分表的方式与策略"></a>🧩 二、分库分表的方式与策略</h4><h5 id="1-拆分方式"><a href="#1-拆分方式" class="headerlink" title="1. 拆分方式"></a>1. 拆分方式</h5><ul>
+<li><p><strong>垂直拆分</strong>（按业务模块拆库）：如用户、订单、商品拆成不同库</p>
+</li>
+<li><p><strong>水平拆分</strong>（按数据范围拆表）：如 <code>user_id</code> % N 拆成 user_0, user_1…</p>
+</li>
+</ul>
+<h5 id="2-分片策略（Sharding-Key）"><a href="#2-分片策略（Sharding-Key）" class="headerlink" title="2. 分片策略（Sharding Key）"></a>2. 分片策略（Sharding Key）</h5><ul>
+<li><p><strong>范围分片</strong>（如：按时间、ID区间）</p>
+</li>
+<li><p><strong>哈希分片</strong>（如：user_id % N）</p>
+</li>
+<li><p><strong>标签分片</strong>（如：地区、商户ID）</p>
+</li>
+</ul>
+<p>✅ 示例句式：</p>
+<blockquote>
+<p>水平拆分时我们通常选取业务查询最频繁的字段作为分片键，比如 user_id，使用 hash 或 range 分片以保证数据均衡与高可用。</p>
+</blockquote>
+<hr>
+<h4 id="⚙️-三、常见技术实现方式"><a href="#⚙️-三、常见技术实现方式" class="headerlink" title="⚙️ 三、常见技术实现方式"></a>⚙️ 三、常见技术实现方式</h4><h5 id="1-自研方案"><a href="#1-自研方案" class="headerlink" title="1. 自研方案"></a>1. 自研方案</h5><ul>
+<li>在 DAO 层封装路由逻辑，结合 ThreadLocal 或 AOP 实现数据源动态切换</li>
+<li>灵活但维护成本高，适合中小型项目</li>
+</ul>
+<h5 id="2-中间件方案（主流）"><a href="#2-中间件方案（主流）" class="headerlink" title="2. 中间件方案（主流）"></a>2. 中间件方案（主流）</h5><ul>
+<li><p><strong>ShardingSphere-JDBC</strong>：支持分库分表、读写分离、柔性事务</p>
+</li>
+<li><p><strong>MyCat</strong>：基于代理的分布式数据库中间件</p>
+</li>
+<li><p><strong>TDDL</strong>：阿里内部方案</p>
+</li>
+<li><p><strong>Vitess、PolarDB-X、OceanBase</strong>：云原生一体化解决方案</p>
+</li>
+</ul>
+<p>✅ 示例句式：</p>
+<blockquote>
+<p>我们团队使用 ShardingSphere-JDBC 实现分库分表，通过配置 sharding rule 动态路由数据源，配合读写分离有效降低主库压力。</p>
+</blockquote>
+<hr>
+<h4 id="🔄-四、分布式事务与一致性问题"><a href="#🔄-四、分布式事务与一致性问题" class="headerlink" title="🔄 四、分布式事务与一致性问题"></a>🔄 四、分布式事务与一致性问题</h4><ul>
+<li><p>分片后事务可能涉及多个库，难以使用本地事务</p>
+</li>
+<li><p>解决方案：</p>
+<ul>
+<li><p><strong>强一致性</strong>：使用 XA 两阶段提交（开销大）</p>
+</li>
+<li><p><strong>最终一致性</strong>：TCC、SAGA、消息补偿机制</p>
+</li>
+<li><p><strong>避开事务</strong>：通过业务逻辑控制，将操作限制在单分片内</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>✅ 示例句式：</p>
+<blockquote>
+<p>我们尽量通过业务分片控制事务边界落在同一个库上，如果无法避免跨库，则使用 TCC 模式实现柔性事务控制。</p>
+</blockquote>
+<hr>
+<h4 id="📈-五、扩容与维护"><a href="#📈-五、扩容与维护" class="headerlink" title="📈 五、扩容与维护"></a>📈 五、扩容与维护</h4><ul>
+<li><p><strong>扩容</strong>：如原先 4 分片扩到 8 分片 → 面临数据迁移、路由规则变更</p>
+</li>
+<li><p><strong>迁移策略</strong>：双写 + 验证 + 切换（或使用工具如 DataX、Canal）</p>
+</li>
+<li><p><strong>监控点</strong>：热点分布、分片倾斜、主从同步延迟、慢 SQL</p>
+</li>
+</ul>
+<p>✅ 示例句式：</p>
+<blockquote>
+<p>在分片扩容时，我们采用“新旧双写+数据比对+流量切换”策略，确保数据一致性和用户无感知迁移。</p>
+</blockquote>
+<hr>
+<h4 id="🧠-六、项目实战加分项（如有）"><a href="#🧠-六、项目实战加分项（如有）" class="headerlink" title="🧠 六、项目实战加分项（如有）"></a>🧠 六、项目实战加分项（如有）</h4><p>如果你曾实际在项目中用过分库分表，建议：</p>
+<ul>
+<li><p>简要描述场景、数据量、采用的中间件和策略</p>
+</li>
+<li><p>强调你解决的关键问题，如：分片键选择、事务方案、查询优化</p>
+</li>
+</ul>
+<p>✅ 示例句式：</p>
+<blockquote>
+<p>在智慧教育平台项目中，因题库表数据超千万，查询频繁，我们使用 ShardingSphere 做水平分表，按 <code>question_id</code> 取模分为 8 表，并使用缓存+预查询优化了分页性能。</p>
+</blockquote>
 
                 
             </div>
@@ -480,7 +554,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://foo1s.github.io/2024/11/07/%E5%88%98%E9%82%A6%E5%A4%A7%E4%BC%A0/">http://foo1s.github.io/2024/11/07/%E5%88%98%E9%82%A6%E5%A4%A7%E4%BC%A0/</a>
+                    <a href="http://foo1s.github.io/2025/05/08/%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E9%97%AE%E9%A2%98/">http://foo1s.github.io/2025/05/08/%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E9%97%AE%E9%A2%98/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -518,8 +592,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/">
-                                    <span class="chip bg-color">读后感</span>
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
+                                </a>
+                            
+                                <a href="/tags/MySQL/">
+                                    <span class="chip bg-color">MySQL</span>
                                 </a>
                             
                         </div>
@@ -597,7 +675,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2024-11-07T15-39-07',
+        id: '2025-05-08T15-39-07',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -629,13 +707,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2025/05/08/%E9%9D%A2%E7%BB%8F%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
+                <a href="/2025/05/08/%E7%B4%A2%E5%BC%95%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="MySQL基础-面经">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="MySQL基础-索引">
                         
-                        <span class="card-title">MySQL基础-面经</span>
+                        <span class="card-title">MySQL基础-索引</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -686,13 +764,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2024/11/06/foo1s%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
+                <a href="/2025/05/08/%E9%9D%A2%E7%BB%8F%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="foo1s的第一篇博客">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="MySQL基础-面经">
                         
-                        <span class="card-title">foo1s的第一篇博客</span>
+                        <span class="card-title">MySQL基础-面经</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -703,15 +781,35 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-11-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-08
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            foo1s
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/DataBase/" class="post-category">
+                                    DataBase
+                                </a>
+                            
+                            <a href="/categories/DataBase/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
                 </div>
                 
             </div>

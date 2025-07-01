@@ -4,15 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="刘邦大传, foo1s&#39; blog">
-    <meta name="description" content="观刘邦大传有所感的句子
-柔弱生之徒，老式戒刚强
+    <meta name="keywords" content="MySQL,MVCC">
+    <meta name="description" content="MVCC存储在哪里，作用是什么MVCC是什么
+传统的数据库并发控制通常使用锁机制，在并发量高的情况下容易导致阻塞和性能下降。
+读不阻塞写，写不阻塞读；为每个事务维护一个数据快照；创建新版本而不是覆盖。
 
-天地不仁，以万物为刍狗；圣人不仁，以百姓为刍狗
 
-失败的痛苦对我们对我们虽然最有用处，但往往是最容易被忘掉的；成功的骄傲最容易误导我们日后的行为，却也是最不容易抛弃的一部分。
-
-攻击自己的勇">
+MVCC的实现原理好的，我们来详细">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +22,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>刘邦大传 | foo1s&#39; blog</title>
+    <title>MySQL基础-MVCC | foo1s&#39; blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -343,12 +341,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">刘邦大传</h1>
+                    <h1 class="description center-align post-title">MySQL基础-MVCC</h1>
                 </div>
             </div>
         </div>
@@ -372,14 +370,31 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/">
-                                <span class="chip bg-color">读后感</span>
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
+                            </a>
+                        
+                            <a href="/tags/MySQL/">
+                                <span class="chip bg-color">MySQL</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/DataBase/" class="post-category">
+                                DataBase
+                            </a>
+                        
+                            <a href="/categories/DataBase/MySQL/" class="post-category">
+                                MySQL
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -388,7 +403,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-11-07
+                    2025-05-08
                 </div>
                 
 
@@ -397,7 +412,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    901
+                    2.3k
                 </div>
                 
 
@@ -414,44 +429,85 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="观刘邦大传有所感的句子"><a href="#观刘邦大传有所感的句子" class="headerlink" title="观刘邦大传有所感的句子"></a>观刘邦大传有所感的句子</h4><ul>
-<li><p>柔弱生之徒，老式戒刚强</p>
+                <h3 id="MVCC存储在哪里，作用是什么"><a href="#MVCC存储在哪里，作用是什么" class="headerlink" title="MVCC存储在哪里，作用是什么"></a>MVCC存储在哪里，作用是什么</h3><h4 id="MVCC是什么"><a href="#MVCC是什么" class="headerlink" title="MVCC是什么"></a>MVCC是什么</h4><ul>
+<li>传统的数据库并发控制通常使用锁机制，在并发量高的情况下容易导致阻塞和性能下降。</li>
+<li>读不阻塞写，写不阻塞读；为每个事务维护一个数据快照；创建新版本而不是覆盖。</li>
+<li></li>
+</ul>
+<h4 id="MVCC的实现原理"><a href="#MVCC的实现原理" class="headerlink" title="MVCC的实现原理"></a>MVCC的实现原理</h4><p>好的，我们来详细解释一下 MVCC（多版本并发控制）的实现机制。</p>
+<p>MVCC 的核心思想是<strong>维护数据的多个版本</strong>，使得读操作可以不阻塞写操作，写操作也不会阻塞读操作。它主要依赖于以下几个关键组成部分和机制：</p>
+<ol>
+<li><p><strong>事务 ID (Transaction ID)</strong></p>
+<p>每个事务在开始时都会被分配一个唯一的、递增的事务 ID。这个 ID 在 MVCC 中用于标记数据是由哪个事务创建或修改的。</p>
 </li>
-<li><p>天地不仁，以万物为刍狗；圣人不仁，以百姓为刍狗</p>
+<li><p><strong>数据行的版本链 (Version Chain)</strong></p>
+<p>MVCC 数据库中的每一行数据通常都会有几个隐藏的列，用于记录该行的版本信息。这些隐藏列通常包括：</p>
+<ul>
+<li><strong>创建事务 ID (TrxId 或 <code>DB_TRX_ID</code>)：</strong> 记录创建该行数据的事务 ID。</li>
+<li><strong>删除事务 ID (DelTrxId) 或 指向 Undo Log 的指针 (<code>DB_ROLL_PTR</code>)：</strong><ul>
+<li>有些实现会记录删除该行数据的事务 ID。</li>
+<li>更常见的实现（如 InnoDB）是使用一个回滚指针 (<code>DB_ROLL_PTR</code>) 指向 Undo Log 中记录了该行修改前数据的一条记录。通过这个指针，可以将同一逻辑行（同一条记录）的不同版本通过 Undo Log 连接起来，形成一个版本链。最新的版本位于链的头部，旧版本通过指针连接到 Undo Log 中。</li>
+</ul>
 </li>
-<li><p>失败的痛苦对我们对我们虽然最有用处，但往往是最容易被忘掉的；成功的骄傲最容易误导我们日后的行为，却也是最不容易抛弃的一部分。</p>
+</ul>
 </li>
-<li><p>攻击自己的勇气，是赢家最好的防守策略</p>
+<li><p><strong>Undo Log (回滚日志)</strong></p>
+<p>Undo Log 在 MVCC 中扮演着至关重要的角色：</p>
+<ul>
+<li><strong>存储旧版本数据：</strong> 当一个事务修改（UPDATE 或 DELETE）一行数据时，修改前的旧版本数据会被写入 Undo Log。</li>
+<li><strong>构建版本链：</strong> 数据行中的回滚指针 (<code>DB_ROLL_PTR</code>) 正是指向 Undo Log 中的对应记录，从而构建起数据行的版本链。这个链条记录了该行数据从最初创建到当前版本的所有修改历史。</li>
+<li><strong>支持回滚：</strong> 当事务需要回滚时，可以通过 Undo Log 中的记录将数据恢复到修改前的状态。</li>
+<li><strong>支持快照读：</strong> 这是 MVCC 实现非阻塞读的关键。当一个事务需要读取数据时，它会根据自身的事务 ID 和可见性规则，沿着版本链在 Undo Log 中找到符合条件的、对当前事务可见的数据版本进行读取。</li>
+</ul>
 </li>
-<li><p>不刻意去追求成功，没有包袱，没有私欲，只有努力，不断努力去解决周边的困难，努力到不必可以用心去努力的程度，便也是最容易成功的时候。真正的成功者，大多是冒险家，或许他们审慎小心，但多半是没有任何包袱压力的。身段太多，顾前顾后，刻意去追求成功的人，反而很少真正的成功</p>
+<li><p><strong>Read View (读视图)</strong></p>
+<p>每个事务在启动时（或者根据隔离级别的不同，在执行特定语句时）会创建一个 Read View（或类似的机制，如快照时间戳）。Read View 记录了当前活跃（尚未提交）的事务 ID 列表。这个 Read View 是判断数据版本对当前事务是否可见的关键。</p>
+<p>Read View 通常包含以下信息：</p>
+<ul>
+<li><code>m_ids</code>: 当前活跃的事务 ID 列表。</li>
+<li><code>min_trx_id</code>: <code>m_ids</code> 列表中最小的事务 ID。</li>
+<li><code>max_trx_id</code>: 在创建 Read View 时，系统中应该分配给下一个事务的 ID，即当前最大的事务 ID + 1。</li>
+<li><code>creator_trx_id</code>: 创建这个 Read View 的事务的 ID。</li>
+</ul>
 </li>
-<li><p>要笨到不会在乎会得到什么结果，要狂到肯把自己的一切全投入到工作中，要天真到不想一个人独享成果，要懒散到有一大推人替你工作</p>
+<li><p><strong>可见性判断规则</strong></p>
+<p>当一个事务尝试读取一行数据时，数据库会根据该事务的 Read View 和数据行版本（由创建事务 ID <code>DB_TRX_ID</code> 标记）来判断这个版本是否对当前事务可见。具体的判断规则会根据事务隔离级别（如 Read Committed 或 Repeatable Read）有所不同，但基本原则如下：</p>
+<ul>
+<li>如果数据行版本的创建事务 ID (<code>DB_TRX_ID</code>) <strong>小于</strong> Read View 中的 <code>min_trx_id</code>，表示这个版本是由一个在当前事务启动之前就已经提交的事务所创建，因此该版本对当前事务<strong>可见</strong>。</li>
+<li>如果数据行版本的创建事务 ID (<code>DB_TRX_ID</code>) <strong>大于等于</strong> Read View 中的 <code>max_trx_id</code>，表示这个版本是由一个在当前事务启动之后才开始的事务所创建，因此该版本对当前事务<strong>不可见</strong>。</li>
+<li>如果数据行版本的创建事务 ID (<code>DB_TRX_ID</code>) <strong>在</strong> Read View 的 <code>min_trx_id</code> 和 <code>max_trx_id</code> <strong>之间</strong>：<ul>
+<li>如果 <code>DB_TRX_ID</code> <strong>等于</strong> Read View 中的 <code>creator_trx_id</code>，表示这个版本是当前事务自己修改的，因此对当前事务<strong>可见</strong>。</li>
+<li>如果 <code>DB_TRX_ID</code> <strong>在</strong> Read View 的 <code>m_ids</code> 列表 <strong>中</strong>，表示这个版本是由一个在当前事务启动时仍然活跃（但尚未提交）的事务所创建，因此对当前事务<strong>不可见</strong>。</li>
+<li>如果 <code>DB_TRX_ID</code> <strong>不在</strong> Read View 的 <code>m_ids</code> 列表 <strong>中</strong>，表示这个版本是由一个在当前事务启动时已经提交的事务所创建（但其 ID 在 <code>min_trx_id</code> 和 <code>max_trx_id</code> 之间），因此对当前事务<strong>可见</strong>。</li>
+</ul>
 </li>
-<li><p>最上等的领导者无为而治，人们只知道有国君，而不感觉到其势力，各顺其性，各安起身。一切都制度化，每个人遵循运作模式，各自负责其工作，达成其任务。</p>
+</ul>
+<p>如果当前数据行版本对当前事务不可见，数据库会沿着 Undo Log 中的版本链向前查找更旧的版本，并对找到的每个版本重复上述可见性判断，直到找到一个可见的版本或者版本链的末端。</p>
 </li>
-<li><p>真正的政治领袖，会努力建立制度化的常模，不喊口号，也不可以呼吁民众效忠，时机不成熟，绝不发号施令。有耐心地维持住常态的努力工作，让一切顺理成章的达成其目标，人民感受不出领导者的手段，只认为一切本应该如此</p>
+</ol>
+<p><strong>读写操作在 MVCC 中的处理：</strong></p>
+<ul>
+<li><strong>读操作：</strong> 当一个事务执行读操作（例如 <code>SELECT</code>）时，它会使用自己的 Read View，根据上述可见性判断规则，从数据行的版本链中找到对自身可见的最新版本进行读取。这个过程不涉及对数据的加锁，因此读操作不会阻塞写操作。</li>
+<li><strong>写操作 (UPDATE&#x2F;DELETE)：</strong> 当一个事务执行写操作时，它首先会像读操作一样找到对自身可见的最新版本数据。然后，它会将该版本的旧数据写入 Undo Log，并在数据行中创建或修改隐藏列，记录自己的事务 ID 和指向 Undo Log 的指针。新的数据版本只对创建它的事务或者后续启动并满足可见性规则的事务可见。写操作通常仍然需要对要修改的数据行加锁（写锁），以防止其他事务同时修改同一行，但这个锁通常只持续到事务提交或回滚，且不会阻塞读操作。</li>
+<li><strong>写操作 (INSERT)：</strong> 当一个事务插入一行新数据时，它会在数据行中记录自己的事务 ID 作为创建事务 ID。新插入的数据行对创建它的事务可见，对于其他事务，其可见性也遵循上述可见性判断规则。</li>
+</ul>
+<p><strong>过期版本的清理 (Purge)</strong></p>
+<p>随着事务不断进行修改，数据行会产生越来越多的旧版本存储在 Undo Log 中。这些旧版本如果不再被任何活跃事务所需要，就需要被清理掉，以释放存储空间。这个清理过程通常由一个后台线程（Purge 线程）负责。Purge 线程会根据当前系统中所有活跃事务的 Read View，确定哪些 Undo Log 中的旧版本数据已经不再可能被任何事务读取，然后进行物理删除。长事务会持有旧版本的 Read View，从而阻止对旧版本数据的清理，可能导致 Undo Log 不断增长。</p>
+<p><strong>总结：</strong></p>
+<p>MVCC 通过为每个事务提供一个数据快照，并利用事务 ID、数据行版本链和 Undo Log 来存储和管理数据的多个版本。通过 Read View 和可见性判断规则，MVCC 使得读操作可以并发进行而不会被写操作阻塞，显著提高了数据库的并发性能和吞吐量，同时提供了良好的事务隔离性（通常是 Snapshot Isolation 或 Read Committed）。</p>
+<h4 id="MVCC存储在哪里"><a href="#MVCC存储在哪里" class="headerlink" title="MVCC存储在哪里"></a>MVCC存储在哪里</h4><ul>
+<li><p><strong>数据行中的隐藏列：</strong> InnoDB 为每行数据添加了几个隐藏的系统列，其中与 MVCC 密切相关的主要有两个：</p>
+<ul>
+<li><code>DB_TRX_ID</code>：记录了最近一次修改（插入或更新）该行的事务 ID。删除在内部也被视为一种更新，会设置一个特殊的位标记。</li>
+<li><code>DB_ROLL_PTR</code>：这是一个回滚指针，指向 Undo Log 中的一条记录。如果该行是被更新的，Undo Log 记录包含了重建更新前行内容所需的信息。通过这个指针和 Undo Log，可以找到该行的上一个版本。</li>
+</ul>
 </li>
-<li><p>守弱—知道自己的孱弱，而能够接纳这种弱势，坚强地忍耐弱者的地位，才能累积实力。是自己慢慢脱离弱者的不利地位</p>
-</li>
-<li><p>人的需要真实非常有限，知识欲望确实无穷的，过分追求欲望而不能节制，结果经常不能满足，反而更加痛苦，而无法掌控自我的意志</p>
-</li>
-<li><p>人类最大的敌人是自己，最不容战胜的对手是自己，但事实上，人类唯一能影响，去改变的也是自己</p>
-</li>
-<li><p>不要像美玉一样地摧残而为人尊崇，而要像坚石一样黯淡而为人贱视，一切都合乎道，不用特别造作，使天地万物趋向于自然</p>
-</li>
-<li><p>欲取天下者，应顺应自然之势，不应过分着重人为的努力。若有人想以一己之力来统治天下，这是绝对做不到的</p>
-</li>
-<li><p>一切顺其自然，堵塞意念，关闭情欲，收敛锋芒，消除丰饶于未然，不表示自己的特异，与光则和，遇尘则同</p>
-</li>
-<li><p>当我们用别人的眼光来评判自己，确定自己的价值，这便是输赢心态的开始，输赢让我们紧张，焦虑，让我们的思想被封闭了，为了他人的评价而活，拼命压抑自己的感觉。不能去除输赢的心态，便无法共赢，不能体认与接纳自己的感觉，我们便无法克服输赢的焦虑</p>
-</li>
-<li><p>靠赢家赢的那批人，往往更输不起，他们会迫使赢家继续去赢</p>
-</li>
-<li><p>狡兔死，走狗烹，飞鸟尽，良弓藏，敌国破，良臣灭</p>
-</li>
-<li><p>虏中吾指</p>
-</li>
-<li><p>吾以布衣提三尺剑取天下，此非天命乎？命乃在天，虽扁鹊何益！</p>
+<li><p><strong>Undo Log（回滚日志）：</strong></p>
+<ul>
+<li><strong>作用：</strong> Undo Log 是存储旧版本数据的地方。每当事务修改数据时，旧版本的数据会被写入 Undo Log。</li>
+<li><strong>存储位置：</strong> Undo Log 存储在称为回滚段（rollback segment）的数据结构中，这些回滚段位于 Undo 表空间。Undo 表空间可以是共享的（在 <code>ibdataX</code> 文件中）或者独立的文件。</li>
+<li><strong>MVCC 的依赖：</strong> 当一个事务需要读取某个数据行的旧版本时（根据事务自身的快照时间戳和数据行中的 <code>DB_TRX_ID</code> 判断），它会利用 <code>DB_ROLL_PTR</code> 沿着 Undo Log 的链条找到并重构出符合其可见性条件的旧版本数据。</li>
+</ul>
 </li>
 </ul>
 
@@ -480,7 +536,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://foo1s.github.io/2024/11/07/%E5%88%98%E9%82%A6%E5%A4%A7%E4%BC%A0/">http://foo1s.github.io/2024/11/07/%E5%88%98%E9%82%A6%E5%A4%A7%E4%BC%A0/</a>
+                    <a href="http://foo1s.github.io/2025/05/08/MVCC/">http://foo1s.github.io/2025/05/08/MVCC/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -518,8 +574,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/">
-                                    <span class="chip bg-color">读后感</span>
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
+                                </a>
+                            
+                                <a href="/tags/MySQL/">
+                                    <span class="chip bg-color">MySQL</span>
                                 </a>
                             
                         </div>
@@ -597,7 +657,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2024-11-07T15-39-07',
+        id: '2025-05-08T15-39-07',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -629,13 +689,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2025/05/08/%E9%9D%A2%E7%BB%8F%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
+                <a href="/2025/05/08/MySQL%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="MySQL基础-面经">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="MySQL基础">
                         
-                        <span class="card-title">MySQL基础-面经</span>
+                        <span class="card-title">MySQL基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -686,13 +746,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2024/11/06/foo1s%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
+                <a href="/2025/05/08/MYSQL%E5%9B%9B%E5%A4%A7%E9%9A%94%E7%A6%BB%E8%AF%AD%E5%8F%A5/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="foo1s的第一篇博客">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="MySQL基础-隔离语句">
                         
-                        <span class="card-title">foo1s的第一篇博客</span>
+                        <span class="card-title">MySQL基础-隔离语句</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -703,15 +763,35 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-11-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-08
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            foo1s
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/DataBase/" class="post-category">
+                                    DataBase
+                                </a>
+                            
+                            <a href="/categories/DataBase/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
                 </div>
                 
             </div>

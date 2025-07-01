@@ -4,15 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="刘邦大传, foo1s&#39; blog">
-    <meta name="description" content="观刘邦大传有所感的句子
-柔弱生之徒，老式戒刚强
+    <meta name="keywords" content="MySQL,索引失效">
+    <meta name="description" content="一、SQL 写法导致的失效
+列上使用函数或表达式
+ 12WHERE UPPER(name) = &amp;#x27;JACK&amp;#x27;WHERE DATE(create_time) = &amp;#x27;2025‑06‑18&amp;#x27;
 
-天地不仁，以万物为刍狗；圣人不仁，以百姓为刍狗
-
-失败的痛苦对我们对我们虽然最有用处，但往往是最容易被忘掉的；成功的骄傲最容易误导我们日后的行为，却也是最不容易抛弃的一部分。
-
-攻击自己的勇">
+原因：函数或">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +21,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>刘邦大传 | foo1s&#39; blog</title>
+    <title>MySQL基础-索引失效 | foo1s&#39; blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -343,12 +340,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">刘邦大传</h1>
+                    <h1 class="description center-align post-title">MySQL基础-索引失效</h1>
                 </div>
             </div>
         </div>
@@ -372,14 +369,31 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/">
-                                <span class="chip bg-color">读后感</span>
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
+                            </a>
+                        
+                            <a href="/tags/MySQL/">
+                                <span class="chip bg-color">MySQL</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/DataBase/" class="post-category">
+                                DataBase
+                            </a>
+                        
+                            <a href="/categories/DataBase/MySQL/" class="post-category">
+                                MySQL
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -388,7 +402,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-11-07
+                    2025-05-08
                 </div>
                 
 
@@ -397,7 +411,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    901
+                    819
                 </div>
                 
 
@@ -414,46 +428,103 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="观刘邦大传有所感的句子"><a href="#观刘邦大传有所感的句子" class="headerlink" title="观刘邦大传有所感的句子"></a>观刘邦大传有所感的句子</h4><ul>
-<li><p>柔弱生之徒，老式戒刚强</p>
+                <h2 id="一、SQL-写法导致的失效"><a href="#一、SQL-写法导致的失效" class="headerlink" title="一、SQL 写法导致的失效"></a>一、SQL 写法导致的失效</h2><ol>
+<li><p><strong>列上使用函数或表达式</strong></p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">WHERE</span> <span class="built_in">UPPER</span>(name) <span class="operator">=</span> <span class="string">&#x27;JACK&#x27;</span></span><br><span class="line"><span class="keyword">WHERE</span> <span class="type">DATE</span>(create_time) <span class="operator">=</span> <span class="string">&#x27;2025‑06‑18&#x27;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>原因：函数或表达式会在每行数据上执行运算，无法利用原始索引结构。</li>
+</ul>
 </li>
-<li><p>天地不仁，以万物为刍狗；圣人不仁，以百姓为刍狗</p>
+<li><p><strong>前缀模糊匹配</strong></p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">WHERE</span> username <span class="keyword">LIKE</span> <span class="string">&#x27;%zhang&#x27;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>原因：前置通配符让引擎无法定位索引树的起始位置，只能全表扫描。</li>
+</ul>
 </li>
-<li><p>失败的痛苦对我们对我们虽然最有用处，但往往是最容易被忘掉的；成功的骄傲最容易误导我们日后的行为，却也是最不容易抛弃的一部分。</p>
+<li><p><strong>隐式类型转换</strong></p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">WHERE</span> user_id <span class="operator">=</span> <span class="string">&#x27;123&#x27;</span>      <span class="comment">-- user_id 为整型</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>原因：数据库会对列或常量做隐式转换，导致索引字段值“失配”，不能走索引。</li>
+</ul>
 </li>
-<li><p>攻击自己的勇气，是赢家最好的防守策略</p>
+<li><p><strong>OR 条件跨列或无关联</strong></p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">WHERE</span> age <span class="operator">=</span> <span class="number">30</span> <span class="keyword">OR</span> gender <span class="operator">=</span> <span class="string">&#x27;M&#x27;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>原因：多个列上的 OR 可能导致无法复用单列索引，除非有专门的复合索引并且满足左前缀原则。</li>
+</ul>
 </li>
-<li><p>不刻意去追求成功，没有包袱，没有私欲，只有努力，不断努力去解决周边的困难，努力到不必可以用心去努力的程度，便也是最容易成功的时候。真正的成功者，大多是冒险家，或许他们审慎小心，但多半是没有任何包袱压力的。身段太多，顾前顾后，刻意去追求成功的人，反而很少真正的成功</p>
+<li><p><strong>不等（&lt;&gt;、!&#x3D;、NOT IN、NOT LIKE）条件</strong></p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">WHERE</span> status <span class="operator">&lt;&gt;</span> <span class="string">&#x27;ACTIVE&#x27;</span></span><br><span class="line"><span class="keyword">WHERE</span> id <span class="keyword">NOT</span> <span class="keyword">IN</span> (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>原因：此类条件通常无法精准定位范围，只能全表或全分片扫描。</li>
+</ul>
 </li>
-<li><p>要笨到不会在乎会得到什么结果，要狂到肯把自己的一切全投入到工作中，要天真到不想一个人独享成果，要懒散到有一大推人替你工作</p>
+</ol>
+<hr>
+<h2 id="二、复合索引（联合索引）相关"><a href="#二、复合索引（联合索引）相关" class="headerlink" title="二、复合索引（联合索引）相关"></a>二、复合索引（联合索引）相关</h2><ol>
+<li><p><strong>未遵循最左前缀原则</strong></p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> INDEX idx_ab <span class="keyword">ON</span> t(a, b);</span><br><span class="line"><span class="comment">-- 下面的查询无法走 idx_ab</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> t <span class="keyword">WHERE</span> b <span class="operator">=</span> <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>只有在 SQL 中按照 <code>(a,…)</code> 或 <code>(a, b)</code> 的顺序使用条件，才能命中该索引。</li>
+</ul>
 </li>
-<li><p>最上等的领导者无为而治，人们只知道有国君，而不感觉到其势力，各顺其性，各安起身。一切都制度化，每个人遵循运作模式，各自负责其工作，达成其任务。</p>
+<li><p><strong>范围查询后丢失后续列索引</strong></p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">WHERE</span> a <span class="operator">=</span> <span class="number">1</span> <span class="keyword">AND</span> b <span class="operator">&gt;</span> <span class="number">10</span> <span class="keyword">AND</span> c <span class="operator">=</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>对 b 进行范围查询后，c 列即便有条件，也不会再走联合索引的 c 部分。</li>
+</ul>
 </li>
-<li><p>真正的政治领袖，会努力建立制度化的常模，不喊口号，也不可以呼吁民众效忠，时机不成熟，绝不发号施令。有耐心地维持住常态的努力工作，让一切顺理成章的达成其目标，人民感受不出领导者的手段，只认为一切本应该如此</p>
+<li><p><strong>排序／分组字段与索引顺序不匹配</strong></p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> b, a   <span class="comment">-- 索引是 (a, b)</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> c, a   <span class="comment">-- 索引顺序需和 GROUP BY 一致</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>索引顺序要与 ORDER BY&#x2F;GROUP BY 的列顺序完全一致，才能进行 “索引排序&#x2F;分组” 优化。</li>
+</ul>
 </li>
-<li><p>守弱—知道自己的孱弱，而能够接纳这种弱势，坚强地忍耐弱者的地位，才能累积实力。是自己慢慢脱离弱者的不利地位</p>
+</ol>
+<hr>
+<h2 id="三、大数据量与统计失真"><a href="#三、大数据量与统计失真" class="headerlink" title="三、大数据量与统计失真"></a>三、大数据量与统计失真</h2><ol>
+<li><p><strong>低基数列建索引</strong></p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> INDEX idx_gender <span class="keyword">ON</span> t(gender);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>性别一般只有两三个取值（低选择性），优化效果有限，优化器可能直接选择全表扫描。</li>
+</ul>
 </li>
-<li><p>人的需要真实非常有限，知识欲望确实无穷的，过分追求欲望而不能节制，结果经常不能满足，反而更加痛苦，而无法掌控自我的意志</p>
+<li><p><strong>旧统计信息未更新</strong></p>
+<ul>
+<li>数据量变化后，如果没有及时 <code>ANALYZE TABLE</code>，优化器对索引选择不准确，可能误判走全表扫描。</li>
+</ul>
 </li>
-<li><p>人类最大的敌人是自己，最不容战胜的对手是自己，但事实上，人类唯一能影响，去改变的也是自己</p>
+</ol>
+<hr>
+<h2 id="四、其它特殊场景"><a href="#四、其它特殊场景" class="headerlink" title="四、其它特殊场景"></a>四、其它特殊场景</h2><ol>
+<li><p><strong>UPDATE&#x2F;DELETE 带子查询或 JOIN</strong></p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> t1 </span><br><span class="line">  <span class="keyword">SET</span> … </span><br><span class="line"><span class="keyword">WHERE</span> t1.id <span class="keyword">IN</span> (<span class="keyword">SELECT</span> id <span class="keyword">FROM</span> t2 <span class="keyword">WHERE</span> …);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>子查询或多表关联，若没有优化得当，会失去单表索引优势。</li>
+</ul>
 </li>
-<li><p>不要像美玉一样地摧残而为人尊崇，而要像坚石一样黯淡而为人贱视，一切都合乎道，不用特别造作，使天地万物趋向于自然</p>
+<li><p><strong>OFFSET 大分页</strong></p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> t <span class="keyword">ORDER</span> <span class="keyword">BY</span> id LIMIT <span class="number">1000000</span>, <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>虽然有索引排序，但大量偏移会累积扫描成本，表现类似全表扫描。</li>
+</ul>
 </li>
-<li><p>欲取天下者，应顺应自然之势，不应过分着重人为的努力。若有人想以一己之力来统治天下，这是绝对做不到的</p>
+<li><p><strong>函数索引／虚拟列未使用</strong></p>
+<ul>
+<li>在某些场景下，可通过为常用表达式（如 <code>DATE(create_time)</code>）创建函数索引或虚拟列，再对该列建索引来规避函数失效问题。</li>
+</ul>
 </li>
-<li><p>一切顺其自然，堵塞意念，关闭情欲，收敛锋芒，消除丰饶于未然，不表示自己的特异，与光则和，遇尘则同</p>
+</ol>
+<hr>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><ul>
+<li><p><strong>写 SQL 时</strong>：避免在索引列上做函数、表达式、前缀模糊、隐式转换和复杂 OR&#x2F;NOT 条件。</p>
 </li>
-<li><p>当我们用别人的眼光来评判自己，确定自己的价值，这便是输赢心态的开始，输赢让我们紧张，焦虑，让我们的思想被封闭了，为了他人的评价而活，拼命压抑自己的感觉。不能去除输赢的心态，便无法共赢，不能体认与接纳自己的感觉，我们便无法克服输赢的焦虑</p>
+<li><p><strong>设计索引时</strong>：遵守最左前缀原则，考虑查询排序／分组场景；低选择性列慎用。</p>
 </li>
-<li><p>靠赢家赢的那批人，往往更输不起，他们会迫使赢家继续去赢</p>
-</li>
-<li><p>狡兔死，走狗烹，飞鸟尽，良弓藏，敌国破，良臣灭</p>
-</li>
-<li><p>虏中吾指</p>
-</li>
-<li><p>吾以布衣提三尺剑取天下，此非天命乎？命乃在天，虽扁鹊何益！</p>
+<li><p><strong>运维维护</strong>：定期更新统计信息，监控执行计划；在必要时引入函数索引或虚拟列。</p>
 </li>
 </ul>
+<p>掌握这些常见“索引失效”场景，并能结合具体实例说明，你的回答就既有深度也具备实战价值。</p>
 
                 
             </div>
@@ -480,7 +551,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://foo1s.github.io/2024/11/07/%E5%88%98%E9%82%A6%E5%A4%A7%E4%BC%A0/">http://foo1s.github.io/2024/11/07/%E5%88%98%E9%82%A6%E5%A4%A7%E4%BC%A0/</a>
+                    <a href="http://foo1s.github.io/2025/05/08/%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98/">http://foo1s.github.io/2025/05/08/%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -518,8 +589,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/">
-                                    <span class="chip bg-color">读后感</span>
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
+                                </a>
+                            
+                                <a href="/tags/MySQL/">
+                                    <span class="chip bg-color">MySQL</span>
                                 </a>
                             
                         </div>
@@ -597,7 +672,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2024-11-07T15-39-07',
+        id: '2025-05-08T15-39-07',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -629,13 +704,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2025/05/08/%E9%9D%A2%E7%BB%8F%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
+                <a href="/2025/05/08/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%9A%84%E5%8C%BA%E5%88%AB/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="MySQL基础-面经">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="MySQL基础-搜索引擎">
                         
-                        <span class="card-title">MySQL基础-面经</span>
+                        <span class="card-title">MySQL基础-搜索引擎</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -686,13 +761,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2024/11/06/foo1s%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
+                <a href="/2025/05/08/%E7%B4%A2%E5%BC%95%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="foo1s的第一篇博客">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="MySQL基础-索引">
                         
-                        <span class="card-title">foo1s的第一篇博客</span>
+                        <span class="card-title">MySQL基础-索引</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -703,15 +778,35 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-11-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-08
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            foo1s
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/DataBase/" class="post-category">
+                                    DataBase
+                                </a>
+                            
+                            <a href="/categories/DataBase/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
                 </div>
                 
             </div>
