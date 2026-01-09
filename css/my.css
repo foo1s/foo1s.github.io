@@ -1,1 +1,58 @@
-/* Here is your custom css styles. */
+/* Custom CSS Overrides */
+
+/* Override background gradient (Header, Footer, Progress Bar) */
+/* EXCLUDING .nav-transparent to fix the navigation bar issue */
+/* .bg-color:not(.nav-transparent) {
+    background-image: linear-gradient(to right, #9caba2 0%, #bdc9cf 100%) !important;
+} */
+
+.bg-color:not(.nav-transparent) {
+    background-image: linear-gradient(#28becf) !important;
+}
+
+/* Match progress bar to new gradient - using the colors the user selected */
+.progress-bar {
+    background: linear-gradient(to right, #a8aed8 0%, #f4c88f 100%) !important;
+}
+
+/* Override text color to match the Blue/Green theme */
+.text-color {
+    color: #0093E9 !important;
+    /* Blue-ish tone */
+}
+
+/* Override Blockquote style */
+blockquote {
+    border-left: 5px solid #bdc9cf !important;
+    background-color: rgba(189, 201, 207, 0.1) !important;
+    color: #666;
+}
+
+/* Override hover effects for buttons if needed */
+.cover-btns a:hover {
+    border: 1px solid #bdc9cf !important;
+    background-color: #bdc9cf !important;
+    box-shadow: 0 14px 26px -12px rgba(189, 201, 207, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(189, 201, 207, 0.2) !important;
+}
+
+/* Hide images in article cards while keeping title text */
+
+/* Prev/Next navigation cards */
+.prev-next .card .card-image {
+    display: none !important;
+}
+
+/* Archive page cards */
+#cd-timeline .card .card-image {
+    display: none !important;
+}
+
+/* Category page cards (if applicable) */
+.category .card .card-image {
+    display: none !important;
+}
+
+/* Index page cards (if applicable) */
+.index-card .card .card-image {
+    display: none !important;
+}

@@ -1,0 +1,1740 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="MySQL,面经">
+    <meta name="description" content="MVCC存储在哪里，作用是什么MVCC是什么
+传统的数据库并发控制通常使用锁机制，在并发量高的情况下容易导致阻塞和性能下降。
+读不阻塞写，写不阻塞读；为每个事务维护一个数据快照；创建新版本而不是覆盖。
+
+
+MVCC的实现原理好的，我们来详细">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+    <title>MySQL基础-面经 | foo1s&#39; blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="foo1s' blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+    <body>
+        <script>
+            if (localStorage.getItem('isDark') === '1') {
+                document.body.classList.add('DarkMode');
+            }
+        </script>
+        <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">foo1s&#39; blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Main</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-folder" style="zoom: 0.6;"></i>
+      
+      <span>Document</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <i class="fas fa-tags" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>tags</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>categories</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-archive" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>archives</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-compact-disc" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/movies">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Movies</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-person" style="zoom: 0.6;"></i>
+      
+      <span>Bing</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/about">
+          
+          <i class="fas fa-user-circle" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>About</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/contact">
+          
+          <i class="fas fa-comments" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Contact</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/friends">
+          
+          <i class="fas fa-address-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Friends</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">foo1s&#39; blog</div>
+        <div class="logo-desc">
+            
+            你我皆身处黑暗，走在各自的朝圣的路上&#39;
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Main
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-folder"></i>
+			
+			Document
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-tags" style="position: absolute;left:50px" ></i>
+			      
+		          <span>tags</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-bookmark" style="position: absolute;left:50px" ></i>
+			      
+		          <span>categories</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-archive" style="position: absolute;left:50px" ></i>
+			      
+		          <span>archives</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-compact-disc"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/movies " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Movies</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-person"></i>
+			
+			Bing
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/about " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-user-circle" style="position: absolute;left:50px" ></i>
+			      
+		          <span>About</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/contact " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-comments" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Contact</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/friends " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-address-book" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Friends</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+            
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">MySQL基础-面经</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">
+                                        数据库
+                                    </span>
+                                </a>
+                                
+                                <a href="/tags/MySQL/">
+                                    <span class="chip bg-color">
+                                        MySQL
+                                    </span>
+                                </a>
+                                
+                        </div>
+                        
+                </div>
+                <div class="col s5 right-align">
+                    
+                        <div class="post-cate">
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                                <a href="/categories/DataBase/" class="post-category">
+                                    DataBase
+                                </a>
+                                
+                                <a href="/categories/DataBase/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                                
+                        </div>
+                        
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                    <div class="post-date info-break-policy">
+                        <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                            2025-05-08
+                    </div>
+                    
+
+                        
+
+                                
+                                    <div class="info-break-policy">
+                                        <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                                            4.8k
+                                    </div>
+                                    
+
+                                        
+
+                                                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+                
+
+                        <div class="card-content article-card-content">
+                            <div id="articleContent">
+                                <h3 id="MVCC存储在哪里，作用是什么"><a href="#MVCC存储在哪里，作用是什么" class="headerlink" title="MVCC存储在哪里，作用是什么"></a>MVCC存储在哪里，作用是什么</h3><h4 id="MVCC是什么"><a href="#MVCC是什么" class="headerlink" title="MVCC是什么"></a>MVCC是什么</h4><ul>
+<li>传统的数据库并发控制通常使用锁机制，在并发量高的情况下容易导致阻塞和性能下降。</li>
+<li>读不阻塞写，写不阻塞读；为每个事务维护一个数据快照；创建新版本而不是覆盖。</li>
+<li></li>
+</ul>
+<h4 id="MVCC的实现原理"><a href="#MVCC的实现原理" class="headerlink" title="MVCC的实现原理"></a>MVCC的实现原理</h4><p>好的，我们来详细解释一下 MVCC（多版本并发控制）的实现机制。</p>
+<p>MVCC 的核心思想是<strong>维护数据的多个版本</strong>，使得读操作可以不阻塞写操作，写操作也不会阻塞读操作。它主要依赖于以下几个关键组成部分和机制：</p>
+<ol>
+<li><p><strong>事务 ID (Transaction ID)</strong></p>
+<p>每个事务在开始时都会被分配一个唯一的、递增的事务 ID。这个 ID 在 MVCC 中用于标记数据是由哪个事务创建或修改的。</p>
+</li>
+<li><p><strong>数据行的版本链 (Version Chain)</strong></p>
+<p>MVCC 数据库中的每一行数据通常都会有几个隐藏的列，用于记录该行的版本信息。这些隐藏列通常包括：</p>
+<ul>
+<li><strong>创建事务 ID (TrxId 或 <code>DB_TRX_ID</code>)：</strong> 记录创建该行数据的事务 ID。</li>
+<li><strong>删除事务 ID (DelTrxId) 或 指向 Undo Log 的指针 (<code>DB_ROLL_PTR</code>)：</strong><ul>
+<li>有些实现会记录删除该行数据的事务 ID。</li>
+<li>更常见的实现（如 InnoDB）是使用一个回滚指针 (<code>DB_ROLL_PTR</code>) 指向 Undo Log 中记录了该行修改前数据的一条记录。通过这个指针，可以将同一逻辑行（同一条记录）的不同版本通过 Undo Log 连接起来，形成一个版本链。最新的版本位于链的头部，旧版本通过指针连接到 Undo Log 中。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Undo Log (回滚日志)</strong></p>
+<p>Undo Log 在 MVCC 中扮演着至关重要的角色：</p>
+<ul>
+<li><strong>存储旧版本数据：</strong> 当一个事务修改（UPDATE 或 DELETE）一行数据时，修改前的旧版本数据会被写入 Undo Log。</li>
+<li><strong>构建版本链：</strong> 数据行中的回滚指针 (<code>DB_ROLL_PTR</code>) 正是指向 Undo Log 中的对应记录，从而构建起数据行的版本链。这个链条记录了该行数据从最初创建到当前版本的所有修改历史。</li>
+<li><strong>支持回滚：</strong> 当事务需要回滚时，可以通过 Undo Log 中的记录将数据恢复到修改前的状态。</li>
+<li><strong>支持快照读：</strong> 这是 MVCC 实现非阻塞读的关键。当一个事务需要读取数据时，它会根据自身的事务 ID 和可见性规则，沿着版本链在 Undo Log 中找到符合条件的、对当前事务可见的数据版本进行读取。</li>
+</ul>
+</li>
+<li><p><strong>Read View (读视图)</strong></p>
+<p>每个事务在启动时（或者根据隔离级别的不同，在执行特定语句时）会创建一个 Read View（或类似的机制，如快照时间戳）。Read View 记录了当前活跃（尚未提交）的事务 ID 列表。这个 Read View 是判断数据版本对当前事务是否可见的关键。</p>
+<p>Read View 通常包含以下信息：</p>
+<ul>
+<li><code>m_ids</code>: 当前活跃的事务 ID 列表。</li>
+<li><code>min_trx_id</code>: <code>m_ids</code> 列表中最小的事务 ID。</li>
+<li><code>max_trx_id</code>: 在创建 Read View 时，系统中应该分配给下一个事务的 ID，即当前最大的事务 ID + 1。</li>
+<li><code>creator_trx_id</code>: 创建这个 Read View 的事务的 ID。</li>
+</ul>
+</li>
+<li><p><strong>可见性判断规则</strong></p>
+<p>当一个事务尝试读取一行数据时，数据库会根据该事务的 Read View 和数据行版本（由创建事务 ID <code>DB_TRX_ID</code> 标记）来判断这个版本是否对当前事务可见。具体的判断规则会根据事务隔离级别（如 Read Committed 或 Repeatable Read）有所不同，但基本原则如下：</p>
+<ul>
+<li>如果数据行版本的创建事务 ID (<code>DB_TRX_ID</code>) <strong>小于</strong> Read View 中的 <code>min_trx_id</code>，表示这个版本是由一个在当前事务启动之前就已经提交的事务所创建，因此该版本对当前事务<strong>可见</strong>。</li>
+<li>如果数据行版本的创建事务 ID (<code>DB_TRX_ID</code>) <strong>大于等于</strong> Read View 中的 <code>max_trx_id</code>，表示这个版本是由一个在当前事务启动之后才开始的事务所创建，因此该版本对当前事务<strong>不可见</strong>。</li>
+<li>如果数据行版本的创建事务 ID (<code>DB_TRX_ID</code>) <strong>在</strong> Read View 的 <code>min_trx_id</code> 和 <code>max_trx_id</code> <strong>之间</strong>：<ul>
+<li>如果 <code>DB_TRX_ID</code> <strong>等于</strong> Read View 中的 <code>creator_trx_id</code>，表示这个版本是当前事务自己修改的，因此对当前事务<strong>可见</strong>。</li>
+<li>如果 <code>DB_TRX_ID</code> <strong>在</strong> Read View 的 <code>m_ids</code> 列表 <strong>中</strong>，表示这个版本是由一个在当前事务启动时仍然活跃（但尚未提交）的事务所创建，因此对当前事务<strong>不可见</strong>。</li>
+<li>如果 <code>DB_TRX_ID</code> <strong>不在</strong> Read View 的 <code>m_ids</code> 列表 <strong>中</strong>，表示这个版本是由一个在当前事务启动时已经提交的事务所创建（但其 ID 在 <code>min_trx_id</code> 和 <code>max_trx_id</code> 之间），因此对当前事务<strong>可见</strong>。</li>
+</ul>
+</li>
+</ul>
+<p>如果当前数据行版本对当前事务不可见，数据库会沿着 Undo Log 中的版本链向前查找更旧的版本，并对找到的每个版本重复上述可见性判断，直到找到一个可见的版本或者版本链的末端。</p>
+</li>
+</ol>
+<p><strong>读写操作在 MVCC 中的处理：</strong></p>
+<ul>
+<li><strong>读操作：</strong> 当一个事务执行读操作（例如 <code>SELECT</code>）时，它会使用自己的 Read View，根据上述可见性判断规则，从数据行的版本链中找到对自身可见的最新版本进行读取。这个过程不涉及对数据的加锁，因此读操作不会阻塞写操作。</li>
+<li><strong>写操作 (UPDATE&#x2F;DELETE)：</strong> 当一个事务执行写操作时，它首先会像读操作一样找到对自身可见的最新版本数据。然后，它会将该版本的旧数据写入 Undo Log，并在数据行中创建或修改隐藏列，记录自己的事务 ID 和指向 Undo Log 的指针。新的数据版本只对创建它的事务或者后续启动并满足可见性规则的事务可见。写操作通常仍然需要对要修改的数据行加锁（写锁），以防止其他事务同时修改同一行，但这个锁通常只持续到事务提交或回滚，且不会阻塞读操作。</li>
+<li><strong>写操作 (INSERT)：</strong> 当一个事务插入一行新数据时，它会在数据行中记录自己的事务 ID 作为创建事务 ID。新插入的数据行对创建它的事务可见，对于其他事务，其可见性也遵循上述可见性判断规则。</li>
+</ul>
+<p><strong>过期版本的清理 (Purge)</strong></p>
+<p>随着事务不断进行修改，数据行会产生越来越多的旧版本存储在 Undo Log 中。这些旧版本如果不再被任何活跃事务所需要，就需要被清理掉，以释放存储空间。这个清理过程通常由一个后台线程（Purge 线程）负责。Purge 线程会根据当前系统中所有活跃事务的 Read View，确定哪些 Undo Log 中的旧版本数据已经不再可能被任何事务读取，然后进行物理删除。长事务会持有旧版本的 Read View，从而阻止对旧版本数据的清理，可能导致 Undo Log 不断增长。</p>
+<p><strong>总结：</strong></p>
+<p>MVCC 通过为每个事务提供一个数据快照，并利用事务 ID、数据行版本链和 Undo Log 来存储和管理数据的多个版本。通过 Read View 和可见性判断规则，MVCC 使得读操作可以并发进行而不会被写操作阻塞，显著提高了数据库的并发性能和吞吐量，同时提供了良好的事务隔离性（通常是 Snapshot Isolation 或 Read Committed）。</p>
+<h4 id="MVCC存储在哪里"><a href="#MVCC存储在哪里" class="headerlink" title="MVCC存储在哪里"></a>MVCC存储在哪里</h4><ul>
+<li><p><strong>数据行中的隐藏列：</strong> InnoDB 为每行数据添加了几个隐藏的系统列，其中与 MVCC 密切相关的主要有两个：</p>
+<ul>
+<li><code>DB_TRX_ID</code>：记录了最近一次修改（插入或更新）该行的事务 ID。删除在内部也被视为一种更新，会设置一个特殊的位标记。</li>
+<li><code>DB_ROLL_PTR</code>：这是一个回滚指针，指向 Undo Log 中的一条记录。如果该行是被更新的，Undo Log 记录包含了重建更新前行内容所需的信息。通过这个指针和 Undo Log，可以找到该行的上一个版本。</li>
+</ul>
+</li>
+<li><p><strong>Undo Log（回滚日志）：</strong></p>
+<ul>
+<li><strong>作用：</strong> Undo Log 是存储旧版本数据的地方。每当事务修改数据时，旧版本的数据会被写入 Undo Log。</li>
+<li><strong>存储位置：</strong> Undo Log 存储在称为回滚段（rollback segment）的数据结构中，这些回滚段位于 Undo 表空间。Undo 表空间可以是共享的（在 <code>ibdataX</code> 文件中）或者独立的文件。</li>
+<li><strong>MVCC 的依赖：</strong> 当一个事务需要读取某个数据行的旧版本时（根据事务自身的快照时间戳和数据行中的 <code>DB_TRX_ID</code> 判断），它会利用 <code>DB_ROLL_PTR</code> 沿着 Undo Log 的链条找到并重构出符合其可见性条件的旧版本数据。</li>
+</ul>
+</li>
+</ul>
+<h3 id="MysQl的几种log"><a href="#MysQl的几种log" class="headerlink" title="MysQl的几种log"></a>MysQl的几种log</h3><p>MySQL 中存在多种类型的日志文件，每种日志都有其特定的用途，对于数据库的监控、故障排查、数据恢复和复制至关重要。以下是 MySQL 中主要的几种日志：</p>
+<ol>
+<li><p><strong>错误日志 (Error Log)</strong></p>
+<ul>
+<li><strong>用途：</strong> 记录 MySQL 服务器运行过程中的各种错误信息、警告信息以及一些重要的事件，比如服务器的启动、关闭、崩溃等。</li>
+<li><strong>作用：</strong> 这是排查 MySQL 服务器问题时首先应该查看的日志。它可以帮助你了解服务器为什么无法启动、为什么会意外关闭，或者在运行过程中出现了哪些异常情况。</li>
+<li><strong>内容：</strong> 包含时间戳、事件类型（错误、警告、注意）、错误代码和描述等信息。</li>
+</ul>
+</li>
+<li><p><strong>通用查询日志 (General Query Log)</strong></p>
+<ul>
+<li><strong>用途：</strong> 记录 MySQL 服务器接收到的每一个客户端连接以及客户端发送的所有 SQL 语句。</li>
+<li><strong>作用：</strong> 这个日志可以非常详细地记录数据库的所有活动。它对于审计、追踪特定客户端的行为或者调试应用程序非常有用，可以准确地看到客户端向服务器发送了什么命令。</li>
+<li><strong>注意：</strong> 由于会记录所有的操作，通用查询日志会非常庞大，并且对性能有一定影响，因此在生产环境中通常不建议长时间开启，除非是出于调试目的。</li>
+</ul>
+</li>
+<li><p><strong>慢查询日志 (Slow Query Log)</strong></p>
+<ul>
+<li><strong>用途：</strong> 记录执行时间超过预设阈值的 SQL 语句。</li>
+<li><strong>作用：</strong> 这是数据库性能优化的重要工具。通过分析慢查询日志，可以找出那些执行效率低下的查询语句，从而有针对性地进行优化，比如添加索引、重写查询语句等。</li>
+<li><strong>内容：</strong> 包含查询语句本身、执行时间、锁定时间、发送给客户端的行数、扫描的行数等信息。可以通过配置 <code>long_query_time</code> 参数来设定慢查询的时间阈值。</li>
+</ul>
+</li>
+<li><p><strong>二进制日志 (Binary Log 或 Binlog)</strong></p>
+<ul>
+<li><strong>用途：</strong> 记录所有更改了数据库数据或结构的语句（数据修改事件）。它以二进制格式存储，不记录 SELECT 等只读操作。</li>
+<li><strong>作用：</strong> Binary Log 是 MySQL 复制（Replication）和数据恢复（Point-in-Time Recovery）的基础。<ul>
+<li><strong>复制：</strong> 在主从复制架构中，主服务器将 Binlog 发送给从服务器，从服务器通过回放 Binlog 中的事件来保持与主服务器的数据同步。</li>
+<li><strong>数据恢复：</strong> 在进行基于时间点的数据恢复时，可以使用全量备份加上 Binlog 来将数据库恢复到备份之后的任意时间点。</li>
+</ul>
+</li>
+<li><strong>内容：</strong> 记录了导致数据改变的事件，可以是语句格式（Statement-Based Logging）、行格式（Row-Based Logging）或混合格式（Mixed-Based Logging）。</li>
+</ul>
+</li>
+<li><p><strong>重做日志 (Redo Log)</strong></p>
+<ul>
+<li><strong>用途：</strong> 这是 InnoDB 存储引擎特有的日志，用于保证事务的持久性（Durability）。它记录了数据页的物理修改。</li>
+<li><strong>作用：</strong> 当事务提交时，即使数据还没有来得及写入磁盘的数据文件中，事务的修改也已经被记录在 Redo Log 中了。如果数据库发生崩溃，在重启时 InnoDB 会检查 Redo Log，将已提交事务的修改从 Redo Log 中重放到数据文件中，确保数据不会丢失（Crash Recovery）。</li>
+<li><strong>内容：</strong> 记录的是对数据页的物理修改操作，例如“在某某数据页的某某偏移量处写入某某值”。它是循环写入的，有一组固定大小的文件。</li>
+</ul>
+</li>
+<li><p><strong>撤销日志 (Undo Log)</strong></p>
+<ul>
+<li><strong>用途：</strong> 这也是 InnoDB 存储引擎特有的日志，用于保证事务的原子性（Atomicity）和实现 MVCC（多版本并发控制）。它记录了数据修改前的旧版本数据。</li>
+<li><strong>作用：</strong><ul>
+<li><strong>事务回滚：</strong> 当事务需要回滚时，InnoDB 利用 Undo Log 中的信息将数据恢复到修改之前的状态，撤销事务所做的所有修改。</li>
+<li><strong>MVCC：</strong> 在 MVCC 中，Undo Log 存储了数据行的多个历史版本。当一个事务读取数据时，如果当前的数据版本不可见，就会沿着 Undo Log 的版本链找到符合其可见性条件的旧版本数据进行读取。</li>
+</ul>
+</li>
+<li><strong>内容：</strong> 记录的是逻辑操作，例如插入操作对应的 Undo Log 是删除操作，更新操作对应的 Undo Log 是将数据恢复到更新前的状态</li>
+</ul>
+</li>
+</ol>
+<h3 id="分库分表"><a href="#分库分表" class="headerlink" title="分库分表"></a>分库分表</h3><h4 id="💡-一、为什么需要分库分表（动因）"><a href="#💡-一、为什么需要分库分表（动因）" class="headerlink" title="💡 一、为什么需要分库分表（动因）"></a>💡 一、为什么需要分库分表（动因）</h4><p><strong>核心目标：解决单库单表性能瓶颈。</strong></p>
+<ul>
+<li><p>数据量大 → 单表数据超千万行，查询慢、索引失效</p>
+</li>
+<li><p>并发高 → 单库连接数&#x2F;事务冲突瓶颈</p>
+</li>
+<li><p>运维难 → 备份、迁移、恢复时间长</p>
+</li>
+<li><p>可用性差 → 单点故障风险高，难以扩展</p>
+</li>
+</ul>
+<p>✅ 示例句式：</p>
+<blockquote>
+<p>随着业务发展，单表数据量过大或请求并发过高，数据库响应延迟明显，单库承压，因此需要通过分库分表来提升系统的吞吐能力与可用性。</p>
+</blockquote>
+<hr>
+<h4 id="🧩-二、分库分表的方式与策略"><a href="#🧩-二、分库分表的方式与策略" class="headerlink" title="🧩 二、分库分表的方式与策略"></a>🧩 二、分库分表的方式与策略</h4><h5 id="1-拆分方式"><a href="#1-拆分方式" class="headerlink" title="1. 拆分方式"></a>1. 拆分方式</h5><ul>
+<li><p><strong>垂直拆分</strong>（按业务模块拆库）：如用户、订单、商品拆成不同库</p>
+</li>
+<li><p><strong>水平拆分</strong>（按数据范围拆表）：如 <code>user_id</code> % N 拆成 user_0, user_1…</p>
+</li>
+</ul>
+<h5 id="2-分片策略（Sharding-Key）"><a href="#2-分片策略（Sharding-Key）" class="headerlink" title="2. 分片策略（Sharding Key）"></a>2. 分片策略（Sharding Key）</h5><ul>
+<li><p><strong>范围分片</strong>（如：按时间、ID区间）</p>
+</li>
+<li><p><strong>哈希分片</strong>（如：user_id % N）</p>
+</li>
+<li><p><strong>标签分片</strong>（如：地区、商户ID）</p>
+</li>
+</ul>
+<p>✅ 示例句式：</p>
+<blockquote>
+<p>水平拆分时我们通常选取业务查询最频繁的字段作为分片键，比如 user_id，使用 hash 或 range 分片以保证数据均衡与高可用。</p>
+</blockquote>
+<hr>
+<h4 id="⚙️-三、常见技术实现方式"><a href="#⚙️-三、常见技术实现方式" class="headerlink" title="⚙️ 三、常见技术实现方式"></a>⚙️ 三、常见技术实现方式</h4><h5 id="1-自研方案"><a href="#1-自研方案" class="headerlink" title="1. 自研方案"></a>1. 自研方案</h5><ul>
+<li>在 DAO 层封装路由逻辑，结合 ThreadLocal 或 AOP 实现数据源动态切换</li>
+<li>灵活但维护成本高，适合中小型项目</li>
+</ul>
+<h5 id="2-中间件方案（主流）"><a href="#2-中间件方案（主流）" class="headerlink" title="2. 中间件方案（主流）"></a>2. 中间件方案（主流）</h5><ul>
+<li><p><strong>ShardingSphere-JDBC</strong>：支持分库分表、读写分离、柔性事务</p>
+</li>
+<li><p><strong>MyCat</strong>：基于代理的分布式数据库中间件</p>
+</li>
+<li><p><strong>TDDL</strong>：阿里内部方案</p>
+</li>
+<li><p><strong>Vitess、PolarDB-X、OceanBase</strong>：云原生一体化解决方案</p>
+</li>
+</ul>
+<p>✅ 示例句式：</p>
+<blockquote>
+<p>我们团队使用 ShardingSphere-JDBC 实现分库分表，通过配置 sharding rule 动态路由数据源，配合读写分离有效降低主库压力。</p>
+</blockquote>
+<hr>
+<h4 id="🔄-四、分布式事务与一致性问题"><a href="#🔄-四、分布式事务与一致性问题" class="headerlink" title="🔄 四、分布式事务与一致性问题"></a>🔄 四、分布式事务与一致性问题</h4><ul>
+<li><p>分片后事务可能涉及多个库，难以使用本地事务</p>
+</li>
+<li><p>解决方案：</p>
+<ul>
+<li><p><strong>强一致性</strong>：使用 XA 两阶段提交（开销大）</p>
+</li>
+<li><p><strong>最终一致性</strong>：TCC、SAGA、消息补偿机制</p>
+</li>
+<li><p><strong>避开事务</strong>：通过业务逻辑控制，将操作限制在单分片内</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>✅ 示例句式：</p>
+<blockquote>
+<p>我们尽量通过业务分片控制事务边界落在同一个库上，如果无法避免跨库，则使用 TCC 模式实现柔性事务控制。</p>
+</blockquote>
+<hr>
+<h4 id="📈-五、扩容与维护"><a href="#📈-五、扩容与维护" class="headerlink" title="📈 五、扩容与维护"></a>📈 五、扩容与维护</h4><ul>
+<li><p><strong>扩容</strong>：如原先 4 分片扩到 8 分片 → 面临数据迁移、路由规则变更</p>
+</li>
+<li><p><strong>迁移策略</strong>：双写 + 验证 + 切换（或使用工具如 DataX、Canal）</p>
+</li>
+<li><p><strong>监控点</strong>：热点分布、分片倾斜、主从同步延迟、慢 SQL</p>
+</li>
+</ul>
+<p>✅ 示例句式：</p>
+<blockquote>
+<p>在分片扩容时，我们采用“新旧双写+数据比对+流量切换”策略，确保数据一致性和用户无感知迁移。</p>
+</blockquote>
+<hr>
+<h4 id="🧠-六、项目实战加分项（如有）"><a href="#🧠-六、项目实战加分项（如有）" class="headerlink" title="🧠 六、项目实战加分项（如有）"></a>🧠 六、项目实战加分项（如有）</h4><p>如果你曾实际在项目中用过分库分表，建议：</p>
+<ul>
+<li><p>简要描述场景、数据量、采用的中间件和策略</p>
+</li>
+<li><p>强调你解决的关键问题，如：分片键选择、事务方案、查询优化</p>
+</li>
+</ul>
+<p>✅ 示例句式：</p>
+<blockquote>
+<p>在智慧教育平台项目中，因题库表数据超千万，查询频繁，我们使用 ShardingSphere 做水平分表，按 <code>question_id</code> 取模分为 8 表，并使用缓存+预查询优化了分页性能。</p>
+</blockquote>
+<h4 id="如何分库分表"><a href="#如何分库分表" class="headerlink" title="如何分库分表"></a>如何分库分表</h4><p>“MySQL 分库分表是为了应对<strong>数据量和并发量达到单机瓶颈</strong>时的扩展性问题。它将数据分散存储到多个数据库实例或表中。</p>
+<p>主要方式有两种：</p>
+<ol>
+<li><strong>垂直拆分：</strong><ul>
+<li><strong>分库：</strong> 按<strong>业务模块</strong>将不同表放到不同数据库（例如用户库、订单库）。</li>
+<li><strong>分表：</strong> 按<strong>字段热度</strong>将一张表的大字段或不常用字段拆分到另一张表。</li>
+<li><strong>目的：</strong> 缓解不同业务&#x2F;字段的IO压力。</li>
+</ul>
+</li>
+<li><strong>水平拆分：</strong><ul>
+<li><strong>分库分表：</strong> 按<strong>数据行</strong>将一张表的数据分散到多个库或多个表中。</li>
+<li><strong>目的：</strong> 彻底解决单表数据量过大的问题，提升整体吞吐量。</li>
+<li><strong>关键：</strong> 选择合适的分片键（如ID取模、哈希、范围等），并依赖<strong>中间件（如ShardingSphere、MyCAT）或应用层逻辑</strong>来实现路由。</li>
+</ul>
+</li>
+</ol>
+<h4 id="索引失效的场景"><a href="#索引失效的场景" class="headerlink" title="索引失效的场景"></a>索引失效的场景</h4><p>MySQL 索引失效，意味着查询无法使用索引而进行<strong>全表扫描</strong>，严重影响性能。主要原因在于<strong>查询条件破坏了索引的有序性或无法有效利用B+树结构</strong>。</p>
+<p>常见的失效情况和避免方法有：</p>
+<ol>
+<li><strong>对索引列进行函数或表达式操作：</strong> <code>WHERE YEAR(time) = 2023</code>。<ul>
+<li><strong>避免：</strong> 把函数&#x2F;表达式作用于查询值，如 <code>WHERE time &gt;= &#39;2023-01-01&#39; ...</code>。</li>
+</ul>
+</li>
+<li><strong><code>LIKE</code> 以 <code>%</code> 开头进行模糊匹配：</strong> <code>WHERE name LIKE &#39;%张三%&#39;</code>。<ul>
+<li><strong>避免：</strong> 尽量使用前缀匹配 <code>LIKE &#39;张三%&#39;</code> 或考虑全文索引。</li>
+</ul>
+</li>
+<li><strong>隐式类型转换：</strong> <code>WHERE phone = 123</code> (phone是VARCHAR)。<ul>
+<li><strong>避免：</strong> 确保查询条件类型与索引列类型一致。</li>
+</ul>
+</li>
+<li><strong><code>OR</code> 连接非同一索引列：</strong> <code>WHERE col1 = &#39;A&#39; OR col2 = &#39;B&#39;</code>。<ul>
+<li><strong>避免：</strong> 考虑 <code>UNION ALL</code> 或为相关列创建<strong>联合索引</strong>。</li>
+</ul>
+</li>
+<li><strong>联合索引未遵循“最左前缀原则”：</strong> <code>(a,b,c)</code> 索引，但查询 <code>WHERE b = 1</code>。<ul>
+<li><strong>避免：</strong> 查询条件从最左列开始且连续使用。</li>
+</ul>
+</li>
+<li><strong><code>!=</code> 或 <code>NOT IN</code>：</strong> 这类非等值查询通常效率低，优化器可能选择全表扫描。</li>
+</ol>
+<p><strong>判断索引是否生效，主要使用 <code>EXPLAIN</code> 命令</strong>，查看 <code>type</code>、<code>key</code> 和 <code>Extra</code> 字段，特别是 <code>ALL</code>、<code>Using filesort</code>、<code>Using temporary</code> 等提示。”</p>
+
+                                    
+                            </div>
+                            <hr />
+
+                            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">foo1s</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://foo1s.github.io/2025/05/08/mian-jing-chang-jian-wen-ti/">http://foo1s.github.io/2025/05/08/mian-jing-chang-jian-wen-ti/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">foo1s</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+                                <div class="tag_share" style="display: block;">
+                                    <div class="post_share"
+                                        style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                                        <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+        <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>">
+        </div>
+        <script src="/libs/share/js/social-share.min.js"></script>
+        
+
+            
+
+</div>
+                                    </div>
+                                </div>
+                                
+                                    <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+                                        
+                        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: null,
+        id: '2025-05-08T15-39-07',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+            
+
+                
+
+                            
+
+                                        
+
+                                                    
+
+                                                                
+
+                                                                            
+
+                                                                                        
+
+                                                                                                    
+
+    <article id="prenext-posts" class="prev-next articles">
+        <div class="row article-row">
+            
+                <div class="article col s12 m6" data-aos="fade-up">
+                    <div class="article-badge left-badge text-color">
+                        <a href="/2025/05/08/suo-yin-xiang-guan-wen-ti/"
+                            style="color: inherit; text-decoration: none; width: 100%; height: 100%; display: block;">
+                            <i class="fas fa-chevron-left"></i>&nbsp;上一篇&nbsp;:&nbsp;MySQL基础-索引
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="/2025/05/08/suo-yin-xiang-guan-wen-ti/">
+                            <div class="card-image">
+                                
+                                        
+                                            <img src="/medias/featureimages/8.jpg"
+                                                class="responsive-img" alt="MySQL基础-索引">
+                                            
+                                                <span class="card-title">
+                                                    MySQL基础-索引
+                                                </span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                            
+                                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="far fa-clock fa-fw icon-date"></i>
+                                    2025-05-08
+                                </span>
+                                <span class="publish-author">
+                                    
+                                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                        
+                                            <a href="/categories/DataBase/" class="post-category">
+                                                DataBase
+                                            </a>
+                                            
+                                            <a href="/categories/DataBase/MySQL/" class="post-category">
+                                                MySQL
+                                            </a>
+                                            
+                                                
+                                </span>
+                            </div>
+                        </div>
+                        
+                            <div class="card-action article-tags">
+                                
+                                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                        <span class="chip bg-color">
+                                            数据库
+                                        </span>
+                                    </a>
+                                    
+                                    <a href="/tags/MySQL/">
+                                        <span class="chip bg-color">
+                                            MySQL
+                                        </span>
+                                    </a>
+                                    
+                            </div>
+                            
+                    </div>
+                </div>
+                
+                        
+                            <div class="article col s12 m6" data-aos="fade-up">
+                                <div class="article-badge right-badge text-color">
+                                    <a href="/2025/05/08/biao-xiang-guan-han-shu-shi-yong/"
+                                        style="color: inherit; text-decoration: none; width: 100%; height: 100%; display: block;">
+                                        MySQL基础&nbsp;:&nbsp;下一篇&nbsp;<i
+                                                    class="fas fa-chevron-right"></i>
+                                    </a>
+                                </div>
+                                <div class="card">
+                                    <a href="/2025/05/08/biao-xiang-guan-han-shu-shi-yong/">
+                                        <div class="card-image">
+                                            
+                                                    
+                                                        <img src="/medias/featureimages/0.jpg"
+                                                            class="responsive-img" alt="MySQL基础">
+                                                        
+                                                            <span class="card-title">
+                                                                MySQL基础
+                                                            </span>
+                                        </div>
+                                    </a>
+                                    <div class="card-content article-content">
+                                        <div class="summary block-with-text">
+                                            
+                                                        
+                                                            
+                                        </div>
+                                        <div class="publish-info">
+                                            <span class="publish-date">
+                                                <i class="far fa-clock fa-fw icon-date"></i>
+                                                2025-05-08
+                                            </span>
+                                            <span class="publish-author">
+                                                
+                                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                                    
+                                                        <a href="/categories/DataBase/" class="post-category">
+                                                            DataBase
+                                                        </a>
+                                                        
+                                                        <a href="/categories/DataBase/MySQL/" class="post-category">
+                                                            MySQL
+                                                        </a>
+                                                        
+                                                            
+                                            </span>
+                                        </div>
+                                    </div>
+                                    
+                                        <div class="card-action article-tags">
+                                            
+                                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                                    <span class="chip bg-color">
+                                                        数据库
+                                                    </span>
+                                                </a>
+                                                
+                                                <a href="/tags/MySQL/">
+                                                    <span class="chip bg-color">
+                                                        MySQL
+                                                    </span>
+                                                </a>
+                                                
+                                        </div>
+                                        
+                                </div>
+                            </div>
+                            
+        </div>
+    </article>
+</div>
+
+
+    <script>
+        $('#articleContent').on('copy', function (e) {
+            // IE8 or earlier browser is 'undefined'
+            if (typeof window.getSelection === 'undefined') return;
+
+            var selection = window.getSelection();
+            // if the selection is short let's not annoy our users.
+            if (('' + selection).length < Number.parseInt('120')) {
+                return;
+            }
+
+            // create a div outside of the visible area and fill it with the selected text.
+            var bodyElement = document.getElementsByTagName('body')[0];
+            var newdiv = document.createElement('div');
+            newdiv.style.position = 'absolute';
+            newdiv.style.left = '-99999px';
+            bodyElement.appendChild(newdiv);
+            newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+            // we need a <pre> tag workaround.
+            // otherwise the text inside "pre" loses all the line breaks!
+            if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+                newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+            }
+
+            var url = document.location.href;
+            newdiv.innerHTML += '<br />'
+                + '来源: foo1s&#39; blog<br />'
+                + '文章作者: foo1s<br />'
+                + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+                + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+            selection.selectAllChildren(newdiv);
+            window.setTimeout(function () { bodyElement.removeChild(newdiv); }, 200);
+        });
+    </script>
+    
+
+        <!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="col l3 hide-on-med-and-down" style="display: none;">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+    <div id="floating-toc-btn" class="hide-on-med-and-down">
+        <a class="btn-floating btn-large bg-color">
+            <i class="fas fa-list-ul"></i>
+        </a>
+    </div>
+    
+
+        <script src="/libs/tocbot/tocbot.min.js"></script>
+        <script>
+            $(function () {
+                tocbot.init({
+                    tocSelector: '#toc-content',
+                    contentSelector: '#articleContent',
+                    headingsOffset: -($(window).height() * 0.4 - 45),
+                    collapseDepth: Number('0'),
+                    headingSelector: 'h2, h3, h4'
+                });
+
+                // Set scroll toc fixed.
+                let tocHeight = parseInt($(window).height() * 0.4 - 64);
+                let $tocWidget = $('.toc-widget');
+                $(window).scroll(function () {
+                    let scroll = $(window).scrollTop();
+                    /* add post toc fixed. */
+                    if (scroll > tocHeight) {
+                        $tocWidget.addClass('toc-fixed');
+                    } else {
+                        $tocWidget.removeClass('toc-fixed');
+                    }
+                });
+
+        
+                    /* 修复文章卡片 div 的宽度. */
+                    let fixPostCardWidth = function (srcId, targetId) {
+                        let srcDiv = $('#' + srcId);
+                        if (srcDiv.length === 0) {
+                            return;
+                        }
+
+                        let w = srcDiv.width();
+                        if (w >= 450) {
+                            w = w + 21;
+                        } else if (w >= 350 && w < 450) {
+                            w = w + 18;
+                        } else if (w >= 300 && w < 350) {
+                            w = w + 16;
+                        } else {
+                            w = w + 14;
+                        }
+                        $('#' + targetId).width(w);
+                    };
+
+                    // 切换TOC目录展开收缩的相关操作.
+                    const expandedClass = 'expanded';
+                    let $tocAside = $('#toc-aside');
+                    let $mainContent = $('#main-content');
+                    $('#floating-toc-btn .btn-floating').click(function () {
+                        if ($tocAside.hasClass(expandedClass)) {
+                            $tocAside.removeClass(expandedClass).hide();
+                            $mainContent.removeClass('l9');
+                        } else {
+                            $tocAside.addClass(expandedClass).show();
+                            $mainContent.addClass('l9');
+                        }
+                        fixPostCardWidth('artDetail', 'prenext-posts');
+                    });
+        
+    });
+        </script>
+    
+
+</main>
+
+
+
+
+                <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2024-2026</span>
+            
+            <a href="/about" target="_blank">foo1s</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+                <span id="translate">|&nbsp;繁/简：</span><a id="translateLink" href="javascript:translatePage();">繁</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2024";
+                        var startMonth = "11";
+                        var startDate = "7";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="/null" target="_blank"></a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/foo1s" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:zhouhuawe41@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2458976746" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2458976746" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+                    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+                        <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+                            <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+                                <script
+                                    src="/libs/materialize/materialize.min.js"></script>
+                                <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+                                <script src="/libs/aos/aos.js"></script>
+                                <script
+                                    src="/libs/scrollprogress/scrollProgress.min.js"></script>
+                                <script
+                                    src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+                                <script src="/js/matery.js"></script>
+
+                                
+
+                                        
+                                            <script type="text/javascript"
+                                                src="/js/tw_cn.js"></script>
+                                            <script type="text/javascript">
+                                                var defaultEncoding = 2; //网站编写字体是否繁体，1-繁体，2-简体
+                                                var translateDelay = 0; //延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
+                                                var cookieDomain = "http://foo1s.github.io"; //Cookie地址, 一定要设定, 通常为你的网址
+                                                var msgToTraditionalChinese = "繁"; //此处可以更改为你想要显示的文字
+                                                var msgToSimplifiedChinese = "简"; //同上，但两处均不建议更改
+                                                var translateButtonId = "translateLink"; //默认互换id
+                                                translateInitilization();
+                                            </script>
+                                            
+
+                                                
+
+                                                        <!-- 雪花特效 -->
+                                                        
+
+                                                                <!-- 鼠标星星特效 -->
+                                                                
+
+                                                                        
+                                                                            <script
+                                                                                src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+                                                                            <script
+                                                                                src="/libs/others/TencentCaptcha.js"></script>
+                                                                            <button id="TencentCaptcha"
+                                                                                data-appid="xxxxxxxxxx"
+                                                                                data-cbfn="callback" type="button"
+                                                                                hidden></button>
+                                                                            
+
+                                                                                <!-- Baidu Analytics -->
+
+                                                                                    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+                                                                                        
+                                                                                                
+                                                                                                    <script async
+                                                                                                        src="/libs/others/busuanzi.pure.mini.js"></script>
+                                                                                                    
+
+                                                                                                        
+
+                                                                                                                
+
+                                                                                                                        <!--腾讯兔小巢-->
+                                                                                                                        
+                                                                                                                                
+
+                                                                                                                                        
+
+                                                                                                                                                    
+
+                                                                                                                                                            
+                                                                                                                                                                <script
+                                                                                                                                                                    src="/libs/instantpage/instantpage.js"
+                                                                                                                                                                    type="module"></script>
+                                                                                                                                                                
+
+    </body>
+
+</html>

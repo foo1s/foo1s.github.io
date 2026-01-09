@@ -21,6 +21,17 @@ MVCC的实现原理好的，我们来详细">
     <meta name="referrer" content="no-referrer-when-downgrade">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
 
     <title>MySQL基础-MVCC | foo1s&#39; blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
@@ -62,8 +73,13 @@ MVCC的实现原理好的，我们来详细">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
-<body>
-    <header class="navbar-fixed">
+    <body>
+        <script>
+            if (localStorage.getItem('isDark') === '1') {
+                document.body.classList.add('DarkMode');
+            }
+        </script>
+        <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -85,74 +101,146 @@ MVCC的实现原理好的，我们来详细">
       
       <i class="fas fa-home" style="zoom: 0.6;"></i>
       
-      <span>首页</span>
+      <span>Main</span>
     </a>
     
   </li>
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
+    <a href="" class="waves-effect waves-light">
+
       
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      <i class="fas fa-folder" style="zoom: 0.6;"></i>
       
-      <span>标签</span>
+      <span>Document</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
     </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <i class="fas fa-tags" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>tags</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>categories</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-archive" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>archives</span>
+        </a>
+      </li>
+      
+    </ul>
     
   </li>
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/categories" class="waves-effect waves-light">
+    <a href="" class="waves-effect waves-light">
+
       
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      <i class="fas fa-compact-disc" style="zoom: 0.6;"></i>
       
-      <span>分类</span>
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
     </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/movies">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Movies</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Galleries</span>
+        </a>
+      </li>
+      
+    </ul>
     
   </li>
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/archives" class="waves-effect waves-light">
+    <a href="" class="waves-effect waves-light">
+
       
-      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      <i class="fas fa-person" style="zoom: 0.6;"></i>
       
-      <span>归档</span>
+      <span>Bing</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
     </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
+    <ul class="sub-nav menus_item_child ">
       
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      <li>
+        <a href="/about">
+          
+          <i class="fas fa-user-circle" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>About</span>
+        </a>
+      </li>
       
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
+      <li>
+        <a href="/contact">
+          
+          <i class="fas fa-comments" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Contact</span>
+        </a>
+      </li>
       
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      <li>
+        <a href="/friends">
+          
+          <i class="fas fa-address-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Friends</span>
+        </a>
+      </li>
       
-      <span>留言板</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/friends" class="waves-effect waves-light">
-      
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
-      
-      <span>友情链接</span>
-    </a>
+    </ul>
     
   </li>
   
@@ -191,74 +279,153 @@ MVCC的实现原理好的，我们来详细">
 			
 			    <i class="fa-fw fas fa-home"></i>
 			
-			首页
+			Main
 		</a>
           
         </li>
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
+		<a href="javascript:;">
 			
-			    <i class="fa-fw fas fa-tags"></i>
+				<i class="fa-fw fas fa-folder"></i>
 			
-			标签
+			Document
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
 		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-tags" style="position: absolute;left:50px" ></i>
+			      
+		          <span>tags</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-bookmark" style="position: absolute;left:50px" ></i>
+			      
+		          <span>categories</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-archive" style="position: absolute;left:50px" ></i>
+			      
+		          <span>archives</span>
+                  </a>
+                </li>
+              
+            </ul>
           
         </li>
         
         <li class="m-nav-item">
 	  
-		<a href="/categories" class="waves-effect waves-light">
+		<a href="javascript:;">
 			
-			    <i class="fa-fw fas fa-bookmark"></i>
+				<i class="fa-fw fas fa-compact-disc"></i>
 			
-			分类
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
 		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/movies " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Movies</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
           
         </li>
         
         <li class="m-nav-item">
 	  
-		<a href="/archives" class="waves-effect waves-light">
+		<a href="javascript:;">
 			
-			    <i class="fa-fw fas fa-archive"></i>
+				<i class="fa-fw fas fa-person"></i>
 			
-			归档
+			Bing
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
 		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/friends" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-address-book"></i>
-			
-			友情链接
-		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/about " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-user-circle" style="position: absolute;left:50px" ></i>
+			      
+		          <span>About</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/contact " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-comments" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Contact</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/friends " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-address-book" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Friends</span>
+                  </a>
+                </li>
+              
+            </ul>
           
         </li>
         
@@ -337,7 +504,7 @@ MVCC的实现原理好的，我们来详细">
 
 </header>
 
-    
+            
 
 
 
@@ -360,7 +527,7 @@ MVCC的实现原理好的，我们来详细">
 
     
     <div class="row">
-    <div id="main-content" class="col s12 m12 l9">
+    <div id="main-content" class="col s12 m12">
         <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
@@ -368,68 +535,72 @@ MVCC的实现原理好的，我们来详细">
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">
+                                        数据库
+                                    </span>
+                                </a>
+                                
+                                <a href="/tags/MySQL/">
+                                    <span class="chip bg-color">
+                                        MySQL
+                                    </span>
+                                </a>
+                                
+                        </div>
                         
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                <span class="chip bg-color">数据库</span>
-                            </a>
-                        
-                            <a href="/tags/MySQL/">
-                                <span class="chip bg-color">MySQL</span>
-                            </a>
-                        
-                    </div>
-                    
                 </div>
                 <div class="col s5 right-align">
                     
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        <div class="post-cate">
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                                <a href="/categories/DataBase/" class="post-category">
+                                    DataBase
+                                </a>
+                                
+                                <a href="/categories/DataBase/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                                
+                        </div>
                         
-                            <a href="/categories/DataBase/" class="post-category">
-                                DataBase
-                            </a>
-                        
-                            <a href="/categories/DataBase/MySQL/" class="post-category">
-                                MySQL
-                            </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
 
             <div class="post-info">
                 
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2025-05-08
-                </div>
-                
+                    <div class="post-date info-break-policy">
+                        <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                            2025-05-08
+                    </div>
+                    
 
-                
+                        
 
-                
-                <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
-                </div>
-                
+                                
+                                    <div class="info-break-policy">
+                                        <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                                            2.3k
+                                    </div>
+                                    
 
-                
+                                        
 
-                
+                                                
             </div>
         </div>
         <hr class="clearfix">
 
         
 
-        
+                
 
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <h3 id="MVCC存储在哪里，作用是什么"><a href="#MVCC存储在哪里，作用是什么" class="headerlink" title="MVCC存储在哪里，作用是什么"></a>MVCC存储在哪里，作用是什么</h3><h4 id="MVCC是什么"><a href="#MVCC是什么" class="headerlink" title="MVCC是什么"></a>MVCC是什么</h4><ul>
+                        <div class="card-content article-card-content">
+                            <div id="articleContent">
+                                <h3 id="MVCC存储在哪里，作用是什么"><a href="#MVCC存储在哪里，作用是什么" class="headerlink" title="MVCC存储在哪里，作用是什么"></a>MVCC存储在哪里，作用是什么</h3><h4 id="MVCC是什么"><a href="#MVCC是什么" class="headerlink" title="MVCC是什么"></a>MVCC是什么</h4><ul>
 <li>传统的数据库并发控制通常使用锁机制，在并发量高的情况下容易导致阻塞和性能下降。</li>
 <li>读不阻塞写，写不阻塞读；为每个事务维护一个数据快照；创建新版本而不是覆盖。</li>
 <li></li>
@@ -511,11 +682,11 @@ MVCC的实现原理好的，我们来详细">
 </li>
 </ul>
 
-                
-            </div>
-            <hr/>
+                                    
+                            </div>
+                            <hr />
 
-            
+                            
 
     <div class="reprint" id="reprint-statement">
         
@@ -536,7 +707,7 @@ MVCC的实现原理好的，我们来详细">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://foo1s.github.io/2025/05/08/MVCC/">http://foo1s.github.io/2025/05/08/MVCC/</a>
+                    <a href="http://foo1s.github.io/2025/05/08/mvcc/">http://foo1s.github.io/2025/05/08/mvcc/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -569,39 +740,25 @@ MVCC的实现原理好的，我们来详细">
 
 
 
-            <div class="tag_share" style="display: block;">
-                <div class="post-meta__tag-list" style="display: inline-block;">
-                    
-                        <div class="article-tag">
-                            
-                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                    <span class="chip bg-color">数据库</span>
-                                </a>
-                            
-                                <a href="/tags/MySQL/">
-                                    <span class="chip bg-color">MySQL</span>
-                                </a>
-                            
-                        </div>
-                    
-                </div>
-                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+                                <div class="tag_share" style="display: block;">
+                                    <div class="post_share"
+                                        style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                                        <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
     
-    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="/libs/share/js/social-share.min.js"></script>
-    
+        <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>">
+        </div>
+        <script src="/libs/share/js/social-share.min.js"></script>
+        
 
-    
+            
 
 </div>
-
-                </div>
-            </div>
-            
-                <div id="reward">
+                                    </div>
+                                </div>
+                                
+                                    <div id="reward">
     <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
 
     <!-- Modal Structure -->
@@ -633,8 +790,8 @@ MVCC的实现原理好的，我们来详细">
     });
 </script>
 
-            
-        </div>
+                                        
+                        </div>
     </div>
 
     
@@ -664,147 +821,207 @@ MVCC的实现原理好的，我们来详细">
     gitalk.render('gitalk-container');
 </script>
 
-    
+            
 
-    
+                
 
-    
+                            
 
-    
+                                        
 
-    
+                                                    
 
-    
+                                                                
 
-    
+                                                                            
 
-    
+                                                                                        
 
-    
+                                                                                                    
 
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
-            <div class="card">
-                <a href="/2025/05/08/MySQL%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="MySQL基础">
-                        
-                        <span class="card-title">MySQL基础</span>
+    <article id="prenext-posts" class="prev-next articles">
+        <div class="row article-row">
+            
+                <div class="article col s12 m6" data-aos="fade-up">
+                    <div class="article-badge left-badge text-color">
+                        <a href="/2025/05/08/ddl-yu-yan-xue-xi/"
+                            style="color: inherit; text-decoration: none; width: 100%; height: 100%; display: block;">
+                            <i class="fas fa-chevron-left"></i>&nbsp;上一篇&nbsp;:&nbsp;MySQL基础
+                        </a>
                     </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
+                    <div class="card">
+                        <a href="/2025/05/08/ddl-yu-yan-xue-xi/">
+                            <div class="card-image">
+                                
+                                        
+                                            <img src="/medias/featureimages/0.jpg"
+                                                class="responsive-img" alt="MySQL基础">
+                                            
+                                                <span class="card-title">
+                                                    MySQL基础
+                                                </span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                            
+                                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="far fa-clock fa-fw icon-date"></i>
+                                    2025-05-08
+                                </span>
+                                <span class="publish-author">
+                                    
+                                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                        
+                                            <a href="/categories/DataBase/" class="post-category">
+                                                DataBase
+                                            </a>
+                                            
+                                            <a href="/categories/DataBase/MySQL/" class="post-category">
+                                                MySQL
+                                            </a>
+                                            
+                                                
+                                </span>
+                            </div>
+                        </div>
                         
+                            <div class="card-action article-tags">
+                                
+                                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                        <span class="chip bg-color">
+                                            数据库
+                                        </span>
+                                    </a>
+                                    
+                                    <a href="/tags/MySQL/">
+                                        <span class="chip bg-color">
+                                            MySQL
+                                        </span>
+                                    </a>
+                                    
+                            </div>
                             
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-05-08
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/DataBase/" class="post-category">
-                                    DataBase
-                                </a>
-                            
-                            <a href="/categories/DataBase/MySQL/" class="post-category">
-                                    MySQL
-                                </a>
-                            
-                            
-                        </span>
                     </div>
                 </div>
                 
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
-                    </a>
-                    
-                    <a href="/tags/MySQL/">
-                        <span class="chip bg-color">MySQL</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
+                        
+                            <div class="article col s12 m6" data-aos="fade-up">
+                                <div class="article-badge right-badge text-color">
+                                    <a href="/2025/05/08/mysql-si-da-ge-chi-yu-ju/"
+                                        style="color: inherit; text-decoration: none; width: 100%; height: 100%; display: block;">
+                                        MySQL基础-隔离语句&nbsp;:&nbsp;下一篇&nbsp;<i
+                                                    class="fas fa-chevron-right"></i>
+                                    </a>
+                                </div>
+                                <div class="card">
+                                    <a href="/2025/05/08/mysql-si-da-ge-chi-yu-ju/">
+                                        <div class="card-image">
+                                            
+                                                    
+                                                        <img src="/medias/featureimages/4.jpg"
+                                                            class="responsive-img" alt="MySQL基础-隔离语句">
+                                                        
+                                                            <span class="card-title">
+                                                                MySQL基础-隔离语句
+                                                            </span>
+                                        </div>
+                                    </a>
+                                    <div class="card-content article-content">
+                                        <div class="summary block-with-text">
+                                            
+                                                        
+                                                            
+                                        </div>
+                                        <div class="publish-info">
+                                            <span class="publish-date">
+                                                <i class="far fa-clock fa-fw icon-date"></i>
+                                                2025-05-08
+                                            </span>
+                                            <span class="publish-author">
+                                                
+                                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                                    
+                                                        <a href="/categories/DataBase/" class="post-category">
+                                                            DataBase
+                                                        </a>
+                                                        
+                                                        <a href="/categories/DataBase/MySQL/" class="post-category">
+                                                            MySQL
+                                                        </a>
+                                                        
+                                                            
+                                            </span>
+                                        </div>
+                                    </div>
+                                    
+                                        <div class="card-action article-tags">
+                                            
+                                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                                    <span class="chip bg-color">
+                                                        数据库
+                                                    </span>
+                                                </a>
+                                                
+                                                <a href="/tags/MySQL/">
+                                                    <span class="chip bg-color">
+                                                        MySQL
+                                                    </span>
+                                                </a>
+                                                
+                                        </div>
+                                        
+                                </div>
+                            </div>
+                            
         </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2025/05/08/MYSQL%E5%9B%9B%E5%A4%A7%E9%9A%94%E7%A6%BB%E8%AF%AD%E5%8F%A5/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="MySQL基础-隔离语句">
-                        
-                        <span class="card-title">MySQL基础-隔离语句</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-08
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/DataBase/" class="post-category">
-                                    DataBase
-                                </a>
-                            
-                            <a href="/categories/DataBase/MySQL/" class="post-category">
-                                    MySQL
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
-                    </a>
-                    
-                    <a href="/tags/MySQL/">
-                        <span class="chip bg-color">MySQL</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-    </div>
-</article>
-
+    </article>
 </div>
 
 
+    <script>
+        $('#articleContent').on('copy', function (e) {
+            // IE8 or earlier browser is 'undefined'
+            if (typeof window.getSelection === 'undefined') return;
 
-<!-- 代码块功能依赖 -->
+            var selection = window.getSelection();
+            // if the selection is short let's not annoy our users.
+            if (('' + selection).length < Number.parseInt('120')) {
+                return;
+            }
+
+            // create a div outside of the visible area and fill it with the selected text.
+            var bodyElement = document.getElementsByTagName('body')[0];
+            var newdiv = document.createElement('div');
+            newdiv.style.position = 'absolute';
+            newdiv.style.left = '-99999px';
+            bodyElement.appendChild(newdiv);
+            newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+            // we need a <pre> tag workaround.
+            // otherwise the text inside "pre" loses all the line breaks!
+            if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+                newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+            }
+
+            var url = document.location.href;
+            newdiv.innerHTML += '<br />'
+                + '来源: foo1s&#39; blog<br />'
+                + '文章作者: foo1s<br />'
+                + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+                + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+            selection.selectAllChildren(newdiv);
+            window.setTimeout(function () { bodyElement.removeChild(newdiv); }, 200);
+        });
+    </script>
+    
+
+        <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
@@ -824,9 +1041,8 @@ MVCC的实现原理好的，我们来详细">
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
-
     </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div id="toc-aside" class="col l3 hide-on-med-and-down" style="display: none;">
         <div class="toc-widget card" style="background-color: white;">
             <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
             <div id="toc-content"></div>
@@ -836,76 +1052,75 @@ MVCC的实现原理好的，我们来详细">
 
 <!-- TOC 悬浮按钮. -->
 
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
+    <div id="floating-toc-btn" class="hide-on-med-and-down">
+        <a class="btn-floating btn-large bg-color">
+            <i class="fas fa-list-ul"></i>
+        </a>
+    </div>
+    
 
+        <script src="/libs/tocbot/tocbot.min.js"></script>
+        <script>
+            $(function () {
+                tocbot.init({
+                    tocSelector: '#toc-content',
+                    contentSelector: '#articleContent',
+                    headingsOffset: -($(window).height() * 0.4 - 45),
+                    collapseDepth: Number('0'),
+                    headingSelector: 'h2, h3, h4'
+                });
 
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
+                // Set scroll toc fixed.
+                let tocHeight = parseInt($(window).height() * 0.4 - 64);
+                let $tocWidget = $('.toc-widget');
+                $(window).scroll(function () {
+                    let scroll = $(window).scrollTop();
+                    /* add post toc fixed. */
+                    if (scroll > tocHeight) {
+                        $tocWidget.addClass('toc-fixed');
+                    } else {
+                        $tocWidget.removeClass('toc-fixed');
+                    }
+                });
 
         
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
+                    /* 修复文章卡片 div 的宽度. */
+                    let fixPostCardWidth = function (srcId, targetId) {
+                        let srcDiv = $('#' + srcId);
+                        if (srcDiv.length === 0) {
+                            return;
+                        }
 
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
+                        let w = srcDiv.width();
+                        if (w >= 450) {
+                            w = w + 21;
+                        } else if (w >= 350 && w < 450) {
+                            w = w + 18;
+                        } else if (w >= 300 && w < 350) {
+                            w = w + 16;
+                        } else {
+                            w = w + 14;
+                        }
+                        $('#' + targetId).width(w);
+                    };
 
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
+                    // 切换TOC目录展开收缩的相关操作.
+                    const expandedClass = 'expanded';
+                    let $tocAside = $('#toc-aside');
+                    let $mainContent = $('#main-content');
+                    $('#floating-toc-btn .btn-floating').click(function () {
+                        if ($tocAside.hasClass(expandedClass)) {
+                            $tocAside.removeClass(expandedClass).hide();
+                            $mainContent.removeClass('l9');
+                        } else {
+                            $tocAside.addClass(expandedClass).show();
+                            $mainContent.addClass('l9');
+                        }
+                        fixPostCardWidth('artDetail', 'prenext-posts');
+                    });
         
     });
-</script>
-
+        </script>
     
 
 </main>
@@ -913,7 +1128,7 @@ MVCC的实现原理好的，我们来详细">
 
 
 
-    <footer class="page-footer bg-color">
+                <footer class="page-footer bg-color">
     
         <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
 <style>
@@ -971,15 +1186,17 @@ MVCC的实现原理好的，我们来详细">
     
 
     <div class="container row center-align"
-         style="margin-bottom: 0px !important;">
+         style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2024-2025</span>
+                <span id="year">2024-2026</span>
             
             <a href="/about" target="_blank">foo1s</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+                <span id="translate">|&nbsp;繁/简：</span><a id="translateLink" href="javascript:translatePage();">繁</a>
             
             <br>
             
@@ -1003,17 +1220,76 @@ MVCC的实现原理好的，我们来详细">
 
             <!-- 运行天数提醒. -->
             
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2024";
+                        var startMonth = "11";
+                        var startDate = "7";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
             <br>
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="/null" target="_blank"></a>
+            </span>
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/foo1s" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:zhouhuawe41@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -1023,7 +1299,7 @@ MVCC的实现原理好的，我们来详细">
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2458976746" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2458976746" data-position="top" data-delay="50">
         <i class="fab fa-qq"></i>
     </a>
 
@@ -1044,7 +1320,7 @@ MVCC的实现原理好的，我们来详细">
 <div class="progress-bar"></div>
 
 
-    <!-- 搜索遮罩框 -->
+                    <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
     <div class="modal-content">
         <div class="search-header">
@@ -1148,7 +1424,7 @@ $(function () {
 });
 </script>
 
-    <!-- 白天和黑夜主题 -->
+                        <!-- 白天和黑夜主题 -->
 <div class="stars-con">
     <div id="stars"></div>
     <div id="stars2"></div>
@@ -1172,7 +1448,7 @@ $(function () {
     }
 </script>
 
-    <!-- 回到顶部按钮 -->
+                            <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
     <a class="btn-floating btn-large waves-effect waves-light" href="#!">
         <i class="fas fa-arrow-up"></i>
@@ -1180,34 +1456,54 @@ $(function () {
 </div>
 
 
-    <script src="/libs/materialize/materialize.min.js"></script>
-    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="/libs/aos/aos.js"></script>
-    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="/js/matery.js"></script>
+                                <script
+                                    src="/libs/materialize/materialize.min.js"></script>
+                                <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+                                <script src="/libs/aos/aos.js"></script>
+                                <script
+                                    src="/libs/scrollprogress/scrollProgress.min.js"></script>
+                                <script
+                                    src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+                                <script src="/js/matery.js"></script>
 
-    
+                                
 
-    
-    
-    
+                                        
+                                            <script type="text/javascript"
+                                                src="/js/tw_cn.js"></script>
+                                            <script type="text/javascript">
+                                                var defaultEncoding = 2; //网站编写字体是否繁体，1-繁体，2-简体
+                                                var translateDelay = 0; //延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
+                                                var cookieDomain = "http://foo1s.github.io"; //Cookie地址, 一定要设定, 通常为你的网址
+                                                var msgToTraditionalChinese = "繁"; //此处可以更改为你想要显示的文字
+                                                var msgToSimplifiedChinese = "简"; //同上，但两处均不建议更改
+                                                var translateButtonId = "translateLink"; //默认互换id
+                                                translateInitilization();
+                                            </script>
+                                            
 
-    <!-- 雪花特效 -->
-    
+                                                
 
-    <!-- 鼠标星星特效 -->
-    
+                                                        <!-- 雪花特效 -->
+                                                        
 
-     
-        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
-        <script src="/libs/others/TencentCaptcha.js"></script>
-        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
-    
+                                                                <!-- 鼠标星星特效 -->
+                                                                
 
-    <!-- Baidu Analytics -->
+                                                                        
+                                                                            <script
+                                                                                src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+                                                                            <script
+                                                                                src="/libs/others/TencentCaptcha.js"></script>
+                                                                            <button id="TencentCaptcha"
+                                                                                data-appid="xxxxxxxxxx"
+                                                                                data-cbfn="callback" type="button"
+                                                                                hidden></button>
+                                                                            
 
-    <!-- Baidu Push -->
+                                                                                <!-- Baidu Analytics -->
+
+                                                                                    <!-- Baidu Push -->
 
 <script>
     (function () {
@@ -1223,29 +1519,30 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
-    
-    
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
-    
+                                                                                        
+                                                                                                
+                                                                                                    <script async
+                                                                                                        src="/libs/others/busuanzi.pure.mini.js"></script>
+                                                                                                    
 
-    
+                                                                                                        
 
-    
+                                                                                                                
 
-    <!--腾讯兔小巢-->
-    
-    
+                                                                                                                        <!--腾讯兔小巢-->
+                                                                                                                        
+                                                                                                                                
 
-    
+                                                                                                                                        
 
-    
+                                                                                                                                                    
 
-    
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
-    
+                                                                                                                                                            
+                                                                                                                                                                <script
+                                                                                                                                                                    src="/libs/instantpage/instantpage.js"
+                                                                                                                                                                    type="module"></script>
+                                                                                                                                                                
 
-</body>
+    </body>
 
 </html>
