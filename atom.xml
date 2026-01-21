@@ -108,35 +108,6 @@
   
   <entry>
     <title>MySQL基础</title>
-    <link href="http://foo1s.github.io/2025/05/08/mysql-gao-ji-yu-yan-shi-yong/"/>
-    <id>http://foo1s.github.io/2025/05/08/mysql-gao-ji-yu-yan-shi-yong/</id>
-    <published>2025-05-08T07:39:07.000Z</published>
-    <updated>2025-05-08T08:55:07.704Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;视图&quot;&gt;&lt;a href=&quot;#视图&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="DataBase" scheme="http://foo1s.github.io/categories/DataBase/"/>
-    
-    <category term="MySQL" scheme="http://foo1s.github.io/categories/DataBase/MySQL/"/>
-    
-    
-    <category term="数据库" scheme="http://foo1s.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    <category term="MySQL" scheme="http://foo1s.github.io/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL基础</title>
     <link href="http://foo1s.github.io/2025/05/08/mysql-ji-chu/"/>
     <id>http://foo1s.github.io/2025/05/08/mysql-ji-chu/</id>
     <published>2025-05-08T07:39:07.000Z</published>
@@ -178,6 +149,35 @@
         
         
     <summary type="html">&lt;h3 id=&quot;1-Redo-Log-重做日志&quot;&gt;&lt;a href=&quot;#1-Redo-Log-重做日志&quot; class=&quot;headerlink&quot; title=&quot;1. Redo Log (重做日志)&quot;&gt;&lt;/a&gt;1. Redo Log</summary>
+        
+      
+    
+    
+    
+    <category term="DataBase" scheme="http://foo1s.github.io/categories/DataBase/"/>
+    
+    <category term="MySQL" scheme="http://foo1s.github.io/categories/DataBase/MySQL/"/>
+    
+    
+    <category term="数据库" scheme="http://foo1s.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="MySQL" scheme="http://foo1s.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL基础</title>
+    <link href="http://foo1s.github.io/2025/05/08/mysql-gao-ji-yu-yan-shi-yong/"/>
+    <id>http://foo1s.github.io/2025/05/08/mysql-gao-ji-yu-yan-shi-yong/</id>
+    <published>2025-05-08T07:39:07.000Z</published>
+    <updated>2025-05-08T08:55:07.704Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;视图&quot;&gt;&lt;a href=&quot;#视图&quot; class=&quot;headerlink&quot;</summary>
         
       
     
