@@ -108,18 +108,17 @@
   
   <entry>
     <title>MySQL基础</title>
-    <link href="http://foo1s.github.io/2025/05/08/mysql-ji-chu/"/>
-    <id>http://foo1s.github.io/2025/05/08/mysql-ji-chu/</id>
+    <link href="http://foo1s.github.io/2025/05/08/mysql-gao-ji-yu-yan-shi-yong/"/>
+    <id>http://foo1s.github.io/2025/05/08/mysql-gao-ji-yu-yan-shi-yong/</id>
     <published>2025-05-08T07:39:07.000Z</published>
-    <updated>2025-05-08T08:35:34.947Z</updated>
+    <updated>2025-05-08T08:55:07.704Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;MySQL8.4安装教程&lt;br&gt;&lt;a</summary>
+    <summary type="html">&lt;h3 id=&quot;视图&quot;&gt;&lt;a href=&quot;#视图&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -138,17 +137,18 @@
   
   <entry>
     <title>MySQL基础</title>
-    <link href="http://foo1s.github.io/2025/05/08/mysql-gao-ji-yu-yan-shi-yong/"/>
-    <id>http://foo1s.github.io/2025/05/08/mysql-gao-ji-yu-yan-shi-yong/</id>
+    <link href="http://foo1s.github.io/2025/05/08/mysql-ji-chu/"/>
+    <id>http://foo1s.github.io/2025/05/08/mysql-ji-chu/</id>
     <published>2025-05-08T07:39:07.000Z</published>
-    <updated>2025-05-08T08:55:07.704Z</updated>
+    <updated>2025-05-08T08:35:34.947Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;视图&quot;&gt;&lt;a href=&quot;#视图&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;MySQL8.4安装教程&lt;br&gt;&lt;a</summary>
         
       
     
@@ -312,18 +312,18 @@
   </entry>
   
   <entry>
-    <title>MySQL基础</title>
-    <link href="http://foo1s.github.io/2025/05/08/biao-xiang-guan-han-shu-shi-yong/"/>
-    <id>http://foo1s.github.io/2025/05/08/biao-xiang-guan-han-shu-shi-yong/</id>
+    <title>MySQL基础-索引</title>
+    <link href="http://foo1s.github.io/2025/05/08/suo-yin-xiang-guan-wen-ti/"/>
+    <id>http://foo1s.github.io/2025/05/08/suo-yin-xiang-guan-wen-ti/</id>
     <published>2025-05-08T07:39:07.000Z</published>
-    <updated>2025-05-08T08:55:16.154Z</updated>
+    <updated>2025-07-01T09:11:09.168Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;创建表&quot;&gt;&lt;a href=&quot;#创建表&quot; class=&quot;headerlink&quot; title=&quot;创建表&quot;&gt;&lt;/a&gt;创建表&lt;/h3&gt;&lt;h4 id=&quot;创建表基础&quot;&gt;&lt;a href=&quot;#创建表基础&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;AI相关提问&quot;&gt;&lt;a href=&quot;#AI相关提问&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -341,18 +341,18 @@
   </entry>
   
   <entry>
-    <title>MySQL基础-索引</title>
-    <link href="http://foo1s.github.io/2025/05/08/suo-yin-xiang-guan-wen-ti/"/>
-    <id>http://foo1s.github.io/2025/05/08/suo-yin-xiang-guan-wen-ti/</id>
+    <title>MySQL基础</title>
+    <link href="http://foo1s.github.io/2025/05/08/biao-xiang-guan-han-shu-shi-yong/"/>
+    <id>http://foo1s.github.io/2025/05/08/biao-xiang-guan-han-shu-shi-yong/</id>
     <published>2025-05-08T07:39:07.000Z</published>
-    <updated>2025-07-01T09:11:09.168Z</updated>
+    <updated>2025-05-08T08:55:16.154Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;AI相关提问&quot;&gt;&lt;a href=&quot;#AI相关提问&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h3 id=&quot;创建表&quot;&gt;&lt;a href=&quot;#创建表&quot; class=&quot;headerlink&quot; title=&quot;创建表&quot;&gt;&lt;/a&gt;创建表&lt;/h3&gt;&lt;h4 id=&quot;创建表基础&quot;&gt;&lt;a href=&quot;#创建表基础&quot; class=&quot;headerlink&quot;</summary>
         
       
     
