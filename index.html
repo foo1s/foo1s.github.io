@@ -672,48 +672,6 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12" data-aos="zoom-in">
                 <div class="card" style="box-shadow: none; border-bottom: 1px solid #eee; border-radius: 0;">
-                    <a href="/2025/05/08/ddl-yu-yan-xue-xi/">
-                        <div class="card-content article-content" style="padding: 24px 24px 12px 24px;">
-                            <div class="title" style="margin-bottom: 10px;">
-                                <span class="card-title" style="color: #000; font-weight: bold; font-size: 1.4rem; line-height: 1.4;">MySQL基础</span>
-                            </div>
-                            
-                            <div class="summary block-with-text" style="color: #666; margin-bottom: 15px;">
-                                
-                                    DDL语言主要用于定义和管理数据库的结构，包括库，表，索引，视图等数据库对象的创建与修改不涉及对数据的操作，而是更关注于数据库的结构与元数据
-DDL常用操作DDL常用语言create 
-
-alter
-
-drop
-
-show database
-                                
-                            </div>
-
-                            <div class="publish-info" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
-                                <div class="left-tags">
-                                    
-                                        
-                                            <span class="chip" style="color: #888; background-color: #f5f5f5; border: 1px solid #e0e0e0;">数据库</span>
-                                        
-                                            <span class="chip" style="color: #888; background-color: #f5f5f5; border: 1px solid #e0e0e0;">MySQL</span>
-                                        
-                                    
-                                </div>
-                                <div class="right-date" style="color: #999;">
-                                    2025-05-08
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12" data-aos="zoom-in">
-                <div class="card" style="box-shadow: none; border-bottom: 1px solid #eee; border-radius: 0;">
                     <a href="/2025/05/08/mvcc/">
                         <div class="card-content article-content" style="padding: 24px 24px 12px 24px;">
                             <div class="title" style="margin-bottom: 10px;">
@@ -754,18 +712,22 @@ MVCC的实现原理好的，我们来详细
              <!-- 隐藏某个文章 -->
             <div class="article col s12" data-aos="zoom-in">
                 <div class="card" style="box-shadow: none; border-bottom: 1px solid #eee; border-radius: 0;">
-                    <a href="/2025/05/08/mysql-si-da-ge-chi-yu-ju/">
+                    <a href="/2025/05/08/ddl-yu-yan-xue-xi/">
                         <div class="card-content article-content" style="padding: 24px 24px 12px 24px;">
                             <div class="title" style="margin-bottom: 10px;">
-                                <span class="card-title" style="color: #000; font-weight: bold; font-size: 1.4rem; line-height: 1.4;">MySQL基础-隔离语句</span>
+                                <span class="card-title" style="color: #000; font-weight: bold; font-size: 1.4rem; line-height: 1.4;">MySQL基础</span>
                             </div>
                             
                             <div class="summary block-with-text" style="color: #666; margin-bottom: 15px;">
                                 
-                                    SQL 标准定义了四个隔离级别：
+                                    DDL语言主要用于定义和管理数据库的结构，包括库，表，索引，视图等数据库对象的创建与修改不涉及对数据的操作，而是更关注于数据库的结构与元数据
+DDL常用操作DDL常用语言create 
 
-READ-UNCOMMITTED(读取未提交) ：最低的隔离级别，允许读取尚未提交的数据变更，可能会导致脏读、幻读或不可重复读。
-READ-COMMITTED(读取已提交) ：允许读取并发事务已经提交的数
+alter
+
+drop
+
+show database
                                 
                             </div>
 
@@ -831,17 +793,18 @@ MySQL8.4安装教程Windows安装Mysql8.4,看这一篇就够了（超级详细�
              <!-- 隐藏某个文章 -->
             <div class="article col s12" data-aos="zoom-in">
                 <div class="card" style="box-shadow: none; border-bottom: 1px solid #eee; border-radius: 0;">
-                    <a href="/2025/05/08/san-da-ri-zhi-de-zuo-yong-yi-ji-shi-xian/">
+                    <a href="/2025/05/08/mysql-si-da-ge-chi-yu-ju/">
                         <div class="card-content article-content" style="padding: 24px 24px 12px 24px;">
                             <div class="title" style="margin-bottom: 10px;">
-                                <span class="card-title" style="color: #000; font-weight: bold; font-size: 1.4rem; line-height: 1.4;">MySQL基础-三大日志</span>
+                                <span class="card-title" style="color: #000; font-weight: bold; font-size: 1.4rem; line-height: 1.4;">MySQL基础-隔离语句</span>
                             </div>
                             
                             <div class="summary block-with-text" style="color: #666; margin-bottom: 15px;">
                                 
-                                    1. Redo Log (重做日志)
-作用： Redo Log 是 InnoDB 存储引擎特有的日志，用于实现事务的 持久性（Durability）。它的主要目的是确保事务在提交后，即使发生数据库崩溃，数据也不会丢失。
-记录内容： 它记录的
+                                    SQL 标准定义了四个隔离级别：
+
+READ-UNCOMMITTED(读取未提交) ：最低的隔离级别，允许读取尚未提交的数据变更，可能会导致脏读、幻读或不可重复读。
+READ-COMMITTED(读取已提交) ：允许读取并发事务已经提交的数
                                 
                             </div>
 
@@ -913,22 +876,17 @@ drop
              <!-- 隐藏某个文章 -->
             <div class="article col s12" data-aos="zoom-in">
                 <div class="card" style="box-shadow: none; border-bottom: 1px solid #eee; border-radius: 0;">
-                    <a href="/2025/05/08/han-shu-yu-yan-de-xue-xi/">
+                    <a href="/2025/05/08/san-da-ri-zhi-de-zuo-yong-yi-ji-shi-xian/">
                         <div class="card-content article-content" style="padding: 24px 24px 12px 24px;">
                             <div class="title" style="margin-bottom: 10px;">
-                                <span class="card-title" style="color: #000; font-weight: bold; font-size: 1.4rem; line-height: 1.4;">MySQL基础</span>
+                                <span class="card-title" style="color: #000; font-weight: bold; font-size: 1.4rem; line-height: 1.4;">MySQL基础-三大日志</span>
                             </div>
                             
                             <div class="summary block-with-text" style="color: #666; margin-bottom: 15px;">
                                 
-                                    函数文本处理函数select name,Upper(name) AS name_case 
-FROM xxx
-order by xxx;
-
-left():返回左边的字符
-length():返回长度
-Locate():找出一个字串
-Lower
+                                    1. Redo Log (重做日志)
+作用： Redo Log 是 InnoDB 存储引擎特有的日志，用于实现事务的 持久性（Durability）。它的主要目的是确保事务在提交后，即使发生数据库崩溃，数据也不会丢失。
+记录内容： 它记录的
                                 
                             </div>
 
@@ -1008,6 +966,48 @@ Lower
                                 
                                     MySQL中，InnoDB和MyISAM是两种最常用的存储引擎，它们在设计和功能上有显著的区别。理解这些区别对于选择适合特定应用场景的存储引擎至关重要。以下是它们之间主要的区别：
 1. 事务支持 (Transaction Support):
+                                
+                            </div>
+
+                            <div class="publish-info" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                                <div class="left-tags">
+                                    
+                                        
+                                            <span class="chip" style="color: #888; background-color: #f5f5f5; border: 1px solid #e0e0e0;">数据库</span>
+                                        
+                                            <span class="chip" style="color: #888; background-color: #f5f5f5; border: 1px solid #e0e0e0;">MySQL</span>
+                                        
+                                    
+                                </div>
+                                <div class="right-date" style="color: #999;">
+                                    2025-05-08
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12" data-aos="zoom-in">
+                <div class="card" style="box-shadow: none; border-bottom: 1px solid #eee; border-radius: 0;">
+                    <a href="/2025/05/08/han-shu-yu-yan-de-xue-xi/">
+                        <div class="card-content article-content" style="padding: 24px 24px 12px 24px;">
+                            <div class="title" style="margin-bottom: 10px;">
+                                <span class="card-title" style="color: #000; font-weight: bold; font-size: 1.4rem; line-height: 1.4;">MySQL基础</span>
+                            </div>
+                            
+                            <div class="summary block-with-text" style="color: #666; margin-bottom: 15px;">
+                                
+                                    函数文本处理函数select name,Upper(name) AS name_case 
+FROM xxx
+order by xxx;
+
+left():返回左边的字符
+length():返回长度
+Locate():找出一个字串
+Lower
                                 
                             </div>
 
