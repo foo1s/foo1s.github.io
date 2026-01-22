@@ -605,24 +605,24 @@
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/05/08/suo-yin-xiang-guan-wen-ti/">
+                    <a href="/2025/05/08/biao-xiang-guan-han-shu-shi-yong/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="MySQL基础-索引">
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="MySQL基础">
                             
-                            <span class="card-title">MySQL基础-索引</span>
+                            <span class="card-title">MySQL基础</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                AI相关提问基础概念类：
-
-什么是数据库索引？为什么要使用索引？
-
-解答： 数据库索引是一种特殊的数据结构（通常是 B-Tree 或 B+Tree），它存储着表中一列或多列的值，并关联着这些值对应的数据行的物理位置或主键信息。
-使用索引的目
+                                创建表创建表基础create table table1
+(
+id int not null Auto_increment
+name char(50) not null
+money int nor null default 1
+primary
                             
                         </div>
                         <div class="publish-info">
@@ -664,24 +664,24 @@
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/05/08/biao-xiang-guan-han-shu-shi-yong/">
+                    <a href="/2025/05/08/suo-yin-xiang-guan-wen-ti/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="MySQL基础">
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="MySQL基础-索引">
                             
-                            <span class="card-title">MySQL基础</span>
+                            <span class="card-title">MySQL基础-索引</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                创建表创建表基础create table table1
-(
-id int not null Auto_increment
-name char(50) not null
-money int nor null default 1
-primary
+                                AI相关提问基础概念类：
+
+什么是数据库索引？为什么要使用索引？
+
+解答： 数据库索引是一种特殊的数据结构（通常是 B-Tree 或 B+Tree），它存储着表中一列或多列的值，并关联着这些值对应的数据行的物理位置或主键信息。
+使用索引的目
                             
                         </div>
                         <div class="publish-info">
@@ -961,24 +961,21 @@ Lower
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/05/08/mvcc/">
+                    <a href="/2025/05/08/san-da-ri-zhi-de-zuo-yong-yi-ji-shi-xian/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="MySQL基础-MVCC">
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="MySQL基础-三大日志">
                             
-                            <span class="card-title">MySQL基础-MVCC</span>
+                            <span class="card-title">MySQL基础-三大日志</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                MVCC存储在哪里，作用是什么MVCC是什么
-传统的数据库并发控制通常使用锁机制，在并发量高的情况下容易导致阻塞和性能下降。
-读不阻塞写，写不阻塞读；为每个事务维护一个数据快照；创建新版本而不是覆盖。
-
-
-MVCC的实现原理好的，我们来详细
+                                1. Redo Log (重做日志)
+作用： Redo Log 是 InnoDB 存储引擎特有的日志，用于实现事务的 持久性（Durability）。它的主要目的是确保事务在提交后，即使发生数据库崩溃，数据也不会丢失。
+记录内容： 它记录的
                             
                         </div>
                         <div class="publish-info">
@@ -1020,21 +1017,24 @@ MVCC的实现原理好的，我们来详细
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/05/08/san-da-ri-zhi-de-zuo-yong-yi-ji-shi-xian/">
+                    <a href="/2025/05/08/mvcc/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="MySQL基础-三大日志">
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="MySQL基础-MVCC">
                             
-                            <span class="card-title">MySQL基础-三大日志</span>
+                            <span class="card-title">MySQL基础-MVCC</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                1. Redo Log (重做日志)
-作用： Redo Log 是 InnoDB 存储引擎特有的日志，用于实现事务的 持久性（Durability）。它的主要目的是确保事务在提交后，即使发生数据库崩溃，数据也不会丢失。
-记录内容： 它记录的
+                                MVCC存储在哪里，作用是什么MVCC是什么
+传统的数据库并发控制通常使用锁机制，在并发量高的情况下容易导致阻塞和性能下降。
+读不阻塞写，写不阻塞读；为每个事务维护一个数据快照；创建新版本而不是覆盖。
+
+
+MVCC的实现原理好的，我们来详细
                             
                         </div>
                         <div class="publish-info">

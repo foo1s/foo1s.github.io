@@ -836,17 +836,20 @@ drop
              <!-- 隐藏某个文章 -->
             <div class="article col s12" data-aos="zoom-in">
                 <div class="card" style="box-shadow: none; border-bottom: 1px solid #eee; border-radius: 0;">
-                    <a href="/2025/05/08/san-da-ri-zhi-de-zuo-yong-yi-ji-shi-xian/">
+                    <a href="/2025/05/08/mvcc/">
                         <div class="card-content article-content" style="padding: 24px 24px 12px 24px;">
                             <div class="title" style="margin-bottom: 10px;">
-                                <span class="card-title" style="color: #000; font-weight: bold; font-size: 1.4rem; line-height: 1.4;">MySQL基础-三大日志</span>
+                                <span class="card-title" style="color: #000; font-weight: bold; font-size: 1.4rem; line-height: 1.4;">MySQL基础-MVCC</span>
                             </div>
                             
                             <div class="summary block-with-text" style="color: #666; margin-bottom: 15px;">
                                 
-                                    1. Redo Log (重做日志)
-作用： Redo Log 是 InnoDB 存储引擎特有的日志，用于实现事务的 持久性（Durability）。它的主要目的是确保事务在提交后，即使发生数据库崩溃，数据也不会丢失。
-记录内容： 它记录的
+                                    MVCC存储在哪里，作用是什么MVCC是什么
+传统的数据库并发控制通常使用锁机制，在并发量高的情况下容易导致阻塞和性能下降。
+读不阻塞写，写不阻塞读；为每个事务维护一个数据快照；创建新版本而不是覆盖。
+
+
+MVCC的实现原理好的，我们来详细
                                 
                             </div>
 
@@ -873,20 +876,17 @@ drop
              <!-- 隐藏某个文章 -->
             <div class="article col s12" data-aos="zoom-in">
                 <div class="card" style="box-shadow: none; border-bottom: 1px solid #eee; border-radius: 0;">
-                    <a href="/2025/05/08/mvcc/">
+                    <a href="/2025/05/08/san-da-ri-zhi-de-zuo-yong-yi-ji-shi-xian/">
                         <div class="card-content article-content" style="padding: 24px 24px 12px 24px;">
                             <div class="title" style="margin-bottom: 10px;">
-                                <span class="card-title" style="color: #000; font-weight: bold; font-size: 1.4rem; line-height: 1.4;">MySQL基础-MVCC</span>
+                                <span class="card-title" style="color: #000; font-weight: bold; font-size: 1.4rem; line-height: 1.4;">MySQL基础-三大日志</span>
                             </div>
                             
                             <div class="summary block-with-text" style="color: #666; margin-bottom: 15px;">
                                 
-                                    MVCC存储在哪里，作用是什么MVCC是什么
-传统的数据库并发控制通常使用锁机制，在并发量高的情况下容易导致阻塞和性能下降。
-读不阻塞写，写不阻塞读；为每个事务维护一个数据快照；创建新版本而不是覆盖。
-
-
-MVCC的实现原理好的，我们来详细
+                                    1. Redo Log (重做日志)
+作用： Redo Log 是 InnoDB 存储引擎特有的日志，用于实现事务的 持久性（Durability）。它的主要目的是确保事务在提交后，即使发生数据库崩溃，数据也不会丢失。
+记录内容： 它记录的
                                 
                             </div>
 
