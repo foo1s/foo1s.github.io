@@ -56,3 +56,114 @@ blockquote {
 .index-card .card .card-image {
     display: none !important;
 }
+
+/* Simple subpages/content pages: keep only top nav and show content directly. */
+body.no-cover-page #headNav {
+    background: rgba(255, 255, 255, 0.96) !important;
+    box-shadow: 0 2px 12px rgba(31, 45, 61, 0.08) !important;
+    backdrop-filter: blur(4px);
+}
+
+body.no-cover-page #headNav.nav-transparent {
+    background: rgba(255, 255, 255, 0.96) !important;
+    box-shadow: 0 2px 12px rgba(31, 45, 61, 0.08) !important;
+}
+
+body.no-cover-page .simple-page-spacer {
+    height: 76px;
+}
+
+body.no-cover-page .simple-page-spacer.pd-header {
+    margin-top: 0 !important;
+}
+
+body.no-cover-page main.content {
+    padding-top: 8px;
+}
+
+body.no-cover-page #headNav .brand-logo .logo-span,
+body.no-cover-page #headNav .nav-menu > li > a,
+body.no-cover-page #headNav .button-collapse i,
+body.no-cover-page #headNav #searchIcon,
+body.no-cover-page #headNav #sum-moon-icon {
+    color: #2f3b4a !important;
+}
+
+body.no-cover-page .post-simple-title-wrap {
+    margin-top: 6px;
+    margin-bottom: 8px;
+}
+
+body.no-cover-page .post-simple-title {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.35;
+    color: #2f3b4a;
+    font-weight: 600;
+}
+
+body.no-cover-page footer.page-footer.bg-color {
+    background: #f8fbff !important;
+    border-top: 1px solid #e9eef5;
+}
+
+body.no-cover-page footer.page-footer,
+body.no-cover-page footer.page-footer .copy-right,
+body.no-cover-page footer.page-footer .social-link a,
+body.no-cover-page footer.page-footer a,
+body.no-cover-page footer.page-footer .white-color {
+    color: #5d6b7b !important;
+}
+
+/* Home page only: use the same light top/bottom bars as subpages. */
+body.home-light-bars #headNav {
+    background: rgba(255, 255, 255, 0.96) !important;
+    box-shadow: 0 2px 12px rgba(31, 45, 61, 0.08) !important;
+    backdrop-filter: blur(4px);
+}
+
+body.home-light-bars #headNav.nav-transparent {
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none;
+}
+
+body.home-light-bars #headNav .brand-logo .logo-span,
+body.home-light-bars #headNav .nav-menu > li > a,
+body.home-light-bars #headNav .button-collapse i,
+body.home-light-bars #headNav #searchIcon,
+body.home-light-bars #headNav #sum-moon-icon {
+    color: #2f3b4a !important;
+}
+
+body.home-light-bars #headNav.nav-transparent .brand-logo .logo-span,
+body.home-light-bars #headNav.nav-transparent .nav-menu > li > a,
+body.home-light-bars #headNav.nav-transparent .button-collapse i,
+body.home-light-bars #headNav.nav-transparent #searchIcon,
+body.home-light-bars #headNav.nav-transparent #sum-moon-icon {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+}
+
+body.home-light-bars footer.page-footer.bg-color {
+    background: #f8fbff !important;
+    border-top: 1px solid #e9eef5;
+}
+
+body.home-light-bars footer.page-footer,
+body.home-light-bars footer.page-footer .copy-right,
+body.home-light-bars footer.page-footer .social-link a,
+body.home-light-bars footer.page-footer a,
+body.home-light-bars footer.page-footer .white-color {
+    color: #5d6b7b !important;
+}
+
+@media only screen and (max-width: 600px) {
+    body.no-cover-page .simple-page-spacer {
+        height: 64px;
+    }
+
+    body.no-cover-page .post-simple-title {
+        font-size: 1.5rem;
+    }
+}

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="foo1s&#39; blog">
+    <meta name="keywords" content="音乐, foo1s&#39; blog">
     <meta name="description" content="你我皆身处黑暗，走在各自的朝圣的路上&#39;">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -28,7 +28,7 @@
 </script>
 
 
-    <title>foo1s&#39; blog</title>
+    <title>音乐 | foo1s&#39; blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -54,6 +54,10 @@
 
 
 
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
 
 
 
@@ -495,8 +499,7 @@
 
 </header>
 
-            
-    <div class="simple-page-spacer pd-header"></div>
+            <div class="simple-page-spacer pd-header"></div>
 <script>
     document.body.classList.add('no-cover-page');
 </script>
@@ -504,269 +507,819 @@
 
 
 <main class="content">
+    <div class="container music-page">
+        <div class="card music-card">
+            <div class="card-content">
+                <div class="music-shell">
+                    <header class="music-header">
+                        <h2>foo1s's music</h2>
+                    </header>
 
-    
-
-    
-
-    <!-- 所有文章卡片 -->
-    <article id="articles" class="container articles">
-        <div class="row article-row">
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12" data-aos="zoom-in">
-                <div class="card" style="box-shadow: none; border-bottom: 1px solid #eee; border-radius: 0;">
-                    <a href="/2025/05/08/suo-yin-xiang-guan-wen-ti/">
-                        <div class="card-content article-content" style="padding: 24px 24px 12px 24px;">
-                            <div class="title" style="margin-bottom: 10px;">
-                                <span class="card-title" style="color: #000; font-weight: bold; font-size: 1.4rem; line-height: 1.4;">MySQL基础-索引</span>
-                            </div>
-                            
-                            <div class="summary block-with-text" style="color: #666; margin-bottom: 15px;">
-                                
-                                    AI相关提问基础概念类：
-
-什么是数据库索引？为什么要使用索引？
-
-解答： 数据库索引是一种特殊的数据结构（通常是 B-Tree 或 B+Tree），它存储着表中一列或多列的值，并关联着这些值对应的数据行的物理位置或主键信息。
-使用索引的目
-                                
-                            </div>
-
-                            <div class="publish-info" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
-                                <div class="left-tags">
-                                    
-                                        
-                                            <span class="chip" style="color: #888; background-color: #f5f5f5; border: 1px solid #e0e0e0;">数据库</span>
-                                        
-                                            <span class="chip" style="color: #888; background-color: #f5f5f5; border: 1px solid #e0e0e0;">MySQL</span>
-                                        
-                                    
-                                </div>
-                                <div class="right-date" style="color: #999;">
-                                    2025-05-08
-                                </div>
-                            </div>
+                    <section class="music-hero">
+                        <div class="hero-cover-wrap">
+                            <img id="now-cover" class="hero-cover" src="" alt="cover">
                         </div>
-                    </a>
+
+                        <div class="hero-lyrics-wrap">
+                            <div class="hero-song-info">
+                                <h3 id="now-title" class="hero-title">正在加载歌单...</h3>
+                                <p id="now-artist" class="hero-meta"></p>
+                                <p id="now-album" class="hero-meta"></p>
+                            </div>
+                            <div id="lyrics-list" class="lyrics-list"></div>
+                        </div>
+                    </section>
+
+                    <section class="control-bar">
+                        <div class="control-left">
+                            <button id="prev-btn" class="ctrl-btn" type="button" aria-label="上一首"><i class="fas fa-step-backward"></i></button>
+                            <button id="play-btn" class="ctrl-btn play-btn" type="button" aria-label="播放/暂停"><i class="fas fa-play"></i></button>
+                            <button id="next-btn" class="ctrl-btn" type="button" aria-label="下一首"><i class="fas fa-step-forward"></i></button>
+                        </div>
+
+                        <div id="control-title" class="control-title">等待歌单数据...</div>
+
+                        <div class="control-right">
+                            <button id="mode-btn" class="mode-btn" type="button">列表循环</button>
+                        </div>
+                    </section>
+
+                    <section class="progress-wrap">
+                        <input id="seek-bar" class="seek-bar" type="range" min="0" max="100" value="0">
+                        <div class="time-row">
+                            <span id="current-time">00:00</span>
+                            <span id="total-time">00:00</span>
+                        </div>
+                    </section>
+
+                    <section class="playlist-section">
+                        <div class="playlist-head">
+                            <div class="col-song">歌曲</div>
+                            <div class="col-artist">歌手</div>
+                            <div class="col-album">专辑</div>
+                        </div>
+                        <ul id="playlist" class="playlist"></ul>
+                    </section>
                 </div>
             </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12" data-aos="zoom-in">
-                <div class="card" style="box-shadow: none; border-bottom: 1px solid #eee; border-radius: 0;">
-                    <a href="/2025/05/08/biao-xiang-guan-han-shu-shi-yong/">
-                        <div class="card-content article-content" style="padding: 24px 24px 12px 24px;">
-                            <div class="title" style="margin-bottom: 10px;">
-                                <span class="card-title" style="color: #000; font-weight: bold; font-size: 1.4rem; line-height: 1.4;">MySQL基础</span>
-                            </div>
-                            
-                            <div class="summary block-with-text" style="color: #666; margin-bottom: 15px;">
-                                
-                                    创建表创建表基础create table table1
-(
-id int not null Auto_increment
-name char(50) not null
-money int nor null default 1
-primary
-                                
-                            </div>
-
-                            <div class="publish-info" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
-                                <div class="left-tags">
-                                    
-                                        
-                                            <span class="chip" style="color: #888; background-color: #f5f5f5; border: 1px solid #e0e0e0;">数据库</span>
-                                        
-                                            <span class="chip" style="color: #888; background-color: #f5f5f5; border: 1px solid #e0e0e0;">MySQL</span>
-                                        
-                                    
-                                </div>
-                                <div class="right-date" style="color: #999;">
-                                    2025-05-08
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12" data-aos="zoom-in">
-                <div class="card" style="box-shadow: none; border-bottom: 1px solid #eee; border-radius: 0;">
-                    <a href="/2025/05/08/mian-jing-chang-jian-wen-ti/">
-                        <div class="card-content article-content" style="padding: 24px 24px 12px 24px;">
-                            <div class="title" style="margin-bottom: 10px;">
-                                <span class="card-title" style="color: #000; font-weight: bold; font-size: 1.4rem; line-height: 1.4;">MySQL基础-面经</span>
-                            </div>
-                            
-                            <div class="summary block-with-text" style="color: #666; margin-bottom: 15px;">
-                                
-                                    MVCC存储在哪里，作用是什么MVCC是什么
-传统的数据库并发控制通常使用锁机制，在并发量高的情况下容易导致阻塞和性能下降。
-读不阻塞写，写不阻塞读；为每个事务维护一个数据快照；创建新版本而不是覆盖。
-
-
-MVCC的实现原理好的，我们来详细
-                                
-                            </div>
-
-                            <div class="publish-info" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
-                                <div class="left-tags">
-                                    
-                                        
-                                            <span class="chip" style="color: #888; background-color: #f5f5f5; border: 1px solid #e0e0e0;">数据库</span>
-                                        
-                                            <span class="chip" style="color: #888; background-color: #f5f5f5; border: 1px solid #e0e0e0;">MySQL</span>
-                                        
-                                    
-                                </div>
-                                <div class="right-date" style="color: #999;">
-                                    2025-05-08
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12" data-aos="zoom-in">
-                <div class="card" style="box-shadow: none; border-bottom: 1px solid #eee; border-radius: 0;">
-                    <a href="/2024/11/07/liu-bang-da-chuan/">
-                        <div class="card-content article-content" style="padding: 24px 24px 12px 24px;">
-                            <div class="title" style="margin-bottom: 10px;">
-                                <span class="card-title" style="color: #000; font-weight: bold; font-size: 1.4rem; line-height: 1.4;">刘邦大传</span>
-                            </div>
-                            
-                            <div class="summary block-with-text" style="color: #666; margin-bottom: 15px;">
-                                
-                                    观刘邦大传有所感的句子
-柔弱生之徒，老式戒刚强
-
-天地不仁，以万物为刍狗；圣人不仁，以百姓为刍狗
-
-失败的痛苦对我们对我们虽然最有用处，但往往是最容易被忘掉的；成功的骄傲最容易误导我们日后的行为，却也是最不容易抛弃的一部分。
-
-攻击自己的勇
-                                
-                            </div>
-
-                            <div class="publish-info" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
-                                <div class="left-tags">
-                                    
-                                        
-                                            <span class="chip" style="color: #888; background-color: #f5f5f5; border: 1px solid #e0e0e0;">读后感</span>
-                                        
-                                    
-                                </div>
-                                <div class="right-date" style="color: #999;">
-                                    2024-11-07
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12" data-aos="zoom-in">
-                <div class="card" style="box-shadow: none; border-bottom: 1px solid #eee; border-radius: 0;">
-                    <a href="/2024/11/07/foo1s-de-di-yi-pian-bo-ke/">
-                        <div class="card-content article-content" style="padding: 24px 24px 12px 24px;">
-                            <div class="title" style="margin-bottom: 10px;">
-                                <span class="card-title" style="color: #000; font-weight: bold; font-size: 1.4rem; line-height: 1.4;">foo1s的第一篇博客</span>
-                            </div>
-                            
-                            <div class="summary block-with-text" style="color: #666; margin-bottom: 15px;">
-                                
-                                    foo1s新建博客后使用的第一篇博客
-                                
-                            </div>
-
-                            <div class="publish-info" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
-                                <div class="left-tags">
-                                    
-                                        
-                                            <span class="chip" style="color: #888; background-color: #f5f5f5; border: 1px solid #e0e0e0;">Obsidian</span>
-                                        
-                                            <span class="chip" style="color: #888; background-color: #f5f5f5; border: 1px solid #e0e0e0;">Markdown</span>
-                                        
-                                    
-                                </div>
-                                <div class="right-date" style="color: #999;">
-                                    2024-11-07
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12" data-aos="zoom-in">
-                <div class="card" style="box-shadow: none; border-bottom: 1px solid #eee; border-radius: 0;">
-                    <a href="/2024/11/06/hello-world/">
-                        <div class="card-content article-content" style="padding: 24px 24px 12px 24px;">
-                            <div class="title" style="margin-bottom: 10px;">
-                                <span class="card-title" style="color: #000; font-weight: bold; font-size: 1.4rem; line-height: 1.4;">Hello World</span>
-                            </div>
-                            
-                            <div class="summary block-with-text" style="color: #666; margin-bottom: 15px;">
-                                
-                                    Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
-                                
-                            </div>
-
-                            <div class="publish-info" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
-                                <div class="left-tags">
-                                    
-                                </div>
-                                <div class="right-date" style="color: #999;">
-                                    2024-11-06
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-        </div>
-    </article>
-
-</main>
-
-
-<div class="container paging">
-    <div class="row">
-        <div class="col s6 m4 l4">
-            
-            <a href="/"
-               class="left btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fas fa-angle-left"></i>
-            </a>
-            
-        </div>
-        <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">2 / 2</div>
-        </div>
-        <div class="col s6 m4 l4">
-            
-            <a class="right btn-floating btn-large disabled">
-                <i class="fas fa-angle-right"></i>
-            </a>
-            
         </div>
     </div>
-</div>
 
+    <audio id="player-audio" preload="metadata"></audio>
+</main>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">
+
+<style>
+    .music-page {
+        margin-top: -60px;
+    }
+
+    .music-card {
+        border-radius: 16px;
+    }
+
+    .music-shell {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        max-width: 980px;
+        margin: 0 auto;
+    }
+
+    .music-header h2 {
+        margin: 0;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #eef2f6;
+        color: #202b38;
+        font-size: 26px;
+        font-weight: 600;
+    }
+
+    .music-hero {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+    }
+
+    .hero-cover-wrap {
+        width: 240px;
+        flex: 0 0 240px;
+    }
+
+    .hero-cover {
+        width: 240px;
+        height: 240px;
+        object-fit: cover;
+        border-radius: 16px;
+        box-shadow: 0 10px 24px rgba(26, 37, 50, 0.16);
+        display: block;
+        background: #f2f5f9;
+    }
+
+    .hero-lyrics-wrap {
+        flex: 1;
+        min-width: 0;
+        border: 1px solid #edf1f5;
+        border-radius: 12px;
+        padding: 14px 16px;
+    }
+
+    .hero-song-info {
+        margin-bottom: 10px;
+    }
+
+    .hero-title {
+        margin: 0;
+        color: #1f2d3d;
+        font-size: 20px;
+    }
+
+    .hero-meta {
+        margin: 6px 0 0;
+        color: #6f7f90;
+        font-size: 14px;
+    }
+
+    .lyrics-list {
+        height: 180px;
+        overflow: auto;
+        padding-right: 4px;
+    }
+
+    .lyric-line {
+        margin: 7px 0;
+        line-height: 1.7;
+        color: #9aa6b2;
+        font-size: 14px;
+        transition: color .2s;
+    }
+
+    .lyric-line.active {
+        color: #2a3440;
+        font-weight: 600;
+    }
+
+    .control-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        border-top: 1px solid #e9edf2;
+        border-bottom: 1px solid #e9edf2;
+        padding: 12px 2px;
+    }
+
+    .control-left,
+    .control-right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .control-title {
+        flex: 1;
+        text-align: center;
+        color: #334353;
+        font-size: 14px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 0 8px;
+    }
+
+    .ctrl-btn {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        border: 1px solid #d7dee6;
+        background: #fff;
+        color: #3c4b5c;
+        cursor: pointer;
+    }
+
+    .play-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .mode-btn {
+        border: 1px solid #d8e0e8;
+        background: #f9fbfd;
+        color: #2f3f50;
+        border-radius: 999px;
+        padding: 6px 14px;
+        cursor: pointer;
+        font-size: 13px;
+        min-width: 44px;
+        text-align: center;
+    }
+
+    .mode-btn i {
+        font-size: 20px;
+        line-height: 1;
+        vertical-align: middle;
+    }
+
+    .progress-wrap {
+        padding: 0 2px;
+    }
+
+    .seek-bar {
+        width: 100%;
+        -webkit-appearance: none;
+        appearance: none;
+        height: 6px;
+        border-radius: 999px;
+        outline: none;
+        cursor: pointer;
+        background: linear-gradient(
+            to right,
+            #36cfc9 0%,
+            #36cfc9 var(--seek-played, 0%),
+            #d9e1ea var(--seek-played, 0%),
+            #d9e1ea 100%
+        );
+    }
+
+    .seek-bar::-webkit-slider-runnable-track {
+        height: 6px;
+        border-radius: 999px;
+        background: transparent;
+    }
+
+    .seek-bar::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        border: 2px solid #ffffff;
+        background: #2bb3ad;
+        box-shadow: 0 1px 4px rgba(24, 37, 56, 0.25);
+        margin-top: -5px;
+    }
+
+    .seek-bar::-moz-range-track {
+        height: 6px;
+        border-radius: 999px;
+        background: #d9e1ea;
+    }
+
+    .seek-bar::-moz-range-progress {
+        height: 6px;
+        border-radius: 999px;
+        background: #36cfc9;
+    }
+
+    .seek-bar::-moz-range-thumb {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        border: 2px solid #ffffff;
+        background: #2bb3ad;
+        box-shadow: 0 1px 4px rgba(24, 37, 56, 0.25);
+    }
+
+    .time-row {
+        margin-top: 5px;
+        display: flex;
+        justify-content: space-between;
+        color: #7d8a98;
+        font-size: 12px;
+    }
+
+    .playlist-section {
+        border: 1px solid #edf1f5;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .playlist-head,
+    .song-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 14px;
+    }
+
+    .playlist-head {
+        background: #fafbfd;
+        color: #7a8795;
+        font-size: 13px;
+        border-bottom: 1px solid #edf1f5;
+    }
+
+    .playlist {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .song-item {
+        cursor: pointer;
+        border-bottom: 1px solid #f0f3f7;
+    }
+
+    .song-item:last-child {
+        border-bottom: none;
+    }
+
+    .song-item:hover {
+        background: #fafcff;
+    }
+
+    .song-item.active {
+        background: #f2f5f9;
+    }
+
+    .col-song {
+        flex: 3;
+        min-width: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .col-artist,
+    .col-album {
+        flex: 2;
+        min-width: 0;
+        color: #687788;
+        font-size: 14px;
+    }
+
+    .song-cover {
+        width: 42px;
+        height: 42px;
+        border-radius: 8px;
+        object-fit: cover;
+        flex: 0 0 42px;
+        background: #f2f5f9;
+    }
+
+    .song-name {
+        color: #1f2d3d;
+        font-size: 14px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .song-artist,
+    .song-album {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    @media (max-width: 900px) {
+        .music-hero {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .hero-cover-wrap,
+        .hero-cover {
+            width: 200px;
+            height: 200px;
+        }
+
+        .control-bar {
+            flex-wrap: wrap;
+        }
+
+        .control-title {
+            order: 3;
+            flex-basis: 100%;
+            text-align: left;
+            padding: 0;
+        }
+
+        .playlist-head {
+            display: none;
+        }
+
+        .song-item {
+            flex-wrap: wrap;
+            gap: 6px 10px;
+        }
+
+        .col-song,
+        .col-artist,
+        .col-album {
+            flex: 1 1 100%;
+        }
+    }
+</style>
+
+<script>
+    (function () {
+        const rawData = {"neteasePlaylist":"https://music.163.com/#/my/m/music/playlist?id=886032655","metingApi":"https://api.injahow.cn/meting/"};
+
+        const modes = [
+            { key: 'all', label: '列表循环', icon: '<i class="ri-repeat-line"></i>' },
+            { key: 'random', label: '随机播放', icon: '<i class="ri-shuffle-line"></i>' },
+            { key: 'one', label: '单曲循环', icon: '<i class="ri-repeat-one-line"></i>' }
+        ];
+        let modeIndex = 0;
+        let currentIndex = 0;
+        let lyrics = [];
+        let songs = [];
+        let apiErrors = [];
+        const coverResolveCache = {};
+        const DEFAULT_COVER = 'data:image/svg+xml;utf8,' + encodeURIComponent(
+            '<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240">'
+            + '<rect width="100%" height="100%" fill="#eef2f6"/>'
+            + '<text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#90a0b2" font-size="20">No Cover</text>'
+            + '</svg>'
+        );
+
+        const audio = document.getElementById('player-audio');
+        const nowCover = document.getElementById('now-cover');
+        const nowTitle = document.getElementById('now-title');
+        const nowArtist = document.getElementById('now-artist');
+        const nowAlbum = document.getElementById('now-album');
+        const controlTitle = document.getElementById('control-title');
+        const playBtn = document.getElementById('play-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const modeBtn = document.getElementById('mode-btn');
+        const seekBar = document.getElementById('seek-bar');
+        const currentTime = document.getElementById('current-time');
+        const totalTime = document.getElementById('total-time');
+        const lyricsList = document.getElementById('lyrics-list');
+        const playlist = document.getElementById('playlist');
+
+        function renderModeBtn() {
+            const mode = modes[modeIndex];
+            modeBtn.innerHTML = mode.icon;
+            modeBtn.title = mode.label;
+            modeBtn.setAttribute('aria-label', mode.label);
+        }
+
+        function formatTime(sec) {
+            if (!Number.isFinite(sec) || sec < 0) return '00:00';
+            const m = Math.floor(sec / 60);
+            const s = Math.floor(sec % 60);
+            return String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+        }
+
+        function updateSeekBarProgress(value) {
+            const safeValue = Math.max(0, Math.min(100, Number(value) || 0));
+            seekBar.value = String(safeValue);
+            seekBar.style.setProperty('--seek-played', safeValue + '%');
+        }
+
+        function parsePlaylistId(input) {
+            if (input === undefined || input === null) return '';
+            const text = String(input).trim();
+            if (!text) return '';
+            if (/^\d+$/.test(text)) return text;
+            const m = text.match(/id=(\d+)/);
+            return m ? m[1] : '';
+        }
+
+        function parsePlaylistIds(input) {
+            if (input === undefined || input === null) return [];
+
+            let rawList = [];
+            if (Array.isArray(input)) {
+                rawList = input;
+            } else if (typeof input === 'string') {
+                rawList = input.split(/[\n,]/);
+            } else {
+                rawList = [input];
+            }
+
+            const ids = rawList
+                .map((item) => parsePlaylistId(item))
+                .filter((id) => !!id);
+
+            return Array.from(new Set(ids));
+        }
+
+        function withNeteaseCoverSize(url, size) {
+            if (!url) return '';
+            const str = String(url);
+            if (!/music\.126\.net/i.test(str)) return str;
+
+            if (/([?&])param=\d+y\d+/i.test(str)) {
+                return str.replace(/([?&])param=\d+y\d+/i, '$1param=' + size + 'y' + size);
+            }
+            return str + (str.indexOf('?') > -1 ? '&' : '?') + 'param=' + size + 'y' + size;
+        }
+
+        async function resolveHdCover(rawCover) {
+            if (!rawCover) return DEFAULT_COVER;
+            if (coverResolveCache[rawCover]) return coverResolveCache[rawCover];
+
+            // Already direct netease cover url.
+            if (/music\.126\.net/i.test(rawCover)) {
+                const hd = withNeteaseCoverSize(rawCover, 500);
+                coverResolveCache[rawCover] = hd;
+                return hd;
+            }
+
+            // Try resolving meting proxy cover to final netease url, then upsize.
+            if (/type=pic&id=/i.test(rawCover)) {
+                try {
+                    const res = await fetch(rawCover, { method: 'GET', cache: 'no-store' });
+                    const finalUrl = res && res.url ? res.url : rawCover;
+                    const hd = withNeteaseCoverSize(finalUrl, 500);
+                    coverResolveCache[rawCover] = hd || rawCover;
+                    return coverResolveCache[rawCover];
+                } catch (e) {
+                    // fallback below
+                }
+            }
+
+            coverResolveCache[rawCover] = rawCover;
+            return rawCover;
+        }
+
+        function parseLrc(text) {
+            if (!text) return [];
+            const lines = text.split(/\r?\n/);
+            const result = [];
+            const reg = /\[(\d{2}):(\d{2})(?:\.(\d{1,3}))?\]/g;
+
+            lines.forEach((line) => {
+                const content = line.replace(reg, '').trim();
+                if (!content) return;
+                reg.lastIndex = 0;
+                let match;
+                while ((match = reg.exec(line)) !== null) {
+                    const min = Number(match[1]);
+                    const sec = Number(match[2]);
+                    const ms = Number((match[3] || '0').padEnd(3, '0'));
+                    result.push({ time: min * 60 + sec + ms / 1000, text: content });
+                }
+            });
+            return result.sort((a, b) => a.time - b.time);
+        }
+
+        async function loadLyrics(song) {
+            if (song.lyric) return parseLrc(song.lyric);
+            if (!song.lrc) return [];
+            try {
+                const res = await fetch(song.lrc);
+                if (!res.ok) return [];
+                return parseLrc(await res.text());
+            } catch (e) {
+                return [];
+            }
+        }
+
+        async function fetchPlaylistSongs(playlistId, apis) {
+            if (!playlistId) return [];
+
+            for (let i = 0; i < apis.length; i++) {
+                const base = apis[i];
+                const apiUrl = base
+                    + (base.indexOf('?') > -1 ? '&' : '?')
+                    + 'server=netease&type=playlist&id=' + encodeURIComponent(playlistId)
+                    + '&r=' + Date.now();
+
+                try {
+                    const res = await fetch(apiUrl);
+                    if (!res.ok) {
+                        apiErrors.push(base + ' -> HTTP ' + res.status);
+                        continue;
+                    }
+                    const data = await res.json();
+                    if (!Array.isArray(data) || !data.length) {
+                        // Some APIs return {message: "..."} when limited.
+                        if (data && typeof data === 'object' && data.message) {
+                            apiErrors.push(base + ' -> ' + data.message);
+                        } else {
+                            apiErrors.push(base + ' -> 返回空数据');
+                        }
+                        continue;
+                    }
+
+                    const mapped = data.map((item) => ({
+                        name: item.name || item.title || '未知歌曲',
+                        artist: item.artist || item.author || '未知歌手',
+                        album: item.album || '',
+                        url: item.url || '',
+                        cover: item.cover || item.pic || '',
+                        lrc: item.lrc || '',
+                        lyric: item.lyric || ''
+                    })).filter((song) => song.url);
+
+                    if (mapped.length) return mapped;
+                } catch (e) {
+                    apiErrors.push(base + ' -> ' + (e && e.message ? e.message : '请求失败'));
+                }
+            }
+
+            return [];
+        }
+
+        async function resolveSongs() {
+            if (Array.isArray(rawData)) return rawData;
+            apiErrors = [];
+
+            const playlistInput = rawData.neteasePlaylist || rawData.playlist || rawData.id || '';
+            const playlistIds = parsePlaylistIds(playlistInput);
+            if (!playlistIds.length) return [];
+
+            const apis = [];
+            if (rawData.metingApi) apis.push(rawData.metingApi);
+            apis.push('https://api.injahow.cn/meting/');
+            apis.push('https://api-meting.imsyy.top/api/meting');
+
+            const merged = [];
+            const seen = new Set();
+
+            for (let i = 0; i < playlistIds.length; i++) {
+                const onePlaylistSongs = await fetchPlaylistSongs(playlistIds[i], apis);
+                for (let j = 0; j < onePlaylistSongs.length; j++) {
+                    const song = onePlaylistSongs[j];
+                    const dedupeKey = song.url || (song.name + '|' + song.artist);
+                    if (!seen.has(dedupeKey)) {
+                        seen.add(dedupeKey);
+                        merged.push(song);
+                    }
+                }
+            }
+
+            return merged;
+        }
+
+        function renderLyrics() {
+            if (!lyrics.length) {
+                lyricsList.innerHTML = '<p class="lyric-line">暂无歌词</p>';
+                return;
+            }
+
+            lyricsList.innerHTML = lyrics.map((line, idx) => {
+                return '<p class="lyric-line" data-idx="' + idx + '">' + line.text + '</p>';
+            }).join('');
+        }
+
+        function highlightLyric() {
+            if (!lyrics.length) return;
+            const t = audio.currentTime;
+            let active = -1;
+            for (let i = 0; i < lyrics.length; i++) {
+                if (lyrics[i].time <= t) active = i;
+                else break;
+            }
+
+            const lines = lyricsList.querySelectorAll('.lyric-line');
+            lines.forEach((el) => el.classList.remove('active'));
+
+            if (active >= 0 && lines[active]) {
+                lines[active].classList.add('active');
+                // Keep lyric sync inside lyric panel only, avoid pulling whole page scroll.
+                const target = lines[active];
+                const targetTop = target.offsetTop;
+                const targetHeight = target.offsetHeight;
+                const viewTop = lyricsList.scrollTop;
+                const viewHeight = lyricsList.clientHeight;
+                const targetCenter = targetTop - (viewHeight / 2) + (targetHeight / 2);
+                if (Math.abs(viewTop - targetCenter) > 12) {
+                    lyricsList.scrollTo({
+                        top: Math.max(0, targetCenter),
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        }
+
+        function renderPlaylist() {
+            playlist.innerHTML = songs.map((song, idx) => {
+                const active = idx === currentIndex ? ' active' : '';
+                return ''
+                    + '<li class="song-item' + active + '" data-idx="' + idx + '">'
+                    + '<div class="col-song">'
+                    + '<img class="song-cover" src="' + (song.cover || '') + '" alt="cover" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src=\'' + DEFAULT_COVER + '\'">'
+                    + '<span class="song-name">' + (song.name || '未知歌曲') + '</span>'
+                    + '</div>'
+                    + '<div class="col-artist"><span class="song-artist">' + (song.artist || '未知歌手') + '</span></div>'
+                    + '<div class="col-album"><span class="song-album">' + (song.album || '-') + '</span></div>'
+                    + '</li>';
+            }).join('');
+        }
+
+        async function loadSong(index, autoPlay) {
+            currentIndex = index;
+            const song = songs[currentIndex];
+
+            nowCover.src = DEFAULT_COVER;
+            nowCover.onerror = function () { this.src = DEFAULT_COVER; };
+            const hdCover = await resolveHdCover(song.cover || '');
+            nowCover.src = hdCover || DEFAULT_COVER;
+            nowTitle.textContent = song.name || '未知歌曲';
+            nowArtist.textContent = '歌手：' + (song.artist || '未知');
+            nowAlbum.textContent = '专辑：' + (song.album || '-');
+            controlTitle.textContent = (song.name || '未知歌曲') + ' - ' + (song.artist || '未知歌手');
+
+            audio.src = song.url || '';
+            renderPlaylist();
+            updateSeekBarProgress(0);
+            currentTime.textContent = '00:00';
+            totalTime.textContent = '00:00';
+
+            lyrics = await loadLyrics(song);
+            renderLyrics();
+
+            if (autoPlay) audio.play().catch(() => {});
+        }
+
+        function nextIndexByMode() {
+            const mode = modes[modeIndex].key;
+            if (mode === 'one') return currentIndex;
+            if (mode === 'random') return Math.floor(Math.random() * songs.length);
+            return (currentIndex + 1) % songs.length;
+        }
+
+        function prevIndex() {
+            return (currentIndex - 1 + songs.length) % songs.length;
+        }
+
+        function showConfigHint() {
+            nowTitle.textContent = '暂无可播放歌曲';
+            nowArtist.textContent = '请在 source/_data/musics.json 填写网易云歌单链接或 ID';
+            nowAlbum.textContent = '示例：https://music.163.com/#/playlist?id=1776127550';
+            controlTitle.textContent = '未读取到歌单数据';
+            let hint = '<p class="lyric-line">可用格式：{"neteasePlaylist":"歌单链接或ID"}</p>';
+            if (apiErrors.length) {
+                const details = apiErrors.slice(0, 4).map((msg) => '<p class="lyric-line">' + msg + '</p>').join('');
+                hint += '<p class="lyric-line active">接口错误详情：</p>' + details;
+            }
+            lyricsList.innerHTML = hint;
+            playlist.innerHTML = '';
+            playBtn.disabled = true;
+            prevBtn.disabled = true;
+            nextBtn.disabled = true;
+            modeBtn.disabled = true;
+            seekBar.disabled = true;
+        }
+
+        playlist.addEventListener('click', (e) => {
+            const item = e.target.closest('.song-item');
+            if (!item) return;
+            const idx = Number(item.getAttribute('data-idx'));
+            if (Number.isNaN(idx)) return;
+            loadSong(idx, true);
+        });
+
+        playBtn.addEventListener('click', () => {
+            if (audio.paused) audio.play();
+            else audio.pause();
+        });
+
+        prevBtn.addEventListener('click', () => loadSong(prevIndex(), true));
+        nextBtn.addEventListener('click', () => loadSong(nextIndexByMode(), true));
+
+        modeBtn.addEventListener('click', () => {
+            modeIndex = (modeIndex + 1) % modes.length;
+            renderModeBtn();
+        });
+
+        audio.addEventListener('play', () => {
+            playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        });
+
+        audio.addEventListener('pause', () => {
+            playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        });
+
+        audio.addEventListener('loadedmetadata', () => {
+            totalTime.textContent = formatTime(audio.duration);
+            updateSeekBarProgress(0);
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            currentTime.textContent = formatTime(audio.currentTime);
+            updateSeekBarProgress(audio.duration ? (audio.currentTime / audio.duration) * 100 : 0);
+            highlightLyric();
+        });
+
+        seekBar.addEventListener('input', () => {
+            updateSeekBarProgress(seekBar.value);
+            if (!audio.duration) return;
+            audio.currentTime = Number(seekBar.value) / 100 * audio.duration;
+        });
+
+        audio.addEventListener('ended', () => loadSong(nextIndexByMode(), true));
+
+        (async function init() {
+            songs = await resolveSongs();
+            renderModeBtn();
+
+            if (!songs.length) {
+                showConfigHint();
+                return;
+            }
+
+            await loadSong(0, false);
+        })();
+    })();
+</script>
 
 
                 <footer class="page-footer bg-color">
