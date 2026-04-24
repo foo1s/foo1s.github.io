@@ -971,6 +971,19 @@
             seekBar.style.setProperty('--seek-played', safeValue + '%');
         }
 
+        function normalizeSong(item) {
+            if (!item || typeof item !== 'object') return null;
+            return {
+                name: item.name || item.title || '未知歌曲',
+                artist: item.artist || item.author || '未知歌手',
+                album: item.album || '',
+                url: item.url || item.src || '',
+                cover: item.cover || item.coverLocal || item.pic || item.picUrl || '',
+                lrc: item.lrc || '',
+                lyric: item.lyric || ''
+            };
+        }
+
         function parsePlaylistId(input) {
             if (input === undefined || input === null) return '';
             const text = String(input).trim();
@@ -1098,15 +1111,9 @@
                         continue;
                     }
 
-                    const mapped = data.map((item) => ({
-                        name: item.name || item.title || '未知歌曲',
-                        artist: item.artist || item.author || '未知歌手',
-                        album: item.album || '',
-                        url: item.url || '',
-                        cover: item.cover || item.pic || '',
-                        lrc: item.lrc || '',
-                        lyric: item.lyric || ''
-                    })).filter((song) => song.url);
+                    const mapped = data
+                        .map((item) => normalizeSong(item))
+                        .filter((song) => song && song.url);
 
                     if (mapped.length) return mapped;
                 } catch (e) {
@@ -1118,7 +1125,21 @@
         }
 
         async function resolveSongs() {
-            if (Array.isArray(rawData)) return rawData;
+            if (Array.isArray(rawData)) {
+                return rawData
+                    .map((item) => normalizeSong(item))
+                    .filter((song) => song && song.url);
+            }
+
+            const localTracks = Array.isArray(rawData && rawData.tracks)
+                ? rawData.tracks
+                : (Array.isArray(rawData && rawData.localSongs) ? rawData.localSongs : []);
+            if (localTracks.length) {
+                return localTracks
+                    .map((item) => normalizeSong(item))
+                    .filter((song) => song && song.url);
+            }
+
             apiErrors = [];
 
             const playlistInput = rawData.neteasePlaylist || rawData.playlist || rawData.id || '';
@@ -1242,10 +1263,11 @@
 
         function showConfigHint() {
             nowTitle.textContent = '暂无可播放歌曲';
-            nowArtist.textContent = '请在 source/_data/musics.json 填写网易云歌单链接或 ID';
-            nowAlbum.textContent = '示例：https://music.163.com/#/playlist?id=1776127550';
+            nowArtist.textContent = '可使用网易云歌单，或改用 self-hosted tracks';
+            nowAlbum.textContent = '示例：{"tracks":[{"name":"...","url":"/medias/music/files/xxx.mp3"}]}';
             controlTitle.textContent = '未读取到歌单数据';
-            let hint = '<p class="lyric-line">可用格式：{"neteasePlaylist":"歌单链接或ID"}</p>';
+            let hint = '<p class="lyric-line">可用格式1：{"neteasePlaylist":"歌单链接或ID"}</p>'
+                + '<p class="lyric-line">可用格式2：{"tracks":[{"name":"歌名","artist":"歌手","url":"音频链接","coverLocal":"封面链接"}]}</p>';
             if (apiErrors.length) {
                 const details = apiErrors.slice(0, 4).map((msg) => '<p class="lyric-line">' + msg + '</p>').join('');
                 hint += '<p class="lyric-line active">接口错误详情：</p>' + details;
@@ -1342,19 +1364,19 @@
             
             
             
+            
                 
-            
-            
-                <span id="busuanzi_container_site_pv">
-                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
-                    <span id="busuanzi_value_site_pv" class="white-color"></span>
-            </span>
-            
-            
-                <span id="busuanzi_container_site_uv">
-                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
-                    <span id="busuanzi_value_site_uv" class="white-color"></span>
-            </span>
+                    <span>
+                        &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                        <span id="local_site_pv_value" class="white-color">--</span>
+                    </span>
+                
+                
+                    <span>
+                        &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                        <span id="local_site_uv_value" class="white-color">--</span>
+                    </span>
+                
             
             <br>
 
@@ -1422,7 +1444,7 @@
             </span>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis">
+        <div class="col s12 m4 l4 social-link ">
     <a href="https://github.com/foo1s" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -1458,6 +1480,53 @@
 </footer>
 
 <div class="progress-bar"></div>
+
+
+<script>
+    (function () {
+        var ns = 'foo1s_github_io';
+
+        function setText(id, value) {
+            var el = document.getElementById(id);
+            if (!el) return;
+            el.textContent = (typeof value === 'number') ? value : '--';
+        }
+
+        function fetchJSON(url) {
+            return fetch(url, { method: 'GET' }).then(function (res) { return res.json(); });
+        }
+
+        
+        fetchJSON('https://api.countapi.xyz/hit/' + ns + '/site_pv')
+            .then(function (data) { setText('local_site_pv_value', data && data.value); })
+            .catch(function () { setText('local_site_pv_value', '--'); });
+        
+
+        
+        try {
+            var uvCountedKey = 'foo1s_site_uv_counted_v1';
+            var hasCounted = localStorage.getItem(uvCountedKey) === '1';
+            var uvApi = hasCounted
+                ? 'https://api.countapi.xyz/get/' + ns + '/site_uv'
+                : 'https://api.countapi.xyz/hit/' + ns + '/site_uv';
+
+            fetchJSON(uvApi)
+                .then(function (data) {
+                    setText('local_site_uv_value', data && data.value);
+                    if (!hasCounted) {
+                        localStorage.setItem(uvCountedKey, '1');
+                    }
+                })
+                .catch(function () { setText('local_site_uv_value', '--'); });
+        } catch (e) {
+            fetchJSON('https://api.countapi.xyz/hit/' + ns + '/site_uv')
+                .then(function (data) { setText('local_site_uv_value', data && data.value); })
+                .catch(function () { setText('local_site_uv_value', '--'); });
+        }
+        
+    })();
+</script>
+
 
 
                     <!-- 搜索遮罩框 -->
@@ -1661,9 +1730,6 @@ $(function () {
 
                                                                                         
                                                                                                 
-                                                                                                    <script async
-                                                                                                        src="/libs/others/busuanzi.pure.mini.js"></script>
-                                                                                                    
 
                                                                                                         
 

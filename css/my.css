@@ -167,3 +167,22 @@ body.home-light-bars footer.page-footer .white-color {
         font-size: 1.5rem;
     }
 }
+
+/* Post detail: use clear title instead of empty tag chips row. */
+#artDetail .post-title-row {
+    padding-bottom: 12px;
+}
+
+#artDetail .post-page-title {
+    margin: 0;
+    color: #1f2d3d;
+    font-size: 2rem;
+    line-height: 1.35;
+    font-weight: 650;
+}
+
+@media only screen and (max-width: 600px) {
+    #artDetail .post-page-title {
+        font-size: 1.6rem;
+    }
+}
