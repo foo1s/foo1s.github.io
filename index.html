@@ -212,6 +212,24 @@
       </li>
       
       <li>
+        <a href="/series">
+          
+          <i class="fas fa-tv" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Series</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/animes">
+          
+          <i class="fas fa-dragon" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Animes</span>
+        </a>
+      </li>
+      
+      <li>
         <a href="/books">
           
           <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
@@ -389,6 +407,26 @@
 				   <i class="fa fas fa-film" style="position: absolute;left:50px" ></i>
 			      
 		          <span>Movies</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/series " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-tv" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Series</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/animes " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-dragon" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Animes</span>
                   </a>
                 </li>
               
@@ -593,7 +631,7 @@
     
 
                 <div class="cover-btns">
-                    <a href="#indexCard" class="waves-effect waves-light btn">
+                    <a href="#articles" class="waves-effect waves-light btn start-read-btn">
                         <i class="fa fa-angle-double-down"></i>开始阅读
                     </a>
                 </div>
@@ -640,6 +678,16 @@
             fullWidth: true,
             indicators: false
         });
+
+        // Always jump to the first article list block.
+        $('.start-read-btn').on('click', function (e) {
+            var target = $('#articles');
+            if (!target.length) return;
+            e.preventDefault();
+            var navHeight = $('#headNav').outerHeight() || 64;
+            var top = Math.max(target.offset().top - navHeight - 8, 0);
+            $('html, body').animate({ scrollTop: top }, 450);
+        });
     });
 </script>
 
@@ -660,6 +708,7 @@
         background-position: center;
     }
 </style>
+
 
 
 <main class="content">
@@ -717,18 +766,19 @@ show database
              <!-- 隐藏某个文章 -->
             <div class="article col s12" data-aos="zoom-in">
                 <div class="card" style="box-shadow: none; border-bottom: 1px solid #eee; border-radius: 0;">
-                    <a href="/2025/05/08/mysql-si-da-ge-chi-yu-ju/">
+                    <a href="/2025/05/08/mysql-ji-chu/">
                         <div class="card-content article-content" style="padding: 24px 24px 12px 24px;">
                             <div class="title" style="margin-bottom: 10px;">
-                                <span class="card-title" style="color: #000; font-weight: bold; font-size: 1.4rem; line-height: 1.4;">MySQL基础-隔离语句</span>
+                                <span class="card-title" style="color: #000; font-weight: bold; font-size: 1.4rem; line-height: 1.4;">MySQL基础</span>
                             </div>
                             
                             <div class="summary block-with-text" style="color: #666; margin-bottom: 15px;">
                                 
-                                    SQL 标准定义了四个隔离级别：
+                                    
+MySQL8.4安装教程Windows安装Mysql8.4,看这一篇就够了（超级详细！）_mysql8.4安装教程-CSDN博客
 
-READ-UNCOMMITTED(读取未提交) ：最低的隔离级别，允许读取尚未提交的数据变更，可能会导致脏读、幻读或不可重复读。
-READ-COMMITTED(读取已提交) ：允许读取并发事务已经提交的数
+常用操作- 开启操作：`net start MySQL84`
+- 关闭操作：`net stop MySQL
                                 
                             </div>
 
@@ -755,19 +805,18 @@ READ-COMMITTED(读取已提交) ：允许读取并发事务已经提交的数
              <!-- 隐藏某个文章 -->
             <div class="article col s12" data-aos="zoom-in">
                 <div class="card" style="box-shadow: none; border-bottom: 1px solid #eee; border-radius: 0;">
-                    <a href="/2025/05/08/mysql-ji-chu/">
+                    <a href="/2025/05/08/mysql-si-da-ge-chi-yu-ju/">
                         <div class="card-content article-content" style="padding: 24px 24px 12px 24px;">
                             <div class="title" style="margin-bottom: 10px;">
-                                <span class="card-title" style="color: #000; font-weight: bold; font-size: 1.4rem; line-height: 1.4;">MySQL基础</span>
+                                <span class="card-title" style="color: #000; font-weight: bold; font-size: 1.4rem; line-height: 1.4;">MySQL基础-隔离语句</span>
                             </div>
                             
                             <div class="summary block-with-text" style="color: #666; margin-bottom: 15px;">
                                 
-                                    
-MySQL8.4安装教程Windows安装Mysql8.4,看这一篇就够了（超级详细！）_mysql8.4安装教程-CSDN博客
+                                    SQL 标准定义了四个隔离级别：
 
-常用操作- 开启操作：`net start MySQL84`
-- 关闭操作：`net stop MySQL
+READ-UNCOMMITTED(读取未提交) ：最低的隔离级别，允许读取尚未提交的数据变更，可能会导致脏读、幻读或不可重复读。
+READ-COMMITTED(读取已提交) ：允许读取并发事务已经提交的数
                                 
                             </div>
 
