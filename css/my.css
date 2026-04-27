@@ -103,7 +103,7 @@ body.no-cover-page .post-simple-title {
 }
 
 body.no-cover-page footer.page-footer.bg-color {
-    background: #f8fbff !important;
+    background: rgba(255, 255, 255, 0.96) !important;
     border-top: 1px solid #e9eef5;
 }
 
@@ -146,7 +146,7 @@ body.home-light-bars #headNav.nav-transparent #sum-moon-icon {
 }
 
 body.home-light-bars footer.page-footer.bg-color {
-    background: #f8fbff !important;
+    background: rgba(255, 255, 255, 0.96) !important;
     border-top: 1px solid #e9eef5;
 }
 
@@ -156,6 +156,71 @@ body.home-light-bars footer.page-footer .social-link a,
 body.home-light-bars footer.page-footer a,
 body.home-light-bars footer.page-footer .white-color {
     color: #5d6b7b !important;
+}
+
+/* Footer minimalist refinement: same bar tone as top nav, cleaner spacing and icons. */
+footer.page-footer.bg-color {
+    background: rgba(255, 255, 255, 0.96) !important;
+    border-top: 1px solid #e9eef5;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+footer.page-footer .container.row.center-align {
+    max-width: 1060px;
+    margin: 0 auto !important;
+    padding: 14px 0 8px;
+}
+
+footer.page-footer .copy-right {
+    color: #5d6b7b !important;
+    font-size: 1.02rem;
+    line-height: 1.85;
+    letter-spacing: 0.01em;
+}
+
+footer.page-footer .copy-right a {
+    color: #42556b !important;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+footer.page-footer .copy-right a:hover {
+    color: #2e4159 !important;
+    border-bottom-color: #b8c6d8;
+}
+
+footer.page-footer .white-color {
+    color: #42556b !important;
+    font-weight: 600;
+}
+
+footer.page-footer .social-link {
+    margin-top: 8px;
+}
+
+footer.page-footer .social-link a {
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    margin: 0 6px;
+    border: 1px solid #d5deea;
+    border-radius: 8px;
+    color: #5d6b7b !important;
+    background: #ffffff;
+    box-shadow: none !important;
+}
+
+footer.page-footer .social-link a:hover {
+    border-color: #c4d0e0;
+    background: #f7faff;
+    color: #3f5268 !important;
+}
+
+footer.page-footer #icp img {
+    width: 16px;
+    height: 16px;
+    opacity: 0.9;
 }
 
 @media only screen and (max-width: 600px) {
