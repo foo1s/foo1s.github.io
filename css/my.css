@@ -186,3 +186,79 @@ body.home-light-bars footer.page-footer .white-color {
         font-size: 1.6rem;
     }
 }
+
+/* Global minimal style: pager + back-to-top (non-circular). */
+.paging {
+    margin: 12px auto 20px;
+    max-width: 920px;
+}
+
+.paging .minimal-pager-btn {
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border: 1px solid #d6dee9;
+    border-radius: 8px;
+    box-shadow: none;
+    text-decoration: none;
+}
+
+.paging .minimal-pager-btn i {
+    font-size: 1.35rem;
+    color: #5f6f85;
+    line-height: 1;
+}
+
+.paging .minimal-pager-btn:hover {
+    background: #f8fafd;
+    border-color: #c8d3e1;
+}
+
+.paging .minimal-pager-btn.is-disabled {
+    background: #f5f7fb;
+    border-color: #e7edf5;
+    pointer-events: none;
+}
+
+.paging .minimal-pager-btn.is-disabled i {
+    color: #b2bccb;
+}
+
+.paging .page-info {
+    font-size: 1.05rem;
+    color: #8d98a8;
+    padding-top: 0.55rem;
+    font-weight: 500;
+}
+
+.top-scroll {
+    right: 18px;
+    bottom: 18px;
+}
+
+.top-scroll .minimal-back-top {
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border: 1px solid #d6dee9;
+    border-radius: 8px;
+    box-shadow: none;
+    text-decoration: none;
+}
+
+.top-scroll .minimal-back-top i {
+    font-size: 1.25rem;
+    color: #5f6f85;
+    line-height: 1;
+}
+
+.top-scroll .minimal-back-top:hover {
+    background: #f8fafd;
+    border-color: #c8d3e1;
+}
