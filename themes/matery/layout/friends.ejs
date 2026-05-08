@@ -1,0 +1,108 @@
+﻿<%- partial('_partial/bg-cover') %>
+
+<style>
+    .friends-simple-container {
+        margin-top: -100px;
+        margin-bottom: 30px;
+    }
+
+    .friends-simple-title {
+        margin-bottom: 18px;
+        color: #1f2d3d;
+        font-size: 1.7rem;
+        font-weight: 600;
+    }
+
+    .friends-simple-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 16px;
+    }
+
+    .friend-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px;
+        border: 1px solid #e9eef3;
+        border-radius: 12px;
+        background: #ffffff;
+        text-decoration: none;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .friend-item:hover {
+        transform: translateY(-2px);
+        border-color: #d6e2ee;
+        box-shadow: 0 8px 20px rgba(31, 45, 61, 0.09);
+    }
+
+    .friend-item-avatar {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        object-fit: cover;
+        flex-shrink: 0;
+    }
+
+    .friend-item-name {
+        color: #1f2d3d;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.3;
+        word-break: break-word;
+    }
+
+    .friends-empty {
+        margin: 0;
+        color: #6f7f93;
+        text-align: center;
+        padding: 18px 0;
+    }
+
+    @media (max-width: 600px) {
+        .friends-simple-container {
+            margin-top: -70px;
+        }
+
+        .friends-simple-title {
+            font-size: 1.45rem;
+        }
+
+        .friend-item {
+            padding: 12px;
+        }
+    }
+</style>
+
+<main class="content">
+    <div class="container friends-simple-container">
+        <div class="card">
+            <div class="card-content">
+                <div class="friends-simple-title center-align">
+                    <i class="fas fa-address-book"></i>&nbsp;&nbsp;<%= __('friends') %>
+                </div>
+
+                <article id="friends-link">
+                    <% if (site.data && site.data.friends && site.data.friends.length) { %>
+                    <% var friends = site.data.friends; %>
+                    <div class="friends-simple-grid">
+                        <% friends.forEach(function(friend){ %>
+                        <% var rawUrl = friend.url || '#'; %>
+                        <% var friendUrl = /^https?:\/\//i.test(rawUrl) ? rawUrl : url_for(rawUrl); %>
+                        <% var rawAvatar = friend.avatar || theme.profile.avatar; %>
+                        <% var avatarUrl = /^https?:\/\//i.test(rawAvatar) ? rawAvatar : url_for(rawAvatar); %>
+                        <a class="friend-item" href="<%= friendUrl %>" target="_blank" rel="noopener noreferrer" data-aos="zoom-in-up">
+                            <img class="friend-item-avatar" src="<%= avatarUrl %>" alt="<%= friend.name || 'friend-avatar' %>">
+                            <span class="friend-item-name"><%= friend.name || friendUrl %></span>
+                        </a>
+                        <% }); %>
+                    </div>
+                    <% } else { %>
+                    <p class="friends-empty">No friends yet.</p>
+                    <% } %>
+                </article>
+            </div>
+        </div>
+    </div>
+</main>

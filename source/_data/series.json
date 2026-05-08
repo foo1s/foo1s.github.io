@@ -1,0 +1,58 @@
+{
+  "series": [
+    {
+      "title": "Breaking Bad",
+      "subtitle": "Crime / Drama",
+      "year": "2008",
+      "slug": "breaking-bad",
+      "posterLocal": "/medias/series/posters/breaking-bad.jpg",
+      "douban": "https://movie.douban.com/subject/2373195/",
+      "review": ""
+    },
+    {
+      "title": "请回答1988",
+      "subtitle": "Family / Youth",
+      "year": "2015",
+      "slug": "reply-1988",
+      "posterLocal": "/medias/series/posters/reply-1988.jpg",
+      "douban": "https://movie.douban.com/subject/26302614/",
+      "review": ""
+    },
+    {
+      "title": "风骚律师",
+      "subtitle": "Crime / Drama",
+      "year": "2015",
+      "slug": "better-call-saul",
+      "posterLocal": "/medias/series/posters/better-call-saul.jpg",
+      "douban": "https://movie.douban.com/subject/25726259/",
+      "review": ""
+    },
+    {
+      "title": "生活大爆炸",
+      "subtitle": "Comedy",
+      "year": "2007",
+      "slug": "the-big-bang-theory",
+      "posterLocal": "/medias/series/posters/the-big-bang-theory.jpg",
+      "douban": "https://movie.douban.com/subject/2156528/",
+      "review": ""
+    },
+    {
+      "title": "真探 第一季",
+      "subtitle": "Crime / Mystery",
+      "year": "2014",
+      "slug": "true-detective-s1",
+      "posterLocal": "/medias/series/posters/true-detective-s1.jpg",
+      "douban": "https://movie.douban.com/subject/10748120/",
+      "review": ""
+    },
+    {
+      "title": "火线",
+      "subtitle": "Crime / Drama",
+      "year": "2002",
+      "slug": "the-wire",
+      "posterLocal": "/medias/series/posters/the-wire.jpg",
+      "douban": "https://movie.douban.com/subject/1418199/",
+      "review": ""
+    }
+  ]
+}

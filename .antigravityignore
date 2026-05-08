@@ -1,0 +1,8 @@
+node_modules/
+公共/资源/
+**/*.min.js
+dist/
+.next/
+构建/
+package-lock.json
+yarn.lock

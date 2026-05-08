@@ -1,0 +1,300 @@
+﻿<%- partial('_partial/bg-cover') %>
+<%
+const social = (theme && theme.socialLink)
+    ? theme.socialLink
+    : ((config && config.socialLink) ? config.socialLink : {});
+const contacts = [];
+const aboutHtml = (page.content || '')
+    .replace(/<ul>/g, '<ul class="browser-default">')
+    .replace(/<ol>/g, '<ol class="browser-default">');
+
+if (social.email) {
+    contacts.push({ label: 'Email', value: social.email, href: 'mailto:' + social.email });
+}
+if (social.github) {
+    contacts.push({ label: 'GitHub', value: social.github, href: social.github });
+}
+%>
+
+<main class="content">
+    <div class="container about-clean-page">
+        <div class="card about-clean-card">
+            <div class="card-content">
+                <section class="about-clean-hero">
+                    <img
+                        src="<%- theme.jsDelivr.url %><%- url_for(theme.profile.avatar) %>"
+                        alt="<%- config.author %>"
+                        class="about-clean-avatar"
+                    >
+                    <div class="about-clean-identity">
+                        <h1><%- config.author %></h1>
+                        <p class="about-clean-role">About Me</p>
+                        <p class="about-clean-subline">我主要记录后端、AI 应用和日常思考，也在持续打磨表达与输出。</p>
+                        <p class="about-clean-subline">希望这个博客既有技术密度，也有生活温度。</p>
+                    </div>
+                </section>
+
+                <% if (page.content && page.content.trim()) { %>
+                <section class="about-clean-intro">
+                    <article class="about-markdown">
+                        <%- aboutHtml %>
+                    </article>
+                </section>
+                <% } %>
+
+                <section class="about-clean-contact">
+                    <h2>联系我</h2>
+                    <p class="about-clean-contact-intro">如果你有任何想聊的，欢迎通过以下方式联系我：</p>
+                    <ul class="browser-default about-clean-contact-list">
+                        <% contacts.forEach(function (item) { %>
+                        <li>
+                            <span class="contact-label"><%= item.label %>:</span>
+                            <a href="<%= item.href %>" target="<%= item.href.indexOf('mailto:') === 0 ? '_self' : '_blank' %>" rel="noopener noreferrer">
+                                <%= item.value %>
+                            </a>
+                        </li>
+                        <% }); %>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style>
+    .about-clean-page {
+        margin-top: -60px;
+    }
+
+    .about-clean-card {
+        border-radius: 16px;
+    }
+
+    .about-clean-hero {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #eceff3;
+    }
+
+    .about-clean-avatar {
+        width: 92px;
+        height: 92px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 8px 22px rgba(31, 45, 61, 0.14);
+    }
+
+    .about-clean-identity h1 {
+        margin: 0;
+        color: #1f2d3d;
+        font-size: 2.1rem;
+        font-weight: 650;
+        line-height: 1.25;
+    }
+
+    .about-clean-role {
+        margin: 6px 0 0;
+        color: #92a0b3;
+        font-size: 0.95rem;
+    }
+
+    .about-clean-subline {
+        margin-top: 4px !important;
+        color: #6f7f93 !important;
+        font-size: 0.95rem !important;
+        line-height: 1.6;
+    }
+
+    .about-clean-intro {
+        margin-top: 22px;
+    }
+
+    .about-markdown {
+        color: #2f3b4a;
+        font-size: 1rem;
+        line-height: 1.9;
+    }
+
+    .about-markdown .headerlink {
+        display: none;
+    }
+
+    .about-markdown h1,
+    .about-markdown h2,
+    .about-markdown h3 {
+        color: #0f1f3a;
+        font-weight: 700;
+        line-height: 1.4;
+        margin-top: 1.2em !important;
+        margin-bottom: 0.5em !important;
+    }
+
+    .about-markdown h1 {
+        font-size: 1.95rem !important;
+    }
+
+    .about-markdown h2 {
+        font-size: 1.6rem !important;
+    }
+
+    .about-markdown h3 {
+        font-size: 1.3rem !important;
+    }
+
+    .about-markdown p {
+        margin: 0.6em 0;
+        font-size: 1rem !important;
+    }
+
+    .about-markdown ul.browser-default,
+    .about-markdown ol.browser-default {
+        margin: 0.75em 0 1.1em !important;
+        padding-left: 1.5em !important;
+    }
+
+    .about-markdown ul.browser-default {
+        list-style-type: disc !important;
+    }
+
+    .about-markdown ol.browser-default {
+        list-style-type: decimal !important;
+    }
+
+    .about-markdown ul.browser-default > li,
+    .about-markdown ol.browser-default > li {
+        display: list-item !important;
+        margin: 0.35em 0 !important;
+        color: #2f3b4a;
+    }
+
+    .about-markdown ul.browser-default > li {
+        list-style-type: disc !important;
+    }
+
+    .about-markdown ol.browser-default > li {
+        list-style-type: decimal !important;
+    }
+
+    .about-markdown ul.browser-default > li::marker,
+    .about-markdown ol.browser-default > li::marker {
+        color: #111111 !important;
+    }
+
+    /* Fallback: force visible black bullets even if theme/global CSS suppresses markers. */
+    .about-markdown ul.browser-default > li {
+        list-style: none !important;
+        position: relative;
+        padding-left: 1.1em;
+    }
+
+    .about-markdown ul.browser-default > li::before {
+        content: "•";
+        color: #111111;
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-weight: 700;
+    }
+
+    .about-clean-contact {
+        margin-top: 28px;
+    }
+
+    .about-clean-contact h2 {
+        margin: 0 0 12px;
+        color: #0f1f3a;
+        font-size: 1.6rem;
+        font-weight: 700;
+    }
+
+    .about-clean-contact-intro {
+        margin: 0 0 8px;
+        color: #1f2d3d;
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .about-clean-contact-list {
+        margin: 0;
+        padding-left: 1.5em !important;
+        list-style-type: disc !important;
+    }
+
+    .about-clean-contact-list > li {
+        margin: 10px 0;
+        color: #2f3b4a;
+        font-size: 1rem;
+        line-height: 1.6;
+        display: list-item !important;
+        list-style-type: disc !important;
+    }
+
+    .about-clean-contact-list > li::marker {
+        color: #111111 !important;
+    }
+
+    .about-clean-contact-list > li {
+        list-style: none !important;
+        position: relative;
+        padding-left: 1.1em;
+    }
+
+    .about-clean-contact-list > li::before {
+        content: "•";
+        color: #111111;
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-weight: 700;
+    }
+
+    .about-clean-contact .contact-label {
+        color: #0f1f3a;
+        font-weight: 600;
+        margin-right: 6px;
+    }
+
+    .about-clean-contact a {
+        color: #20345a;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+
+    .about-clean-contact a:hover {
+        color: #0f1f3a;
+    }
+
+    @media (max-width: 768px) {
+        .about-clean-hero {
+            align-items: flex-start;
+        }
+
+        .about-clean-avatar {
+            width: 80px;
+            height: 80px;
+        }
+
+        .about-clean-identity h1 {
+            font-size: 1.8rem;
+        }
+
+        .about-markdown {
+            font-size: 0.96rem;
+            line-height: 1.8;
+        }
+
+        .about-markdown h1 {
+            font-size: 1.7rem !important;
+        }
+
+        .about-markdown h2 {
+            font-size: 1.4rem !important;
+        }
+
+        .about-clean-contact h2 {
+            font-size: 1.4rem;
+        }
+    }
+</style>

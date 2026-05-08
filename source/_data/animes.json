@@ -1,0 +1,76 @@
+{
+  "animes": [
+    {
+      "title": "钢之炼金术师FA",
+      "subtitle": "Adventure / Fantasy",
+      "year": "2009",
+      "slug": "fullmetal-alchemist-brotherhood",
+      "posterLocal": "/medias/animes/posters/fullmetal-alchemist-brotherhood.jpg",
+      "douban": "https://movie.douban.com/subject/3430169/",
+      "review": ""
+    },
+    {
+      "title": "命运石之门",
+      "subtitle": "Sci-Fi / Thriller",
+      "year": "2011",
+      "slug": "steins-gate",
+      "posterLocal": "/medias/animes/posters/steins-gate.jpg",
+      "douban": "https://movie.douban.com/subject/4925398/",
+      "review": ""
+    },
+    {
+      "title": "混沌武士",
+      "subtitle": "Action / Adventure",
+      "year": "2004",
+      "slug": "samurai-champloo",
+      "posterLocal": "/medias/animes/posters/samurai-champloo.jpg",
+      "douban": "https://movie.douban.com/subject/1460915/",
+      "review": ""
+    },
+    {
+      "title": "星际牛仔",
+      "subtitle": "Sci-Fi / Neo-noir",
+      "year": "1998",
+      "slug": "cowboy-bebop",
+      "posterLocal": "/medias/animes/posters/cowboy-bebop.jpg",
+      "douban": "https://movie.douban.com/subject/1424406/",
+      "review": ""
+    },
+    {
+      "title": "凡人修仙传",
+      "subtitle": "Cultivation / Fantasy",
+      "year": "2020",
+      "slug": "a-record-of-a-mortals-journey-to-immortality",
+      "posterLocal": "/medias/animes/posters/a-record-of-a-mortals-journey-to-immortality.jpg",
+      "douban": "https://movie.douban.com/subject/34925294/",
+      "review": ""
+    },
+    {
+      "title": "异兽魔都",
+      "subtitle": "Dark Fantasy",
+      "year": "2020",
+      "slug": "dorohedoro",
+      "posterLocal": "/medias/animes/posters/dorohedoro.jpg",
+      "douban": "https://anilist.co/anime/105228",
+      "review": ""
+    },
+    {
+      "title": "进击的巨人",
+      "subtitle": "Action / Dark Fantasy",
+      "year": "2013",
+      "slug": "attack-on-titan",
+      "posterLocal": "/medias/animes/posters/attack-on-titan.jpg",
+      "douban": "https://anilist.co/anime/16498",
+      "review": ""
+    },
+    {
+      "title": "赌博默示录",
+      "subtitle": "Psychological / Thriller",
+      "year": "2007",
+      "slug": "kaiji",
+      "posterLocal": "/medias/animes/posters/kaiji.jpg",
+      "douban": "https://movie.douban.com/subject/3259956/",
+      "review": ""
+    }
+  ]
+}

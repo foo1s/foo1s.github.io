@@ -1,0 +1,318 @@
+<div class="calendar-wrapper" style="width: 100%; margin-bottom: 30px; text-align: center;">
+    <div
+        style="font-size: 1.2rem; font-weight: bold; color: #444; margin-bottom: 15px; font-family: 'Segoe UI', sans-serif;">
+        <i class="far fa-calendar-check" style="margin-right: 10px; color: #1f883d;"></i>文章更新日历
+    </div>
+    <div id="archive-calendar-graph" style="width: 100%; height: 225px;">
+        <div id="calendar-loading-text" style="padding-top: 80px; color: #999; font-size: 14px;">
+            <i class="fas fa-spinner fa-spin"></i> 正在加载日历组件...
+        </div>
+        <div id="calendar-error-text" style="display:none; padding-top: 80px; color: #f56c6c; font-size: 14px;">
+            <i class="fas fa-times-circle"></i> <span id="error-message">加载失败</span>
+        </div>
+    </div>
+</div>
+
+<div id="calendar-fallback" style="display:none; max-width: 600px; margin: 0 auto; padding: 20px;">
+    <p style="color: #999; text-align: center;">日历组件加载中...</p>
+</div>
+
+<script type="text/javascript">
+    (function () {
+        'use strict';
+
+        console.log('%c[Calendar] 立即执行模式启动', 'color: blue; font-size: 14px; font-weight: bold');
+
+        var CONFIG = {
+            cdnList: [
+                'https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js',
+                'https://unpkg.com/echarts@5.4.3/dist/echarts.min.js'
+            ],
+            timeout: 8000
+        };
+
+        var state = {
+            currentCDN: 0,
+            container: null,
+            loading: null,
+            error: null,
+            errorMsg: null
+        };
+
+        function log(msg, color) {
+            color = color || 'black';
+            console.log('%c[Calendar] ' + msg, 'color: ' + color);
+        }
+
+        function initDOM() {
+            log('初始化 DOM 元素...', 'blue');
+            state.container = document.getElementById('archive-calendar-graph');
+            state.loading = document.getElementById('calendar-loading-text');
+            state.error = document.getElementById('calendar-error-text');
+            state.errorMsg = document.getElementById('error-message');
+
+            log('容器: ' + (state.container ? '✓' : '✗'), state.container ? 'green' : 'red');
+
+            return !!state.container;
+        }
+
+        function showError(message) {
+            log('错误: ' + message, 'red');
+            if (state.loading) state.loading.style.display = 'none';
+            if (state.error) state.error.style.display = 'block';
+            if (state.errorMsg) state.errorMsg.textContent = message;
+        }
+
+        function loadECharts(callback) {
+            if (typeof echarts !== 'undefined') {
+                log('ECharts 已存在', 'green');
+                callback();
+                return;
+            }
+
+            log('开始加载 ECharts...', 'orange');
+
+            function tryNext() {
+                if (state.currentCDN >= CONFIG.cdnList.length) {
+                    showError('所有 CDN 都加载失败');
+                    return;
+                }
+
+                var url = CONFIG.cdnList[state.currentCDN];
+                log('尝试 CDN #' + (state.currentCDN + 1) + ': ' + url, 'blue');
+
+                var script = document.createElement('script');
+                var timer = null;
+                var finished = false;
+
+                timer = setTimeout(function () {
+                    if (!finished) {
+                        finished = true;
+                        log('超时: ' + url, 'orange');
+                        script.remove();
+                        state.currentCDN++;
+                        tryNext();
+                    }
+                }, CONFIG.timeout);
+
+                script.onload = function () {
+                    if (finished) return;
+                    finished = true;
+                    clearTimeout(timer);
+
+                    if (typeof echarts !== 'undefined') {
+                        log('ECharts 加载成功！版本: ' + echarts.version, 'green');
+                        callback();
+                    } else {
+                        log('脚本加载但 echarts 未定义', 'red');
+                        state.currentCDN++;
+                        tryNext();
+                    }
+                };
+
+                script.onerror = function () {
+                    if (finished) return;
+                    finished = true;
+                    clearTimeout(timer);
+                    log('加载失败: ' + url, 'red');
+                    script.remove();
+                    state.currentCDN++;
+                    tryNext();
+                };
+
+                script.src = url;
+                document.head.appendChild(script);
+            }
+
+            tryNext();
+        }
+
+        // 从页面中提取真实的文章数据
+        function extractRealData() {
+            log('提取真实文章数据...', 'blue');
+
+            var postData = {};
+
+            // 尝试从归档页面的文章列表中提取日期
+            var archiveItems = document.querySelectorAll('.archive-item-date');
+
+            if (archiveItems.length > 0) {
+                log('找到 ' + archiveItems.length + ' 篇文章', 'green');
+                archiveItems.forEach(function (item) {
+                    var dateText = item.textContent.trim();
+                    if (postData[dateText]) {
+                        postData[dateText]++;
+                    } else {
+                        postData[dateText] = 1;
+                    }
+                });
+            } else {
+                log('未找到文章数据，将使用空白日历', 'orange');
+            }
+
+            return postData;
+        }
+
+        function generateData() {
+            log('生成日历数据...', 'blue');
+
+            // 获取真实文章数据
+            var postData = extractRealData();
+
+            var data = [];
+            var now = new Date();
+            var start = new Date(now);
+            start.setFullYear(start.getFullYear() - 1);
+
+            for (var i = 0; i < 365; i++) {
+                var d = new Date(start);
+                d.setDate(d.getDate() + i);
+                var ds = d.toISOString().split('T')[0];
+
+                // 使用真实数据，如果该日期没有文章则为 0
+                var val = postData[ds] || 0;
+                data.push([ds, val]);
+            }
+
+            var totalPosts = Object.keys(postData).length;
+            log('数据生成完成，共 ' + data.length + ' 天，' + totalPosts + ' 天有文章', 'green');
+            return data;
+        }
+
+        function render() {
+            log('开始渲染...', 'blue');
+
+            if (!state.container) {
+                showError('容器不存在');
+                return;
+            }
+
+            if (typeof echarts === 'undefined') {
+                showError('ECharts 未加载');
+                return;
+            }
+
+            try {
+                var data = generateData();
+                var now = new Date();
+                var start = new Date(now);
+                start.setFullYear(start.getFullYear() - 1);
+
+                log('初始化 ECharts...', 'blue');
+                var chart = echarts.init(state.container);
+
+                log('配置选项...', 'blue');
+                var option = {
+                    tooltip: {
+                        padding: 10,
+                        backgroundColor: 'rgba(255,255,255,0.95)',
+                        borderColor: '#e1e4e8',
+                        borderWidth: 1,
+                        textStyle: { color: '#24292e' },
+                        extraCssText: 'box-shadow: 0 3px 8px rgba(0,0,0,0.12); border-radius: 6px;',
+                        formatter: function (p) {
+                            var v = p.value;
+                            var text = v[1] === 0 ? '无文章' : (v[1] === 1 ? '1 篇文章' : v[1] + ' 篇文章');
+                            return '<div style="font-size: 13px; font-weight: 600; color: #24292e;">' + v[0] + '</div>' +
+                                '<div style="font-size: 12px; color: #57606a; margin-top: 4px;">' + text + '</div>';
+                        }
+                    },
+                    visualMap: {
+                        show: true,
+                        showLabel: true,
+                        type: 'piecewise',
+                        pieces: [
+                            { min: 0, max: 0, label: '0', color: '#ebedf0' },
+                            { min: 1, max: 1, label: '1-2', color: '#9be9a8' },
+                            { min: 2, max: 2, label: '3-4', color: '#40c463' },
+                            { min: 3, max: 3, label: '5-6', color: '#30a14e' },
+                            { min: 4, label: '7+', color: '#216e39' }
+                        ],
+                        itemWidth: 12,
+                        itemHeight: 12,
+                        orient: 'horizontal',
+                        left: 'center',
+                        bottom: 0,
+                        textStyle: {
+                            color: '#57606a',
+                            fontSize: 11
+                        }
+                    },
+                    calendar: [{
+                        top: 20,
+                        left: 'center',
+                        range: [start.toISOString().split('T')[0], now.toISOString().split('T')[0]],
+                        cellSize: [13, 13],
+                        splitLine: { show: false },
+                        itemStyle: {
+                            color: '#ebedf0',
+                            borderColor: '#fff',
+                            borderWidth: 3,
+                            borderRadius: 2
+                        },
+                        yearLabel: { show: false },
+                        monthLabel: {
+                            nameMap: 'cn',
+                            fontSize: 11,
+                            color: '#57606a',
+                            fontWeight: 500
+                        },
+                        dayLabel: {
+                            nameMap: 'cn',
+                            fontSize: 11,
+                            color: '#57606a',
+                            fontWeight: 400
+                        }
+                    }],
+                    series: [{
+                        type: 'heatmap',
+                        coordinateSystem: 'calendar',
+                        data: data
+                    }]
+                };
+
+                log('应用配置...', 'blue');
+                chart.setOption(option);
+
+                window.addEventListener('resize', function () {
+                    chart.resize();
+                });
+
+                if (state.loading) state.loading.style.display = 'none';
+                log('✅ 渲染成功！', 'green');
+
+            } catch (e) {
+                log('渲染异常: ' + e.message, 'red');
+                console.error(e);
+                showError('渲染失败: ' + e.message);
+            }
+        }
+
+        function start() {
+            log('启动流程...', 'blue');
+
+            if (!initDOM()) {
+                log('DOM 未就绪，500ms 后重试...', 'orange');
+                setTimeout(start, 500);
+                return;
+            }
+
+            log('DOM 已就绪，开始加载 ECharts', 'green');
+            loadECharts(render);
+        }
+
+        log('检查 document.readyState: ' + document.readyState, 'blue');
+
+        if (document.readyState === 'loading') {
+            log('等待 DOMContentLoaded...', 'orange');
+            document.addEventListener('DOMContentLoaded', function () {
+                log('DOMContentLoaded 触发', 'green');
+                start();
+            });
+        } else {
+            log('文档已加载完成，立即启动', 'green');
+            start();
+        }
+
+    })();
+</script>

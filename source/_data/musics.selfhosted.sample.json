@@ -1,0 +1,13 @@
+{
+  "mode": "selfhosted",
+  "tracks": [
+    {
+      "name": "A Thousand Years",
+      "artist": "Christina Perri",
+      "album": "The Twilight Saga: Breaking Dawn",
+      "url": "https://your-blog-or-cdn.example.com/api/files/collection/record/a_thousand_years.mp3",
+      "coverLocal": "/medias/music/covers/a_thousand_years.jpg",
+      "lrc": "/medias/music/lrc/a_thousand_years.lrc"
+    }
+  ]
+}

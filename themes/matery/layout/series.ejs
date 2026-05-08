@@ -1,0 +1,199 @@
+<%- partial('_partial/bg-cover') %>
+<%
+const rawSeriesData = (site.data && site.data.series) ? site.data.series : [];
+const seriesList = Array.isArray(rawSeriesData)
+    ? rawSeriesData
+    : (Array.isArray(rawSeriesData.series) ? rawSeriesData.series : []);
+const fallbackPoster = '/medias/featureimages/0.jpg';
+%>
+
+<main class="content">
+    <div class="container series-page">
+        <div class="card series-card">
+            <div class="card-content">
+                <div class="series-shell">
+                    <header class="series-header">
+                        <h2>foo1s's Series</h2>
+                    </header>
+
+                    <section class="series-section">
+                        <% if (seriesList.length) { %>
+                            <div class="series-grid">
+                                <% seriesList.forEach(function (series) { %>
+                                    <% const posterSrc = (series.posterLocal || series.coverLocal || series.poster || series.cover || '').trim() || fallbackPoster; %>
+                                    <article class="series-item">
+                                        <% if (series.douban) { %>
+                                        <a
+                                            class="series-poster-link"
+                                            href="<%= series.douban %>"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label="Open Douban: <%= series.title || 'Series' %>"
+                                        >
+                                        <% } else { %>
+                                        <div class="series-poster-link is-disabled">
+                                        <% } %>
+                                            <img
+                                                class="series-poster"
+                                                src="<%= posterSrc %>"
+                                                alt="<%= series.title || 'Series Poster' %>"
+                                                loading="lazy"
+                                                referrerpolicy="no-referrer"
+                                                onerror="this.onerror=null;this.src='<%= fallbackPoster %>'"
+                                            >
+                                        <% if (series.douban) { %>
+                                        </a>
+                                        <% } else { %>
+                                        </div>
+                                        <% } %>
+
+                                        <div class="series-meta">
+                                            <% if (series.review) { %>
+                                            <a class="series-title series-title-link" href="<%= series.review %>"><%= series.title || 'Untitled Series' %></a>
+                                            <% } else { %>
+                                            <p class="series-title"><%= series.title || 'Untitled Series' %></p>
+                                            <% } %>
+
+                                            <p class="series-detail">
+                                                <%= series.subtitle || series.director || 'Unknown Type' %>
+                                                <% if (series.year) { %> · <%= series.year %><% } %>
+                                            </p>
+                                        </div>
+                                    </article>
+                                <% }); %>
+                            </div>
+                        <% } else { %>
+                            <div class="series-empty">
+                                No series found. Add data in <code>source/_data/series.json</code>.
+                            </div>
+                        <% } %>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style>
+    .series-page {
+        margin-top: -60px;
+    }
+
+    .series-card {
+        border-radius: 16px;
+    }
+
+    .series-shell {
+        max-width: 980px;
+        margin: 0 auto;
+    }
+
+    .series-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .series-header h2 {
+        margin: 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+        color: #1f2d3d;
+        font-size: 28px;
+        font-weight: 600;
+    }
+
+    .series-section {
+        margin-top: 16px;
+    }
+
+    .series-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .series-item {
+        display: block;
+        border-radius: 10px;
+    }
+
+    .series-poster-link {
+        display: block;
+        border-radius: 10px;
+        transition: transform 0.22s ease;
+    }
+
+    .series-poster-link:hover {
+        transform: translateY(-4px);
+    }
+
+    .series-poster-link.is-disabled {
+        cursor: default;
+    }
+
+    .series-poster {
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+        border-radius: 8px;
+        display: block;
+        box-shadow: 0 10px 24px rgba(31, 45, 61, 0.14);
+    }
+
+    .series-meta {
+        margin-top: 10px;
+    }
+
+    .series-title {
+        margin: 0;
+        color: #1f2d3d;
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1.45;
+    }
+
+    .series-title-link {
+        display: inline-block;
+        text-decoration: none;
+        transition: color 0.18s ease;
+    }
+
+    .series-title-link:hover {
+        color: #2d7be7;
+    }
+
+    .series-detail {
+        margin: 6px 0 0;
+        color: #708092;
+        font-size: 13px;
+    }
+
+    .series-empty {
+        padding: 14px 16px;
+        border: 1px solid #ecf0f4;
+        border-radius: 10px;
+        color: #5f6f82;
+        background: #fbfcfe;
+        font-size: 14px;
+    }
+
+    @media (max-width: 980px) {
+        .series-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 768px) {
+        .series-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+    }
+
+    @media (max-width: 460px) {
+        .series-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

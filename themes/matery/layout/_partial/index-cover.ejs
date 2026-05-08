@@ -1,0 +1,53 @@
+<div class="carousel carousel-slider center index-cover" data-indicators="false" style="margin-top: -64px;">
+
+    <div class="carousel-item white-text bg-cover about-cover">
+        <div class="container">
+            <%- partial('_partial/bg-cover-content') %>
+
+                <div class="cover-btns">
+                    <a href="#articles" class="waves-effect waves-light btn start-read-btn">
+                        <i class="fa fa-angle-double-down"></i><%- __('startRead') %>
+                    </a>
+                </div>
+                <div class="cover-social-link"><%- partial('_partial/social-link') %></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        // Initialize as a carousel to maintain the full-screen layout and behavior
+        $('.carousel').carousel({
+            fullWidth: true,
+            indicators: false
+        });
+
+        // Always jump to the first article list block.
+        $('.start-read-btn').on('click', function (e) {
+            var target = $('#articles');
+            if (!target.length) return;
+            e.preventDefault();
+            var navHeight = $('#headNav').outerHeight() || 64;
+            var top = Math.max(target.offset().top - navHeight - 8, 0);
+            $('html, body').animate({ scrollTop: top }, 450);
+        });
+    });
+</script>
+
+<style>
+    /* Remove the color changing rainbow animation */
+    .bg-cover:after {
+        animation: none !important;
+        background: none !important;
+        /* Removes the color overlay */
+        background-image: none !important;
+    }
+
+    /* Ensure the background image is the static one and covers the screen */
+    .bg-cover {
+        background-color: #1a1a2e !important;
+        background-image: url('/medias/banner/static_cover.png') !important;
+        background-size: cover;
+        background-position: center;
+    }
+</style>

@@ -1,0 +1,145 @@
+<%- partial('_partial/bg-cover') %>
+<%
+const allPages = site.pages && site.pages.toArray ? site.pages.toArray() : [];
+const galleryItems = allPages
+    .filter(function (p) {
+        return p &&
+            p.layout === 'gallery' &&
+            p.path &&
+            p.path.indexOf('galleries/') === 0 &&
+            p.path !== 'galleries/index.html';
+    })
+    .sort(function (a, b) {
+        return new Date(b.date || 0) - new Date(a.date || 0);
+    });
+%>
+
+<main class="content">
+    <div class="container galleries-page">
+        <div class="card galleries-card">
+            <div class="card-content">
+                <header class="galleries-header">
+                    <h2>foo1s's Galleries</h2>
+                </header>
+
+                <% if (galleryItems.length) { %>
+                <ul class="galleries-timeline">
+                    <% galleryItems.forEach(function (item) { %>
+                    <li class="gallery-line">
+                        <div class="gallery-date">
+                            <%= item.date ? date(item.date, 'YYYY-MM-DD') : '---- -- --' %>
+                        </div>
+                        <div class="gallery-main">
+                            <a class="gallery-title-link" href="<%- url_for(item.path) %>">
+                                <%= item.title || 'Untitled Gallery' %>
+                            </a>
+                            <% if (item.description) { %>
+                            <p class="gallery-line-desc"><%= item.description %></p>
+                            <% } %>
+                        </div>
+                    </li>
+                    <% }); %>
+                </ul>
+                <% } else { %>
+                <div class="galleries-empty">
+                    No gallery yet. Add one under <code>source/galleries/your-slug/index.md</code>.
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style>
+    .galleries-page {
+        margin-top: -60px;
+    }
+
+    .galleries-card {
+        border-radius: 16px;
+    }
+
+    .galleries-header h2 {
+        margin: 0;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #eceff3;
+        color: #1f2d3d;
+        font-size: 28px;
+        font-weight: 600;
+    }
+
+    .galleries-timeline {
+        margin: 22px 0 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .gallery-line {
+        display: grid;
+        grid-template-columns: 140px minmax(0, 1fr);
+        column-gap: 28px;
+        align-items: start;
+        padding: 12px 0;
+    }
+
+    .gallery-date {
+        color: #b4bcc8;
+        font-size: 16px;
+        letter-spacing: 0.4px;
+        line-height: 1.25;
+        font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    .gallery-main {
+        min-width: 0;
+    }
+
+    .gallery-title-link {
+        color: #283241;
+        text-decoration: underline;
+        text-decoration-color: #8b939f;
+        text-underline-offset: 4px;
+        text-decoration-thickness: 1px;
+        font-size: 22px;
+        line-height: 1.28;
+        font-weight: 500;
+        transition: color 0.18s ease;
+        word-break: break-word;
+    }
+
+    .gallery-title-link:hover {
+        color: #121b2b;
+    }
+
+    .gallery-line-desc {
+        margin: 6px 0 0;
+        color: #8f99a7;
+        font-size: 14px;
+        line-height: 1.55;
+    }
+
+    .galleries-empty {
+        margin-top: 18px;
+        padding: 14px 16px;
+        border: 1px solid #ecf0f4;
+        border-radius: 10px;
+        color: #5f6f82;
+        background: #fbfcfe;
+        font-size: 14px;
+    }
+
+    @media (max-width: 992px) {
+        .gallery-line {
+            grid-template-columns: 1fr;
+            row-gap: 5px;
+            padding: 12px 0;
+        }
+
+        .gallery-date {
+            font-size: 15px;
+        }
+
+        .gallery-title-link { font-size: 20px; }
+        .gallery-line-desc { font-size: 13px; }
+    }
+</style>

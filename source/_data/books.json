@@ -1,0 +1,36 @@
+{
+  "books": [
+    {
+      "title": "活着",
+      "author": "余华",
+      "coverLocal": "/medias/books/covers/huozhe.jpg",
+      "douban": "https://book.douban.com/subject/4913064/",
+      "review": "/books/reviews/huozhe/",
+      "slug": "huozhe"
+    },
+    {
+      "title": "百年孤独",
+      "author": "加西亚-马尔克斯",
+      "coverLocal": "/medias/books/covers/6082808-book-2.jpg",
+      "douban": "https://book.douban.com/subject/6082808/",
+      "review": "",
+      "slug": "one-hundred-years-of-solitude"
+    },
+    {
+      "title": "小王子",
+      "author": "圣埃克苏佩里",
+      "coverLocal": "/medias/books/covers/1084336-book-3.jpg",
+      "douban": "https://book.douban.com/subject/1084336/",
+      "review": "",
+      "slug": "the-little-prince"
+    },
+    {
+      "title": "人类简史",
+      "author": "尤瓦尔-赫拉利",
+      "coverLocal": "/medias/books/covers/25985021-book-4.jpg",
+      "douban": "https://book.douban.com/subject/25985021/",
+      "review": "",
+      "slug": "sapiens"
+    }
+  ]
+}

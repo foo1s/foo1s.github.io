@@ -1,0 +1,131 @@
+﻿<%- partial('_partial/bg-cover') %>
+<%
+const photos = Array.isArray(page.photos) ? page.photos : [];
+const cover = page.cover || (photos.length ? photos[0] : '/medias/featureimages/0.jpg');
+function photoUrl(src) {
+    if (!src) return '';
+    if (/^https?:\/\//.test(src) || src.indexOf('//') === 0) return src;
+    return url_for(src);
+}
+%>
+
+<main class="content">
+    <div class="container gallery-detail-page">
+        <div class="card gallery-detail-card">
+            <div class="card-content">
+                <header class="gallery-detail-header">
+                    <h1><%= page.title || 'Gallery' %></h1>
+                    <div class="gallery-detail-meta">
+                        <span><%= page.date ? date(page.date, 'YYYY-MM-DD') : '' %></span>
+                    </div>
+                    <% if (page.description) { %>
+                    <p class="gallery-detail-desc"><%= page.description %></p>
+                    <% } %>
+                </header>
+
+                <% if (photos.length) { %>
+                <div class="gallery-photo-grid">
+                    <% photos.forEach(function (photo, index) { %>
+                    <a class="gallery-photo-item" href="<%= photoUrl(photo) %>" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="<%= photoUrl(photo) %>"
+                            alt="<%= (page.title || 'gallery') + ' photo ' + (index + 1) %>"
+                            loading="lazy"
+                            onerror="this.onerror=null;this.src='<%= url_for(cover) %>'"
+                        >
+                    </a>
+                    <% }); %>
+                </div>
+                <% } else { %>
+                <div class="gallery-empty">
+                    No photos yet. Add image paths to <code>photos</code> in this page front-matter.
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style>
+    .gallery-detail-page {
+        margin-top: -60px;
+    }
+
+    .gallery-detail-card {
+        border-radius: 16px;
+    }
+
+    .gallery-detail-header h1 {
+        margin: 0;
+        color: #1f2d3d;
+        font-size: 34px;
+        font-weight: 600;
+        line-height: 1.3;
+    }
+
+    .gallery-detail-meta {
+        margin-top: 6px;
+        color: #98a3b2;
+        font-size: 13px;
+    }
+
+    .gallery-detail-desc {
+        margin: 12px 0 0;
+        color: #627185;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .gallery-photo-grid {
+        margin-top: 22px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .gallery-photo-item {
+        display: block;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 8px 22px rgba(31, 45, 61, 0.12);
+        transition: transform 0.2s ease;
+    }
+
+    .gallery-photo-item:hover {
+        transform: translateY(-3px);
+    }
+
+    .gallery-photo-item img {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        display: block;
+    }
+
+    .gallery-empty {
+        margin-top: 18px;
+        padding: 14px 16px;
+        border: 1px solid #ecf0f4;
+        border-radius: 10px;
+        color: #5f6f82;
+        background: #fbfcfe;
+        font-size: 14px;
+    }
+
+    @media (max-width: 992px) {
+        .gallery-photo-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 576px) {
+        .gallery-detail-header h1 {
+            font-size: 28px;
+        }
+
+        .gallery-photo-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
