@@ -244,6 +244,15 @@
         </a>
       </li>
       
+      <li>
+        <a href="/moments">
+          
+          <i class="fas fa-feather-alt" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Moments</span>
+        </a>
+      </li>
+      
     </ul>
     
   </li>
@@ -439,6 +448,16 @@
                   </a>
                 </li>
               
+                <li>
+
+                  <a href="/moments " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-feather-alt" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Moments</span>
+                  </a>
+                </li>
+              
             </ul>
           
         </li>
@@ -526,7 +545,110 @@
 
 <main class="content">
 
-    
+    <style>
+        .archive-container {
+            max-width: 900px;
+            margin: 0 auto;
+            margin-top: -60px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+            position: relative;
+            z-index: 10;
+            min-height: 600px;
+        }
+
+        .archive-calendar-box {
+            padding-bottom: 30px;
+            border-bottom: 1px dashed #e0e0e0;
+            margin-bottom: 40px;
+        }
+
+        .archive-year-header {
+            font-size: 2.2rem;
+            color: #dbe2ef;
+            font-weight: 900;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-family: 'Segoe UI', sans-serif;
+            position: relative;
+            padding-left: 10px;
+        }
+
+        .archive-year-header::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 15%;
+            height: 70%;
+            width: 4px;
+            background: #28becf;
+            border-radius: 2px;
+        }
+
+        .archive-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .archive-item:hover {
+            background-color: #f8f9fa;
+            border-left: 3px solid #28becf;
+            transform: translateX(5px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        .archive-item-link {
+            font-size: 1.1rem;
+            color: #4a4a4a;
+            text-decoration: none;
+            flex: 1;
+            margin-right: 20px;
+            font-weight: 500;
+        }
+
+        .archive-item-link:hover {
+            color: #28becf;
+        }
+
+        .archive-item-date {
+            color: #999;
+            font-size: 0.9rem;
+            font-family: 'Consolas', monospace;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .archive-container {
+                margin-top: 0;
+                padding: 20px;
+                border-radius: 0;
+                width: 100%;
+                box-shadow: none;
+            }
+
+            .archive-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .archive-item-date {
+                margin-top: 5px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+
+    <div class="container archive-container">
+
+        <div class="archive-calendar-box">
+            
 
 <div id="category-cloud" class="container chip-container">
     <div class="card">
@@ -570,63 +692,31 @@
     </div>
 </div>
 
-
-    
-
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2024/11/07/foo1s-de-di-yi-pian-bo-ke/">
-                        <div class="card-image tag-image">
-                            
-                            <img src="/source/medias/images/01.jpg" class="responsive-img" alt="foo1s的第一篇博客">
-                            
-                            <span class="card-title">foo1s的第一篇博客</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                foo1s新建博客后使用的第一篇博客
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-11-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Markdown/" class="post-category">
-                                    Markdown
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Obsidian/">
-                            <span class="chip bg-color">Obsidian</span>
-                        </a>
-                        
-                        <a href="/tags/Markdown/">
-                            <span class="chip bg-color">Markdown</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
-    </article>
+
+        
+        
+            
+
+            
+                
+                <div class="archive-year-header" data-aos="fade-right">
+                    2024
+                </div>
+            
+
+            <div class="archive-item" data-aos="fade-up">
+                <a href="/2024/11/07/foo1s-de-di-yi-pian-bo-ke/" class="archive-item-link">
+                    foo1s的第一篇博客
+                </a>
+                <span class="archive-item-date">
+                    2024-11-07
+                </span>
+            </div>
+        
+
+    </div>
+
 </main>
 
 

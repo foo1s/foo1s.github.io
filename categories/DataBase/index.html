@@ -244,6 +244,15 @@
         </a>
       </li>
       
+      <li>
+        <a href="/moments">
+          
+          <i class="fas fa-feather-alt" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Moments</span>
+        </a>
+      </li>
+      
     </ul>
     
   </li>
@@ -439,6 +448,16 @@
                   </a>
                 </li>
               
+                <li>
+
+                  <a href="/moments " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-feather-alt" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Moments</span>
+                  </a>
+                </li>
+              
             </ul>
           
         </li>
@@ -526,7 +545,110 @@
 
 <main class="content">
 
-    
+    <style>
+        .archive-container {
+            max-width: 900px;
+            margin: 0 auto;
+            margin-top: -60px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+            position: relative;
+            z-index: 10;
+            min-height: 600px;
+        }
+
+        .archive-calendar-box {
+            padding-bottom: 30px;
+            border-bottom: 1px dashed #e0e0e0;
+            margin-bottom: 40px;
+        }
+
+        .archive-year-header {
+            font-size: 2.2rem;
+            color: #dbe2ef;
+            font-weight: 900;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-family: 'Segoe UI', sans-serif;
+            position: relative;
+            padding-left: 10px;
+        }
+
+        .archive-year-header::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 15%;
+            height: 70%;
+            width: 4px;
+            background: #28becf;
+            border-radius: 2px;
+        }
+
+        .archive-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .archive-item:hover {
+            background-color: #f8f9fa;
+            border-left: 3px solid #28becf;
+            transform: translateX(5px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        .archive-item-link {
+            font-size: 1.1rem;
+            color: #4a4a4a;
+            text-decoration: none;
+            flex: 1;
+            margin-right: 20px;
+            font-weight: 500;
+        }
+
+        .archive-item-link:hover {
+            color: #28becf;
+        }
+
+        .archive-item-date {
+            color: #999;
+            font-size: 0.9rem;
+            font-family: 'Consolas', monospace;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .archive-container {
+                margin-top: 0;
+                padding: 20px;
+                border-radius: 0;
+                width: 100%;
+                box-shadow: none;
+            }
+
+            .archive-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .archive-item-date {
+                margin-top: 5px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+
+    <div class="container archive-container">
+
+        <div class="archive-calendar-box">
+            
 
 <div id="category-cloud" class="container chip-container">
     <div class="card">
@@ -570,725 +692,174 @@
     </div>
 </div>
 
-
-    
-
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/05/08/suo-yin-xiang-guan-wen-ti/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="MySQL基础-索引">
-                            
-                            <span class="card-title">MySQL基础-索引</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                AI相关提问基础概念类：
-
-什么是数据库索引？为什么要使用索引？
-
-解答： 数据库索引是一种特殊的数据结构（通常是 B-Tree 或 B+Tree），它存储着表中一列或多列的值，并关联着这些值对应的数据行的物理位置或主键信息。
-使用索引的目
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/DataBase/" class="post-category">
-                                    DataBase
-                                </a>
-                                
-                                <a href="/categories/DataBase/MySQL/" class="post-category">
-                                    MySQL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                            <span class="chip bg-color">数据库</span>
-                        </a>
-                        
-                        <a href="/tags/MySQL/">
-                            <span class="chip bg-color">MySQL</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/05/08/biao-xiang-guan-han-shu-shi-yong/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="MySQL基础">
-                            
-                            <span class="card-title">MySQL基础</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                创建表创建表基础create table table1
-(
-id int not null Auto_increment
-name char(50) not null
-money int nor null default 1
-primary
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/DataBase/" class="post-category">
-                                    DataBase
-                                </a>
-                                
-                                <a href="/categories/DataBase/MySQL/" class="post-category">
-                                    MySQL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                            <span class="chip bg-color">数据库</span>
-                        </a>
-                        
-                        <a href="/tags/MySQL/">
-                            <span class="chip bg-color">MySQL</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/05/08/suo-yin-shi-xiao-wen-ti/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="MySQL基础-索引失效">
-                            
-                            <span class="card-title">MySQL基础-索引失效</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                一、SQL 写法导致的失效
-列上使用函数或表达式
-WHERE UPPER(name) = 'JACK'
-WHERE DATE(create_time) = '2025‑06‑18'
-
-
-原因：函数或表达式会在每行数据上执行运算，无法利用原始
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/DataBase/" class="post-category">
-                                    DataBase
-                                </a>
-                                
-                                <a href="/categories/DataBase/MySQL/" class="post-category">
-                                    MySQL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                            <span class="chip bg-color">数据库</span>
-                        </a>
-                        
-                        <a href="/tags/MySQL/">
-                            <span class="chip bg-color">MySQL</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/05/08/sou-suo-yin-qing-de-qu-bie/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="MySQL基础-搜索引擎">
-                            
-                            <span class="card-title">MySQL基础-搜索引擎</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                MySQL中，InnoDB和MyISAM是两种最常用的存储引擎，它们在设计和功能上有显著的区别。理解这些区别对于选择适合特定应用场景的存储引擎至关重要。以下是它们之间主要的区别：
-1. 事务支持 (Transaction Support):
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/DataBase/" class="post-category">
-                                    DataBase
-                                </a>
-                                
-                                <a href="/categories/DataBase/MySQL/" class="post-category">
-                                    MySQL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                            <span class="chip bg-color">数据库</span>
-                        </a>
-                        
-                        <a href="/tags/MySQL/">
-                            <span class="chip bg-color">MySQL</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/05/08/fen-ku-fen-biao-wen-ti/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="MySQL基础-分库分表">
-                            
-                            <span class="card-title">MySQL基础-分库分表</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                分库分表💡 一、为什么需要分库分表（动因）核心目标：解决单库单表性能瓶颈。
-
-数据量大 → 单表数据超千万行，查询慢、索引失效
-
-并发高 → 单库连接数&#x2F;事务冲突瓶颈
-
-运维难 → 备份、迁移、恢复时间长
-
-可用性差 → 单点故
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/DataBase/" class="post-category">
-                                    DataBase
-                                </a>
-                                
-                                <a href="/categories/DataBase/MySQL/" class="post-category">
-                                    MySQL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                            <span class="chip bg-color">数据库</span>
-                        </a>
-                        
-                        <a href="/tags/MySQL/">
-                            <span class="chip bg-color">MySQL</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/05/08/han-shu-yu-yan-de-xue-xi/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="MySQL基础">
-                            
-                            <span class="card-title">MySQL基础</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                函数文本处理函数select name,Upper(name) AS name_case 
-FROM xxx
-order by xxx;
-
-left():返回左边的字符
-length():返回长度
-Locate():找出一个字串
-Lower
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/DataBase/" class="post-category">
-                                    DataBase
-                                </a>
-                                
-                                <a href="/categories/DataBase/MySQL/" class="post-category">
-                                    MySQL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                            <span class="chip bg-color">数据库</span>
-                        </a>
-                        
-                        <a href="/tags/MySQL/">
-                            <span class="chip bg-color">MySQL</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/05/08/san-da-ri-zhi-de-zuo-yong-yi-ji-shi-xian/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="MySQL基础-三大日志">
-                            
-                            <span class="card-title">MySQL基础-三大日志</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                1. Redo Log (重做日志)
-作用： Redo Log 是 InnoDB 存储引擎特有的日志，用于实现事务的 持久性（Durability）。它的主要目的是确保事务在提交后，即使发生数据库崩溃，数据也不会丢失。
-记录内容： 它记录的
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/DataBase/" class="post-category">
-                                    DataBase
-                                </a>
-                                
-                                <a href="/categories/DataBase/MySQL/" class="post-category">
-                                    MySQL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                            <span class="chip bg-color">数据库</span>
-                        </a>
-                        
-                        <a href="/tags/MySQL/">
-                            <span class="chip bg-color">MySQL</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/05/08/mvcc/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="MySQL基础-MVCC">
-                            
-                            <span class="card-title">MySQL基础-MVCC</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                MVCC存储在哪里，作用是什么MVCC是什么
-传统的数据库并发控制通常使用锁机制，在并发量高的情况下容易导致阻塞和性能下降。
-读不阻塞写，写不阻塞读；为每个事务维护一个数据快照；创建新版本而不是覆盖。
-
-
-MVCC的实现原理好的，我们来详细
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/DataBase/" class="post-category">
-                                    DataBase
-                                </a>
-                                
-                                <a href="/categories/DataBase/MySQL/" class="post-category">
-                                    MySQL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                            <span class="chip bg-color">数据库</span>
-                        </a>
-                        
-                        <a href="/tags/MySQL/">
-                            <span class="chip bg-color">MySQL</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/05/08/mysql-gao-ji-yu-yan-shi-yong/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="MySQL基础">
-                            
-                            <span class="card-title">MySQL基础</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                视图
-视图是虚拟的表，在select层面简化检索数据的查询操作
-每次使用视图时，都必须处理查询执行时所需的任一检索
-
-使用视图视图基本语法create view
-
-show create view viewname
-
-drop 
-
-利用视图
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/DataBase/" class="post-category">
-                                    DataBase
-                                </a>
-                                
-                                <a href="/categories/DataBase/MySQL/" class="post-category">
-                                    MySQL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                            <span class="chip bg-color">数据库</span>
-                        </a>
-                        
-                        <a href="/tags/MySQL/">
-                            <span class="chip bg-color">MySQL</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/05/08/mysql-ji-chu/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="MySQL基础">
-                            
-                            <span class="card-title">MySQL基础</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-MySQL8.4安装教程Windows安装Mysql8.4,看这一篇就够了（超级详细！）_mysql8.4安装教程-CSDN博客
-
-常用操作- 开启操作：`net start MySQL84`
-- 关闭操作：`net stop MySQL
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/DataBase/" class="post-category">
-                                    DataBase
-                                </a>
-                                
-                                <a href="/categories/DataBase/MySQL/" class="post-category">
-                                    MySQL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                            <span class="chip bg-color">数据库</span>
-                        </a>
-                        
-                        <a href="/tags/MySQL/">
-                            <span class="chip bg-color">MySQL</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/05/08/mysql-si-da-ge-chi-yu-ju/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="MySQL基础-隔离语句">
-                            
-                            <span class="card-title">MySQL基础-隔离语句</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                SQL 标准定义了四个隔离级别：
-
-READ-UNCOMMITTED(读取未提交) ：最低的隔离级别，允许读取尚未提交的数据变更，可能会导致脏读、幻读或不可重复读。
-READ-COMMITTED(读取已提交) ：允许读取并发事务已经提交的数
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/DataBase/" class="post-category">
-                                    DataBase
-                                </a>
-                                
-                                <a href="/categories/DataBase/MySQL/" class="post-category">
-                                    MySQL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                            <span class="chip bg-color">数据库</span>
-                        </a>
-                        
-                        <a href="/tags/MySQL/">
-                            <span class="chip bg-color">MySQL</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/05/08/ddl-yu-yan-xue-xi/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="MySQL基础">
-                            
-                            <span class="card-title">MySQL基础</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                DDL语言主要用于定义和管理数据库的结构，包括库，表，索引，视图等数据库对象的创建与修改不涉及对数据的操作，而是更关注于数据库的结构与元数据
-DDL常用操作DDL常用语言create 
-
-alter
-
-drop
-
-show database
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/DataBase/" class="post-category">
-                                    DataBase
-                                </a>
-                                
-                                <a href="/categories/DataBase/MySQL/" class="post-category">
-                                    MySQL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                            <span class="chip bg-color">数据库</span>
-                        </a>
-                        
-                        <a href="/tags/MySQL/">
-                            <span class="chip bg-color">MySQL</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
-    </article>
+
+        
+        
+            
+
+            
+                
+                <div class="archive-year-header" data-aos="fade-right">
+                    2025
+                </div>
+            
+
+            <div class="archive-item" data-aos="fade-up">
+                <a href="/2025/05/08/biao-xiang-guan-han-shu-shi-yong/" class="archive-item-link">
+                    MySQL基础
+                </a>
+                <span class="archive-item-date">
+                    2025-05-08
+                </span>
+            </div>
+        
+            
+
+            
+
+            <div class="archive-item" data-aos="fade-up">
+                <a href="/2025/05/08/suo-yin-xiang-guan-wen-ti/" class="archive-item-link">
+                    MySQL基础-索引
+                </a>
+                <span class="archive-item-date">
+                    2025-05-08
+                </span>
+            </div>
+        
+            
+
+            
+
+            <div class="archive-item" data-aos="fade-up">
+                <a href="/2025/05/08/suo-yin-shi-xiao-wen-ti/" class="archive-item-link">
+                    MySQL基础-索引失效
+                </a>
+                <span class="archive-item-date">
+                    2025-05-08
+                </span>
+            </div>
+        
+            
+
+            
+
+            <div class="archive-item" data-aos="fade-up">
+                <a href="/2025/05/08/sou-suo-yin-qing-de-qu-bie/" class="archive-item-link">
+                    MySQL基础-搜索引擎
+                </a>
+                <span class="archive-item-date">
+                    2025-05-08
+                </span>
+            </div>
+        
+            
+
+            
+
+            <div class="archive-item" data-aos="fade-up">
+                <a href="/2025/05/08/fen-ku-fen-biao-wen-ti/" class="archive-item-link">
+                    MySQL基础-分库分表
+                </a>
+                <span class="archive-item-date">
+                    2025-05-08
+                </span>
+            </div>
+        
+            
+
+            
+
+            <div class="archive-item" data-aos="fade-up">
+                <a href="/2025/05/08/han-shu-yu-yan-de-xue-xi/" class="archive-item-link">
+                    MySQL基础
+                </a>
+                <span class="archive-item-date">
+                    2025-05-08
+                </span>
+            </div>
+        
+            
+
+            
+
+            <div class="archive-item" data-aos="fade-up">
+                <a href="/2025/05/08/san-da-ri-zhi-de-zuo-yong-yi-ji-shi-xian/" class="archive-item-link">
+                    MySQL基础-三大日志
+                </a>
+                <span class="archive-item-date">
+                    2025-05-08
+                </span>
+            </div>
+        
+            
+
+            
+
+            <div class="archive-item" data-aos="fade-up">
+                <a href="/2025/05/08/mvcc/" class="archive-item-link">
+                    MySQL基础-MVCC
+                </a>
+                <span class="archive-item-date">
+                    2025-05-08
+                </span>
+            </div>
+        
+            
+
+            
+
+            <div class="archive-item" data-aos="fade-up">
+                <a href="/2025/05/08/mysql-gao-ji-yu-yan-shi-yong/" class="archive-item-link">
+                    MySQL基础
+                </a>
+                <span class="archive-item-date">
+                    2025-05-08
+                </span>
+            </div>
+        
+            
+
+            
+
+            <div class="archive-item" data-aos="fade-up">
+                <a href="/2025/05/08/mysql-ji-chu/" class="archive-item-link">
+                    MySQL基础
+                </a>
+                <span class="archive-item-date">
+                    2025-05-08
+                </span>
+            </div>
+        
+            
+
+            
+
+            <div class="archive-item" data-aos="fade-up">
+                <a href="/2025/05/08/mysql-si-da-ge-chi-yu-ju/" class="archive-item-link">
+                    MySQL基础-隔离语句
+                </a>
+                <span class="archive-item-date">
+                    2025-05-08
+                </span>
+            </div>
+        
+            
+
+            
+
+            <div class="archive-item" data-aos="fade-up">
+                <a href="/2025/05/08/ddl-yu-yan-xue-xi/" class="archive-item-link">
+                    MySQL基础
+                </a>
+                <span class="archive-item-date">
+                    2025-05-08
+                </span>
+            </div>
+        
+
+    </div>
+
 </main>
 
 
