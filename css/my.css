@@ -1,5 +1,39 @@
 /* Custom CSS Overrides */
 
+/* Page flow guard: keep main content and footer in normal document flow. */
+html {
+    min-height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body > main.content {
+    flex: 1 0 auto;
+}
+
+main.content,
+#articles,
+.paging {
+    clear: both;
+}
+
+main.content::after,
+#articles::after,
+.paging::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+footer.page-footer {
+    flex-shrink: 0;
+    clear: both;
+}
+
 /* Override background gradient (Header, Footer, Progress Bar) */
 /* EXCLUDING .nav-transparent to fix the navigation bar issue */
 /* .bg-color:not(.nav-transparent) {

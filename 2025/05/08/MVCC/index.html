@@ -68,9 +68,9 @@ MVCC的实现原理好的，我们来详细">
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><link rel="alternate" href="/atom.xml" title="foo1s' blog" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="foo1s' blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
     <body>
@@ -959,15 +959,285 @@ MVCC的实现原理好的，我们来详细">
         left: unset;
         visibility: visible;
     }
+
+    /* Minimal Twikoo skin: keep the comment engine, soften the visual system. */
+    .twikoo-card {
+        max-width: 1120px;
+        margin: 2rem auto !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+        border: 1px solid #e8edf4;
+        border-radius: 18px;
+        box-shadow: 0 20px 48px rgba(31, 45, 61, 0.08) !important;
+        overflow: hidden;
+    }
+
+    .twikoo-card .card-content {
+        padding: 26px 32px 34px !important;
+    }
+
+    .twikoo-heading {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 28px 32px 0;
+        color: #1f2d3d;
+        font-size: 1.45rem;
+        font-weight: 700;
+        line-height: 1.4;
+    }
+
+    .twikoo-heading i {
+        color: #5d6b7b;
+        font-size: 1.35rem;
+    }
+
+    #tcomments {
+        --tk-theme-color: #5d6b7b;
+        --tk-color-primary: #5d6b7b;
+        color: #1f2d3d;
+    }
+
+    #tcomments a {
+        color: #42556b;
+    }
+
+    #tcomments textarea,
+    #tcomments .el-textarea__inner {
+        min-height: 116px !important;
+        background: #fbfcfe !important;
+        border-color: #dfe6ef !important;
+        border-radius: 12px !important;
+        box-shadow: none !important;
+        color: #1f2d3d !important;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    #tcomments textarea:focus,
+    #tcomments .el-textarea__inner:focus {
+        background: #ffffff !important;
+        border-color: #b8c4d4 !important;
+        box-shadow: 0 0 0 3px rgba(93, 107, 123, 0.08) !important;
+    }
+
+    #tcomments .tk-avatar,
+    #tcomments .tk-avatar img {
+        border-radius: 12px !important;
+        box-shadow: none !important;
+    }
+
+    #tcomments .tk-meta-input {
+        gap: 12px;
+    }
+
+    #tcomments .tk-meta-input .el-input-group {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: none !important;
+    }
+
+    #tcomments .tk-meta-input .el-input-group__prepend {
+        border-color: #dfe6ef !important;
+        background: #f6f8fb !important;
+        color: #526174 !important;
+        font-weight: 500;
+    }
+
+    #tcomments .tk-meta-input .el-input__inner {
+        border-color: #dfe6ef !important;
+        background: #fbfcfe !important;
+        color: #1f2d3d !important;
+        box-shadow: none !important;
+    }
+
+    #tcomments .tk-meta-input .el-input__inner:focus {
+        border-color: #b8c4d4 !important;
+    }
+
+    #tcomments .tk-action-icon {
+        color: #5d6b7b !important;
+        transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    #tcomments .tk-action-icon:hover {
+        color: #2f3b4a !important;
+        transform: translateY(-1px);
+    }
+
+    #tcomments .tk-preview,
+    #tcomments .tk-send {
+        height: 38px;
+        padding: 0 18px;
+        border-radius: 10px !important;
+        font-weight: 600;
+        box-shadow: none !important;
+    }
+
+    #tcomments .tk-preview {
+        border: 1px solid #dbe3ee !important;
+        background: #ffffff !important;
+        color: #42556b !important;
+    }
+
+    #tcomments .tk-send {
+        border: 1px solid #5d6b7b !important;
+        background: #5d6b7b !important;
+        color: #ffffff !important;
+    }
+
+    #tcomments .tk-send.is-disabled,
+    #tcomments .tk-send:disabled {
+        border-color: #dce4ee !important;
+        background: #edf2f7 !important;
+        color: #a7b1bf !important;
+    }
+
+    #tcomments .tk-comments-title,
+    #tcomments .tk-extras,
+    #tcomments .tk-empty,
+    #tcomments .tk-footer {
+        color: #8a95a5 !important;
+    }
+
+    /* Notion-like comment flow: compact editor, quiet timeline, no vendor noise. */
+    #tcomments .tk-submit {
+        max-width: 820px;
+        margin: 0 auto 34px;
+    }
+
+    #tcomments .tk-submit .tk-avatar {
+        width: 42px !important;
+        height: 42px !important;
+        margin-right: 14px;
+    }
+
+    #tcomments .tk-meta-input {
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-bottom: 10px;
+    }
+
+    #tcomments .tk-meta-input .el-input-group__prepend {
+        padding: 0 14px;
+        font-size: 0.94rem;
+    }
+
+    #tcomments .tk-meta-input .el-input__inner {
+        height: 42px;
+        font-size: 0.96rem;
+    }
+
+    #tcomments textarea,
+    #tcomments .el-textarea__inner {
+        min-height: 96px !important;
+        padding: 14px 16px !important;
+        font-size: 1rem !important;
+        line-height: 1.7 !important;
+    }
+
+    #tcomments .tk-row.actions {
+        margin-top: 12px;
+        padding-left: 0;
+    }
+
+    #tcomments .tk-comments-container {
+        max-width: 820px;
+        margin: 0 auto;
+    }
+
+    #tcomments .tk-comments-title {
+        margin: 4px 0 8px;
+        color: #1f2d3d !important;
+        font-size: 1rem !important;
+        font-weight: 650;
+    }
+
+    #tcomments .tk-comment {
+        padding: 22px 0 !important;
+        border-top: 1px solid #edf1f6;
+    }
+
+    #tcomments .tk-comment:first-child {
+        border-top: 0;
+    }
+
+    #tcomments .tk-comment .tk-avatar {
+        width: 40px !important;
+        height: 40px !important;
+        margin-right: 14px;
+    }
+
+    #tcomments .tk-comment .tk-main {
+        min-width: 0;
+    }
+
+    #tcomments .tk-nick {
+        color: #4d5968 !important;
+        font-size: 1rem !important;
+        font-weight: 700 !important;
+    }
+
+    #tcomments .tk-time,
+    #tcomments .tk-tag {
+        color: #9aa3af !important;
+        font-size: 0.86rem !important;
+    }
+
+    #tcomments .tk-content {
+        margin-top: 8px !important;
+        color: #1f2933 !important;
+        font-size: 1.02rem !important;
+        line-height: 1.8 !important;
+    }
+
+    #tcomments .tk-content p {
+        margin: 0 0 0.55rem !important;
+        font-size: inherit !important;
+        line-height: inherit !important;
+    }
+
+    #tcomments .tk-replies {
+        margin-top: 12px !important;
+        padding-left: 18px !important;
+        border-left: 2px solid #edf1f6;
+    }
+
+    #tcomments .tk-footer {
+        display: none !important;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .twikoo-card {
+            margin: 1rem auto !important;
+            border-radius: 12px;
+        }
+
+        .twikoo-heading {
+            padding: 22px 20px 0;
+            font-size: 1.28rem;
+        }
+
+        .twikoo-card .card-content {
+            padding: 20px !important;
+        }
+
+        #tcomments .tk-submit,
+        #tcomments .tk-comments-container {
+            max-width: 100%;
+        }
+
+        #tcomments .tk-meta-input {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 8px;
+        }
+    }
 </style>
 
 <div class="card twikoo-card" data-aos="fade-up">
-    <div class="comment_headling"
-        style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+    <div class="comment_headling twikoo-heading">
         <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
         <span>评论</span>
     </div>
-    <div class="card-content" style="display: grid">
+    <div class="card-content">
         <div id="tcomments"></div>
     </div>
 </div>
@@ -989,6 +1259,7 @@ MVCC的实现原理好的，我们来详细">
         }
     });
 </script>
+
                                                                                                 
 
                                                                                                     
