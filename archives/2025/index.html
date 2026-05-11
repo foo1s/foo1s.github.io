@@ -1689,17 +1689,17 @@ Lower
                                                                             data-aos="fade-up">
                                                                             <div class="article col s12 m6">
                                                                                 <div class="card">
-                                                                                    <a href="/2025/05/08/sou-suo-yin-qing-de-qu-bie/">
+                                                                                    <a href="/2025/05/08/suo-yin-shi-xiao-wen-ti/">
                                                                                         <div class="card-image">
                                                                                             
                                                                                                     
-                                                                                                        <img src="/medias/featureimages/20.jpg"
+                                                                                                        <img src="/medias/featureimages/17.jpg"
                                                                                                             class="responsive-img"
-                                                                                                            alt="MySQL基础-搜索引擎">
+                                                                                                            alt="MySQL基础-索引失效">
                                                                                                         
                                                                                                             <span
                                                                                                                 class="card-title">
-                                                                                                                MySQL基础-搜索引擎
+                                                                                                                MySQL基础-索引失效
                                                                                                             </span>
                                                                                         </div>
                                                                                     </a>
@@ -1708,8 +1708,13 @@ Lower
                                                                                         <div
                                                                                             class="summary block-with-text">
                                                                                             
-                                                                                                        MySQL中，InnoDB和MyISAM是两种最常用的存储引擎，它们在设计和功能上有显著的区别。理解这些区别对于选择适合特定应用场景的存储引擎至关重要。以下是它们之间主要的区别：
-1. 事务支持 (Transaction Support):
+                                                                                                        一、SQL 写法导致的失效
+列上使用函数或表达式
+WHERE UPPER(name) = 'JACK'
+WHERE DATE(create_time) = '2025‑06‑18'
+
+
+原因：函数或表达式会在每行数据上执行运算，无法利用原始
                                                                                                             
                                                                                         </div>
                                                                                         <div class="publish-info">
@@ -1783,17 +1788,17 @@ Lower
                                                                             data-aos="fade-up">
                                                                             <div class="article col s12 m6">
                                                                                 <div class="card">
-                                                                                    <a href="/2025/05/08/suo-yin-shi-xiao-wen-ti/">
+                                                                                    <a href="/2025/05/08/sou-suo-yin-qing-de-qu-bie/">
                                                                                         <div class="card-image">
                                                                                             
                                                                                                     
-                                                                                                        <img src="/medias/featureimages/17.jpg"
+                                                                                                        <img src="/medias/featureimages/20.jpg"
                                                                                                             class="responsive-img"
-                                                                                                            alt="MySQL基础-索引失效">
+                                                                                                            alt="MySQL基础-搜索引擎">
                                                                                                         
                                                                                                             <span
                                                                                                                 class="card-title">
-                                                                                                                MySQL基础-索引失效
+                                                                                                                MySQL基础-搜索引擎
                                                                                                             </span>
                                                                                         </div>
                                                                                     </a>
@@ -1802,13 +1807,8 @@ Lower
                                                                                         <div
                                                                                             class="summary block-with-text">
                                                                                             
-                                                                                                        一、SQL 写法导致的失效
-列上使用函数或表达式
-WHERE UPPER(name) = 'JACK'
-WHERE DATE(create_time) = '2025‑06‑18'
-
-
-原因：函数或表达式会在每行数据上执行运算，无法利用原始
+                                                                                                        MySQL中，InnoDB和MyISAM是两种最常用的存储引擎，它们在设计和功能上有显著的区别。理解这些区别对于选择适合特定应用场景的存储引擎至关重要。以下是它们之间主要的区别：
+1. 事务支持 (Transaction Support):
                                                                                                             
                                                                                         </div>
                                                                                         <div class="publish-info">
@@ -1980,17 +1980,17 @@ primary
                                                                             data-aos="fade-up">
                                                                             <div class="article col s12 m6">
                                                                                 <div class="card">
-                                                                                    <a href="/2025/05/08/mian-jing-chang-jian-wen-ti/">
+                                                                                    <a href="/2025/05/08/suo-yin-xiang-guan-wen-ti/">
                                                                                         <div class="card-image">
                                                                                             
                                                                                                     
-                                                                                                        <img src="/medias/featureimages/22.jpg"
+                                                                                                        <img src="/medias/featureimages/8.jpg"
                                                                                                             class="responsive-img"
-                                                                                                            alt="MySQL基础-面经">
+                                                                                                            alt="MySQL基础-索引">
                                                                                                         
                                                                                                             <span
                                                                                                                 class="card-title">
-                                                                                                                MySQL基础-面经
+                                                                                                                MySQL基础-索引
                                                                                                             </span>
                                                                                         </div>
                                                                                     </a>
@@ -1999,12 +1999,12 @@ primary
                                                                                         <div
                                                                                             class="summary block-with-text">
                                                                                             
-                                                                                                        MVCC存储在哪里，作用是什么MVCC是什么
-传统的数据库并发控制通常使用锁机制，在并发量高的情况下容易导致阻塞和性能下降。
-读不阻塞写，写不阻塞读；为每个事务维护一个数据快照；创建新版本而不是覆盖。
+                                                                                                        AI相关提问基础概念类：
 
+什么是数据库索引？为什么要使用索引？
 
-MVCC的实现原理好的，我们来详细
+解答： 数据库索引是一种特殊的数据结构（通常是 B-Tree 或 B+Tree），它存储着表中一列或多列的值，并关联着这些值对应的数据行的物理位置或主键信息。
+使用索引的目
                                                                                                             
                                                                                         </div>
                                                                                         <div class="publish-info">
@@ -2654,8 +2654,8 @@ MVCC的实现原理好的，我们来详细
                                 
 
                                             <div class="archive-item" data-aos="fade-up">
-                                                <a href="/2025/05/08/sou-suo-yin-qing-de-qu-bie/" class="archive-item-link">
-                                                    MySQL基础-搜索引擎
+                                                <a href="/2025/05/08/suo-yin-shi-xiao-wen-ti/" class="archive-item-link">
+                                                    MySQL基础-索引失效
                                                 </a>
                                                 <span class="archive-item-date">
                                                     2025-05-08
@@ -2667,8 +2667,8 @@ MVCC的实现原理好的，我们来详细
                                 
 
                                             <div class="archive-item" data-aos="fade-up">
-                                                <a href="/2025/05/08/suo-yin-shi-xiao-wen-ti/" class="archive-item-link">
-                                                    MySQL基础-索引失效
+                                                <a href="/2025/05/08/sou-suo-yin-qing-de-qu-bie/" class="archive-item-link">
+                                                    MySQL基础-搜索引擎
                                                 </a>
                                                 <span class="archive-item-date">
                                                     2025-05-08
@@ -2693,8 +2693,8 @@ MVCC的实现原理好的，我们来详细
                                 
 
                                             <div class="archive-item" data-aos="fade-up">
-                                                <a href="/2025/05/08/mian-jing-chang-jian-wen-ti/" class="archive-item-link">
-                                                    MySQL基础-面经
+                                                <a href="/2025/05/08/suo-yin-xiang-guan-wen-ti/" class="archive-item-link">
+                                                    MySQL基础-索引
                                                 </a>
                                                 <span class="archive-item-date">
                                                     2025-05-08
