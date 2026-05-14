@@ -222,18 +222,18 @@
   </entry>
   
   <entry>
-    <title>MySQL基础</title>
-    <link href="http://foo1s.github.io/2025/05/08/han-shu-yu-yan-de-xue-xi/"/>
-    <id>http://foo1s.github.io/2025/05/08/han-shu-yu-yan-de-xue-xi/</id>
+    <title>MySQL基础-分库分表</title>
+    <link href="http://foo1s.github.io/2025/05/08/fen-ku-fen-biao-wen-ti/"/>
+    <id>http://foo1s.github.io/2025/05/08/fen-ku-fen-biao-wen-ti/</id>
     <published>2025-05-08T07:39:07.000Z</published>
-    <updated>2025-05-08T08:55:23.266Z</updated>
+    <updated>2025-07-01T09:10:14.616Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;函数&quot;&gt;&lt;a href=&quot;#函数&quot; class=&quot;headerlink&quot; title=&quot;函数&quot;&gt;&lt;/a&gt;函数&lt;/h3&gt;&lt;h4 id=&quot;文本处理函数&quot;&gt;&lt;a href=&quot;#文本处理函数&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h3 id=&quot;分库分表&quot;&gt;&lt;a href=&quot;#分库分表&quot; class=&quot;headerlink&quot; title=&quot;分库分表&quot;&gt;&lt;/a&gt;分库分表&lt;/h3&gt;&lt;h4 id=&quot;💡-一、为什么需要分库分表（动因）&quot;&gt;&lt;a href=&quot;#💡-一、为什么需要分库分表（动因）&quot;</summary>
         
       
     
@@ -251,18 +251,18 @@
   </entry>
   
   <entry>
-    <title>MySQL基础-分库分表</title>
-    <link href="http://foo1s.github.io/2025/05/08/fen-ku-fen-biao-wen-ti/"/>
-    <id>http://foo1s.github.io/2025/05/08/fen-ku-fen-biao-wen-ti/</id>
+    <title>MySQL基础</title>
+    <link href="http://foo1s.github.io/2025/05/08/han-shu-yu-yan-de-xue-xi/"/>
+    <id>http://foo1s.github.io/2025/05/08/han-shu-yu-yan-de-xue-xi/</id>
     <published>2025-05-08T07:39:07.000Z</published>
-    <updated>2025-07-01T09:10:14.616Z</updated>
+    <updated>2025-05-08T08:55:23.266Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;分库分表&quot;&gt;&lt;a href=&quot;#分库分表&quot; class=&quot;headerlink&quot; title=&quot;分库分表&quot;&gt;&lt;/a&gt;分库分表&lt;/h3&gt;&lt;h4 id=&quot;💡-一、为什么需要分库分表（动因）&quot;&gt;&lt;a href=&quot;#💡-一、为什么需要分库分表（动因）&quot;</summary>
+    <summary type="html">&lt;h3 id=&quot;函数&quot;&gt;&lt;a href=&quot;#函数&quot; class=&quot;headerlink&quot; title=&quot;函数&quot;&gt;&lt;/a&gt;函数&lt;/h3&gt;&lt;h4 id=&quot;文本处理函数&quot;&gt;&lt;a href=&quot;#文本处理函数&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -339,6 +339,35 @@
   </entry>
   
   <entry>
+    <title>MySQL基础-索引</title>
+    <link href="http://foo1s.github.io/2025/05/08/suo-yin-xiang-guan-wen-ti/"/>
+    <id>http://foo1s.github.io/2025/05/08/suo-yin-xiang-guan-wen-ti/</id>
+    <published>2025-05-08T07:39:07.000Z</published>
+    <updated>2025-07-01T09:11:09.168Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;AI相关提问&quot;&gt;&lt;a href=&quot;#AI相关提问&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="DataBase" scheme="http://foo1s.github.io/categories/DataBase/"/>
+    
+    <category term="MySQL" scheme="http://foo1s.github.io/categories/DataBase/MySQL/"/>
+    
+    
+    <category term="数据库" scheme="http://foo1s.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="MySQL" scheme="http://foo1s.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>MySQL基础</title>
     <link href="http://foo1s.github.io/2025/05/08/biao-xiang-guan-han-shu-shi-yong/"/>
     <id>http://foo1s.github.io/2025/05/08/biao-xiang-guan-han-shu-shi-yong/</id>
@@ -380,35 +409,6 @@
         
         
     <summary type="html">&lt;h3 id=&quot;MVCC存储在哪里，作用是什么&quot;&gt;&lt;a href=&quot;#MVCC存储在哪里，作用是什么&quot; class=&quot;headerlink&quot; title=&quot;MVCC存储在哪里，作用是什么&quot;&gt;&lt;/a&gt;MVCC存储在哪里，作用是什么&lt;/h3&gt;&lt;h4 id=&quot;MVCC是什么&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="DataBase" scheme="http://foo1s.github.io/categories/DataBase/"/>
-    
-    <category term="MySQL" scheme="http://foo1s.github.io/categories/DataBase/MySQL/"/>
-    
-    
-    <category term="数据库" scheme="http://foo1s.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    <category term="MySQL" scheme="http://foo1s.github.io/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL基础-索引</title>
-    <link href="http://foo1s.github.io/2025/05/08/suo-yin-xiang-guan-wen-ti/"/>
-    <id>http://foo1s.github.io/2025/05/08/suo-yin-xiang-guan-wen-ti/</id>
-    <published>2025-05-08T07:39:07.000Z</published>
-    <updated>2025-07-01T09:11:09.168Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;AI相关提问&quot;&gt;&lt;a href=&quot;#AI相关提问&quot; class=&quot;headerlink&quot;</summary>
         
       
     
