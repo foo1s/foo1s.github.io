@@ -222,18 +222,18 @@
   </entry>
   
   <entry>
-    <title>MySQL基础-分库分表</title>
-    <link href="http://foo1s.github.io/2025/05/08/fen-ku-fen-biao-wen-ti/"/>
-    <id>http://foo1s.github.io/2025/05/08/fen-ku-fen-biao-wen-ti/</id>
+    <title>MySQL基础</title>
+    <link href="http://foo1s.github.io/2025/05/08/han-shu-yu-yan-de-xue-xi/"/>
+    <id>http://foo1s.github.io/2025/05/08/han-shu-yu-yan-de-xue-xi/</id>
     <published>2025-05-08T07:39:07.000Z</published>
-    <updated>2025-07-01T09:10:14.616Z</updated>
+    <updated>2025-05-08T08:55:23.266Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;分库分表&quot;&gt;&lt;a href=&quot;#分库分表&quot; class=&quot;headerlink&quot; title=&quot;分库分表&quot;&gt;&lt;/a&gt;分库分表&lt;/h3&gt;&lt;h4 id=&quot;💡-一、为什么需要分库分表（动因）&quot;&gt;&lt;a href=&quot;#💡-一、为什么需要分库分表（动因）&quot;</summary>
+    <summary type="html">&lt;h3 id=&quot;函数&quot;&gt;&lt;a href=&quot;#函数&quot; class=&quot;headerlink&quot; title=&quot;函数&quot;&gt;&lt;/a&gt;函数&lt;/h3&gt;&lt;h4 id=&quot;文本处理函数&quot;&gt;&lt;a href=&quot;#文本处理函数&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -251,18 +251,18 @@
   </entry>
   
   <entry>
-    <title>MySQL基础</title>
-    <link href="http://foo1s.github.io/2025/05/08/han-shu-yu-yan-de-xue-xi/"/>
-    <id>http://foo1s.github.io/2025/05/08/han-shu-yu-yan-de-xue-xi/</id>
+    <title>MySQL基础-分库分表</title>
+    <link href="http://foo1s.github.io/2025/05/08/fen-ku-fen-biao-wen-ti/"/>
+    <id>http://foo1s.github.io/2025/05/08/fen-ku-fen-biao-wen-ti/</id>
     <published>2025-05-08T07:39:07.000Z</published>
-    <updated>2025-05-08T08:55:23.266Z</updated>
+    <updated>2025-07-01T09:10:14.616Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;函数&quot;&gt;&lt;a href=&quot;#函数&quot; class=&quot;headerlink&quot; title=&quot;函数&quot;&gt;&lt;/a&gt;函数&lt;/h3&gt;&lt;h4 id=&quot;文本处理函数&quot;&gt;&lt;a href=&quot;#文本处理函数&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h3 id=&quot;分库分表&quot;&gt;&lt;a href=&quot;#分库分表&quot; class=&quot;headerlink&quot; title=&quot;分库分表&quot;&gt;&lt;/a&gt;分库分表&lt;/h3&gt;&lt;h4 id=&quot;💡-一、为什么需要分库分表（动因）&quot;&gt;&lt;a href=&quot;#💡-一、为什么需要分库分表（动因）&quot;</summary>
         
       
     
