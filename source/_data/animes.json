@@ -71,6 +71,168 @@
       "posterLocal": "/medias/animes/posters/kaiji.jpg",
       "douban": "https://movie.douban.com/subject/3259956/",
       "review": ""
+    },
+    {
+      "title": "皇家国教骑士团",
+      "subtitle": "Action / Horror",
+      "year": "2006",
+      "slug": "hellsing-ultimate",
+      "posterLocal": "/medias/animes/posters/hellsing-ultimate.jpg",
+      "douban": "https://myanimelist.net/anime/777/Hellsing_Ultimate",
+      "review": ""
+    },
+    {
+      "title": "恶魔人 Crybaby",
+      "subtitle": "Action / Horror",
+      "year": "2018",
+      "slug": "devilman-crybaby",
+      "posterLocal": "/medias/animes/posters/devilman-crybaby.jpg",
+      "douban": "https://myanimelist.net/anime/35120/Devilman__Crybaby",
+      "review": ""
+    },
+    {
+      "title": "寄生兽 生命的准则",
+      "subtitle": "Sci-Fi / Horror",
+      "year": "2014",
+      "slug": "parasyte-the-maxim",
+      "posterLocal": "/medias/animes/posters/parasyte-the-maxim.jpg",
+      "douban": "https://myanimelist.net/anime/22535/Kiseijuu__Sei_no_Kakuritsu",
+      "review": ""
+    },
+    {
+      "title": "死亡代理人",
+      "subtitle": "Sci-Fi / Psychological",
+      "year": "2006",
+      "slug": "ergo-proxy",
+      "posterLocal": "/medias/animes/posters/ergo-proxy.jpg",
+      "douban": "https://myanimelist.net/anime/790/Ergo_Proxy",
+      "review": ""
+    },
+    {
+      "title": "吸血鬼猎人D",
+      "subtitle": "Dark Fantasy / Horror",
+      "year": "1985",
+      "slug": "vampire-hunter-d",
+      "posterLocal": "/medias/animes/posters/vampire-hunter-d.jpg",
+      "douban": "https://myanimelist.net/anime/732/Vampire_Hunter_D",
+      "review": ""
+    },
+    {
+      "title": "JOJO的奇妙冒险",
+      "subtitle": "Action / Adventure",
+      "year": "2012",
+      "slug": "jojos-bizarre-adventure",
+      "posterLocal": "/medias/animes/posters/jojos-bizarre-adventure.jpg",
+      "douban": "https://myanimelist.net/anime/14719/JoJo_no_Kimyou_na_Bouken_TV",
+      "review": ""
+    },
+    {
+      "title": "男子高中生的日常",
+      "subtitle": "Comedy / Slice of Life",
+      "year": "2012",
+      "slug": "daily-lives-of-high-school-boys",
+      "posterLocal": "/medias/animes/posters/daily-lives-of-high-school-boys.jpg",
+      "douban": "https://myanimelist.net/anime/11843/Danshi_Koukousei_no_Nichijou",
+      "review": ""
+    },
+    {
+      "title": "赛博朋克：边缘行者",
+      "subtitle": "Sci-Fi / Action",
+      "year": "2022",
+      "slug": "cyberpunk-edgerunners",
+      "posterLocal": "/medias/animes/posters/cyberpunk-edgerunners.jpg",
+      "douban": "https://myanimelist.net/anime/42310/Cyberpunk__Edgerunners",
+      "review": ""
+    },
+    {
+      "title": "Rick and Morty",
+      "subtitle": "Sci-Fi / Comedy",
+      "year": "2013",
+      "slug": "rick-and-morty",
+      "posterLocal": "/medias/animes/posters/rick-and-morty.jpg",
+      "douban": "https://www.tvmaze.com/shows/216/rick-and-morty",
+      "review": ""
+    },
+    {
+      "title": "双城之战",
+      "subtitle": "Fantasy / Action",
+      "year": "2021",
+      "slug": "arcane",
+      "posterLocal": "/medias/animes/posters/arcane.jpg",
+      "douban": "https://www.tvmaze.com/shows/55138/arcane-league-of-legends",
+      "review": ""
+    },
+    {
+      "title": "齐木楠雄的灾难",
+      "subtitle": "Comedy / Supernatural",
+      "year": "2016",
+      "slug": "the-disastrous-life-of-saiki-k",
+      "posterLocal": "/medias/animes/posters/the-disastrous-life-of-saiki-k.jpg",
+      "douban": "https://myanimelist.net/anime/33255/Saiki_Kusuo_no_Ψ-nan",
+      "review": ""
+    },
+    {
+      "title": "排球少年",
+      "subtitle": "Sports / Coming-of-age",
+      "year": "2014",
+      "slug": "haikyuu",
+      "posterLocal": "/medias/animes/posters/haikyuu.jpg",
+      "douban": "https://myanimelist.net/anime/20583/Haikyuu",
+      "review": ""
+    },
+    {
+      "title": "强风吹拂",
+      "subtitle": "Sports / Drama",
+      "year": "2018",
+      "slug": "run-with-the-wind",
+      "posterLocal": "/medias/animes/posters/run-with-the-wind.jpg",
+      "douban": "https://myanimelist.net/anime/37965/Kaze_ga_Tsuyoku_Fuiteiru",
+      "review": ""
+    },
+    {
+      "title": "剑风传奇",
+      "subtitle": "Dark Fantasy / Action",
+      "year": "1997",
+      "slug": "berserk",
+      "posterLocal": "/medias/animes/posters/berserk.jpg",
+      "douban": "https://myanimelist.net/anime/33/Kenpuu_Denki_Berserk",
+      "review": ""
+    },
+    {
+      "title": "攻壳特工队",
+      "subtitle": "Cyberpunk / Sci-Fi",
+      "year": "1995",
+      "slug": "ghost-in-the-shell",
+      "posterLocal": "/medias/animes/posters/ghost-in-the-shell.jpg",
+      "douban": "https://myanimelist.net/anime/43/Koukaku_Kidoutai",
+      "review": ""
+    },
+    {
+      "title": "新世纪福音战士 EVA",
+      "subtitle": "Mecha / Psychological",
+      "year": "1995",
+      "slug": "neon-genesis-evangelion",
+      "posterLocal": "/medias/animes/posters/neon-genesis-evangelion.jpg",
+      "douban": "https://myanimelist.net/anime/30/Shinseiki_Evangelion",
+      "review": ""
+    },
+    {
+      "title": "鲁邦三世",
+      "subtitle": "Adventure / Comedy",
+      "year": "1971",
+      "slug": "lupin-iii",
+      "posterLocal": "/medias/animes/posters/lupin-iii.jpg",
+      "douban": "https://myanimelist.net/anime/1412/Lupin_III",
+      "review": ""
+    },
+    {
+      "title": "漂流少年",
+      "subtitle": "Mystery / Sci-Fi",
+      "year": "2021",
+      "slug": "sonny-boy",
+      "posterLocal": "/medias/animes/posters/sonny-boy.jpg",
+      "douban": "https://myanimelist.net/anime/48849/Sonny_Boy",
+      "review": ""
     }
   ]
 }

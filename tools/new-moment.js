@@ -9,8 +9,9 @@ const imagesArg = process.argv[3] || "";
 
 function usage() {
   console.log("Usage:");
-  console.log('  npm run moment:new -- "随手写一点想法"');
-  console.log('  npm run moment:new -- "带图片的一条" "/medias/moments/photo-01.jpg,/medias/moments/photo-02.jpg"');
+  console.log('  npm run moment:new -- "Write a short thought"');
+  console.log('  npm run moment:new -- "**Title**\\n\\n- item one\\n- item two"');
+  console.log('  npm run moment:new -- "Post with images" "/medias/moments/photo-01.jpg,/medias/moments/photo-02.jpg"');
 }
 
 function pad(value) {
@@ -55,3 +56,4 @@ fs.writeFileSync(dataFile, `${JSON.stringify(moments, null, 2)}\n`, "utf8");
 
 console.log(`Added moment to ${dataFile}`);
 console.log("Run `npx hexo g` to regenerate the site.");
+

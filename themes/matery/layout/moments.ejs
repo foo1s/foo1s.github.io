@@ -6,6 +6,21 @@ const author = config.author || 'foo1s';
 const sortedMoments = moments.slice().sort(function (a, b) {
     return new Date(b.date || 0) - new Date(a.date || 0);
 });
+function renderMomentMarkdown(content) {
+    const text = String(content || '');
+    try {
+        if (typeof markdown === 'function') {
+            return markdown(text);
+        }
+    } catch (error) {
+        // Fallback below keeps old plain-text behavior if the renderer is unavailable.
+    }
+    return text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\n/g, '<br>');
+}
 %>
 
 <main class="content">
@@ -28,7 +43,7 @@ const sortedMoments = moments.slice().sort(function (a, b) {
                         </div>
 
                         <% if (item.content) { %>
-                        <p class="moment-content"><%= item.content %></p>
+                        <div class="moment-content"><%- renderMomentMarkdown(item.content) %></div>
                         <% } %>
 
                         <% if (images.length) { %>
@@ -140,8 +155,90 @@ const sortedMoments = moments.slice().sort(function (a, b) {
         color: #1f2933;
         font-size: 17px;
         line-height: 1.75;
-        white-space: pre-wrap;
         word-break: break-word;
+    }
+
+    .moment-content > :first-child {
+        margin-top: 0;
+    }
+
+    .moment-content > :last-child {
+        margin-bottom: 0;
+    }
+
+    .moment-content p {
+        margin: 0 0 0.85em;
+        font-size: inherit;
+        line-height: inherit;
+    }
+
+    .moment-content ul,
+    .moment-content ol {
+        margin: 0.4em 0 0.85em 1.35em;
+        padding-left: 0.5em;
+        list-style-position: outside;
+    }
+
+    .moment-content ul {
+        list-style-type: disc !important;
+    }
+
+    .moment-content ol {
+        list-style-type: decimal !important;
+    }
+
+    .moment-content li {
+        display: list-item;
+        margin: 0.18em 0;
+        line-height: 1.7;
+    }
+
+    .moment-content li::marker {
+        color: #111827;
+    }
+
+    body.DarkMode .moment-content li::marker {
+        color: #ffffff;
+    }
+
+    .moment-content a {
+        color: #2f6fbd;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(47, 111, 189, 0.28);
+    }
+
+    .moment-content a:hover {
+        border-bottom-color: rgba(47, 111, 189, 0.65);
+    }
+
+    .moment-content blockquote {
+        margin: 0.6em 0 0.9em;
+        padding: 0.65em 0.9em;
+        border-left: 3px solid #c9d4e2;
+        border-radius: 0 8px 8px 0;
+        background: #f7f9fc;
+        color: #5d6b7b;
+    }
+
+    .moment-content code {
+        padding: 0.12em 0.36em;
+        border-radius: 5px;
+        background: #f2f5f9;
+        color: #3f4d5f;
+        font-size: 0.92em;
+    }
+
+    .moment-content pre {
+        margin: 0.65em 0 0.95em;
+        padding: 0.9em 1em;
+        overflow: auto;
+        border-radius: 10px;
+        background: #f5f7fa;
+    }
+
+    .moment-content pre code {
+        padding: 0;
+        background: transparent;
     }
 
     .moment-images {
