@@ -1,0 +1,363 @@
+/* Custom CSS Overrides */
+
+/* Page flow guard: keep main content and footer in normal document flow. */
+html {
+    min-height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body > main.content {
+    flex: 1 0 auto;
+}
+
+main.content,
+#articles,
+.paging {
+    clear: both;
+}
+
+main.content::after,
+#articles::after,
+.paging::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+footer.page-footer {
+    flex-shrink: 0;
+    clear: both;
+}
+
+/* Override background gradient (Header, Footer, Progress Bar) */
+/* EXCLUDING .nav-transparent to fix the navigation bar issue */
+/* .bg-color:not(.nav-transparent) {
+    background-image: linear-gradient(to right, #9caba2 0%, #bdc9cf 100%) !important;
+} */
+
+.bg-color:not(.nav-transparent) {
+    background-image: linear-gradient(#28becf) !important;
+}
+
+/* Match progress bar to new gradient - using the colors the user selected */
+.progress-bar {
+    background: linear-gradient(to right, #a8aed8 0%, #f4c88f 100%) !important;
+}
+
+/* Override text color to match the Blue/Green theme */
+.text-color {
+    color: #0093E9 !important;
+    /* Blue-ish tone */
+}
+
+/* Override Blockquote style */
+blockquote {
+    border-left: 5px solid #bdc9cf !important;
+    background-color: rgba(189, 201, 207, 0.1) !important;
+    color: #666;
+}
+
+/* Override hover effects for buttons if needed */
+.cover-btns a:hover {
+    border: 1px solid #bdc9cf !important;
+    background-color: #bdc9cf !important;
+    box-shadow: 0 14px 26px -12px rgba(189, 201, 207, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(189, 201, 207, 0.2) !important;
+}
+
+/* Hide images in article cards while keeping title text */
+
+/* Prev/Next navigation cards */
+.prev-next .card .card-image {
+    display: none !important;
+}
+
+/* Archive page cards */
+#cd-timeline .card .card-image {
+    display: none !important;
+}
+
+/* Category page cards (if applicable) */
+.category .card .card-image {
+    display: none !important;
+}
+
+/* Index page cards (if applicable) */
+.index-card .card .card-image {
+    display: none !important;
+}
+
+/* Simple subpages/content pages: keep only top nav and show content directly. */
+body.no-cover-page #headNav {
+    background: rgba(255, 255, 255, 0.96) !important;
+    box-shadow: 0 2px 12px rgba(31, 45, 61, 0.08) !important;
+    backdrop-filter: blur(4px);
+}
+
+body.no-cover-page #headNav.nav-transparent {
+    background: rgba(255, 255, 255, 0.96) !important;
+    box-shadow: 0 2px 12px rgba(31, 45, 61, 0.08) !important;
+}
+
+body.no-cover-page .simple-page-spacer {
+    height: 76px;
+}
+
+body.no-cover-page .simple-page-spacer.pd-header {
+    margin-top: 0 !important;
+}
+
+body.no-cover-page main.content {
+    padding-top: 8px;
+}
+
+body.no-cover-page #headNav .brand-logo .logo-span,
+body.no-cover-page #headNav .nav-menu > li > a,
+body.no-cover-page #headNav .button-collapse i,
+body.no-cover-page #headNav #searchIcon,
+body.no-cover-page #headNav #sum-moon-icon {
+    color: #2f3b4a !important;
+}
+
+body.no-cover-page .post-simple-title-wrap {
+    margin-top: 6px;
+    margin-bottom: 8px;
+}
+
+body.no-cover-page .post-simple-title {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.35;
+    color: #2f3b4a;
+    font-weight: 600;
+}
+
+body.no-cover-page footer.page-footer.bg-color {
+    background: rgba(255, 255, 255, 0.96) !important;
+    border-top: 1px solid #e9eef5;
+}
+
+body.no-cover-page footer.page-footer,
+body.no-cover-page footer.page-footer .copy-right,
+body.no-cover-page footer.page-footer .social-link a,
+body.no-cover-page footer.page-footer a,
+body.no-cover-page footer.page-footer .white-color {
+    color: #5d6b7b !important;
+}
+
+/* Home page only: use the same light top/bottom bars as subpages. */
+body.home-light-bars #headNav {
+    background: rgba(255, 255, 255, 0.96) !important;
+    box-shadow: 0 2px 12px rgba(31, 45, 61, 0.08) !important;
+    backdrop-filter: blur(4px);
+}
+
+body.home-light-bars #headNav.nav-transparent {
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none;
+}
+
+body.home-light-bars #headNav .brand-logo .logo-span,
+body.home-light-bars #headNav .nav-menu > li > a,
+body.home-light-bars #headNav .button-collapse i,
+body.home-light-bars #headNav #searchIcon,
+body.home-light-bars #headNav #sum-moon-icon {
+    color: #2f3b4a !important;
+}
+
+body.home-light-bars #headNav.nav-transparent .brand-logo .logo-span,
+body.home-light-bars #headNav.nav-transparent .nav-menu > li > a,
+body.home-light-bars #headNav.nav-transparent .button-collapse i,
+body.home-light-bars #headNav.nav-transparent #searchIcon,
+body.home-light-bars #headNav.nav-transparent #sum-moon-icon {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+}
+
+body.home-light-bars footer.page-footer.bg-color {
+    background: rgba(255, 255, 255, 0.96) !important;
+    border-top: 1px solid #e9eef5;
+}
+
+body.home-light-bars footer.page-footer,
+body.home-light-bars footer.page-footer .copy-right,
+body.home-light-bars footer.page-footer .social-link a,
+body.home-light-bars footer.page-footer a,
+body.home-light-bars footer.page-footer .white-color {
+    color: #5d6b7b !important;
+}
+
+/* Footer minimalist refinement: same bar tone as top nav, cleaner spacing and icons. */
+footer.page-footer.bg-color {
+    background: rgba(255, 255, 255, 0.96) !important;
+    border-top: 1px solid #e9eef5;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+footer.page-footer .container.row.center-align {
+    max-width: 1060px;
+    margin: 0 auto !important;
+    padding: 14px 0 8px;
+}
+
+footer.page-footer .copy-right {
+    color: #5d6b7b !important;
+    font-size: 1.02rem;
+    line-height: 1.85;
+    letter-spacing: 0.01em;
+}
+
+footer.page-footer .copy-right a {
+    color: #42556b !important;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+footer.page-footer .copy-right a:hover {
+    color: #2e4159 !important;
+    border-bottom-color: #b8c6d8;
+}
+
+footer.page-footer .white-color {
+    color: #42556b !important;
+    font-weight: 600;
+}
+
+footer.page-footer .social-link {
+    margin-top: 8px;
+}
+
+footer.page-footer .social-link a {
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    margin: 0 6px;
+    border: 1px solid #d5deea;
+    border-radius: 8px;
+    color: #5d6b7b !important;
+    background: #ffffff;
+    box-shadow: none !important;
+}
+
+footer.page-footer .social-link a:hover {
+    border-color: #c4d0e0;
+    background: #f7faff;
+    color: #3f5268 !important;
+}
+
+footer.page-footer #icp img {
+    width: 16px;
+    height: 16px;
+    opacity: 0.9;
+}
+
+@media only screen and (max-width: 600px) {
+    body.no-cover-page .simple-page-spacer {
+        height: 64px;
+    }
+
+    body.no-cover-page .post-simple-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* Post detail: use clear title instead of empty tag chips row. */
+#artDetail .post-title-row {
+    padding-bottom: 12px;
+}
+
+#artDetail .post-page-title {
+    margin: 0;
+    color: #1f2d3d;
+    font-size: 2rem;
+    line-height: 1.35;
+    font-weight: 650;
+}
+
+@media only screen and (max-width: 600px) {
+    #artDetail .post-page-title {
+        font-size: 1.6rem;
+    }
+}
+
+/* Global minimal style: pager + back-to-top (non-circular). */
+.paging {
+    margin: 12px auto 20px;
+    max-width: 920px;
+}
+
+.paging .minimal-pager-btn {
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border: 1px solid #d6dee9;
+    border-radius: 8px;
+    box-shadow: none;
+    text-decoration: none;
+}
+
+.paging .minimal-pager-btn i {
+    font-size: 1.35rem;
+    color: #5f6f85;
+    line-height: 1;
+}
+
+.paging .minimal-pager-btn:hover {
+    background: #f8fafd;
+    border-color: #c8d3e1;
+}
+
+.paging .minimal-pager-btn.is-disabled {
+    background: #f5f7fb;
+    border-color: #e7edf5;
+    pointer-events: none;
+}
+
+.paging .minimal-pager-btn.is-disabled i {
+    color: #b2bccb;
+}
+
+.paging .page-info {
+    font-size: 1.05rem;
+    color: #8d98a8;
+    padding-top: 0.55rem;
+    font-weight: 500;
+}
+
+.top-scroll {
+    right: 18px;
+    bottom: 18px;
+}
+
+.top-scroll .minimal-back-top {
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border: 1px solid #d6dee9;
+    border-radius: 8px;
+    box-shadow: none;
+    text-decoration: none;
+}
+
+.top-scroll .minimal-back-top i {
+    font-size: 1.25rem;
+    color: #5f6f85;
+    line-height: 1;
+}
+
+.top-scroll .minimal-back-top:hover {
+    background: #f8fafd;
+    border-color: #c8d3e1;
+}
