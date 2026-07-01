@@ -6,7 +6,7 @@
   <link href="http://foo1s.github.io/atom.xml" rel="self"/>
   
   <link href="http://foo1s.github.io/"/>
-  <updated>2026-06-30T14:26:32.661Z</updated>
+  <updated>2026-07-01T09:50:25.820Z</updated>
   <id>http://foo1s.github.io/</id>
   
   <author>
@@ -17,11 +17,44 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>博客仓库迁移问题小记</title>
+    <link href="http://foo1s.github.io/2026/07/01/bo-ke-cang-ku-qian-yi-wen-ti-xiao-ji/"/>
+    <id>http://foo1s.github.io/2026/07/01/bo-ke-cang-ku-qian-yi-wen-ti-xiao-ji/</id>
+    <published>2026-07-01T09:50:07.000Z</published>
+    <updated>2026-07-01T09:50:25.820Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;在将我的博客仓库从实验室主机迁移至宿舍笔记本的过程中，遇见的Git与hexo相关的小问题的记录，存在一些基础的小问题，真是被自己蠢到了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;一、迁移目标&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="问题" scheme="http://foo1s.github.io/categories/%E9%97%AE%E9%A2%98/"/>
+    
+    
+    <category term="问题" scheme="http://foo1s.github.io/tags/%E9%97%AE%E9%A2%98/"/>
+    
+    <category term="Git" scheme="http://foo1s.github.io/tags/Git/"/>
+    
+    <category term="Hexo" scheme="http://foo1s.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>如何使用OpenClaw定时总结笔记</title>
     <link href="http://foo1s.github.io/2026/05/08/ding-shi-zong-jie-jin-tian-de-bi-ji/"/>
     <id>http://foo1s.github.io/2026/05/08/ding-shi-zong-jie-jin-tian-de-bi-ji/</id>
     <published>2026-05-08T08:39:07.000Z</published>
-    <updated>2026-06-30T14:26:32.661Z</updated>
+    <updated>2026-07-01T09:50:37.135Z</updated>
     
     
       
@@ -74,9 +107,9 @@
   </entry>
   
   <entry>
-    <title>MySQL基础</title>
-    <link href="http://foo1s.github.io/2025/05/08/mysql-ji-chu/"/>
-    <id>http://foo1s.github.io/2025/05/08/mysql-ji-chu/</id>
+    <title>MySQL基础-隔离语句</title>
+    <link href="http://foo1s.github.io/2025/05/08/mysql-si-da-ge-chi-yu-ju/"/>
+    <id>http://foo1s.github.io/2025/05/08/mysql-si-da-ge-chi-yu-ju/</id>
     <published>2025-05-08T07:39:07.000Z</published>
     <updated>2026-06-30T14:26:32.645Z</updated>
     
@@ -85,8 +118,9 @@
       
         
         
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;MySQL8.4安装教程&lt;br&gt;&lt;a</summary>
+    <summary type="html">&lt;p&gt;SQL 标准定义了四个隔离级别：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;READ-UNCOMMITTED(读取未提交)&lt;/strong&gt;</summary>
         
       
     
@@ -104,9 +138,9 @@
   </entry>
   
   <entry>
-    <title>MySQL基础-隔离语句</title>
-    <link href="http://foo1s.github.io/2025/05/08/mysql-si-da-ge-chi-yu-ju/"/>
-    <id>http://foo1s.github.io/2025/05/08/mysql-si-da-ge-chi-yu-ju/</id>
+    <title>MySQL基础</title>
+    <link href="http://foo1s.github.io/2025/05/08/mysql-ji-chu/"/>
+    <id>http://foo1s.github.io/2025/05/08/mysql-ji-chu/</id>
     <published>2025-05-08T07:39:07.000Z</published>
     <updated>2026-06-30T14:26:32.645Z</updated>
     
@@ -115,9 +149,8 @@
       
         
         
-    <summary type="html">&lt;p&gt;SQL 标准定义了四个隔离级别：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;READ-UNCOMMITTED(读取未提交)&lt;/strong&gt;</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;MySQL8.4安装教程&lt;br&gt;&lt;a</summary>
         
       
     
@@ -310,35 +343,6 @@
   </entry>
   
   <entry>
-    <title>MySQL基础-索引</title>
-    <link href="http://foo1s.github.io/2025/05/08/suo-yin-xiang-guan-wen-ti/"/>
-    <id>http://foo1s.github.io/2025/05/08/suo-yin-xiang-guan-wen-ti/</id>
-    <published>2025-05-08T07:39:07.000Z</published>
-    <updated>2026-06-30T14:26:32.661Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;AI相关提问&quot;&gt;&lt;a href=&quot;#AI相关提问&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="DataBase" scheme="http://foo1s.github.io/categories/DataBase/"/>
-    
-    <category term="MySQL" scheme="http://foo1s.github.io/categories/DataBase/MySQL/"/>
-    
-    
-    <category term="数据库" scheme="http://foo1s.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    <category term="MySQL" scheme="http://foo1s.github.io/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
     <title>MySQL基础-索引失效</title>
     <link href="http://foo1s.github.io/2025/05/08/suo-yin-shi-xiao-wen-ti/"/>
     <id>http://foo1s.github.io/2025/05/08/suo-yin-shi-xiao-wen-ti/</id>
@@ -409,6 +413,35 @@
         
         
     <summary type="html">&lt;h3 id=&quot;MVCC存储在哪里，作用是什么&quot;&gt;&lt;a href=&quot;#MVCC存储在哪里，作用是什么&quot; class=&quot;headerlink&quot; title=&quot;MVCC存储在哪里，作用是什么&quot;&gt;&lt;/a&gt;MVCC存储在哪里，作用是什么&lt;/h3&gt;&lt;h4 id=&quot;MVCC是什么&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="DataBase" scheme="http://foo1s.github.io/categories/DataBase/"/>
+    
+    <category term="MySQL" scheme="http://foo1s.github.io/categories/DataBase/MySQL/"/>
+    
+    
+    <category term="数据库" scheme="http://foo1s.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="MySQL" scheme="http://foo1s.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL基础-索引</title>
+    <link href="http://foo1s.github.io/2025/05/08/suo-yin-xiang-guan-wen-ti/"/>
+    <id>http://foo1s.github.io/2025/05/08/suo-yin-xiang-guan-wen-ti/</id>
+    <published>2025-05-08T07:39:07.000Z</published>
+    <updated>2026-06-30T14:26:32.661Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;AI相关提问&quot;&gt;&lt;a href=&quot;#AI相关提问&quot; class=&quot;headerlink&quot;</summary>
         
       
     

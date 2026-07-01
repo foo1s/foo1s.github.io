@@ -4,15 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="刘邦大传, foo1s&#39; blog">
-    <meta name="description" content="观刘邦大传有所感的句子
-柔弱生之徒，老式戒刚强
+    <meta name="keywords" content="Git,Hexo">
+    <meta name="description" content="
+在将我的博客仓库从实验室主机迁移至宿舍笔记本的过程中，遇见的Git与hexo相关的小问题的记录，存在一些基础的小问题，真是被自己蠢到了。
 
-天地不仁，以万物为刍狗；圣人不仁，以百姓为刍狗
 
-失败的痛苦对我们对我们虽然最有用处，但往往是最容易被忘掉的；成功的骄傲最容易误导我们日后的行为，却也是最不容易抛弃的一部分。
-
-攻击自己的勇">
+一、迁移目标原博客管理方式
+master分支管理静态网页(public)
+source分支管理相">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -35,7 +34,7 @@
 </script>
 
 
-    <title>刘邦大传 | foo1s&#39; blog</title>
+    <title>博客仓库迁移问题小记 | foo1s&#39; blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -548,7 +547,7 @@
 
 <div class="simple-page-spacer pd-header"></div>
 <div class="container post-simple-title-wrap">
-    <h1 class="post-simple-title">刘邦大传</h1>
+    <h1 class="post-simple-title">博客仓库迁移问题小记</h1>
 </div>
 <script>
     document.body.classList.add('no-cover-page');
@@ -567,28 +566,28 @@
     <div class="card">
         <div class="card-content article-info">
             <div class="post-title-row">
-                <h1 class="post-page-title">刘邦大传</h1>
+                <h1 class="post-page-title">博客仓库迁移问题小记</h1>
             </div>
 
             <div class="post-info">
                 
                     <div class="post-date info-break-policy">
                         <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                            2024-11-07
+                            2026-07-01
                     </div>
                     
 
                         
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                                    2026-06-30
+                                    2026-07-01
                             </div>
                             
 
                                 
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                                            901
+                                            2.7k
                                     </div>
                                     
 
@@ -612,45 +611,472 @@
 
                         <div class="card-content article-card-content">
                             <div id="articleContent">
-                                <h4 id="观刘邦大传有所感的句子"><a href="#观刘邦大传有所感的句子" class="headerlink" title="观刘邦大传有所感的句子"></a>观刘邦大传有所感的句子</h4><ul>
-<li><p>柔弱生之徒，老式戒刚强</p>
+                                <blockquote>
+<p>在将我的博客仓库从实验室主机迁移至宿舍笔记本的过程中，遇见的Git与hexo相关的小问题的记录，存在一些基础的小问题，真是被自己蠢到了。</p>
+</blockquote>
+<hr>
+<h2 id="一、迁移目标"><a href="#一、迁移目标" class="headerlink" title="一、迁移目标"></a>一、迁移目标</h2><h3 id="原博客管理方式"><a href="#原博客管理方式" class="headerlink" title="原博客管理方式"></a>原博客管理方式</h3><ul>
+<li>master分支管理静态网页(public)</li>
+<li>source分支管理相关资源</li>
+</ul>
+<pre class="line-numbers language-text"><code class="language-text">foo1s.github.io
+│
+├── master
+│   └── Hexo 生成后的静态网页(public)
+│
+└── source
+    ├── source/
+    ├── themes/
+    ├── package.json
+    ├── _config.yml
+    └── Hexo 博客源码
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="迁移操作"><a href="#迁移操作" class="headerlink" title="迁移操作"></a>迁移操作</h3><pre class="line-numbers language-text"><code class="language-text">安装环境
+↓
+clone source 分支
+↓
+npm install
+↓
+hexo g
+↓
+hexo d
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<h2 id="二、问题一——GitHub-下载很慢"><a href="#二、问题一——GitHub-下载很慢" class="headerlink" title="二、问题一——GitHub 下载很慢"></a>二、问题一——GitHub 下载很慢</h2><h3 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h3><p>在新电脑上执行：</p>
+<pre><code>git clone https://github.com/foo1s/foo1s.github.io.git
+</code></pre>
+<p>下载到一半失败，并出现如下错误：</p>
+<pre><code>error: RPC failed; curl 92 HTTP/2 stream 5 was not closed cleanlyfatal: early EOFfatal: fetch-pack: invalid index-pack output
+</code></pre>
+<p>虽然 Git 已经连接到 GitHub，并开始下载对象，但数据传输过程中连接被中断，导致仓库无法完整克隆。</p>
+<hr>
+<h3 id="问题原因分析"><a href="#问题原因分析" class="headerlink" title="问题原因分析"></a>问题原因分析</h3><p>刚开始容易误以为：</p>
+<ul>
+<li>GitHub 网络不好；</li>
+<li>Git 仓库损坏；</li>
+<li>Git 版本过低。</li>
+</ul>
+<p>实际上都不是。</p>
+<p>Git 在使用 HTTPS 克隆仓库时，其底层通信过程为：</p>
+<pre><code>Git
+   │
+   ▼
+libcurl
+   │
+   ▼
+HTTP/2
+   │
+   ▼
+V2Ray 本地代理
+   │
+   ▼
+GitHub
+</code></pre>
+<p>由于 Git 默认优先使用 <strong>HTTP&#x2F;2</strong>，而部分 V2Ray&#x2F;Xray 节点或代理软件对 HTTP&#x2F;2 长连接、多路复用支持不够稳定，因此在大文件持续传输过程中容易发生连接中断。</p>
+<p>于是 Git 收到的数据不完整，最终出现：</p>
+<pre><code>RPC failedearly EOFfetch-pack failed
+</code></pre>
+<p>本质上不是 Git 的 Bug，而是 <strong>HTTP&#x2F;2 与代理之间的兼容性问题</strong>。</p>
+<hr>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>将 Git 的 HTTP 协议版本强制切换为 HTTP&#x2F;1.1：</p>
+<pre><code>git config --global http.version HTTP/1.1
+</code></pre>
+<p>重新执行：</p>
+<pre><code>git clone https://github.com/foo1s/foo1s.github.io.git
+</code></pre>
+<p>之后下载速度明显恢复正常，整个仓库能够顺利克隆。</p>
+<hr>
+<h3 id="为什么-HTTP-1-1-可以解决？"><a href="#为什么-HTTP-1-1-可以解决？" class="headerlink" title="为什么 HTTP&#x2F;1.1 可以解决？"></a>为什么 HTTP&#x2F;1.1 可以解决？</h3><p>HTTP&#x2F;2 的优势在于：</p>
+<ul>
+<li>多路复用（Multiple Streams）</li>
+<li>单连接同时传输多个请求</li>
+<li>更高的理论性能</li>
+</ul>
+<p>但是 Git Clone 实际上属于<strong>长时间、大数据量连续传输</strong>。</p>
+<p>对于部分代理而言：</p>
+<pre><code>Git ↓HTTP/2 ↓代理
+</code></pre>
+<p>更容易出现：</p>
+<ul>
+<li>Stream Reset</li>
+<li>Stream Cancel</li>
+<li>Unexpected Disconnect</li>
+</ul>
+<p>而 HTTP&#x2F;1.1：</p>
+<pre><code>Git ↓HTTP/1.1 ↓代理
+</code></pre>
+<p>协议更加简单，兼容性更好，因此很多 GitHub 用户在使用代理时都会采用 HTTP&#x2F;1.1。</p>
+<hr>
+<h3 id="本次收获"><a href="#本次收获" class="headerlink" title="本次收获"></a>本次收获</h3><p>这次问题让我理解了 Git 网络通信的底层流程：</p>
+<pre><code>git clone
+      │
+      ▼
+Git
+      │
+      ▼
+libcurl（负责网络通信）
+      │
+      ▼
+HTTP/HTTPS 协议
+      │
+      ▼
+代理（V2Ray）
+      │
+      ▼
+GitHub
+</code></pre>
+<p>Git 本身并不直接负责网络传输，而是依赖底层网络库（libcurl）通过 HTTP&#x2F;HTTPS 与 GitHub 通信。因此，当出现 <code>RPC failed</code>、<code>early EOF</code> 等错误时，并不一定是 Git 本身的问题，而应该从 <strong>网络环境、代理配置、HTTP 协议版本</strong> 等方面进行排查。</p>
+<hr>
+<h3 id="经验总结"><a href="#经验总结" class="headerlink" title="经验总结"></a>经验总结</h3><p>以后如果再次遇到：</p>
+<pre><code>RPC failedHTTP/2 stream was not closed cleanlyearly EOFfetch-pack failed
+</code></pre>
+<p>可以优先检查以下几个方面：</p>
+<ol>
+<li><p>网络或代理是否稳定；</p>
 </li>
-<li><p>天地不仁，以万物为刍狗；圣人不仁，以百姓为刍狗</p>
+<li><p>是否正在使用 HTTP&#x2F;2；</p>
 </li>
-<li><p>失败的痛苦对我们对我们虽然最有用处，但往往是最容易被忘掉的；成功的骄傲最容易误导我们日后的行为，却也是最不容易抛弃的一部分。</p>
+<li><p>尝试切换为 HTTP&#x2F;1.1：</p>
+<pre><code>git config --global http.version HTTP/1.1
+</code></pre>
 </li>
-<li><p>攻击自己的勇气，是赢家最好的防守策略</p>
+<li><p>如果使用代理，确认 Git 是否正确走代理，以及代理节点质量是否正常。</p>
 </li>
-<li><p>不刻意去追求成功，没有包袱，没有私欲，只有努力，不断努力去解决周边的困难，努力到不必可以用心去努力的程度，便也是最容易成功的时候。真正的成功者，大多是冒险家，或许他们审慎小心，但多半是没有任何包袱压力的。身段太多，顾前顾后，刻意去追求成功的人，反而很少真正的成功</p>
+</ol>
+<hr>
+<h2 id="三、问题二——SSH-Key"><a href="#三、问题二——SSH-Key" class="headerlink" title="三、问题二——SSH Key"></a>三、问题二——SSH Key</h2><blockquote>
+<p>原来认为是不是Git 用户名一样和Git 邮箱一样应该就可以push代码了（有点蠢好久没用了）</p>
+</blockquote>
+<p>实际上，Git 用户名：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> config user.name
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>只是知道commit 作者是谁。根本不是身份认证。真正认证的是：</p>
+<pre class="line-numbers language-text"><code class="language-text">SSH Key
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>也就是：</p>
+<pre class="line-numbers language-text"><code class="language-text">id_ed25519
+id_ed25519.pub
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<hr>
+<h2 id="四、问题三——SSH-Key-为什么认证错账号？"><a href="#四、问题三——SSH-Key-为什么认证错账号？" class="headerlink" title="四、问题三——SSH Key 为什么认证错账号？"></a>四、问题三——SSH Key 为什么认证错账号？</h2><blockquote>
+<p>一个 GitHub 账号<strong>可以绑定</strong>多把不同的 SSH Key<strong>（每台设备一把，推荐做法）。<br><strong>一把 SSH Key</strong>不能同时绑定到</strong>多个 GitHub 账号<strong>。<br><strong>一台电脑</strong>可以保存</strong>多把 SSH Key**，并通过 <code>~/.ssh/config</code> 为不同账号或仓库指定使用哪一把。</p>
+</blockquote>
+<h3 id="如何打开-ssh-config"><a href="#如何打开-ssh-config" class="headerlink" title="如何打开~/.ssh/config"></a>如何打开<code>~/.ssh/config</code></h3><h4 id="Vscode"><a href="#Vscode" class="headerlink" title="Vscode"></a>Vscode</h4><pre class="line-numbers language-bash"><code class="language-bash">code ~/.ssh/config
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="记事本"><a href="#记事本" class="headerlink" title="记事本"></a>记事本</h4><pre class="line-numbers language-bash"><code class="language-bash">notepad ~/.ssh/config
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li><code>Host github.com</code> 必须顶格写。</li>
+<li>下面四行前面建议保留 <strong>4 个空格</strong>（Tab 或空格都可以，但统一即可）。</li>
+<li>放在<strong>整个文件最前面</strong>，不要放到最后。</li>
+</ul>
+<h3 id="git会按顺序匹配SSH-key"><a href="#git会按顺序匹配SSH-key" class="headerlink" title="git会按顺序匹配SSH key"></a>git会按顺序匹配SSH key</h3><blockquote>
+<p>按顺序尝试,只要成功,后面的 Key 就不会再尝试。</p>
+</blockquote>
+<p>你有两套 SSH Key, ‘id_rsa’和’id_ed25519’,分别指向’Huaweizhou’和’foo1s’</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">ssh</span> -T git@github.com
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>一直返回：</p>
+<pre class="line-numbers language-text"><code class="language-text">Hi Huaweizhou!
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>后来：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">ssh</span> -vT git@github.com //查看github绑定的SSH key
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">ssh</span> -i ~/.ssh/id_ed25519 -T git@github.com //查看SSH key服务的github账号
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>终于发现：</p>
+<pre class="line-numbers language-text"><code class="language-text">Offering public key:
+id_rsa
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>GitHub 第一把 Key 就认证成功了。</p>
+<p>所以：</p>
+<pre class="line-numbers language-text"><code class="language-text">id_ed25519
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>根本没有机会发送。</p>
+<hr>
+<h2 id="五、问题四——为什么-hexo-d-可以，git-push-不可以？"><a href="#五、问题四——为什么-hexo-d-可以，git-push-不可以？" class="headerlink" title="五、问题四——为什么 hexo d 可以，git push 不可以？"></a>五、问题四——为什么 hexo d 可以，git push 不可以？</h2><h3 id="问题现象-1"><a href="#问题现象-1" class="headerlink" title="问题现象"></a>问题现象</h3><p>博客能够正常执行：</p>
+<pre><code>hexo d
+</code></pre>
+<p>成功部署到 <code>master</code> 分支。</p>
+<p>但是在 <code>source</code> 分支执行：</p>
+<pre><code>git push origin source
+</code></pre>
+<p>却提示：</p>
+<pre><code>remote: Invalid username or token.Password authentication is not supported for Git operations.fatal: Authentication failed
+</code></pre>
+<p>一开始认为：</p>
+<blockquote>
+<p><strong>都是向同一个 GitHub 仓库推送代码，为什么一个成功，一个失败？</strong></p>
+</blockquote>
+<hr>
+<h3 id="问题原因分析-1"><a href="#问题原因分析-1" class="headerlink" title="问题原因分析"></a>问题原因分析</h3><p>经过排查发现，虽然目标仓库相同，但<strong>使用的是两种完全不同的通信协议和认证方式。</strong></p>
+<h3 id="①-hexo-d-使用的是-SSH"><a href="#①-hexo-d-使用的是-SSH" class="headerlink" title="① hexo d 使用的是 SSH"></a>① <code>hexo d</code> 使用的是 SSH</h3><p>Hexo 的部署配置（<code>_config.yml</code>）中：</p>
+<pre><code>deploy:  type: git  repo: git@github.com:foo1s/foo1s.github.io.git  branch: master
+</code></pre>
+<p>部署流程为：</p>
+<pre><code>hexo d
+    │
+    ▼
+git@github.com
+    │
+    ▼
+SSH 协议
+    │
+    ▼
+SSH Key（id_ed25519）
+    │
+    ▼
+GitHub 身份认证
+</code></pre>
+<p>由于前面已经正确配置了 SSH Key，因此部署成功。</p>
+<hr>
+<h3 id="②-git-push-使用的是-HTTPS"><a href="#②-git-push-使用的是-HTTPS" class="headerlink" title="② git push 使用的是 HTTPS"></a>② <code>git push</code> 使用的是 HTTPS</h3><p>查看远程仓库：</p>
+<pre><code>git remote -v
+</code></pre>
+<p>得到：</p>
+<pre><code>origin  https://github.com/foo1s/foo1s.github.io.git
+</code></pre>
+<p>此时 Git 的通信流程变成：</p>
+<pre><code>git push
+    │
+    ▼
+https://github.com
+    │
+    ▼
+HTTPS 协议
+    │
+    ▼
+Git Credential Manager
+    │
+    ▼
+用户名 / Personal Access Token
+</code></pre>
+<p>HTTPS 并不会使用 SSH Key，而是依赖 Git Credential Manager 保存的账号信息或 Personal Access Token（PAT）进行认证。</p>
+<p>由于电脑中保存的是旧账号或无效 Token，因此 GitHub 返回认证失败：</p>
+<pre><code>Invalid username or token.
+</code></pre>
+<hr>
+<h3 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h3><p>将远程仓库统一修改为 SSH 地址：</p>
+<pre><code>git remote set-url origin git@github.com:foo1s/foo1s.github.io.git
+</code></pre>
+<p>再次查看：</p>
+<pre><code>git remote -v
+</code></pre>
+<p>确认变为：</p>
+<pre><code>origin  git@github.com:foo1s/foo1s.github.io.git
+</code></pre>
+<p>之后执行：</p>
+<pre><code>git push origin source
+</code></pre>
+<p>即可正常推送。</p>
+<hr>
+<h3 id="本次收获-1"><a href="#本次收获-1" class="headerlink" title="本次收获"></a>本次收获</h3><p>这次问题让我真正理解了 <strong>Git 的两种远程访问方式</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>对比项</th>
+<th>SSH</th>
+<th>HTTPS</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>远程地址</td>
+<td><code>git@github.com:...</code></td>
+<td><code>https://github.com/...</code></td>
+</tr>
+<tr>
+<td>认证方式</td>
+<td>SSH Key</td>
+<td>用户名 + Personal Access Token（PAT）或 Git Credential Manager</td>
+</tr>
+<tr>
+<td>是否使用 <code>~/.ssh</code></td>
+<td>✅ 是</td>
+<td>❌ 否</td>
+</tr>
+<tr>
+<td>是否受 SSH Key 配置影响</td>
+<td>✅ 是</td>
+<td>❌ 否</td>
+</tr>
+</tbody></table>
+<p>虽然两种方式最终访问的是同一个 GitHub 仓库，但它们的<strong>认证机制完全独立</strong>。</p>
+<hr>
+<h3 id="经验总结-1"><a href="#经验总结-1" class="headerlink" title="经验总结"></a>经验总结</h3><p>以后排查 GitHub 推送失败时，应首先确认使用的是哪种协议：</p>
+<pre><code>git remote -v
+</code></pre>
+<ul>
+<li>如果是 **<code>git@github.com</code>**，优先检查 SSH Key、<code>~/.ssh/config</code>、<code>ssh -T git@github.com</code> 等配置。</li>
+<li>如果是 **<code>https://github.com</code>**，则需要检查 Git Credential Manager 中保存的账号信息或 Personal Access Token 是否正确。</li>
+</ul>
+<p>为了避免不同协议带来的认证问题，建议<strong>整个 Hexo 博客工作流统一使用 SSH</strong>：</p>
+<ul>
+<li>克隆源码：<code>git clone git@github.com:...</code></li>
+<li>推送源码：<code>git push origin source</code></li>
+<li>部署博客：<code>hexo d</code></li>
+</ul>
+<p>统一使用 SSH 后，只需维护一套 SSH Key，既减少了认证问题，也使整个博客维护流程更加一致和稳定。</p>
+<hr>
+<h2 id="六、问题五——为什么-Git-Push-会提示-Username-or-Token？"><a href="#六、问题五——为什么-Git-Push-会提示-Username-or-Token？" class="headerlink" title="六、问题五——为什么 Git Push 会提示 Username or Token？"></a>六、问题五——为什么 Git Push 会提示 Username or Token？</h2><h3 id="问题现象-2"><a href="#问题现象-2" class="headerlink" title="问题现象"></a>问题现象</h3><p>执行：</p>
+<pre><code>git push origin source
+</code></pre>
+<p>Git 返回：</p>
+<pre><code>remote: Invalid username or token.Password authentication is not supported for Git operations.fatal: Authentication failed
+</code></pre>
+<p>一开始误以为：</p>
+<ul>
+<li>Git 配置错误；</li>
+<li>GitHub 仓库权限异常；</li>
+<li>用户名或密码输入错误。</li>
+</ul>
+<p>实际上都不是。</p>
+<hr>
+<h3 id="问题原因分析-2"><a href="#问题原因分析-2" class="headerlink" title="问题原因分析"></a>问题原因分析</h3><p>GitHub 自 <strong>2021 年 8 月</strong> 起，正式停止支持使用 <strong>GitHub 账号密码</strong> 进行 Git 操作认证。</p>
+<p>也就是说，HTTPS 方式访问 GitHub 时：</p>
+<pre><code>https://github.com
+</code></pre>
+<p>已经不能使用：</p>
+<pre><code>用户名 + GitHub 登录密码
+</code></pre>
+<p>进行认证。</p>
+<p>现在 HTTPS 认证主要依赖：</p>
+<ul>
+<li>Personal Access Token（PAT）</li>
+<li>Git Credential Manager（内部保存 PAT）</li>
+</ul>
+<p>整个认证流程如下：</p>
+<pre><code>git push
+      │
+      ▼
+HTTPS
+      │
+      ▼
+Git Credential Manager
+      │
+      ▼
+Personal Access Token（PAT）
+      │
+      ▼
+GitHub
+</code></pre>
+<p>如果：</p>
+<ul>
+<li>Token 已过期；</li>
+<li>Token 权限不足；</li>
+<li>保存的是旧账号的 Token；</li>
+<li>本地没有 Token；</li>
+</ul>
+<p>GitHub 就会拒绝认证，并返回：</p>
+<pre><code>Invalid username or token.
+</code></pre>
+<p>因此，这个错误并不是 Git 出现故障，而是 <strong>HTTPS 身份认证失败</strong>。</p>
+<hr>
+<h3 id="解决方案-2"><a href="#解决方案-2" class="headerlink" title="解决方案"></a>解决方案</h3><p>本次迁移最终没有继续使用 HTTPS，而是统一改为 SSH。</p>
+<p>修改远程仓库地址：</p>
+<pre><code>git remote set-url origin git@github.com:foo1s/foo1s.github.io.git
+</code></pre>
+<p>之后 Git 的认证流程变为：</p>
+<pre><code>git push
+      │
+      ▼
+SSH
+      │
+      ▼
+SSH Key
+      │
+      ▼
+GitHub
+</code></pre>
+<p>无需再维护 Personal Access Token，也无需每次输入用户名或密码。</p>
+<hr>
+<h2 id="本次收获-2"><a href="#本次收获-2" class="headerlink" title="本次收获"></a>本次收获</h2><p>这次问题让我了解到：</p>
+<ol>
+<li><strong>GitHub 已经不再支持账号密码进行 Git 操作认证。</strong></li>
+<li><strong>HTTPS 与 SSH 是两套完全不同的认证体系。</strong></li>
+<li><strong>使用 HTTPS 时，本质上依赖的是 Personal Access Token，而不是登录密码。</strong></li>
+<li><strong>Git Credential Manager 只是帮助本地保存和管理 Token，并不是另一种认证方式。</strong></li>
+</ol>
+<hr>
+<h3 id="经验总结-2"><a href="#经验总结-2" class="headerlink" title="经验总结"></a>经验总结</h3><p>以后如果遇到：</p>
+<pre><code>Invalid username or token.Authentication failed.Password authentication is not supported for Git operations.
+</code></pre>
+<p>应首先判断当前是否使用的是 HTTPS：</p>
+<pre><code>git remote -v
+</code></pre>
+<p>如果远程地址为：</p>
+<pre><code>https://github.com/...
+</code></pre>
+<p>则说明问题很可能出现在 <strong>Token 或 Git Credential Manager</strong>。</p>
+<p>如果远程地址为：</p>
+<pre><code>git@github.com:...
+</code></pre>
+<p>则应排查 <strong>SSH Key、SSH 配置以及 GitHub SSH 权限</strong>。</p>
+<p>对于个人博客、个人项目等长期维护的仓库，<strong>优先采用 SSH 方式进行 Git 操作更加方便和稳定</strong>，可以避免 Token 管理、过期更新等额外维护成本。</p>
+<hr>
+<h2 id="七、知识体系"><a href="#七、知识体系" class="headerlink" title="七、知识体系"></a>七、知识体系</h2><pre class="line-numbers language-text"><code class="language-text">                GitHub Repository
+                       │
+         ┌─────────────┴─────────────┐
+         │                           │
+      source                     master
+      源码                        静态网页
+         │                           │
+         │ git push                  │ hexo d
+         │                           │
+         └─────────────┬─────────────┘
+                       │
+                     Git
+                       │
+             SSH / HTTPS 两种协议
+              │                 │
+        SSH Key            Token/Credential
+              │                 │
+        id_ed25519         Git Credential Manager
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<h2 id="八、迁移-Hexo-博客完整流程"><a href="#八、迁移-Hexo-博客完整流程" class="headerlink" title="八、迁移 Hexo 博客完整流程"></a>八、迁移 Hexo 博客完整流程</h2><p>以后拿到一台新电脑，你应该能够独立完成：</p>
+<ol>
+<li><p>安装 Git</p>
 </li>
-<li><p>要笨到不会在乎会得到什么结果，要狂到肯把自己的一切全投入到工作中，要天真到不想一个人独享成果，要懒散到有一大推人替你工作</p>
+<li><p>安装 Node.js</p>
 </li>
-<li><p>最上等的领导者无为而治，人们只知道有国君，而不感觉到其势力，各顺其性，各安起身。一切都制度化，每个人遵循运作模式，各自负责其工作，达成其任务。</p>
+<li><p>安装 Hexo CLI（如果没有）</p>
 </li>
-<li><p>真正的政治领袖，会努力建立制度化的常模，不喊口号，也不可以呼吁民众效忠，时机不成熟，绝不发号施令。有耐心地维持住常态的努力工作，让一切顺理成章的达成其目标，人民感受不出领导者的手段，只认为一切本应该如此</p>
+<li><p>配置 Git 用户名、邮箱</p>
 </li>
-<li><p>守弱—知道自己的孱弱，而能够接纳这种弱势，坚强地忍耐弱者的地位，才能累积实力。是自己慢慢脱离弱者的不利地位</p>
+<li><p>配置 SSH Key，并确认：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">ssh</span> -T git@github.com
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p> 返回的是正确账号。</p>
 </li>
-<li><p>人的需要真实非常有限，知识欲望确实无穷的，过分追求欲望而不能节制，结果经常不能满足，反而更加痛苦，而无法掌控自我的意志</p>
+<li><p>用 SSH 地址克隆 <code>source</code> 分支：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> clone -b <span class="token function">source</span> git@github.com:foo1s/foo1s.github.io.git
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
-<li><p>人类最大的敌人是自己，最不容战胜的对手是自己，但事实上，人类唯一能影响，去改变的也是自己</p>
+<li><p>执行：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
-<li><p>不要像美玉一样地摧残而为人尊崇，而要像坚石一样黯淡而为人贱视，一切都合乎道，不用特别造作，使天地万物趋向于自然</p>
+<li><p>本地预览：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">hexo clean
+hexo g
+hexo s
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>欲取天下者，应顺应自然之势，不应过分着重人为的努力。若有人想以一己之力来统治天下，这是绝对做不到的</p>
+<li><p>推送源码：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> push origin <span class="token function">source</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
-<li><p>一切顺其自然，堵塞意念，关闭情欲，收敛锋芒，消除丰饶于未然，不表示自己的特异，与光则和，遇尘则同</p>
+<li><p>部署博客：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">hexo d
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
-<li><p>当我们用别人的眼光来评判自己，确定自己的价值，这便是输赢心态的开始，输赢让我们紧张，焦虑，让我们的思想被封闭了，为了他人的评价而活，拼命压抑自己的感觉。不能去除输赢的心态，便无法共赢，不能体认与接纳自己的感觉，我们便无法克服输赢的焦虑</p>
-</li>
-<li><p>靠赢家赢的那批人，往往更输不起，他们会迫使赢家继续去赢</p>
-</li>
-<li><p>狡兔死，走狗烹，飞鸟尽，良弓藏，敌国破，良臣灭</p>
-</li>
-<li><p>虏中吾指</p>
-</li>
-<li><p>吾以布衣提三尺剑取天下，此非天命乎？命乃在天，虽扁鹊何益！</p>
-</li>
+</ol>
+<hr>
+<h2 id="迁移总结"><a href="#迁移总结" class="headerlink" title="迁移总结"></a>迁移总结</h2><ul>
+<li><strong>Git 提交身份（user.name &#x2F; user.email）</strong> 与 <strong>GitHub 身份认证（SSH Key &#x2F; Token）</strong> 是两套独立机制。</li>
+<li><strong>SSH 与 HTTPS 是两种完全不同的 Git 传输协议</strong>，认证方式也完全不同。</li>
+<li><strong>一台电脑可以拥有多把 SSH Key、一个 GitHub 账号也可以绑定多把 SSH Key</strong>；真正决定使用哪一把的是 SSH 的配置和选择逻辑。</li>
+<li><strong><code>hexo d</code> 本质上是对 Git 的封装</strong>，排查 Hexo 部署问题时，最终还是要回到 Git 的配置和认证上。</li>
 </ul>
 
                                     
@@ -1228,111 +1654,112 @@
     <article id="prenext-posts" class="prev-next articles">
         <div class="row article-row">
             
-                <div class="article col s12 m6" data-aos="fade-up">
-                    <div class="article-badge left-badge text-color">
-                        <a href="/2025/05/08/suo-yin-xiang-guan-wen-ti/"
-                            style="color: inherit; text-decoration: none; width: 100%; height: 100%; display: block;">
-                            <i class="fas fa-chevron-left"></i>&nbsp;上一篇&nbsp;:&nbsp;MySQL基础-索引
-                        </a>
-                    </div>
-                    <div class="card">
-                        <a href="/2025/05/08/suo-yin-xiang-guan-wen-ti/">
-                            <div class="card-image">
-                                
-                                        
-                                            <img src="/medias/featureimages/8.jpg"
-                                                class="responsive-img" alt="MySQL基础-索引">
-                                            
-                                                <span class="card-title">
-                                                    MySQL基础-索引
-                                                </span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                            
-                                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="far fa-clock fa-fw icon-date"></i>
-                                    2025-05-08
-                                </span>
-                                <span class="publish-author">
-                                    
-                                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                        
-                                            <a href="/categories/DataBase/" class="post-category">
-                                                DataBase
-                                            </a>
-                                            
-                                            <a href="/categories/DataBase/MySQL/" class="post-category">
-                                                MySQL
-                                            </a>
-                                            
-                                                
-                                </span>
-                            </div>
+                    <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+                        <div class="article-badge left-badge text-color">
+                            <i class="far fa-dot-circle"></i>&nbsp;本篇
                         </div>
-                        
-                            <div class="card-action article-tags">
-                                
-                                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                        <span class="chip bg-color">
-                                            数据库
-                                        </span>
-                                    </a>
+                        <div class="card">
+                            <a href="/2026/07/01/bo-ke-cang-ku-qian-yi-wen-ti-xiao-ji/">
+                                <div class="card-image">
                                     
-                                    <a href="/tags/MySQL/">
-                                        <span class="chip bg-color">
-                                            MySQL
-                                        </span>
-                                    </a>
+                                            
+                                                <img src="/medias/featureimages/13.jpg"
+                                                    class="responsive-img" alt="博客仓库迁移问题小记">
+                                                
+                                                    <span class="card-title">
+                                                        博客仓库迁移问题小记
+                                                    </span>
+                                </div>
+                            </a>
+                            <div class="card-content article-content">
+                                <div class="summary block-with-text">
                                     
+                                                
+                                                    
+                                </div>
+                                <div class="publish-info">
+                                    <span class="publish-date">
+                                        <i class="far fa-clock fa-fw icon-date"></i>
+                                        2026-07-01
+                                    </span>
+                                    <span class="publish-author">
+                                        
+                                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                            
+                                                <a href="/categories/%E9%97%AE%E9%A2%98/" class="post-category">
+                                                    问题
+                                                </a>
+                                                
+                                                    
+                                    </span>
+                                </div>
                             </div>
+
                             
+                                <div class="card-action article-tags">
+                                    
+                                        <a href="/tags/%E9%97%AE%E9%A2%98/">
+                                            <span class="chip bg-color">
+                                                问题
+                                            </span>
+                                        </a>
+                                        
+                                        <a href="/tags/Git/">
+                                            <span class="chip bg-color">
+                                                Git
+                                            </span>
+                                        </a>
+                                        
+                                        <a href="/tags/Hexo/">
+                                            <span class="chip bg-color">
+                                                Hexo
+                                            </span>
+                                        </a>
+                                        
+                                </div>
+                                
+                        </div>
                     </div>
-                </div>
-                
+                    
                         
                             <div class="article col s12 m6" data-aos="fade-up">
                                 <div class="article-badge right-badge text-color">
-                                    <a href="/2024/11/07/foo1s-de-di-yi-pian-bo-ke/"
+                                    <a href="/2026/05/08/ding-shi-zong-jie-jin-tian-de-bi-ji/"
                                         style="color: inherit; text-decoration: none; width: 100%; height: 100%; display: block;">
-                                        foo1s的第一篇博客&nbsp;:&nbsp;下一篇&nbsp;<i
+                                        如何使用OpenClaw定时总结笔记&nbsp;:&nbsp;下一篇&nbsp;<i
                                                     class="fas fa-chevron-right"></i>
                                     </a>
                                 </div>
                                 <div class="card">
-                                    <a href="/2024/11/07/foo1s-de-di-yi-pian-bo-ke/">
+                                    <a href="/2026/05/08/ding-shi-zong-jie-jin-tian-de-bi-ji/">
                                         <div class="card-image">
                                             
-                                                <img src="/source/medias/images/01.jpg" class="responsive-img"
-                                                    alt="foo1s的第一篇博客">
-                                                
+                                                    
+                                                        <img src="/medias/featureimages/3.jpg"
+                                                            class="responsive-img" alt="如何使用OpenClaw定时总结笔记">
+                                                        
                                                             <span class="card-title">
-                                                                foo1s的第一篇博客
+                                                                如何使用OpenClaw定时总结笔记
                                                             </span>
                                         </div>
                                     </a>
                                     <div class="card-content article-content">
                                         <div class="summary block-with-text">
                                             
-                                                foo1s新建博客后使用的第一篇博客
-                                                    
+                                                        
+                                                            
                                         </div>
                                         <div class="publish-info">
                                             <span class="publish-date">
                                                 <i class="far fa-clock fa-fw icon-date"></i>
-                                                2024-11-07
+                                                2026-05-08
                                             </span>
                                             <span class="publish-author">
                                                 
                                                     <i class="fas fa-bookmark fa-fw icon-category"></i>
                                                     
-                                                        <a href="/categories/Markdown/" class="post-category">
-                                                            Markdown
+                                                        <a href="/categories/%E6%95%99%E7%A8%8B/" class="post-category">
+                                                            教程
                                                         </a>
                                                         
                                                             
@@ -1342,15 +1769,15 @@
                                     
                                         <div class="card-action article-tags">
                                             
-                                                <a href="/tags/Obsidian/">
+                                                <a href="/tags/%E6%95%99%E7%A8%8B/">
                                                     <span class="chip bg-color">
-                                                        Obsidian
+                                                        教程
                                                     </span>
                                                 </a>
                                                 
-                                                <a href="/tags/Markdown/">
+                                                <a href="/tags/OpenClaw/">
                                                     <span class="chip bg-color">
-                                                        Markdown
+                                                        OpenClaw
                                                     </span>
                                                 </a>
                                                 
