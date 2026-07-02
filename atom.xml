@@ -54,7 +54,7 @@
     <link href="http://foo1s.github.io/2026/05/08/ding-shi-zong-jie-jin-tian-de-bi-ji/"/>
     <id>http://foo1s.github.io/2026/05/08/ding-shi-zong-jie-jin-tian-de-bi-ji/</id>
     <published>2026-05-08T08:39:07.000Z</published>
-    <updated>2026-07-01T09:50:37.135Z</updated>
+    <updated>2026-07-02T02:10:30.033Z</updated>
     
     
       
@@ -77,9 +77,9 @@
   </entry>
   
   <entry>
-    <title>MySQL基础</title>
-    <link href="http://foo1s.github.io/2025/05/08/ddl-yu-yan-xue-xi/"/>
-    <id>http://foo1s.github.io/2025/05/08/ddl-yu-yan-xue-xi/</id>
+    <title>MySQL基础-隔离语句</title>
+    <link href="http://foo1s.github.io/2025/05/08/mysql-si-da-ge-chi-yu-ju/"/>
+    <id>http://foo1s.github.io/2025/05/08/mysql-si-da-ge-chi-yu-ju/</id>
     <published>2025-05-08T07:39:07.000Z</published>
     <updated>2026-06-30T14:26:32.645Z</updated>
     
@@ -88,8 +88,9 @@
       
         
         
-    <summary type="html">&lt;p&gt;DDL语言主要用于定义和管理数据库的结构，包括库，表，索引，视图等数据库对象的创建与修改&lt;br&gt;不涉及对数据的操作，而是更关注于数据库的结构与元数据&lt;/p&gt;
-&lt;h3 id=&quot;DDL常用操作&quot;&gt;&lt;a href=&quot;#DDL常用操作&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;p&gt;SQL 标准定义了四个隔离级别：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;READ-UNCOMMITTED(读取未提交)&lt;/strong&gt;</summary>
         
       
     
@@ -107,9 +108,9 @@
   </entry>
   
   <entry>
-    <title>MySQL基础-隔离语句</title>
-    <link href="http://foo1s.github.io/2025/05/08/mysql-si-da-ge-chi-yu-ju/"/>
-    <id>http://foo1s.github.io/2025/05/08/mysql-si-da-ge-chi-yu-ju/</id>
+    <title>MySQL基础</title>
+    <link href="http://foo1s.github.io/2025/05/08/ddl-yu-yan-xue-xi/"/>
+    <id>http://foo1s.github.io/2025/05/08/ddl-yu-yan-xue-xi/</id>
     <published>2025-05-08T07:39:07.000Z</published>
     <updated>2026-06-30T14:26:32.645Z</updated>
     
@@ -118,9 +119,8 @@
       
         
         
-    <summary type="html">&lt;p&gt;SQL 标准定义了四个隔离级别：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;READ-UNCOMMITTED(读取未提交)&lt;/strong&gt;</summary>
+    <summary type="html">&lt;p&gt;DDL语言主要用于定义和管理数据库的结构，包括库，表，索引，视图等数据库对象的创建与修改&lt;br&gt;不涉及对数据的操作，而是更关注于数据库的结构与元数据&lt;/p&gt;
+&lt;h3 id=&quot;DDL常用操作&quot;&gt;&lt;a href=&quot;#DDL常用操作&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -255,9 +255,9 @@
   </entry>
   
   <entry>
-    <title>MySQL基础</title>
-    <link href="http://foo1s.github.io/2025/05/08/han-shu-yu-yan-de-xue-xi/"/>
-    <id>http://foo1s.github.io/2025/05/08/han-shu-yu-yan-de-xue-xi/</id>
+    <title>MySQL基础-分库分表</title>
+    <link href="http://foo1s.github.io/2025/05/08/fen-ku-fen-biao-wen-ti/"/>
+    <id>http://foo1s.github.io/2025/05/08/fen-ku-fen-biao-wen-ti/</id>
     <published>2025-05-08T07:39:07.000Z</published>
     <updated>2026-06-30T14:26:32.661Z</updated>
     
@@ -266,7 +266,7 @@
       
         
         
-    <summary type="html">&lt;h3 id=&quot;函数&quot;&gt;&lt;a href=&quot;#函数&quot; class=&quot;headerlink&quot; title=&quot;函数&quot;&gt;&lt;/a&gt;函数&lt;/h3&gt;&lt;h4 id=&quot;文本处理函数&quot;&gt;&lt;a href=&quot;#文本处理函数&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h3 id=&quot;分库分表&quot;&gt;&lt;a href=&quot;#分库分表&quot; class=&quot;headerlink&quot; title=&quot;分库分表&quot;&gt;&lt;/a&gt;分库分表&lt;/h3&gt;&lt;h4 id=&quot;💡-一、为什么需要分库分表（动因）&quot;&gt;&lt;a href=&quot;#💡-一、为什么需要分库分表（动因）&quot;</summary>
         
       
     
@@ -284,9 +284,9 @@
   </entry>
   
   <entry>
-    <title>MySQL基础-分库分表</title>
-    <link href="http://foo1s.github.io/2025/05/08/fen-ku-fen-biao-wen-ti/"/>
-    <id>http://foo1s.github.io/2025/05/08/fen-ku-fen-biao-wen-ti/</id>
+    <title>MySQL基础</title>
+    <link href="http://foo1s.github.io/2025/05/08/han-shu-yu-yan-de-xue-xi/"/>
+    <id>http://foo1s.github.io/2025/05/08/han-shu-yu-yan-de-xue-xi/</id>
     <published>2025-05-08T07:39:07.000Z</published>
     <updated>2026-06-30T14:26:32.661Z</updated>
     
@@ -295,7 +295,7 @@
       
         
         
-    <summary type="html">&lt;h3 id=&quot;分库分表&quot;&gt;&lt;a href=&quot;#分库分表&quot; class=&quot;headerlink&quot; title=&quot;分库分表&quot;&gt;&lt;/a&gt;分库分表&lt;/h3&gt;&lt;h4 id=&quot;💡-一、为什么需要分库分表（动因）&quot;&gt;&lt;a href=&quot;#💡-一、为什么需要分库分表（动因）&quot;</summary>
+    <summary type="html">&lt;h3 id=&quot;函数&quot;&gt;&lt;a href=&quot;#函数&quot; class=&quot;headerlink&quot; title=&quot;函数&quot;&gt;&lt;/a&gt;函数&lt;/h3&gt;&lt;h4 id=&quot;文本处理函数&quot;&gt;&lt;a href=&quot;#文本处理函数&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -372,9 +372,9 @@
   </entry>
   
   <entry>
-    <title>MySQL基础</title>
-    <link href="http://foo1s.github.io/2025/05/08/biao-xiang-guan-han-shu-shi-yong/"/>
-    <id>http://foo1s.github.io/2025/05/08/biao-xiang-guan-han-shu-shi-yong/</id>
+    <title>MySQL基础-索引</title>
+    <link href="http://foo1s.github.io/2025/05/08/suo-yin-xiang-guan-wen-ti/"/>
+    <id>http://foo1s.github.io/2025/05/08/suo-yin-xiang-guan-wen-ti/</id>
     <published>2025-05-08T07:39:07.000Z</published>
     <updated>2026-06-30T14:26:32.661Z</updated>
     
@@ -383,7 +383,7 @@
       
         
         
-    <summary type="html">&lt;h3 id=&quot;创建表&quot;&gt;&lt;a href=&quot;#创建表&quot; class=&quot;headerlink&quot; title=&quot;创建表&quot;&gt;&lt;/a&gt;创建表&lt;/h3&gt;&lt;h4 id=&quot;创建表基础&quot;&gt;&lt;a href=&quot;#创建表基础&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;AI相关提问&quot;&gt;&lt;a href=&quot;#AI相关提问&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -430,9 +430,9 @@
   </entry>
   
   <entry>
-    <title>MySQL基础-索引</title>
-    <link href="http://foo1s.github.io/2025/05/08/suo-yin-xiang-guan-wen-ti/"/>
-    <id>http://foo1s.github.io/2025/05/08/suo-yin-xiang-guan-wen-ti/</id>
+    <title>MySQL基础</title>
+    <link href="http://foo1s.github.io/2025/05/08/biao-xiang-guan-han-shu-shi-yong/"/>
+    <id>http://foo1s.github.io/2025/05/08/biao-xiang-guan-han-shu-shi-yong/</id>
     <published>2025-05-08T07:39:07.000Z</published>
     <updated>2026-06-30T14:26:32.661Z</updated>
     
@@ -441,7 +441,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;AI相关提问&quot;&gt;&lt;a href=&quot;#AI相关提问&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h3 id=&quot;创建表&quot;&gt;&lt;a href=&quot;#创建表&quot; class=&quot;headerlink&quot; title=&quot;创建表&quot;&gt;&lt;/a&gt;创建表&lt;/h3&gt;&lt;h4 id=&quot;创建表基础&quot;&gt;&lt;a href=&quot;#创建表基础&quot; class=&quot;headerlink&quot;</summary>
         
       
     
