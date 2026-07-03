@@ -996,6 +996,102 @@ MySQL8.4安装教程Windows安装Mysql8.4,看这一篇就够了（超级详细�
                                                                             data-aos="fade-up">
                                                                             <div class="article col s12 m6">
                                                                                 <div class="card">
+                                                                                    <a href="/2025/05/08/mysql-si-da-ge-chi-yu-ju/">
+                                                                                        <div class="card-image">
+                                                                                            
+                                                                                                    
+                                                                                                        <img src="/medias/featureimages/4.jpg"
+                                                                                                            class="responsive-img"
+                                                                                                            alt="MySQL基础-隔离语句">
+                                                                                                        
+                                                                                                            <span
+                                                                                                                class="card-title">
+                                                                                                                MySQL基础-隔离语句
+                                                                                                            </span>
+                                                                                        </div>
+                                                                                    </a>
+                                                                                    <div
+                                                                                        class="card-content article-content">
+                                                                                        <div
+                                                                                            class="summary block-with-text">
+                                                                                            
+                                                                                                        SQL 标准定义了四个隔离级别：
+
+READ-UNCOMMITTED(读取未提交) ：最低的隔离级别，允许读取尚未提交的数据变更，可能会导致脏读、幻读或不可重复读。
+READ-COMMITTED(读取已提交) ：允许读取并发事务已经提交的数
+                                                                                                            
+                                                                                        </div>
+                                                                                        <div class="publish-info">
+                                                                                            <span class="publish-date">
+                                                                                                <i
+                                                                                                    class="far fa-clock fa-fw icon-date"></i>
+                                                                                                2025-05-08
+                                                                                            </span>
+                                                                                            <span
+                                                                                                class="publish-author">
+                                                                                                
+                                                                                                    <i
+                                                                                                        class="fas fa-bookmark fa-fw icon-category"></i>
+                                                                                                    
+                                                                                                        <a href="/categories/DataBase/"
+                                                                                                            class="post-category">
+                                                                                                            DataBase
+                                                                                                        </a>
+                                                                                                        
+                                                                                                        <a href="/categories/DataBase/MySQL/"
+                                                                                                            class="post-category">
+                                                                                                            MySQL
+                                                                                                        </a>
+                                                                                                        
+                                                                                                            
+                                                                                            </span>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    
+                                                                                        <div
+                                                                                            class="card-action article-tags">
+                                                                                            
+                                                                                                <a
+                                                                                                    href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                                                                                    <span
+                                                                                                        class="chip bg-color">
+                                                                                                        数据库
+                                                                                                    </span>
+                                                                                                </a>
+                                                                                                
+                                                                                                <a
+                                                                                                    href="/tags/MySQL/">
+                                                                                                    <span
+                                                                                                        class="chip bg-color">
+                                                                                                        MySQL
+                                                                                                    </span>
+                                                                                                </a>
+                                                                                                
+                                                                                        </div>
+                                                                                        
+                                                                                </div>
+                                                                            </div>
+                                                                        </article>
+                                </div>
+                                
+                                <div class="cd-timeline-block">
+
+                                    
+                                        
+
+                                                    
+                                                        
+
+                                                                    
+                                                                        <div class="cd-timeline-img day"
+                                                                            data-aos="zoom-in-up">
+                                                                            <span>08</span>
+                                                                        </div>
+                                                                        <article class="cd-timeline-content"
+                                                                            data-aos="fade-up">
+                                                                            <div class="article col s12 m6">
+                                                                                <div class="card">
                                                                                     <a href="/2025/05/08/ddl-yu-yan-xue-xi/">
                                                                                         <div class="card-image">
                                                                                             
@@ -1096,17 +1192,17 @@ show database
                                                                             data-aos="fade-up">
                                                                             <div class="article col s12 m6">
                                                                                 <div class="card">
-                                                                                    <a href="/2025/05/08/mysql-si-da-ge-chi-yu-ju/">
+                                                                                    <a href="/2025/05/08/mvcc/">
                                                                                         <div class="card-image">
                                                                                             
                                                                                                     
-                                                                                                        <img src="/medias/featureimages/4.jpg"
+                                                                                                        <img src="/medias/featureimages/18.jpg"
                                                                                                             class="responsive-img"
-                                                                                                            alt="MySQL基础-隔离语句">
+                                                                                                            alt="MySQL基础-MVCC">
                                                                                                         
                                                                                                             <span
                                                                                                                 class="card-title">
-                                                                                                                MySQL基础-隔离语句
+                                                                                                                MySQL基础-MVCC
                                                                                                             </span>
                                                                                         </div>
                                                                                     </a>
@@ -1115,10 +1211,12 @@ show database
                                                                                         <div
                                                                                             class="summary block-with-text">
                                                                                             
-                                                                                                        SQL 标准定义了四个隔离级别：
+                                                                                                        MVCC存储在哪里，作用是什么MVCC是什么
+传统的数据库并发控制通常使用锁机制，在并发量高的情况下容易导致阻塞和性能下降。
+读不阻塞写，写不阻塞读；为每个事务维护一个数据快照；创建新版本而不是覆盖。
 
-READ-UNCOMMITTED(读取未提交) ：最低的隔离级别，允许读取尚未提交的数据变更，可能会导致脏读、幻读或不可重复读。
-READ-COMMITTED(读取已提交) ：允许读取并发事务已经提交的数
+
+MVCC的实现原理好的，我们来详细
                                                                                                             
                                                                                         </div>
                                                                                         <div class="publish-info">
@@ -1390,17 +1488,17 @@ drop
                                                                             data-aos="fade-up">
                                                                             <div class="article col s12 m6">
                                                                                 <div class="card">
-                                                                                    <a href="/2025/05/08/mvcc/">
+                                                                                    <a href="/2025/05/08/fen-ku-fen-biao-wen-ti/">
                                                                                         <div class="card-image">
                                                                                             
                                                                                                     
-                                                                                                        <img src="/medias/featureimages/18.jpg"
+                                                                                                        <img src="/medias/featureimages/12.jpg"
                                                                                                             class="responsive-img"
-                                                                                                            alt="MySQL基础-MVCC">
+                                                                                                            alt="MySQL基础-分库分表">
                                                                                                         
                                                                                                             <span
                                                                                                                 class="card-title">
-                                                                                                                MySQL基础-MVCC
+                                                                                                                MySQL基础-分库分表
                                                                                                             </span>
                                                                                         </div>
                                                                                     </a>
@@ -1409,12 +1507,15 @@ drop
                                                                                         <div
                                                                                             class="summary block-with-text">
                                                                                             
-                                                                                                        MVCC存储在哪里，作用是什么MVCC是什么
-传统的数据库并发控制通常使用锁机制，在并发量高的情况下容易导致阻塞和性能下降。
-读不阻塞写，写不阻塞读；为每个事务维护一个数据快照；创建新版本而不是覆盖。
+                                                                                                        分库分表💡 一、为什么需要分库分表（动因）核心目标：解决单库单表性能瓶颈。
 
+数据量大 → 单表数据超千万行，查询慢、索引失效
 
-MVCC的实现原理好的，我们来详细
+并发高 → 单库连接数&#x2F;事务冲突瓶颈
+
+运维难 → 备份、迁移、恢复时间长
+
+可用性差 → 单点故
                                                                                                             
                                                                                         </div>
                                                                                         <div class="publish-info">
@@ -1515,107 +1616,6 @@ left():返回左边的字符
 length():返回长度
 Locate():找出一个字串
 Lower
-                                                                                                            
-                                                                                        </div>
-                                                                                        <div class="publish-info">
-                                                                                            <span class="publish-date">
-                                                                                                <i
-                                                                                                    class="far fa-clock fa-fw icon-date"></i>
-                                                                                                2025-05-08
-                                                                                            </span>
-                                                                                            <span
-                                                                                                class="publish-author">
-                                                                                                
-                                                                                                    <i
-                                                                                                        class="fas fa-bookmark fa-fw icon-category"></i>
-                                                                                                    
-                                                                                                        <a href="/categories/DataBase/"
-                                                                                                            class="post-category">
-                                                                                                            DataBase
-                                                                                                        </a>
-                                                                                                        
-                                                                                                        <a href="/categories/DataBase/MySQL/"
-                                                                                                            class="post-category">
-                                                                                                            MySQL
-                                                                                                        </a>
-                                                                                                        
-                                                                                                            
-                                                                                            </span>
-                                                                                        </div>
-                                                                                    </div>
-
-                                                                                    
-                                                                                        <div
-                                                                                            class="card-action article-tags">
-                                                                                            
-                                                                                                <a
-                                                                                                    href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                                                                                    <span
-                                                                                                        class="chip bg-color">
-                                                                                                        数据库
-                                                                                                    </span>
-                                                                                                </a>
-                                                                                                
-                                                                                                <a
-                                                                                                    href="/tags/MySQL/">
-                                                                                                    <span
-                                                                                                        class="chip bg-color">
-                                                                                                        MySQL
-                                                                                                    </span>
-                                                                                                </a>
-                                                                                                
-                                                                                        </div>
-                                                                                        
-                                                                                </div>
-                                                                            </div>
-                                                                        </article>
-                                </div>
-                                
-                                <div class="cd-timeline-block">
-
-                                    
-                                        
-
-                                                    
-                                                        
-
-                                                                    
-                                                                        <div class="cd-timeline-img day"
-                                                                            data-aos="zoom-in-up">
-                                                                            <span>08</span>
-                                                                        </div>
-                                                                        <article class="cd-timeline-content"
-                                                                            data-aos="fade-up">
-                                                                            <div class="article col s12 m6">
-                                                                                <div class="card">
-                                                                                    <a href="/2025/05/08/fen-ku-fen-biao-wen-ti/">
-                                                                                        <div class="card-image">
-                                                                                            
-                                                                                                    
-                                                                                                        <img src="/medias/featureimages/12.jpg"
-                                                                                                            class="responsive-img"
-                                                                                                            alt="MySQL基础-分库分表">
-                                                                                                        
-                                                                                                            <span
-                                                                                                                class="card-title">
-                                                                                                                MySQL基础-分库分表
-                                                                                                            </span>
-                                                                                        </div>
-                                                                                    </a>
-                                                                                    <div
-                                                                                        class="card-content article-content">
-                                                                                        <div
-                                                                                            class="summary block-with-text">
-                                                                                            
-                                                                                                        分库分表💡 一、为什么需要分库分表（动因）核心目标：解决单库单表性能瓶颈。
-
-数据量大 → 单表数据超千万行，查询慢、索引失效
-
-并发高 → 单库连接数&#x2F;事务冲突瓶颈
-
-运维难 → 备份、迁移、恢复时间长
-
-可用性差 → 单点故
                                                                                                             
                                                                                         </div>
                                                                                         <div class="publish-info">
@@ -2563,6 +2563,19 @@ primary
                                 
 
                                             <div class="archive-item" data-aos="fade-up">
+                                                <a href="/2025/05/08/mysql-si-da-ge-chi-yu-ju/" class="archive-item-link">
+                                                    MySQL基础-隔离语句
+                                                </a>
+                                                <span class="archive-item-date">
+                                                    2025-05-08
+                                                </span>
+                                            </div>
+                                            
+                            
+
+                                
+
+                                            <div class="archive-item" data-aos="fade-up">
                                                 <a href="/2025/05/08/ddl-yu-yan-xue-xi/" class="archive-item-link">
                                                     MySQL基础
                                                 </a>
@@ -2576,8 +2589,8 @@ primary
                                 
 
                                             <div class="archive-item" data-aos="fade-up">
-                                                <a href="/2025/05/08/mysql-si-da-ge-chi-yu-ju/" class="archive-item-link">
-                                                    MySQL基础-隔离语句
+                                                <a href="/2025/05/08/mvcc/" class="archive-item-link">
+                                                    MySQL基础-MVCC
                                                 </a>
                                                 <span class="archive-item-date">
                                                     2025-05-08
@@ -2615,8 +2628,8 @@ primary
                                 
 
                                             <div class="archive-item" data-aos="fade-up">
-                                                <a href="/2025/05/08/mvcc/" class="archive-item-link">
-                                                    MySQL基础-MVCC
+                                                <a href="/2025/05/08/fen-ku-fen-biao-wen-ti/" class="archive-item-link">
+                                                    MySQL基础-分库分表
                                                 </a>
                                                 <span class="archive-item-date">
                                                     2025-05-08
@@ -2630,19 +2643,6 @@ primary
                                             <div class="archive-item" data-aos="fade-up">
                                                 <a href="/2025/05/08/han-shu-yu-yan-de-xue-xi/" class="archive-item-link">
                                                     MySQL基础
-                                                </a>
-                                                <span class="archive-item-date">
-                                                    2025-05-08
-                                                </span>
-                                            </div>
-                                            
-                            
-
-                                
-
-                                            <div class="archive-item" data-aos="fade-up">
-                                                <a href="/2025/05/08/fen-ku-fen-biao-wen-ti/" class="archive-item-link">
-                                                    MySQL基础-分库分表
                                                 </a>
                                                 <span class="archive-item-date">
                                                     2025-05-08
