@@ -63,9 +63,9 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><link rel="alternate" href="/atom.xml" title="foo1s' blog" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="foo1s' blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
     <body>
@@ -1108,17 +1108,17 @@ source分支管理相
                                                                             data-aos="fade-up">
                                                                             <div class="article col s12 m6">
                                                                                 <div class="card">
-                                                                                    <a href="/2025/05/08/mysql-si-da-ge-chi-yu-ju/">
+                                                                                    <a href="/2025/05/08/ddl-yu-yan-xue-xi/">
                                                                                         <div class="card-image">
                                                                                             
                                                                                                     
-                                                                                                        <img src="/medias/featureimages/4.jpg"
+                                                                                                        <img src="/medias/featureimages/0.jpg"
                                                                                                             class="responsive-img"
-                                                                                                            alt="MySQL基础-隔离语句">
+                                                                                                            alt="MySQL基础">
                                                                                                         
                                                                                                             <span
                                                                                                                 class="card-title">
-                                                                                                                MySQL基础-隔离语句
+                                                                                                                MySQL基础
                                                                                                             </span>
                                                                                         </div>
                                                                                     </a>
@@ -1127,10 +1127,14 @@ source分支管理相
                                                                                         <div
                                                                                             class="summary block-with-text">
                                                                                             
-                                                                                                        SQL 标准定义了四个隔离级别：
+                                                                                                        DDL语言主要用于定义和管理数据库的结构，包括库，表，索引，视图等数据库对象的创建与修改不涉及对数据的操作，而是更关注于数据库的结构与元数据
+DDL常用操作DDL常用语言create 
 
-READ-UNCOMMITTED(读取未提交) ：最低的隔离级别，允许读取尚未提交的数据变更，可能会导致脏读、幻读或不可重复读。
-READ-COMMITTED(读取已提交) ：允许读取并发事务已经提交的数
+alter
+
+drop
+
+show database
                                                                                                             
                                                                                         </div>
                                                                                         <div class="publish-info">
@@ -1204,17 +1208,17 @@ READ-COMMITTED(读取已提交) ：允许读取并发事务已经提交的数
                                                                             data-aos="fade-up">
                                                                             <div class="article col s12 m6">
                                                                                 <div class="card">
-                                                                                    <a href="/2025/05/08/ddl-yu-yan-xue-xi/">
+                                                                                    <a href="/2025/05/08/mysql-si-da-ge-chi-yu-ju/">
                                                                                         <div class="card-image">
                                                                                             
                                                                                                     
-                                                                                                        <img src="/medias/featureimages/0.jpg"
+                                                                                                        <img src="/medias/featureimages/4.jpg"
                                                                                                             class="responsive-img"
-                                                                                                            alt="MySQL基础">
+                                                                                                            alt="MySQL基础-隔离语句">
                                                                                                         
                                                                                                             <span
                                                                                                                 class="card-title">
-                                                                                                                MySQL基础
+                                                                                                                MySQL基础-隔离语句
                                                                                                             </span>
                                                                                         </div>
                                                                                     </a>
@@ -1223,14 +1227,10 @@ READ-COMMITTED(读取已提交) ：允许读取并发事务已经提交的数
                                                                                         <div
                                                                                             class="summary block-with-text">
                                                                                             
-                                                                                                        DDL语言主要用于定义和管理数据库的结构，包括库，表，索引，视图等数据库对象的创建与修改不涉及对数据的操作，而是更关注于数据库的结构与元数据
-DDL常用操作DDL常用语言create 
+                                                                                                        SQL 标准定义了四个隔离级别：
 
-alter
-
-drop
-
-show database
+READ-UNCOMMITTED(读取未提交) ：最低的隔离级别，允许读取尚未提交的数据变更，可能会导致脏读、幻读或不可重复读。
+READ-COMMITTED(读取已提交) ：允许读取并发事务已经提交的数
                                                                                                             
                                                                                         </div>
                                                                                         <div class="publish-info">
@@ -1504,17 +1504,17 @@ drop
                                                                             data-aos="fade-up">
                                                                             <div class="article col s12 m6">
                                                                                 <div class="card">
-                                                                                    <a href="/2025/05/08/han-shu-yu-yan-de-xue-xi/">
+                                                                                    <a href="/2025/05/08/mvcc/">
                                                                                         <div class="card-image">
                                                                                             
                                                                                                     
-                                                                                                        <img src="/medias/featureimages/0.jpg"
+                                                                                                        <img src="/medias/featureimages/18.jpg"
                                                                                                             class="responsive-img"
-                                                                                                            alt="MySQL基础">
+                                                                                                            alt="MySQL基础-MVCC">
                                                                                                         
                                                                                                             <span
                                                                                                                 class="card-title">
-                                                                                                                MySQL基础
+                                                                                                                MySQL基础-MVCC
                                                                                                             </span>
                                                                                         </div>
                                                                                     </a>
@@ -1523,14 +1523,12 @@ drop
                                                                                         <div
                                                                                             class="summary block-with-text">
                                                                                             
-                                                                                                        函数文本处理函数select name,Upper(name) AS name_case 
-FROM xxx
-order by xxx;
+                                                                                                        MVCC存储在哪里，作用是什么MVCC是什么
+传统的数据库并发控制通常使用锁机制，在并发量高的情况下容易导致阻塞和性能下降。
+读不阻塞写，写不阻塞读；为每个事务维护一个数据快照；创建新版本而不是覆盖。
 
-left():返回左边的字符
-length():返回长度
-Locate():找出一个字串
-Lower
+
+MVCC的实现原理好的，我们来详细
                                                                                                             
                                                                                         </div>
                                                                                         <div class="publish-info">
@@ -1699,17 +1697,17 @@ Lower
                                                                             data-aos="fade-up">
                                                                             <div class="article col s12 m6">
                                                                                 <div class="card">
-                                                                                    <a href="/2025/05/08/mvcc/">
+                                                                                    <a href="/2025/05/08/han-shu-yu-yan-de-xue-xi/">
                                                                                         <div class="card-image">
                                                                                             
                                                                                                     
-                                                                                                        <img src="/medias/featureimages/18.jpg"
+                                                                                                        <img src="/medias/featureimages/0.jpg"
                                                                                                             class="responsive-img"
-                                                                                                            alt="MySQL基础-MVCC">
+                                                                                                            alt="MySQL基础">
                                                                                                         
                                                                                                             <span
                                                                                                                 class="card-title">
-                                                                                                                MySQL基础-MVCC
+                                                                                                                MySQL基础
                                                                                                             </span>
                                                                                         </div>
                                                                                     </a>
@@ -1718,12 +1716,14 @@ Lower
                                                                                         <div
                                                                                             class="summary block-with-text">
                                                                                             
-                                                                                                        MVCC存储在哪里，作用是什么MVCC是什么
-传统的数据库并发控制通常使用锁机制，在并发量高的情况下容易导致阻塞和性能下降。
-读不阻塞写，写不阻塞读；为每个事务维护一个数据快照；创建新版本而不是覆盖。
+                                                                                                        函数文本处理函数select name,Upper(name) AS name_case 
+FROM xxx
+order by xxx;
 
-
-MVCC的实现原理好的，我们来详细
+left():返回左边的字符
+length():返回长度
+Locate():找出一个字串
+Lower
                                                                                                             
                                                                                         </div>
                                                                                         <div class="publish-info">
@@ -1992,17 +1992,17 @@ MVCC的实现原理好的，我们来详细
                                                                             data-aos="fade-up">
                                                                             <div class="article col s12 m6">
                                                                                 <div class="card">
-                                                                                    <a href="/2025/05/08/suo-yin-xiang-guan-wen-ti/">
+                                                                                    <a href="/2025/05/08/suo-yin-shi-xiao-wen-ti/">
                                                                                         <div class="card-image">
                                                                                             
                                                                                                     
-                                                                                                        <img src="/medias/featureimages/8.jpg"
+                                                                                                        <img src="/medias/featureimages/17.jpg"
                                                                                                             class="responsive-img"
-                                                                                                            alt="MySQL基础-索引">
+                                                                                                            alt="MySQL基础-索引失效">
                                                                                                         
                                                                                                             <span
                                                                                                                 class="card-title">
-                                                                                                                MySQL基础-索引
+                                                                                                                MySQL基础-索引失效
                                                                                                             </span>
                                                                                         </div>
                                                                                     </a>
@@ -2011,12 +2011,13 @@ MVCC的实现原理好的，我们来详细
                                                                                         <div
                                                                                             class="summary block-with-text">
                                                                                             
-                                                                                                        AI相关提问基础概念类：
+                                                                                                        一、SQL 写法导致的失效
+列上使用函数或表达式
+WHERE UPPER(name) = 'JACK'
+WHERE DATE(create_time) = '2025‑06‑18'
 
-什么是数据库索引？为什么要使用索引？
 
-解答： 数据库索引是一种特殊的数据结构（通常是 B-Tree 或 B+Tree），它存储着表中一列或多列的值，并关联着这些值对应的数据行的物理位置或主键信息。
-使用索引的目
+原因：函数或表达式会在每行数据上执行运算，无法利用原始
                                                                                                             
                                                                                         </div>
                                                                                         <div class="publish-info">
@@ -2593,8 +2594,8 @@ MVCC的实现原理好的，我们来详细
                                         
 
                                             <div class="archive-item" data-aos="fade-up">
-                                                <a href="/2025/05/08/mysql-si-da-ge-chi-yu-ju/" class="archive-item-link">
-                                                    MySQL基础-隔离语句
+                                                <a href="/2025/05/08/ddl-yu-yan-xue-xi/" class="archive-item-link">
+                                                    MySQL基础
                                                 </a>
                                                 <span class="archive-item-date">
                                                     2025-05-08
@@ -2606,8 +2607,8 @@ MVCC的实现原理好的，我们来详细
                                 
 
                                             <div class="archive-item" data-aos="fade-up">
-                                                <a href="/2025/05/08/ddl-yu-yan-xue-xi/" class="archive-item-link">
-                                                    MySQL基础
+                                                <a href="/2025/05/08/mysql-si-da-ge-chi-yu-ju/" class="archive-item-link">
+                                                    MySQL基础-隔离语句
                                                 </a>
                                                 <span class="archive-item-date">
                                                     2025-05-08
@@ -2645,8 +2646,8 @@ MVCC的实现原理好的，我们来详细
                                 
 
                                             <div class="archive-item" data-aos="fade-up">
-                                                <a href="/2025/05/08/han-shu-yu-yan-de-xue-xi/" class="archive-item-link">
-                                                    MySQL基础
+                                                <a href="/2025/05/08/mvcc/" class="archive-item-link">
+                                                    MySQL基础-MVCC
                                                 </a>
                                                 <span class="archive-item-date">
                                                     2025-05-08
@@ -2671,8 +2672,8 @@ MVCC的实现原理好的，我们来详细
                                 
 
                                             <div class="archive-item" data-aos="fade-up">
-                                                <a href="/2025/05/08/mvcc/" class="archive-item-link">
-                                                    MySQL基础-MVCC
+                                                <a href="/2025/05/08/han-shu-yu-yan-de-xue-xi/" class="archive-item-link">
+                                                    MySQL基础
                                                 </a>
                                                 <span class="archive-item-date">
                                                     2025-05-08
@@ -2710,8 +2711,8 @@ MVCC的实现原理好的，我们来详细
                                 
 
                                             <div class="archive-item" data-aos="fade-up">
-                                                <a href="/2025/05/08/suo-yin-xiang-guan-wen-ti/" class="archive-item-link">
-                                                    MySQL基础-索引
+                                                <a href="/2025/05/08/suo-yin-shi-xiao-wen-ti/" class="archive-item-link">
+                                                    MySQL基础-索引失效
                                                 </a>
                                                 <span class="archive-item-date">
                                                     2025-05-08

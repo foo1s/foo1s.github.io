@@ -77,9 +77,9 @@
   </entry>
   
   <entry>
-    <title>MySQL基础-隔离语句</title>
-    <link href="https://foo1s.github.io/2025/05/08/mysql-si-da-ge-chi-yu-ju/"/>
-    <id>https://foo1s.github.io/2025/05/08/mysql-si-da-ge-chi-yu-ju/</id>
+    <title>MySQL基础</title>
+    <link href="https://foo1s.github.io/2025/05/08/ddl-yu-yan-xue-xi/"/>
+    <id>https://foo1s.github.io/2025/05/08/ddl-yu-yan-xue-xi/</id>
     <published>2025-05-08T07:39:07.000Z</published>
     <updated>2026-06-30T14:26:32.645Z</updated>
     
@@ -88,9 +88,8 @@
       
         
         
-    <summary type="html">&lt;p&gt;SQL 标准定义了四个隔离级别：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;READ-UNCOMMITTED(读取未提交)&lt;/strong&gt;</summary>
+    <summary type="html">&lt;p&gt;DDL语言主要用于定义和管理数据库的结构，包括库，表，索引，视图等数据库对象的创建与修改&lt;br&gt;不涉及对数据的操作，而是更关注于数据库的结构与元数据&lt;/p&gt;
+&lt;h3 id=&quot;DDL常用操作&quot;&gt;&lt;a href=&quot;#DDL常用操作&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -108,9 +107,9 @@
   </entry>
   
   <entry>
-    <title>MySQL基础</title>
-    <link href="https://foo1s.github.io/2025/05/08/ddl-yu-yan-xue-xi/"/>
-    <id>https://foo1s.github.io/2025/05/08/ddl-yu-yan-xue-xi/</id>
+    <title>MySQL基础-隔离语句</title>
+    <link href="https://foo1s.github.io/2025/05/08/mysql-si-da-ge-chi-yu-ju/"/>
+    <id>https://foo1s.github.io/2025/05/08/mysql-si-da-ge-chi-yu-ju/</id>
     <published>2025-05-08T07:39:07.000Z</published>
     <updated>2026-06-30T14:26:32.645Z</updated>
     
@@ -119,8 +118,9 @@
       
         
         
-    <summary type="html">&lt;p&gt;DDL语言主要用于定义和管理数据库的结构，包括库，表，索引，视图等数据库对象的创建与修改&lt;br&gt;不涉及对数据的操作，而是更关注于数据库的结构与元数据&lt;/p&gt;
-&lt;h3 id=&quot;DDL常用操作&quot;&gt;&lt;a href=&quot;#DDL常用操作&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;p&gt;SQL 标准定义了四个隔离级别：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;READ-UNCOMMITTED(读取未提交)&lt;/strong&gt;</summary>
         
       
     
@@ -197,18 +197,18 @@
   </entry>
   
   <entry>
-    <title>MySQL基础</title>
-    <link href="https://foo1s.github.io/2025/05/08/han-shu-yu-yan-de-xue-xi/"/>
-    <id>https://foo1s.github.io/2025/05/08/han-shu-yu-yan-de-xue-xi/</id>
+    <title>MySQL基础-MVCC</title>
+    <link href="https://foo1s.github.io/2025/05/08/mvcc/"/>
+    <id>https://foo1s.github.io/2025/05/08/mvcc/</id>
     <published>2025-05-08T07:39:07.000Z</published>
-    <updated>2026-06-30T14:26:32.661Z</updated>
+    <updated>2026-06-30T14:26:32.645Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;函数&quot;&gt;&lt;a href=&quot;#函数&quot; class=&quot;headerlink&quot; title=&quot;函数&quot;&gt;&lt;/a&gt;函数&lt;/h3&gt;&lt;h4 id=&quot;文本处理函数&quot;&gt;&lt;a href=&quot;#文本处理函数&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h3 id=&quot;MVCC存储在哪里，作用是什么&quot;&gt;&lt;a href=&quot;#MVCC存储在哪里，作用是什么&quot; class=&quot;headerlink&quot; title=&quot;MVCC存储在哪里，作用是什么&quot;&gt;&lt;/a&gt;MVCC存储在哪里，作用是什么&lt;/h3&gt;&lt;h4 id=&quot;MVCC是什么&quot;&gt;&lt;a</summary>
         
       
     
@@ -255,18 +255,18 @@
   </entry>
   
   <entry>
-    <title>MySQL基础-MVCC</title>
-    <link href="https://foo1s.github.io/2025/05/08/mvcc/"/>
-    <id>https://foo1s.github.io/2025/05/08/mvcc/</id>
+    <title>MySQL基础</title>
+    <link href="https://foo1s.github.io/2025/05/08/han-shu-yu-yan-de-xue-xi/"/>
+    <id>https://foo1s.github.io/2025/05/08/han-shu-yu-yan-de-xue-xi/</id>
     <published>2025-05-08T07:39:07.000Z</published>
-    <updated>2026-06-30T14:26:32.645Z</updated>
+    <updated>2026-06-30T14:26:32.661Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;MVCC存储在哪里，作用是什么&quot;&gt;&lt;a href=&quot;#MVCC存储在哪里，作用是什么&quot; class=&quot;headerlink&quot; title=&quot;MVCC存储在哪里，作用是什么&quot;&gt;&lt;/a&gt;MVCC存储在哪里，作用是什么&lt;/h3&gt;&lt;h4 id=&quot;MVCC是什么&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h3 id=&quot;函数&quot;&gt;&lt;a href=&quot;#函数&quot; class=&quot;headerlink&quot; title=&quot;函数&quot;&gt;&lt;/a&gt;函数&lt;/h3&gt;&lt;h4 id=&quot;文本处理函数&quot;&gt;&lt;a href=&quot;#文本处理函数&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -343,35 +343,6 @@
   </entry>
   
   <entry>
-    <title>MySQL基础-索引</title>
-    <link href="https://foo1s.github.io/2025/05/08/suo-yin-xiang-guan-wen-ti/"/>
-    <id>https://foo1s.github.io/2025/05/08/suo-yin-xiang-guan-wen-ti/</id>
-    <published>2025-05-08T07:39:07.000Z</published>
-    <updated>2026-06-30T14:26:32.661Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;AI相关提问&quot;&gt;&lt;a href=&quot;#AI相关提问&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="DataBase" scheme="https://foo1s.github.io/categories/DataBase/"/>
-    
-    <category term="MySQL" scheme="https://foo1s.github.io/categories/DataBase/MySQL/"/>
-    
-    
-    <category term="数据库" scheme="https://foo1s.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    <category term="MySQL" scheme="https://foo1s.github.io/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
     <title>MySQL基础-索引失效</title>
     <link href="https://foo1s.github.io/2025/05/08/suo-yin-shi-xiao-wen-ti/"/>
     <id>https://foo1s.github.io/2025/05/08/suo-yin-shi-xiao-wen-ti/</id>
@@ -401,9 +372,9 @@
   </entry>
   
   <entry>
-    <title>MySQL基础</title>
-    <link href="https://foo1s.github.io/2025/05/08/biao-xiang-guan-han-shu-shi-yong/"/>
-    <id>https://foo1s.github.io/2025/05/08/biao-xiang-guan-han-shu-shi-yong/</id>
+    <title>MySQL基础-索引</title>
+    <link href="https://foo1s.github.io/2025/05/08/suo-yin-xiang-guan-wen-ti/"/>
+    <id>https://foo1s.github.io/2025/05/08/suo-yin-xiang-guan-wen-ti/</id>
     <published>2025-05-08T07:39:07.000Z</published>
     <updated>2026-06-30T14:26:32.661Z</updated>
     
@@ -412,7 +383,7 @@
       
         
         
-    <summary type="html">&lt;h3 id=&quot;创建表&quot;&gt;&lt;a href=&quot;#创建表&quot; class=&quot;headerlink&quot; title=&quot;创建表&quot;&gt;&lt;/a&gt;创建表&lt;/h3&gt;&lt;h4 id=&quot;创建表基础&quot;&gt;&lt;a href=&quot;#创建表基础&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;AI相关提问&quot;&gt;&lt;a href=&quot;#AI相关提问&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -442,6 +413,35 @@
         
         
     <summary type="html">&lt;h3 id=&quot;MVCC存储在哪里，作用是什么&quot;&gt;&lt;a href=&quot;#MVCC存储在哪里，作用是什么&quot; class=&quot;headerlink&quot; title=&quot;MVCC存储在哪里，作用是什么&quot;&gt;&lt;/a&gt;MVCC存储在哪里，作用是什么&lt;/h3&gt;&lt;h4 id=&quot;MVCC是什么&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="DataBase" scheme="https://foo1s.github.io/categories/DataBase/"/>
+    
+    <category term="MySQL" scheme="https://foo1s.github.io/categories/DataBase/MySQL/"/>
+    
+    
+    <category term="数据库" scheme="https://foo1s.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="MySQL" scheme="https://foo1s.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL基础</title>
+    <link href="https://foo1s.github.io/2025/05/08/biao-xiang-guan-han-shu-shi-yong/"/>
+    <id>https://foo1s.github.io/2025/05/08/biao-xiang-guan-han-shu-shi-yong/</id>
+    <published>2025-05-08T07:39:07.000Z</published>
+    <updated>2026-06-30T14:26:32.661Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;创建表&quot;&gt;&lt;a href=&quot;#创建表&quot; class=&quot;headerlink&quot; title=&quot;创建表&quot;&gt;&lt;/a&gt;创建表&lt;/h3&gt;&lt;h4 id=&quot;创建表基础&quot;&gt;&lt;a href=&quot;#创建表基础&quot; class=&quot;headerlink&quot;</summary>
         
       
     
