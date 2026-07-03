@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://foo1s.github.io/tags/index.html</loc>
+    <loc>https://foo1s.github.io/series/index.html</loc>
     
     <lastmod>2026-06-30</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://foo1s.github.io/series/index.html</loc>
+    <loc>https://foo1s.github.io/tags/index.html</loc>
     
     <lastmod>2026-06-30</lastmod>
     
@@ -74,7 +74,7 @@
   </url>
   
   <url>
-    <loc>https://foo1s.github.io/friends/index.html</loc>
+    <loc>https://foo1s.github.io/categories/index.html</loc>
     
     <lastmod>2026-06-30</lastmod>
     
@@ -83,7 +83,7 @@
   </url>
   
   <url>
-    <loc>https://foo1s.github.io/categories/index.html</loc>
+    <loc>https://foo1s.github.io/friends/index.html</loc>
     
     <lastmod>2026-06-30</lastmod>
     
@@ -119,7 +119,7 @@
   </url>
   
   <url>
-    <loc>https://foo1s.github.io/galleries/self-remembering/index.html</loc>
+    <loc>https://foo1s.github.io/galleries/self-observation/index.html</loc>
     
     <lastmod>2026-06-30</lastmod>
     
@@ -128,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://foo1s.github.io/galleries/self-observation/index.html</loc>
+    <loc>https://foo1s.github.io/galleries/self-remembering/index.html</loc>
     
     <lastmod>2026-06-30</lastmod>
     
@@ -146,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://foo1s.github.io/2025/05/08/san-da-ri-zhi-de-zuo-yong-yi-ji-shi-xian/</loc>
+    <loc>https://foo1s.github.io/2025/05/08/han-shu-yu-yan-de-xue-xi/</loc>
     
     <lastmod>2026-06-30</lastmod>
     
@@ -155,7 +155,7 @@
   </url>
   
   <url>
-    <loc>https://foo1s.github.io/2025/05/08/han-shu-yu-yan-de-xue-xi/</loc>
+    <loc>https://foo1s.github.io/2025/05/08/san-da-ri-zhi-de-zuo-yong-yi-ji-shi-xian/</loc>
     
     <lastmod>2026-06-30</lastmod>
     
@@ -182,25 +182,7 @@
   </url>
   
   <url>
-    <loc>https://foo1s.github.io/2025/05/08/suo-yin-shi-xiao-wen-ti/</loc>
-    
-    <lastmod>2026-06-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://foo1s.github.io/2025/05/08/sou-suo-yin-qing-de-qu-bie/</loc>
-    
-    <lastmod>2026-06-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://foo1s.github.io/2025/05/08/biao-xiang-guan-han-shu-shi-yong/</loc>
     
     <lastmod>2026-06-30</lastmod>
     
@@ -218,6 +200,24 @@
   </url>
   
   <url>
+    <loc>https://foo1s.github.io/2025/05/08/suo-yin-shi-xiao-wen-ti/</loc>
+    
+    <lastmod>2026-06-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://foo1s.github.io/2025/05/08/biao-xiang-guan-han-shu-shi-yong/</loc>
+    
+    <lastmod>2026-06-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://foo1s.github.io/2025/05/08/mian-jing-chang-jian-wen-ti/</loc>
     
     <lastmod>2026-06-30</lastmod>
@@ -227,7 +227,7 @@
   </url>
   
   <url>
-    <loc>https://foo1s.github.io/books/index.html</loc>
+    <loc>https://foo1s.github.io/animes/index.html</loc>
     
     <lastmod>2026-06-30</lastmod>
     
@@ -236,7 +236,7 @@
   </url>
   
   <url>
-    <loc>https://foo1s.github.io/animes/index.html</loc>
+    <loc>https://foo1s.github.io/books/index.html</loc>
     
     <lastmod>2026-06-30</lastmod>
     
@@ -281,6 +281,15 @@
   </url>
   
   <url>
+    <loc>https://foo1s.github.io/2024/11/07/foo1s-de-di-yi-pian-bo-ke/</loc>
+    
+    <lastmod>2026-06-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://foo1s.github.io/2025/05/08/mysql-ji-chu/</loc>
     
     <lastmod>2026-06-30</lastmod>
@@ -300,15 +309,6 @@
   
   <url>
     <loc>https://foo1s.github.io/2025/05/08/mvcc/</loc>
-    
-    <lastmod>2026-06-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://foo1s.github.io/2024/11/07/foo1s-de-di-yi-pian-bo-ke/</loc>
     
     <lastmod>2026-06-30</lastmod>
     
@@ -361,6 +361,20 @@
   </url>
   
   <url>
+    <loc>https://foo1s.github.io/tags/%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://foo1s.github.io/tags/OpenClaw/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://foo1s.github.io/tags/%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2026-07-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -381,31 +395,10 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>https://foo1s.github.io/tags/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://foo1s.github.io/tags/OpenClaw/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
   
   <url>
     <loc>https://foo1s.github.io/categories/DataBase/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://foo1s.github.io/categories/DataBase/MySQL/</loc>
     <lastmod>2026-07-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -419,7 +412,7 @@
   </url>
   
   <url>
-    <loc>https://foo1s.github.io/categories/%E9%97%AE%E9%A2%98/</loc>
+    <loc>https://foo1s.github.io/categories/DataBase/MySQL/</loc>
     <lastmod>2026-07-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -427,6 +420,13 @@
   
   <url>
     <loc>https://foo1s.github.io/categories/%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://foo1s.github.io/categories/%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2026-07-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
