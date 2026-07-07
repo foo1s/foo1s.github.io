@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://foo1s.github.io/movies/index.html</loc>
+    <loc>https://foo1s.github.io/moments/index.html</loc>
     
     <lastmod>2026-06-30</lastmod>
     
@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>https://foo1s.github.io/moments/index.html</loc>
+    <loc>https://foo1s.github.io/movies/index.html</loc>
     
     <lastmod>2026-06-30</lastmod>
     
@@ -83,15 +83,6 @@
   </url>
   
   <url>
-    <loc>https://foo1s.github.io/friends/index.html</loc>
-    
-    <lastmod>2026-06-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://foo1s.github.io/galleries/index.html</loc>
     
     <lastmod>2026-06-30</lastmod>
@@ -101,7 +92,7 @@
   </url>
   
   <url>
-    <loc>https://foo1s.github.io/galleries/behave/index.html</loc>
+    <loc>https://foo1s.github.io/friends/index.html</loc>
     
     <lastmod>2026-06-30</lastmod>
     
@@ -119,7 +110,25 @@
   </url>
   
   <url>
+    <loc>https://foo1s.github.io/galleries/self-observation/index.html</loc>
+    
+    <lastmod>2026-06-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://foo1s.github.io/galleries/the-mind-illuminated/index.html</loc>
+    
+    <lastmod>2026-06-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://foo1s.github.io/galleries/behave/index.html</loc>
     
     <lastmod>2026-06-30</lastmod>
     
@@ -137,34 +146,7 @@
   </url>
   
   <url>
-    <loc>https://foo1s.github.io/galleries/self-observation/index.html</loc>
-    
-    <lastmod>2026-06-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://foo1s.github.io/2025/05/08/san-da-ri-zhi-de-zuo-yong-yi-ji-shi-xian/</loc>
-    
-    <lastmod>2026-06-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://foo1s.github.io/2025/05/08/han-shu-yu-yan-de-xue-xi/</loc>
-    
-    <lastmod>2026-06-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://foo1s.github.io/2024/11/07/liu-bang-da-chuan/</loc>
     
     <lastmod>2026-06-30</lastmod>
     
@@ -182,7 +164,7 @@
   </url>
   
   <url>
-    <loc>https://foo1s.github.io/2025/05/08/suo-yin-shi-xiao-wen-ti/</loc>
+    <loc>https://foo1s.github.io/2024/11/07/liu-bang-da-chuan/</loc>
     
     <lastmod>2026-06-30</lastmod>
     
@@ -191,7 +173,7 @@
   </url>
   
   <url>
-    <loc>https://foo1s.github.io/2025/05/08/biao-xiang-guan-han-shu-shi-yong/</loc>
+    <loc>https://foo1s.github.io/2025/05/08/han-shu-yu-yan-de-xue-xi/</loc>
     
     <lastmod>2026-06-30</lastmod>
     
@@ -209,7 +191,7 @@
   </url>
   
   <url>
-    <loc>https://foo1s.github.io/2025/05/08/mian-jing-chang-jian-wen-ti/</loc>
+    <loc>https://foo1s.github.io/2025/05/08/suo-yin-xiang-guan-wen-ti/</loc>
     
     <lastmod>2026-06-30</lastmod>
     
@@ -218,7 +200,25 @@
   </url>
   
   <url>
-    <loc>https://foo1s.github.io/2025/05/08/suo-yin-xiang-guan-wen-ti/</loc>
+    <loc>https://foo1s.github.io/2025/05/08/biao-xiang-guan-han-shu-shi-yong/</loc>
+    
+    <lastmod>2026-06-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://foo1s.github.io/2025/05/08/suo-yin-shi-xiao-wen-ti/</loc>
+    
+    <lastmod>2026-06-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://foo1s.github.io/2025/05/08/mian-jing-chang-jian-wen-ti/</loc>
     
     <lastmod>2026-06-30</lastmod>
     
@@ -236,7 +236,7 @@
   </url>
   
   <url>
-    <loc>https://foo1s.github.io/animes/index.html</loc>
+    <loc>https://foo1s.github.io/books/index.html</loc>
     
     <lastmod>2026-06-30</lastmod>
     
@@ -245,7 +245,7 @@
   </url>
   
   <url>
-    <loc>https://foo1s.github.io/books/index.html</loc>
+    <loc>https://foo1s.github.io/animes/index.html</loc>
     
     <lastmod>2026-06-30</lastmod>
     
@@ -272,24 +272,6 @@
   </url>
   
   <url>
-    <loc>https://foo1s.github.io/2025/05/08/mysql-gao-ji-yu-yan-shi-yong/</loc>
-    
-    <lastmod>2026-06-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://foo1s.github.io/2025/05/08/mysql-si-da-ge-chi-yu-ju/</loc>
-    
-    <lastmod>2026-06-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://foo1s.github.io/2024/11/07/foo1s-de-di-yi-pian-bo-ke/</loc>
     
     <lastmod>2026-06-30</lastmod>
@@ -308,7 +290,25 @@
   </url>
   
   <url>
+    <loc>https://foo1s.github.io/2025/05/08/mysql-si-da-ge-chi-yu-ju/</loc>
+    
+    <lastmod>2026-06-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://foo1s.github.io/2025/05/08/mvcc/</loc>
+    
+    <lastmod>2026-06-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://foo1s.github.io/2025/05/08/mysql-gao-ji-yu-yan-shi-yong/</loc>
     
     <lastmod>2026-06-30</lastmod>
     
@@ -319,7 +319,7 @@
 
   <url>
     <loc>https://foo1s.github.io/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -327,70 +327,70 @@
   
   <url>
     <loc>https://foo1s.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://foo1s.github.io/tags/MySQL/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://foo1s.github.io/tags/Obsidian/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://foo1s.github.io/tags/Markdown/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://foo1s.github.io/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://foo1s.github.io/tags/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://foo1s.github.io/tags/OpenClaw/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://foo1s.github.io/tags/%E9%97%AE%E9%A2%98/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://foo1s.github.io/tags/Git/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://foo1s.github.io/tags/Hexo/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -399,35 +399,35 @@
   
   <url>
     <loc>https://foo1s.github.io/categories/DataBase/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://foo1s.github.io/categories/Markdown/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://foo1s.github.io/categories/DataBase/MySQL/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://foo1s.github.io/categories/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://foo1s.github.io/categories/%E9%97%AE%E9%A2%98/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
