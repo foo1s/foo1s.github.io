@@ -107,36 +107,6 @@
   </entry>
   
   <entry>
-    <title>MySQL基础</title>
-    <link href="https://foo1s.github.io/2025/05/08/mysql-ji-chu/"/>
-    <id>https://foo1s.github.io/2025/05/08/mysql-ji-chu/</id>
-    <published>2025-05-08T07:39:07.000Z</published>
-    <updated>2026-06-30T14:26:32.645Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;MySQL8.4安装教程&lt;br&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="DataBase" scheme="https://foo1s.github.io/categories/DataBase/"/>
-    
-    <category term="MySQL" scheme="https://foo1s.github.io/categories/DataBase/MySQL/"/>
-    
-    
-    <category term="数据库" scheme="https://foo1s.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    <category term="MySQL" scheme="https://foo1s.github.io/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
     <title>MySQL基础-隔离语句</title>
     <link href="https://foo1s.github.io/2025/05/08/mysql-si-da-ge-chi-yu-ju/"/>
     <id>https://foo1s.github.io/2025/05/08/mysql-si-da-ge-chi-yu-ju/</id>
@@ -168,9 +138,9 @@
   </entry>
   
   <entry>
-    <title>MySQL基础-MVCC</title>
-    <link href="https://foo1s.github.io/2025/05/08/mvcc/"/>
-    <id>https://foo1s.github.io/2025/05/08/mvcc/</id>
+    <title>MySQL基础</title>
+    <link href="https://foo1s.github.io/2025/05/08/mysql-ji-chu/"/>
+    <id>https://foo1s.github.io/2025/05/08/mysql-ji-chu/</id>
     <published>2025-05-08T07:39:07.000Z</published>
     <updated>2026-06-30T14:26:32.645Z</updated>
     
@@ -179,7 +149,8 @@
       
         
         
-    <summary type="html">&lt;h3 id=&quot;MVCC存储在哪里，作用是什么&quot;&gt;&lt;a href=&quot;#MVCC存储在哪里，作用是什么&quot; class=&quot;headerlink&quot; title=&quot;MVCC存储在哪里，作用是什么&quot;&gt;&lt;/a&gt;MVCC存储在哪里，作用是什么&lt;/h3&gt;&lt;h4 id=&quot;MVCC是什么&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;MySQL8.4安装教程&lt;br&gt;&lt;a</summary>
         
       
     
@@ -255,18 +226,18 @@
   </entry>
   
   <entry>
-    <title>MySQL基础-分库分表</title>
-    <link href="https://foo1s.github.io/2025/05/08/fen-ku-fen-biao-wen-ti/"/>
-    <id>https://foo1s.github.io/2025/05/08/fen-ku-fen-biao-wen-ti/</id>
+    <title>MySQL基础-MVCC</title>
+    <link href="https://foo1s.github.io/2025/05/08/mvcc/"/>
+    <id>https://foo1s.github.io/2025/05/08/mvcc/</id>
     <published>2025-05-08T07:39:07.000Z</published>
-    <updated>2026-06-30T14:26:32.661Z</updated>
+    <updated>2026-06-30T14:26:32.645Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;分库分表&quot;&gt;&lt;a href=&quot;#分库分表&quot; class=&quot;headerlink&quot; title=&quot;分库分表&quot;&gt;&lt;/a&gt;分库分表&lt;/h3&gt;&lt;h4 id=&quot;💡-一、为什么需要分库分表（动因）&quot;&gt;&lt;a href=&quot;#💡-一、为什么需要分库分表（动因）&quot;</summary>
+    <summary type="html">&lt;h3 id=&quot;MVCC存储在哪里，作用是什么&quot;&gt;&lt;a href=&quot;#MVCC存储在哪里，作用是什么&quot; class=&quot;headerlink&quot; title=&quot;MVCC存储在哪里，作用是什么&quot;&gt;&lt;/a&gt;MVCC存储在哪里，作用是什么&lt;/h3&gt;&lt;h4 id=&quot;MVCC是什么&quot;&gt;&lt;a</summary>
         
       
     
@@ -313,6 +284,35 @@
   </entry>
   
   <entry>
+    <title>MySQL基础-分库分表</title>
+    <link href="https://foo1s.github.io/2025/05/08/fen-ku-fen-biao-wen-ti/"/>
+    <id>https://foo1s.github.io/2025/05/08/fen-ku-fen-biao-wen-ti/</id>
+    <published>2025-05-08T07:39:07.000Z</published>
+    <updated>2026-06-30T14:26:32.661Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;分库分表&quot;&gt;&lt;a href=&quot;#分库分表&quot; class=&quot;headerlink&quot; title=&quot;分库分表&quot;&gt;&lt;/a&gt;分库分表&lt;/h3&gt;&lt;h4 id=&quot;💡-一、为什么需要分库分表（动因）&quot;&gt;&lt;a href=&quot;#💡-一、为什么需要分库分表（动因）&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="DataBase" scheme="https://foo1s.github.io/categories/DataBase/"/>
+    
+    <category term="MySQL" scheme="https://foo1s.github.io/categories/DataBase/MySQL/"/>
+    
+    
+    <category term="数据库" scheme="https://foo1s.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="MySQL" scheme="https://foo1s.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>MySQL基础-搜索引擎</title>
     <link href="https://foo1s.github.io/2025/05/08/sou-suo-yin-qing-de-qu-bie/"/>
     <id>https://foo1s.github.io/2025/05/08/sou-suo-yin-qing-de-qu-bie/</id>
@@ -326,6 +326,35 @@
         
     <summary type="html">&lt;p&gt;MySQL中，InnoDB和MyISAM是两种最常用的存储引擎，它们在设计和功能上有显著的区别。理解这些区别对于选择适合特定应用场景的存储引擎至关重要。以下是它们之间主要的区别：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;1. 事务支持 (Transaction</summary>
+        
+      
+    
+    
+    
+    <category term="DataBase" scheme="https://foo1s.github.io/categories/DataBase/"/>
+    
+    <category term="MySQL" scheme="https://foo1s.github.io/categories/DataBase/MySQL/"/>
+    
+    
+    <category term="数据库" scheme="https://foo1s.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="MySQL" scheme="https://foo1s.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL基础-索引失效</title>
+    <link href="https://foo1s.github.io/2025/05/08/suo-yin-shi-xiao-wen-ti/"/>
+    <id>https://foo1s.github.io/2025/05/08/suo-yin-shi-xiao-wen-ti/</id>
+    <published>2025-05-08T07:39:07.000Z</published>
+    <updated>2026-06-30T14:26:32.661Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;一、SQL-写法导致的失效&quot;&gt;&lt;a href=&quot;#一、SQL-写法导致的失效&quot; class=&quot;headerlink&quot; title=&quot;一、SQL 写法导致的失效&quot;&gt;&lt;/a&gt;一、SQL</summary>
         
       
     
@@ -384,35 +413,6 @@
         
         
     <summary type="html">&lt;h3 id=&quot;创建表&quot;&gt;&lt;a href=&quot;#创建表&quot; class=&quot;headerlink&quot; title=&quot;创建表&quot;&gt;&lt;/a&gt;创建表&lt;/h3&gt;&lt;h4 id=&quot;创建表基础&quot;&gt;&lt;a href=&quot;#创建表基础&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="DataBase" scheme="https://foo1s.github.io/categories/DataBase/"/>
-    
-    <category term="MySQL" scheme="https://foo1s.github.io/categories/DataBase/MySQL/"/>
-    
-    
-    <category term="数据库" scheme="https://foo1s.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    <category term="MySQL" scheme="https://foo1s.github.io/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL基础-索引失效</title>
-    <link href="https://foo1s.github.io/2025/05/08/suo-yin-shi-xiao-wen-ti/"/>
-    <id>https://foo1s.github.io/2025/05/08/suo-yin-shi-xiao-wen-ti/</id>
-    <published>2025-05-08T07:39:07.000Z</published>
-    <updated>2026-06-30T14:26:32.661Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;一、SQL-写法导致的失效&quot;&gt;&lt;a href=&quot;#一、SQL-写法导致的失效&quot; class=&quot;headerlink&quot; title=&quot;一、SQL 写法导致的失效&quot;&gt;&lt;/a&gt;一、SQL</summary>
         
       
     
