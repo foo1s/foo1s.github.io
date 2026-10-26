@@ -594,9 +594,9 @@ MVCC的实现原理好的，我们来详细">
 
                                                 
                                                     
-                                                    <div class="info-break-policy">
+                                                    <div id="busuanzi_container_page_pv" class="info-break-policy">
                                                         <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                                                            <span id="local_read_count_value">--</span>
+                                                            <span id="busuanzi_value_page_pv"></span>
                                                     </div>
                                                     
                                                     
@@ -1447,27 +1447,6 @@ MVCC的实现原理好的，我们来详细">
     
 
 
-    <script>
-        (function () {
-            var el = document.getElementById('local_read_count_value');
-            if (!el) return;
-
-            var path = window.location.pathname || '/';
-            var key = btoa(encodeURIComponent(path)).replace(/[+/=]/g, '_');
-            var ns = 'foo1s_github_io';
-            var api = 'https://api.countapi.xyz/hit/' + ns + '/' + key;
-
-            fetch(api, { method: 'GET' })
-                .then(function (res) { return res.json(); })
-                .then(function (data) {
-                    el.textContent = (data && typeof data.value === 'number') ? data.value : '--';
-                })
-                .catch(function () {
-                    el.textContent = '--';
-                });
-        })();
-    </script>
-
 
         <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
@@ -1597,17 +1576,19 @@ MVCC的实现原理好的，我们来详细">
             
             
             
+                
+            
             
                 
-                    <span>
+                    <span id="busuanzi_container_site_pv">
                         &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
-                        <span id="local_site_pv_value" class="white-color">--</span>
+                        <span id="busuanzi_value_site_pv" class="white-color"></span>
                     </span>
                 
                 
-                    <span>
+                    <span id="busuanzi_container_site_uv">
                         &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
-                        <span id="local_site_uv_value" class="white-color">--</span>
+                        <span id="busuanzi_value_site_uv" class="white-color"></span>
                     </span>
                 
             
@@ -1677,7 +1658,7 @@ MVCC的实现原理好的，我们来详细">
             </span>
             
         </div>
-        <div class="col s12 m4 l4 social-link ">
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/foo1s" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -1714,51 +1695,6 @@ MVCC的实现原理好的，我们来详细">
 
 <div class="progress-bar"></div>
 
-
-<script>
-    (function () {
-        var ns = 'foo1s_github_io';
-
-        function setText(id, value) {
-            var el = document.getElementById(id);
-            if (!el) return;
-            el.textContent = (typeof value === 'number') ? value : '--';
-        }
-
-        function fetchJSON(url) {
-            return fetch(url, { method: 'GET' }).then(function (res) { return res.json(); });
-        }
-
-        
-        fetchJSON('https://api.countapi.xyz/hit/' + ns + '/site_pv')
-            .then(function (data) { setText('local_site_pv_value', data && data.value); })
-            .catch(function () { setText('local_site_pv_value', '--'); });
-        
-
-        
-        try {
-            var uvCountedKey = 'foo1s_site_uv_counted_v1';
-            var hasCounted = localStorage.getItem(uvCountedKey) === '1';
-            var uvApi = hasCounted
-                ? 'https://api.countapi.xyz/get/' + ns + '/site_uv'
-                : 'https://api.countapi.xyz/hit/' + ns + '/site_uv';
-
-            fetchJSON(uvApi)
-                .then(function (data) {
-                    setText('local_site_uv_value', data && data.value);
-                    if (!hasCounted) {
-                        localStorage.setItem(uvCountedKey, '1');
-                    }
-                })
-                .catch(function () { setText('local_site_uv_value', '--'); });
-        } catch (e) {
-            fetchJSON('https://api.countapi.xyz/hit/' + ns + '/site_uv')
-                .then(function (data) { setText('local_site_uv_value', data && data.value); })
-                .catch(function () { setText('local_site_uv_value', '--'); });
-        }
-        
-    })();
-</script>
 
 
 
@@ -1963,6 +1899,9 @@ $(function () {
 
                                                                                         
                                                                                                 
+                                                                                                    <script async
+                                                                                                        src="/libs/others/busuanzi.pure.mini.js"></script>
+                                                                                                    
 
                                                                                                         
 
