@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>动态评论 · 2026-10-19 22:01:56</title>
+<style>body{font:15px/1.7 system-ui,sans-serif;color:#34495e;margin:16px;overflow-wrap:anywhere}#status{color:#64748b}a{color:#337ab7}</style></head>
+<body><p>2026-10-19 22:01:56 · 很久没有发动态了，工作三个多月心态上确实发生了一系列的转变，近期趋于稳定，希望能保持良好的状态，做时间的朋友......今天就先到这里吧</p>
+<p id="status" role="status">正在加载评论…</p><div id="comments"></div>
+<script>
+function commentFailed(){document.getElementById('status').textContent='评论暂时无法加载，请刷新重试。';}
+var commentTimer=setTimeout(commentFailed,15000);
+function startComments(){twikoo.init({"envId":"https://twikoo-comment-sage.vercel.app","el":"#comments","path":"/moments/21d73413-2a13-4c1c-aecb-b3f8a801e509/"}).then(function(){clearTimeout(commentTimer);document.getElementById('status').textContent='';}).catch(function(){clearTimeout(commentTimer);commentFailed();});}
+</script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twikoo/1.6.44/twikoo.all.min.js" onload="startComments()" onerror="commentFailed()"></script>
+</body></html>

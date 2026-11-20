@@ -1,3 +1,9 @@
+https://foo1s.github.io/galleries/index.html
+https://foo1s.github.io/galleries/immense-inner-strength/index.html
+https://foo1s.github.io/galleries/behave/index.html
+https://foo1s.github.io/galleries/the-mind-illuminated/index.html
+https://foo1s.github.io/galleries/self-observation/index.html
+https://foo1s.github.io/galleries/self-remembering/index.html
 https://foo1s.github.io/2026/05/08/ding-shi-zong-jie-jin-tian-de-bi-ji/
 https://foo1s.github.io/2026/07/01/bo-ke-cang-ku-qian-yi-wen-ti-xiao-ji/
 https://foo1s.github.io/series/index.html
@@ -8,12 +14,6 @@ https://foo1s.github.io/musics/index.html
 https://foo1s.github.io/movies/reviews/interstellar/index.html
 https://foo1s.github.io/friends/index.html
 https://foo1s.github.io/categories/index.html
-https://foo1s.github.io/galleries/index.html
-https://foo1s.github.io/galleries/immense-inner-strength/index.html
-https://foo1s.github.io/galleries/behave/index.html
-https://foo1s.github.io/galleries/self-observation/index.html
-https://foo1s.github.io/galleries/self-remembering/index.html
-https://foo1s.github.io/galleries/the-mind-illuminated/index.html
 https://foo1s.github.io/2025/05/08/han-shu-yu-yan-de-xue-xi/
 https://foo1s.github.io/2025/05/08/fen-ku-fen-biao-wen-ti/
 https://foo1s.github.io/2024/11/07/liu-bang-da-chuan/
